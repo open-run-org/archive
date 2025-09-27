@@ -1,10 +1,11 @@
+#!/usr/bin/env python3
 import os, sys, glob, pathlib, datetime, shutil
 
 STAGED = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else "data/staged")
 DOCS = pathlib.Path(sys.argv[2] if len(sys.argv) > 2 else "docs")
 RECENT_N = int(os.environ.get("GEN_RECENT", "64"))
 
-def read_fm_body(p):
+def read_fm_body(p: pathlib.Path):
     with open(p, "r", encoding="utf-8") as f:
         first = f.readline()
         if first.strip() != "---":
@@ -64,6 +65,12 @@ def write(p, s):
     ensure_dir(pathlib.Path(p).parent)
     with open(p, "w", encoding="utf-8") as f: f.write(s)
 
+def fmt_iso_minutes(ts: int) -> str:
+    return datetime.datetime.fromtimestamp(ts, datetime.UTC).strftime("%Y-%m-%d %H:%M")
+
+def fmt_iso_seconds(ts: int) -> str:
+    return datetime.datetime.fromtimestamp(ts, datetime.UTC).strftime("%Y-%m-%d %H:%M:%S UTC")
+
 def build():
     if DOCS.exists():
         for child in DOCS.iterdir():
@@ -87,7 +94,7 @@ def build():
     for it in latest_changes:
         title = it["title"] or it["created_id"]
         ts = it["capture_ts"]
-        href = f'posts/{it["sub"]}/{it["created_id"]}.md'
+        href = f'posts/{it["sub"]}/{it["created_id"]}.md'  # from /index.md to /posts/...
         home.append(f'- `{it["sub"]}` `{ts}` [{title}]({href})')
     write(DOCS / "index.md", "\n".join(home) + "\n")
 
@@ -97,10 +104,10 @@ def build():
 
     for s, arr in by_sub_all.items():
         arr_sorted = sorted(arr, key=lambda x: x["capture"], reverse=True)[:RECENT_N]
-        lines = [f"# {s}", "", "[:material-archive: Full archive](archive.md)", "", "## Latest changes", ""]
+        lines = [f"# {s}", "", "[Full archive](archive.md)", "", "## Latest changes", ""]
         for it in arr_sorted:
             title = it["title"] or it["created_id"]
-            href = f'../posts/{it["sub"]}/{it["created_id"]}.md'
+            href = f'../posts/{it["sub"]}/{it["created_id"]}.md'  # from /r_sub/ to /posts/...
             lines.append(f'- `{it["capture_ts"]}` [{title}]({href})')
         write(DOCS / s / "index.md", "\n".join(lines) + "\n")
 
@@ -110,19 +117,34 @@ def build():
 
     for s, arr in by_sub_latest.items():
         arr_sorted = sorted(arr, key=lambda x: (x["created_key"], x["post_id"]), reverse=True)
-        t = [f"# {s} • Archive", "", "| Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |", "|---:|---|---|---|---:|---:|---:|---|---|---|---|"]
+        t = [
+            f"# {s} • Archive",
+            "",
+            "| Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |",
+            "|---:|---|---|---|---:|---:|---:|---|---|---|---|",
+        ]
         for it in arr_sorted:
-            created_iso = datetime.datetime.utcfromtimestamp(it["created_utc"]).strftime("%Y-%m-%d %H:%M")
             title = (it["title"] or it["created_id"]).replace("|", "\\|")
-            href = f'../posts/{it["sub"]}/{it["created_id"]}.md'
-            t.append(f'| {created_iso} | `{it["post_id"]}` | [{title}]({href}) | {it["author"]} | {it["ups"]} | {it["upvote_ratio"]} | {it["num_comments"]} | {it["flair"]} | {it["over_18"]} | {it["is_self"]} | {it["domain"]} |')
+            href = f'../posts/{it["sub"]}/{it["created_id"]}.md'  # from /r_sub/archive.md to /posts/...
+            t.append(
+                f'| {fmt_iso_minutes(it["created_utc"])} | `{it["post_id"]}` | [{title}]({href}) | '
+                f'{it["author"]} | {it["ups"]} | {it["upvote_ratio"]} | {it["num_comments"]} | '
+                f'{it["flair"]} | {it["over_18"]} | {it["is_self"]} | {it["domain"]} |'
+            )
         write(DOCS / s / "archive.md", "\n".join(t) + "\n")
 
     latest_map = {(it["sub"], it["post_id"]): it for it in latest_per_post}
     for (_, _), it in latest_map.items():
-        created_iso = datetime.datetime.utcfromtimestamp(it["created_utc"]).strftime("%Y-%m-%d %H:%M:%S UTC")
         title = it["title"] or it["created_id"]
-        lines = [f"# {title}", "", "- Metadata:", f"  - Subreddit: {it['sub']}", f"  - Author: {it['author']}", f"  - Created: {created_iso}", f"  - Permalink: {it['permalink']}"]
+        lines = [
+            f"# {title}",
+            "",
+            "- Metadata:",
+            f"  - Subreddit: {it['sub']}",
+            f"  - Author: {it['author']}",
+            f"  - Created: {fmt_iso_seconds(it['created_utc'])}",
+            f"  - Permalink: {it['permalink']}",
+        ]
         if it["url"]:
             lines.append(f"  - URL: {it['url']}")
         lines.append(f"  - Ups: {it['ups']} | Ratio: {it['upvote_ratio']} | Comments: {it['num_comments']}")

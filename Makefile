@@ -3,7 +3,7 @@ SHELL := /bin/bash
 DATA_ROOT ?= data/raw
 STAGED_ROOT ?= data/staged
 SUBS_FILE ?= configs/subreddits.txt
-DAYS ?= 65536
+DAYS ?= 4096
 
 VENV ?= .venv
 PY ?= $(VENV)/bin/python

@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-09-27 15:02 | `1nrxfnf` | [晚饭吃什么](../posts/r_runtonihon/250927150200_1nrxfnf.md) | KenHansson | 3 | 1.0 | 5 | 聊天吹水🗣️ | false | true | self.runtonihon |
 | 2025-09-27 12:47 | `1nrudq8` | [春夏秋冬](../posts/r_runtonihon/250927124749_1nrudq8.md) | Timmi13teen | 3 | 1.0 | 0 | 雑談💬 | false | true | self.runtonihon |
 | 2025-09-27 11:04 | `1nrsfpy` | [蟑螂，慎点](../posts/r_runtonihon/250927110440_1nrsfpy.md) | bachelor13 | 0 | 0.33 | 6 | 雑談💬 | true | false | reddit.com |
 | 2025-09-27 10:44 | `1nrs33r` | [三年制本科直考修士可能吗？](../posts/r_runtonihon/250927104404_1nrs33r.md) | Confident-Coconut751 | 1 | 0.67 | 2 | 不懂就问❓ | false | true | self.runtonihon |
@@ -46,3 +47,31 @@
 | 2025-09-24 15:50 | `1npfs91` | [Win10 sub神人发的，感觉和日本有关](../posts/r_runtonihon/250924155029_1npfs91.md) | Zealousideal_Role318 | 10 | 0.81 | 1 | 聊天吹水:downvote: | true | false | i.redd.it |
 | 2025-09-24 14:45 | `1npe23e` | [有没有润友指导一下大龄底层穷区到底该怎么润啊？焦虑的想重开。](../posts/r_runtonihon/250924144507_1npe23e.md) | No_Possible_2931 | 5 | 0.78 | 13 | 经验分享 | false | true | self.runtonihon |
 | 2025-09-24 13:49 | `1npcnyr` | [什么意思好兄弟](../posts/r_runtonihon/250924134953_1npcnyr.md) | ComprehensiveStop395 | 16 | 0.87 | 7 | 聊天吹水:downvote: | false | false | reddit.com |
+| 2025-09-24 10:57 | `1np91la` | [【补】东京都穷蛆食材选购超市指北](../posts/r_runtonihon/250924105737_1np91la.md) | purerunndop | 15 | 0.94 | 17 | 经验分享 | false | true | self.runtonihon |
+| 2025-09-24 10:51 | `1np8xql` | [（干货）归化日本的一些攻略📁资料干货](../posts/r_runtonihon/250924105120_1np8xql.md) | purerunndop | 15 | 0.9 | 3 | 知识分享 | false | true | self.runtonihon |
+| 2025-09-24 03:24 | `1np1qqw` | [小问题：关于买域名](../posts/r_runtonihon/250924032404_1np1qqw.md) | Zealousideal_Role318 | 0 | 0.5 | 7 |  | false | true | self.runtonihon |
+| 2025-09-24 01:27 | `1nozczx` | [是网飞拍的真人版海贼王吗](../posts/r_runtonihon/250924012733_1nozczx.md) | Cha_Da_B | 6 | 0.81 | 1 |  | false | false | v.redd.it |
+| 2025-09-23 13:59 | `1noi66r` | [是新家么？](../posts/r_runtonihon/250923135948_1noi66r.md) | [deleted] | 2 | 0.75 | 3 |  | false | true | self.runtonihon |
+| 2025-09-23 13:38 | `1nohntl` | [github档案馆](../posts/r_runtonihon/250923133858_1nohntl.md) | purerunndop | 11 | 0.87 | 4 | 知识分享 | false | true | self.runtonihon |
+| 2025-09-23 13:33 | `1nohjbg` | [还活着？](../posts/r_runtonihon/250923133352_1nohjbg.md) | Zealousideal_Role318 | 4 | 0.7 | 1 |  | false | true | self.runtonihon |
+| 2025-09-23 09:09 | `1noch2z` | [现在是啥情况？ 家乡tv冲浪用？ 这里分享干货？](../posts/r_runtonihon/250923090931_1noch2z.md) | kamajiyabuy9x | 6 | 1.0 | 12 |  | false | true | self.runtonihon |
+| 2025-09-23 07:22 | `1noawod` | [该大搞特搞肉包铁了](../posts/r_runtonihon/250923072228_1noawod.md) | Ayamori03 | 15 | 0.89 | 12 |  | false | true | self.runtonihon |
+| 2025-09-23 06:38 | `1noa85m` | [『补档』润日八年老人给点自己目前对润日相对客观的分享](../posts/r_runtonihon/250923063836_1noa85m.md) | KaikouZzz | 28 | 0.97 | 6 | 经典回顾 | false | true | self.runtonihon |
+| 2025-09-23 06:37 | `1noa7k0` | [『补档』关于日本留学出勤率以及如何科学旷课](../posts/r_runtonihon/250923063727_1noa7k0.md) | KaikouZzz | 9 | 0.92 | 0 | 经典回顾 | false | true | self.runtonihon |
+| 2025-09-23 06:36 | `1noa6zf` | [『补档』日本语校留学之为什么不要傻乎乎走十月生](../posts/r_runtonihon/250923063626_1noa6zf.md) | KaikouZzz | 19 | 0.96 | 3 | 经典回顾 | false | true | self.runtonihon |
+| 2025-09-23 06:34 | `1noa63a` | [『补档』鼠鼠落地日本第一天生存指北](../posts/r_runtonihon/250923063453_1noa63a.md) | KaikouZzz | 32 | 0.96 | 1 | 经典回顾 | false | true | self.runtonihon |
+| 2025-09-23 06:33 | `1noa5i1` | [『补档』鼠鼠润日出发前需要做的准备](../posts/r_runtonihon/250923063351_1noa5i1.md) | KaikouZzz | 22 | 1.0 | 2 | 经典回顾 | false | true | self.runtonihon |
+| 2025-09-23 04:10 | `1no7pzp` | [和教授出去研究室旅行该注意些什么](../posts/r_runtonihon/250923041038_1no7pzp.md) | rainbows233 | 1 | 0.56 | 7 |  | false | true | self.runtonihon |
+| 2025-09-23 02:21 | `1no5lkf` | [润组应该保持纯净性，魔怔逼请去浪组](../posts/r_runtonihon/250923022130_1no5lkf.md) | yirongyiburong | 0 | 0.47 | 16 |  | false | true | self.runtonihon |
+| 2025-09-22 20:50 | `1nny7ra` | [各位如果有想要看到部分之前的帖子可以来这里](../posts/r_runtonihon/250922205042_1nny7ra.md) | NecessaryReaction207 | 15 | 0.94 | 6 |  | false | true | self.runtonihon |
+| 2025-09-22 20:32 | `1nnxqk4` | [难受😣](../posts/r_runtonihon/250922203225_1nnxqk4.md) | NecessaryReaction207 | 17 | 0.95 | 9 |  | false | true | self.runtonihon |
+| 2025-09-22 20:22 | `1nnxhkp` | [人类还是输了吗…可恶啊](../posts/r_runtonihon/250922202256_1nnxhkp.md) | Longjumping-Eye6255 | 14 | 0.94 | 3 |  | false | true | self.runtonihon |
+| 2025-09-22 19:29 | `1nnw31p` | [刚去第一个润兔rb看了下，那边已经被封禁了](../posts/r_runtonihon/250922192945_1nnw31p.md) | Emotional-Copy1856 | 5 | 1.0 | 0 |  | false | true | self.runtonihon |
+| 2025-09-22 17:07 | `1nns9al` | [以前收藏的贴还没怎么看呢](../posts/r_runtonihon/250922170703_1nns9al.md) | kamajiyabuy9x | 3 | 1.0 | 1 |  | false | true | self.runtonihon |
+| 2025-09-22 17:06 | `1nns8vx` | [引流死亡 宿命](../posts/r_runtonihon/250922170637_1nns8vx.md) | iiiiiiiiib | 7 | 1.0 | 2 |  | false | false |  |
+| 2025-09-22 16:32 | `1nnrb7i` | [不要说这里是新家了](../posts/r_runtonihon/250922163204_1nnrb7i.md) | ComprehensiveStop395 | 27 | 0.93 | 7 |  | false | true | self.runtonihon |
+| 2025-09-22 16:26 | `1nnr5vv` | [新家来了](../posts/r_runtonihon/250922162635_1nnr5vv.md) | Appropriate_Cow7034 | 2 | 0.75 | 2 |  | false | true | self.runtonihon |
+| 2025-09-22 16:20 | `1nnr043` | [为什么会被ban？](../posts/r_runtonihon/250922162039_1nnr043.md) | Far-Lime3919 | 14 | 1.0 | 26 |  | false | true | self.runtonihon |
+| 2025-09-22 16:05 | `1nnql50` | [复活吧 帖子们](../posts/r_runtonihon/250922160509_1nnql50.md) | Cheap-Awareness-3864 | 8 | 1.0 | 3 |  | false | true | self.runtonihon |
+| 2025-09-22 16:01 | `1nnqhqv` | [是新家吗](../posts/r_runtonihon/250922160143_1nnqhqv.md) | Charming-Check-944 | 51 | 0.98 | 7 |  | false | false | i.redd.it |
+| 2025-09-22 15:31 | `1nnpoe0` | [关于本sub](../posts/r_runtonihon/250922153113_1nnpoe0.md) | purerunndop | 29 | 0.96 | 9 |  | false | true | self.runtonihon |
