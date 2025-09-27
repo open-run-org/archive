@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
-DATE=$(date +%F)
-OUT_ROOT=${1:-data}
-SUBFILE=${2:-configs/subreddits.txt}
-while IFS= read -r sub; do
-  [ -z "$sub" ] && continue
-  OUTDIR="$OUT_ROOT/$DATE/r_${sub}"
-  mkdir -p "$OUTDIR"
-  go run ./cmd/harvester -sub "$sub" -out "$OUTDIR/top_day.jsonl"
-done < "$SUBFILE"
+ROOT=${1:-data/raw}
+SUBS=${2:-configs/subreddits.txt}
+DAYS=${DAYS:-7}
+TOTAL=0
+readarray -t arr < <(sed -e 's/\r$//' "$SUBS" | grep -v '^\s*#' | sed '/^\s*$/d')
+for s in "${arr[@]}"; do
+  echo "[harvest] sub=$s days=$DAYS start"
+  go run ./cmd/harvest -sub "$s" -days "$DAYS" -root "$ROOT"
+  echo "[harvest] sub=$s done"
+  TOTAL=$((TOTAL+1))
+done
+echo "[harvest] all done subs=$TOTAL"

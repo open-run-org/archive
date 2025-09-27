@@ -12,7 +12,7 @@ services:
     command: >
       bash -c "
         apt-get update &&
-        apt-get install -y --no-install-recommends ca-certificates git make mkdocs mkdocs-material pandoc &&
+        apt-get install -y --no-install-recommends ca-certificates git make jq mkdocs mkdocs-material pandoc &&
         go version &&
         mkdocs --version &&
         exec sleep infinity

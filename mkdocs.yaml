@@ -1,5 +1,9 @@
 site_name: Reddit Archive
+docs_dir: data/staged
+site_dir: site
 theme:
   name: material
+plugins:
+  - search
 nav:
   - Home: index.md
