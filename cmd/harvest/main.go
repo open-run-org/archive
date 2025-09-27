@@ -56,19 +56,42 @@ func httpJSON(method, u, ua, auth string, body io.Reader) (*http.Response, error
 	return resp, nil
 }
 
+func mustMaybe(k string) string { return os.Getenv(k) }
+
 func token(id, secret, ua string) (string, error) {
-	form := url.Values{}
-	form.Set("grant_type", "client_credentials")
-	form.Set("scope", "read")
-	auth := "Basic " + base64.StdEncoding.EncodeToString([]byte(id+":"+secret))
+	user := mustMaybe("REDDIT_USERNAME")
+	pass := mustMaybe("REDDIT_PASSWORD")
+
+	var form url.Values
+	var auth string
+
+	if user != "" && pass != "" {
+		form = url.Values{}
+		form.Set("grant_type", "password")
+		form.Set("username", user)
+		form.Set("password", pass)
+		form.Set("scope", "read")
+		auth = "Basic " + base64.StdEncoding.EncodeToString([]byte(id+":"+secret))
+	} else {
+		form = url.Values{}
+		form.Set("grant_type", "client_credentials")
+		form.Set("scope", "read")
+		auth = "Basic " + base64.StdEncoding.EncodeToString([]byte(id+":"+secret))
+	}
+
 	resp, err := httpJSON("POST", "https://www.reddit.com/api/v1/access_token", ua, auth, strings.NewReader(form.Encode()))
 	if err != nil {
 		return "", err
 	}
 	defer resp.Body.Close()
-	var tr tokenResp
+	var tr struct {
+		AccessToken string `json:"access_token"`
+	}
 	if err := json.NewDecoder(resp.Body).Decode(&tr); err != nil {
 		return "", err
+	}
+	if tr.AccessToken == "" {
+		return "", fmt.Errorf("empty access_token")
 	}
 	return tr.AccessToken, nil
 }

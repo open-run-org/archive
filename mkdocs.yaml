@@ -76,6 +76,3 @@ plugins:
       fallback_to_build_date: true
   - include-markdown
   - search
-  - gen-files:
-      scripts:
-        - scripts/build_docs.py
