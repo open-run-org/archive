@@ -68,7 +68,12 @@ for f in "${files[@]}"; do
 
   html=$(jq -r '.selftext_html // ""' <<<"$line")
   if [[ -n "$html" && "$html" != "null" ]]; then
-    body=$(printf "%s" "$html" | sed -E '1s:^<div class="md">[[:space:]]*::; $s:[[:space:]]*</div>[[:space:]]*$::' | pandoc -f html -t gfm)
+    body=$(
+      printf "%s" "$html" \
+      | sed -E ':a;N;$!ba;s/<!--[[:space:]]*SC_OFF[[:space:]]*-->//g;s/<!--[[:space:]]*SC_ON[[:space:]]*-->//g' \
+      | sed -E ':a;N;$!ba;s/^[[:space:]]*<div class="md">[[:space:]]*//; s:[[:space:]]*</div>[[:space:]]*$::' \
+      | pandoc -f html -t gfm
+    )
   else
     body=$(jq -r '.selftext // ""' <<<"$line")
   fi

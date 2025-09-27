@@ -26,6 +26,7 @@ jobs:
       REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
       REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
       REDDIT_USER_AGENT: ${{ secrets.REDDIT_USER_AGENT }}
+
     steps:
       - uses: actions/checkout@v5
         with:
@@ -52,6 +53,16 @@ jobs:
           pip install -U pip
           pip install -r requirements.txt
 
+      - name: Check secrets
+        run: |
+          test -n "${REDDIT_CLIENT_ID}" || (echo "REDDIT_CLIENT_ID missing" && exit 1)
+          test -n "${REDDIT_CLIENT_SECRET}" || (echo "REDDIT_CLIENT_SECRET missing" && exit 1)
+          test -n "${REDDIT_USER_AGENT}" || (echo "REDDIT_USER_AGENT missing" && exit 1)
+
+      - name: Show subreddits
+        run: |
+          sed -e 's/\r$//' "${SUBS_FILE}" | sed '/^\s*#/d;/^\s*$/d' | nl -ba || true
+
       - name: Harvest
         env:
           REDDIT_CLIENT_ID: ${{ env.REDDIT_CLIENT_ID }}
@@ -59,17 +70,22 @@ jobs:
           REDDIT_USER_AGENT: ${{ env.REDDIT_USER_AGENT }}
           DAYS: ${{ env.DAYS }}
         run: |
+          set -euxo pipefail
           bash scripts/harvest.sh "${DATA_ROOT}" "${SUBS_FILE}"
 
-      - name: JSONL → MD
+      - name: JSONL to MD
         run: |
+          set -euxo pipefail
           bash scripts/jsonl2md.sh "${DATA_ROOT}" "${STAGED_ROOT}"
 
       - name: Ensure fallback index
-        run: bash scripts/ensure_index.sh "${STAGED_ROOT}"
+        run: |
+          set -euxo pipefail
+          bash scripts/ensure_index.sh "${STAGED_ROOT}"
 
       - name: Commit and push changes
         run: |
+          set -euxo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
@@ -87,6 +103,7 @@ jobs:
         env:
           GEN_RECENT: ${{ env.GEN_RECENT }}
         run: |
+          set -euxo pipefail
           . .venv/bin/activate
           mkdocs build --strict
 

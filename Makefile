@@ -8,7 +8,6 @@ MKDOCS ?= $(VENV)/bin/mkdocs
 PORT ?= 8000
 ADDR ?= 0.0.0.0
 GEN_RECENT ?= 20
-JSON2MD ?= scripts/jsonl2md
 
 .PHONY: deps harvest jsonl2md ensure-index serve serve-static build all clean
 
@@ -22,7 +21,7 @@ harvest:
 	DAYS=$(DAYS) bash scripts/harvest.sh $(DATA_ROOT) $(SUBS_FILE)
 
 jsonl2md:
-	$(JSON2MD) $(DATA_ROOT) $(STAGED_ROOT)
+	bash scripts/jsonl2md.sh $(DATA_ROOT) $(STAGED_ROOT)
 
 ensure-index:
 	bash scripts/ensure_index.sh $(STAGED_ROOT)
