@@ -6,11 +6,11 @@ MKDOCS ?= mkdocs
 PORT ?= 8000
 ADDR ?= 0.0.0.0
 
-.PHONY: harvest md-batch serve build clean
+.PHONY: harvest jsonl2md serve build clean
 harvest:
 	DAYS=$(DAYS) bash scripts/harvest.sh $(DATA_ROOT) $(SUBS_FILE)
-md-batch:
-	bash scripts/batch_jsonl_to_md.sh data/raw data/staged
+jsonl2md:
+	bash scripts/jsonl2md.sh data/raw data/staged
 serve:
 	$(MKDOCS) serve -a $(ADDR):$(PORT)
 build:

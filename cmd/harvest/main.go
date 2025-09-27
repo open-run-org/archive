@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"bytes"
 	"crypto/sha256"
 	"encoding/base64"
 	"encoding/hex"
@@ -104,13 +103,59 @@ func createdIDName(raw json.RawMessage) (int64, string, string, error) {
 	return created, id, name, nil
 }
 
-func jsonHash(raw json.RawMessage) (string, error) {
-	var buf bytes.Buffer
-	if err := json.Compact(&buf, raw); err != nil {
+type fp struct {
+	ID                string `json:"id"`
+	Name              string `json:"name"`
+	Subreddit         string `json:"subreddit"`
+	Author            string `json:"author"`
+	IsSelf            bool   `json:"is_self"`
+	Domain            string `json:"domain"`
+	Title             string `json:"title"`
+	SelftextHTML      string `json:"selftext_html"`
+	Selftext          string `json:"selftext"`
+	URL               string `json:"url"`
+	Permalink         string `json:"permalink"`
+	Edited            any    `json:"edited"`
+	Over18            bool   `json:"over_18"`
+	Spoiler           bool   `json:"spoiler"`
+	Locked            bool   `json:"locked"`
+	Stickied          bool   `json:"stickied"`
+	LinkFlairText     string `json:"link_flair_text"`
+	LinkFlairCSSClass string `json:"link_flair_css_class"`
+}
+
+func getS(v any) string {
+	if s, ok := v.(string); ok {
+		return s
+	}
+	return ""
+}
+func getB(v any) bool {
+	if b, ok := v.(bool); ok {
+		return b
+	}
+	return false
+}
+
+func subsetHash(raw json.RawMessage) (string, error) {
+	var m map[string]any
+	if err := json.Unmarshal(raw, &m); err != nil {
 		return "", err
 	}
-	h := sha256.Sum256(buf.Bytes())
-	return hex.EncodeToString(h[:]), nil
+	g := fp{
+		ID: getS(m["id"]), Name: getS(m["name"]), Subreddit: getS(m["subreddit"]), Author: getS(m["author"]),
+		IsSelf: getB(m["is_self"]), Domain: getS(m["domain"]),
+		Title: getS(m["title"]), SelftextHTML: getS(m["selftext_html"]), Selftext: getS(m["selftext"]),
+		URL: getS(m["url"]), Permalink: getS(m["permalink"]), Edited: m["edited"],
+		Over18: getB(m["over_18"]), Spoiler: getB(m["spoiler"]), Locked: getB(m["locked"]), Stickied: getB(m["stickied"]),
+		LinkFlairText: getS(m["link_flair_text"]), LinkFlairCSSClass: getS(m["link_flair_css_class"]),
+	}
+	b, err := json.Marshal(g)
+	if err != nil {
+		return "", err
+	}
+	sum := sha256.Sum256(b)
+	return hex.EncodeToString(sum[:]), nil
 }
 
 func hasHashFile(dir, hash string) (bool, string, error) {
@@ -211,7 +256,7 @@ func main() {
 				fmt.Fprintln(os.Stderr, err)
 				os.Exit(1)
 			}
-			h, err := jsonHash(c.Data)
+			h, err := subsetHash(c.Data)
 			if err != nil {
 				fmt.Fprintln(os.Stderr, err)
 				os.Exit(1)
