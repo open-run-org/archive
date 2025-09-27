@@ -1,0 +1,5 @@
+site_name: Reddit Archive
+theme:
+  name: material
+nav:
+  - Home: index.md

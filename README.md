@@ -1,1 +1,1 @@
-test
+[![CI](https://github.com/open-run-org/archive/actions/workflows/ci.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/ci.yaml)

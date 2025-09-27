@@ -1,0 +1,17 @@
+services:
+  archive:
+    image: golang
+    container_name: archive
+    working_dir: /workspace
+    ports:
+      - "8888:8000"
+    volumes:
+      - "..:/workspace"
+    command: >
+      bash -c "
+        apt-get update &&
+        apt-get install -y --no-install-recommends ca-certificates git make mkdocs mkdocs-material pandoc &&
+        go version &&
+        mkdocs --version &&
+        exec sleep infinity
+      "

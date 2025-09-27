@@ -1,0 +1,15 @@
+{
+	"dockerComposeFile": "compose.yaml",
+	"service": "archive",
+	"workspaceFolder": "/workspace",
+	"shutdownAction": "stopCompose",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+                "golang.go",
+                "ms-python.python",
+                "yzhang.markdown-all-in-one"
+			]
+		}
+	}
+}
