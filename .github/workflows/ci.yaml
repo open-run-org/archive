@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GEN_RECENT: "64"
-      DAYS: "3"
+      DAYS: "4"
       DATA_ROOT: "data/raw"
       STAGED_ROOT: "data/staged"
       SUBS_FILE: "configs/subreddits.txt"
