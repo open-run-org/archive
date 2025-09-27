@@ -6,7 +6,7 @@ on:
     - cron: "0 0 * * *"
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -19,8 +19,17 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GEN_RECENT: "50"
+      DAYS: "3"
+      DATA_ROOT: "data/raw"
+      STAGED_ROOT: "data/staged"
+      SUBS_FILE: "configs/subreddits.txt"
+      REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+      REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+      REDDIT_USER_AGENT: ${{ secrets.REDDIT_USER_AGENT }}
     steps:
       - uses: actions/checkout@v5
+        with:
+          persist-credentials: true
 
       - uses: actions/setup-go@v6
         with:
@@ -31,19 +40,55 @@ jobs:
           python-version: "3.x"
           cache: "pip"
 
-      - name: Install dependencies
+      - name: System deps
         run: |
-          python -m pip install --upgrade pip
+          sudo apt-get update
+          sudo apt-get install -y jq pandoc python3-venv
+
+      - name: Python venv
+        run: |
+          python -m venv .venv
+          . .venv/bin/activate
+          pip install -U pip
           pip install -r requirements.txt
+
+      - name: Harvest
+        env:
+          REDDIT_CLIENT_ID: ${{ env.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ env.REDDIT_CLIENT_SECRET }}
+          REDDIT_USER_AGENT: ${{ env.REDDIT_USER_AGENT }}
+          DAYS: ${{ env.DAYS }}
+        run: |
+          bash scripts/harvest.sh "${DATA_ROOT}" "${SUBS_FILE}"
+
+      - name: JSONL → MD
+        run: |
+          bash scripts/jsonl2md.sh "${DATA_ROOT}" "${STAGED_ROOT}"
+
+      - name: Ensure fallback index
+        run: bash scripts/ensure_index.sh "${STAGED_ROOT}"
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: auto harvest+render $(date -u +%F-%T) [skip ci]"
+            git push
+          else
+            echo "no content changes"
+          fi
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      - name: Ensure fallback index
-        run: bash scripts/ensure_index.sh data/staged
-
       - name: Build site
-        run: mkdocs build --strict
+        env:
+          GEN_RECENT: ${{ env.GEN_RECENT }}
+        run: |
+          . .venv/bin/activate
+          mkdocs build --strict
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

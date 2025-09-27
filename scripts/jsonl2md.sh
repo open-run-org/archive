@@ -64,10 +64,11 @@ for f in "${files[@]}"; do
   sub_pref=$(jq -r '.subreddit_name_prefixed // ""' <<<"$line")
 
   ts_created=$(date -u -d "@$created" +%y%m%d%H%M%S)
+  created_iso=$(date -u -d "@$created" +%Y-%m-%dT%H:%M:%SZ)
 
   html=$(jq -r '.selftext_html // ""' <<<"$line")
   if [[ -n "$html" && "$html" != "null" ]]; then
-    body=$(printf "%s" "$html" | pandoc -f html -t gfm)
+    body=$(printf "%s" "$html" | sed -E '1s:^<div class="md">[[:space:]]*::; $s:[[:space:]]*</div>[[:space:]]*$::' | pandoc -f html -t gfm)
   else
     body=$(jq -r '.selftext // ""' <<<"$line")
   fi
@@ -99,6 +100,15 @@ for f in "${files[@]}"; do
     echo "over_18: $over_18"
     echo "is_self: $is_self"
     echo "---"
+    echo
+    echo "- Metadata:"
+    echo "  - Subreddit: ${sub_pref}"
+    echo "  - Author: ${author}"
+    echo "  - Created: ${created_iso}"
+    echo "  - Permalink: https://reddit.com${permalink}"
+    [[ -n "$url" && "$url" != "null" ]] && echo "  - URL: ${url}"
+    echo "  - Ups: ${ups} | Ratio: ${upvote_ratio:-0} | Comments: ${num_comments}"
+    [[ -n "$link_flair_text" ]] && echo "  - Flair: ${link_flair_text}"
     echo
     [[ -n "$body" ]] && printf "%s\n" "$body"
     if [[ "${MD_EMBED_JSON:-0}" = "1" ]]; then
