@@ -60,30 +60,29 @@ def latest_by_post(items):
             d[k] = it
     return list(d.values())
 
-def ensure_dir(p):
-    pathlib.Path(p).mkdir(parents=True, exist_ok=True)
-
+def ensure_dir(p): pathlib.Path(p).mkdir(parents=True, exist_ok=True)
 def write(p, s):
     ensure_dir(pathlib.Path(p).parent)
-    with open(p, "w", encoding="utf-8") as f:
-        f.write(s)
+    with open(p, "w", encoding="utf-8") as f: f.write(s)
 
 def build():
     if DOCS.exists():
         for child in DOCS.iterdir():
-            if child.is_dir():
-                shutil.rmtree(child)
-            else:
-                child.unlink()
+            if child.is_dir(): shutil.rmtree(child)
+            else: child.unlink()
     ensure_dir(DOCS)
+
     items = list(iter_captures())
+    if not items:
+        write(DOCS / "index.md", "# Archive\n\n_(no data yet)_\n")
+        return
+
     subs = sorted(set(x["sub"] for x in items))
     latest_changes = sorted(items, key=lambda x: (x["capture"], x["sub"]), reverse=True)[:RECENT_N]
     latest_per_post = latest_by_post(items)
 
     home = ["# Archive", "", "## Subreddits", ""]
-    for s in subs:
-        home.append(f"- [{s}]({s}/index.md)")
+    for s in subs: home.append(f"- [{s}]({s}/index.md)")
     home += ["", "## Latest changes", ""]
     for it in latest_changes:
         title = it["title"] or it["created_id"]
@@ -93,22 +92,18 @@ def build():
     write(DOCS / "index.md", "\n".join(home) + "\n")
 
     by_sub_all = {}
-    for it in items:
-        by_sub_all.setdefault(it["sub"], []).append(it)
-
+    for it in items: by_sub_all.setdefault(it["sub"], []).append(it)
     for s, arr in by_sub_all.items():
         arr_sorted = sorted(arr, key=lambda x: x["capture"], reverse=True)[:RECENT_N]
         lines = [f"# {s}", "", f"[Full archive]({s}/archive.md)", "", "## Latest changes", ""]
         for it in arr_sorted:
             title = it["title"] or it["created_id"]
-            href = f'posts/{it["sub"]}/{it["created_id"]}.md'
+            href = f'../posts/{it["sub"]}/{it["created_id"]}.md'
             lines.append(f'- `{it["capture_ts"]}` [{title}]({href})')
         write(DOCS / s / "index.md", "\n".join(lines) + "\n")
 
     by_sub_latest = {}
-    for it in latest_per_post:
-        by_sub_latest.setdefault(it["sub"], []).append(it)
-
+    for it in latest_per_post: by_sub_latest.setdefault(it["sub"], []).append(it)
     for s, arr in by_sub_latest.items():
         arr_sorted = sorted(arr, key=lambda x: (x["created_key"], x["post_id"]), reverse=True)
         t = [f"# {s} • Archive", "", "| Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |", "|---:|---|---|---|---:|---:|---:|---|---|---|---|"]
@@ -124,11 +119,9 @@ def build():
         created_iso = datetime.datetime.utcfromtimestamp(it["created_utc"]).strftime("%Y-%m-%d %H:%M:%S UTC")
         title = it["title"] or it["created_id"]
         lines = [f"# {title}", "", "- Metadata:", f"  - Subreddit: {it['sub']}", f"  - Author: {it['author']}", f"  - Created: {created_iso}", f"  - Permalink: {it['permalink']}"]
-        if it["url"]:
-            lines.append(f"  - URL: {it['url']}")
+        if it["url"]: lines.append(f"  - URL: {it['url']}")
         lines.append(f"  - Ups: {it['ups']} | Ratio: {it['upvote_ratio']} | Comments: {it['num_comments']}")
-        if it["flair"]:
-            lines.append(f"  - Flair: {it['flair']}")
+        if it["flair"]: lines.append(f"  - Flair: {it['flair']}")
         lines.append("")
         lines.append(it["body"] if it["body"].strip() else "_(no selftext)_")
         write(DOCS / "posts" / it["sub"] / f"{it['created_id']}.md", "\n".join(lines) + "\n")
