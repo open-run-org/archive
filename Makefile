@@ -10,9 +10,12 @@ SITE_DIR ?= site
 PORT ?= 8000
 ADDR ?= 0.0.0.0
 
-.PHONY: serve build clean check \
+.PHONY: harvest serve build clean check \
         go-build go-run go-test go-fmt go-tidy \
         html2md md2html
+
+harvest:
+	bash scripts/harvest.sh
 
 serve:
 	$(MKDOCS) serve -a $(ADDR):$(PORT)

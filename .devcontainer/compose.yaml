@@ -3,6 +3,8 @@ services:
     image: golang
     container_name: archive
     working_dir: /workspace
+    env_file:
+      - .dev.env
     ports:
       - "8888:8000"
     volumes:
