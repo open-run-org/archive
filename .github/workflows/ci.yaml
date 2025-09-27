@@ -18,7 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      GEN_RECENT: "50"
+      GEN_RECENT: "64"
       DAYS: "3"
       DATA_ROOT: "data/raw"
       STAGED_ROOT: "data/staged"
@@ -26,43 +26,34 @@ jobs:
       REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
       REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
       REDDIT_USER_AGENT: ${{ secrets.REDDIT_USER_AGENT }}
-
     steps:
       - uses: actions/checkout@v5
         with:
           persist-credentials: true
-
       - uses: actions/setup-go@v6
         with:
           go-version-file: "go.mod"
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
           cache: "pip"
-
       - name: System deps
         run: |
           sudo apt-get update
           sudo apt-get install -y jq pandoc python3-venv
-
       - name: Python venv
         run: |
           python -m venv .venv
           . .venv/bin/activate
           pip install -U pip
           pip install -r requirements.txt
-
       - name: Check secrets
         run: |
           test -n "${REDDIT_CLIENT_ID}" || (echo "REDDIT_CLIENT_ID missing" && exit 1)
           test -n "${REDDIT_CLIENT_SECRET}" || (echo "REDDIT_CLIENT_SECRET missing" && exit 1)
           test -n "${REDDIT_USER_AGENT}" || (echo "REDDIT_USER_AGENT missing" && exit 1)
-
       - name: Show subreddits
-        run: |
-          sed -e 's/\r$//' "${SUBS_FILE}" | sed '/^\s*#/d;/^\s*$/d' | nl -ba || true
-
+        run: sed -e 's/\r$//' "${SUBS_FILE}" | sed '/^\s*#/d;/^\s*$/d' | nl -ba || true
       - name: Harvest
         env:
           REDDIT_CLIENT_ID: ${{ env.REDDIT_CLIENT_ID }}
@@ -72,17 +63,10 @@ jobs:
         run: |
           set -euxo pipefail
           bash scripts/harvest.sh "${DATA_ROOT}" "${SUBS_FILE}"
-
       - name: JSONL to MD
         run: |
           set -euxo pipefail
           bash scripts/jsonl2md.sh "${DATA_ROOT}" "${STAGED_ROOT}"
-
-      - name: Ensure fallback index
-        run: |
-          set -euxo pipefail
-          bash scripts/ensure_index.sh "${STAGED_ROOT}"
-
       - name: Commit and push changes
         run: |
           set -euxo pipefail
@@ -90,15 +74,13 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
           if ! git diff --cached --quiet; then
-            git commit -m "chore: auto harvest+render $(date -u +%F-%T) [skip ci]"
+            git commit -m "chore: auto sync $(date -u +%F-%T) [skip ci]"
             git push
           else
             echo "no content changes"
           fi
-
       - name: Configure Pages
         uses: actions/configure-pages@v5
-
       - name: Build site
         env:
           GEN_RECENT: ${{ env.GEN_RECENT }}
@@ -106,12 +88,10 @@ jobs:
           set -euxo pipefail
           . .venv/bin/activate
           mkdocs build --strict
-
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./site
-
   deploy:
     runs-on: ubuntu-latest
     needs: build

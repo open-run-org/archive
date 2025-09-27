@@ -4,7 +4,7 @@ site_url: https://archive.open-run.org
 repo_name: archive
 repo_url: https://github.com/open-run-org/archive
 
-docs_dir: data/staged
+docs_dir: docs
 site_dir: site
 
 theme:
@@ -78,4 +78,4 @@ plugins:
   - search
   - gen-files:
       scripts:
-        - scripts/gen_index.py
+        - scripts/build_docs.py

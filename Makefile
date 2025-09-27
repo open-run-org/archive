@@ -1,15 +1,19 @@
 SHELL := /bin/bash
+
 DATA_ROOT ?= data/raw
 STAGED_ROOT ?= data/staged
 SUBS_FILE ?= configs/subreddits.txt
 DAYS ?= 3
+
 VENV ?= .venv
+PY ?= $(VENV)/bin/python
 MKDOCS ?= $(VENV)/bin/mkdocs
+
 PORT ?= 8000
 ADDR ?= 0.0.0.0
-GEN_RECENT ?= 20
+GEN_RECENT ?= 64
 
-.PHONY: deps harvest jsonl2md ensure-index serve serve-static build all clean
+.PHONY: deps harvest jsonl2md docs sync serve serve-static build clean
 
 deps:
 	apt-get update && apt-get install -y python3 python3-venv jq pandoc
@@ -23,23 +27,23 @@ harvest:
 jsonl2md:
 	bash scripts/jsonl2md.sh $(DATA_ROOT) $(STAGED_ROOT)
 
-ensure-index:
-	bash scripts/ensure_index.sh $(STAGED_ROOT)
+docs:
+	GEN_RECENT=$(GEN_RECENT) $(PY) scripts/materialize_docs.py $(STAGED_ROOT) docs
+
+sync: harvest jsonl2md docs
 
 serve:
-	GEN_RECENT=$(GEN_RECENT) $(MAKE) ensure-index
-	GEN_RECENT=$(GEN_RECENT) $(MKDOCS) serve --dev-addr=$(ADDR):$(PORT) -v
+	$(MAKE) docs
+	$(MKDOCS) serve --dev-addr=$(ADDR):$(PORT) -v
 
 serve-static:
-	GEN_RECENT=$(GEN_RECENT) $(MAKE) ensure-index
-	GEN_RECENT=$(GEN_RECENT) $(MKDOCS) build --strict
+	$(MAKE) docs
+	$(MKDOCS) build --strict
 	python3 -m http.server $(PORT) -d site --bind $(ADDR)
 
 build:
-	GEN_RECENT=$(GEN_RECENT) $(MAKE) ensure-index
-	GEN_RECENT=$(GEN_RECENT) $(MKDOCS) build --strict
-
-all: harvest jsonl2md build
+	$(MAKE) docs
+	$(MKDOCS) build --strict
 
 clean:
-	rm -rf site $(VENV)
+	rm -rf site $(VENV) docs/*
