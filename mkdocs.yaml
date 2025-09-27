@@ -3,7 +3,10 @@ docs_dir: data/staged
 site_dir: site
 theme:
   name: material
+  features:
+    - navigation.instant
 plugins:
   - search
-nav:
-  - Home: index.md
+  - gen-files:
+      scripts:
+        - scripts/gen_index.py

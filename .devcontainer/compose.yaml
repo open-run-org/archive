@@ -10,10 +10,11 @@ services:
     volumes:
       - "..:/workspace"
     command: >
-      bash -c "
+      bash -lc "
         apt-get update &&
-        apt-get install -y --no-install-recommends ca-certificates git make jq mkdocs mkdocs-material pandoc &&
+        apt-get install -y --no-install-recommends ca-certificates git make jq pandoc python3 python3-pip &&
+        pip3 install -r requirements.txt &&
         go version &&
-        mkdocs --version &&
+        mkdocs --version || true &&
         exec sleep infinity
       "
