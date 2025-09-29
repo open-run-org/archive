@@ -2,6 +2,9 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-09-29 08:13 | `1ntcdy7` | [有学CS的荷兰润友吗？](../posts/r_runEuropaAlliance/250929081314_1ntcdy7.md) | LavishnessFun8543 | 1 | 1.0 | 1 | 提問 | Ask | false | true | self.runEuropaAlliance |
+| 2025-09-29 05:19 | `1nt9pp8` | [特朗普政策不确定性对实体经济的影响](../posts/r_runEuropaAlliance/250929051929_1nt9pp8.md) | duck4355555 | 2 | 1.0 | 0 | 分享 | Share | false | false | youtu.be |
+| 2025-09-27 16:43 | `1nrzwoq` | [红迪贴文存档项目（Reddit Archive）](../posts/r_runEuropaAlliance/250927164319_1nrzwoq.md) | mofufu-bot | 1 | 1.0 | 0 | 分享 | Share | false | false |  |
 | 2025-09-26 00:16 | `1nqn17q` | [2025-26年美国经济纯理性宏观分析，充满挑战与危机。1929?1970?2000?2008?](../posts/r_runEuropaAlliance/250926001656_1nqn17q.md) | duck4355555 | 0 | 0.33 | 0 | 分享 | Share | false | false |  |
 | 2025-09-25 19:30 | `1nqg6go` | [分享一个最近半年一直关注的芬兰政策，明年1月8日落地实施](../posts/r_runEuropaAlliance/250925193002_1nqg6go.md) | ExistingDragonfly246 | 26 | 0.91 | 48 | 分享 | Share | false | false | i.redd.it |
 | 2025-09-24 18:14 | `1npjlyh` | [西欧真是有了](../posts/r_runEuropaAlliance/250924181452_1npjlyh.md) | chingchongman34 | 0 | 0.42 | 29 | 分享 | Share | false | false | youtu.be |
@@ -13,7 +16,7 @@
 | 2025-09-19 22:14 | `1nlh3em` | [润后生活费汇款及投资理财攻略（人民币换欧0损耗）](../posts/r_runEuropaAlliance/250919221417_1nlh3em.md) | Future-Requirement50 | 69 | 0.95 | 37 | 分享 | Share | false | true | self.runEuropaAlliance |
 | 2025-09-18 15:18 | `1nkb4r7` | [大四穷蛆有润德想法求建议或者骂醒](../posts/r_runEuropaAlliance/250918151841_1nkb4r7.md) | RipLoud3334 | 28 | 0.81 | 83 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-09-17 13:09 | `1njcpyj` | [求助｜17岁体制内高二，目标27秋欧陆CS/工科，预算≤40w；看上意大利Bocconi（ISEE-U或许全免+补助），要不要刷SAT更稳？](../posts/r_runEuropaAlliance/250917130925_1njcpyj.md) | zhanyouzhou | 9 | 0.62 | 51 | 提問 | Ask | false | true | self.runEuropaAlliance |
-| 2025-09-15 02:15 | `1nh9s1u` | [专升本申欧硕求建议](../posts/r_runEuropaAlliance/250915021537_1nh9s1u.md) | JudyTenalach | 5 | 0.86 | 5 | 提問 | Ask | false | true | self.runEuropaAlliance |
+| 2025-09-15 02:15 | `1nh9s1u` | [专升本申欧硕求建议](../posts/r_runEuropaAlliance/250915021537_1nh9s1u.md) | JudyTenalach | 6 | 0.88 | 6 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-09-14 05:15 | `1ngin8f` | [25岁本科肄业家里蹲，只有英语雅思5.5，金币大概支撑三十多个，如何破局。](../posts/r_runEuropaAlliance/250914051505_1ngin8f.md) | FinanceOk9723 | 36 | 0.87 | 87 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-09-13 18:44 | `1ng5dnj` | [求助，24岁大专生想去留学](../posts/r_runEuropaAlliance/250913184454_1ng5dnj.md) | Humble_Preparation59 | 8 | 0.83 | 5 | 討論 | Discuss | false | false |  |
 | 2025-09-12 14:26 | `1nf4p41` | [支拿大退学后 想润v4 求指导](../posts/r_runEuropaAlliance/250912142640_1nf4p41.md) | chingchongman34 | 0 | 0.35 | 12 | 提問 | Ask | false | true | self.runEuropaAlliance |

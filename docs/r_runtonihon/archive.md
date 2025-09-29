@@ -2,6 +2,15 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-09-29 03:49 | `1nt85jz` | [ニート生活終わったら、本気を出す](../posts/r_runtonihon/250929034952_1nt85jz.md) | Exciting_Response267 | 7 | 1.0 | 6 | 不懂就问❓ | false | false | reddit.com |
+| 2025-09-28 11:44 | `1nsm8km` | [皆人 、我が人生は汝等に同じ｡ 但し日本に生まれましかば汝等は何が思ふを有ら む](../posts/r_runtonihon/250928114412_1nsm8km.md) | HeightJust2829 | 1 | 0.67 | 2 | 雑談💬 | false | true | self.runtonihon |
+| 2025-09-28 08:10 | `1nsitf9` | [联系了一家赴日工作中介，对方扔来一份一万元的合同，这合理吗？](../posts/r_runtonihon/250928081023_1nsitf9.md) | itsuouhaku | 2 | 0.75 | 4 | 经验分享🤝 | false | true | self.runtonihon |
+| 2025-09-28 07:07 | `1nshuff` | [『补档』說一下租房的經驗](../posts/r_runtonihon/250928070714_1nshuff.md) | KaikouZzz | 2 | 1.0 | 1 | 经验分享🤝 | false | true | self.runtonihon |
+| 2025-09-28 07:02 | `1nshrwe` | [『补档』搬家的过程一点心得](../posts/r_runtonihon/250928070256_1nshrwe.md) | KaikouZzz | 6 | 1.0 | 0 | 日常生活☕ | false | true | self.runtonihon |
+| 2025-09-28 06:57 | `1nshog2` | [『补档』大懒人的东京生活开销](../posts/r_runtonihon/250928065708_1nshog2.md) | KaikouZzz | 2 | 0.67 | 4 | 日常生活☕ | false | true | self.runtonihon |
+| 2025-09-27 16:46 | `1nrzzam` | [红迪贴文存档项目（Reddit Archive）](../posts/r_runtonihon/250927164616_1nrzzam.md) | No-Lab4175 | 3 | 1.0 | 0 | 经验分享🤝 | false | false |  |
+| 2025-09-27 16:43 | `1nrzx1w` | [红迪贴文存档项目（Reddit Archive）](../posts/r_runtonihon/250927164342_1nrzx1w.md) | mofufu-bot | 1 | 1.0 | 0 | 经验分享🤝 | false | false |  |
+| 2025-09-27 15:12 | `1nrxpa6` | [请教一下大家。](../posts/r_runtonihon/250927151255_1nrxpa6.md) | PickleBigJim76 | 2 | 1.0 | 5 | 不懂就问❓ | false | true | self.runtonihon |
 | 2025-09-27 15:02 | `1nrxfnf` | [晚饭吃什么](../posts/r_runtonihon/250927150200_1nrxfnf.md) | KenHansson | 3 | 1.0 | 5 | 聊天吹水🗣️ | false | true | self.runtonihon |
 | 2025-09-27 12:47 | `1nrudq8` | [春夏秋冬](../posts/r_runtonihon/250927124749_1nrudq8.md) | Timmi13teen | 3 | 1.0 | 0 | 雑談💬 | false | true | self.runtonihon |
 | 2025-09-27 11:04 | `1nrsfpy` | [蟑螂，慎点](../posts/r_runtonihon/250927110440_1nrsfpy.md) | bachelor13 | 0 | 0.33 | 6 | 雑談💬 | true | false | reddit.com |

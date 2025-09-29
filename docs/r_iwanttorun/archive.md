@@ -2,8 +2,20 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-09-29 08:29 | `1ntcmf5` | [脊柱治療專業請教](../posts/r_iwanttorun/250929082933_1ntcmf5.md) | Earthling_03 | 1 | 1.0 | 0 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-09-29 05:55 | `1ntaa31` | [在美国感觉好难，想离开美国但是没钱，抑郁了](../posts/r_iwanttorun/250929055507_1ntaa31.md) | AmountImaginary | 2 | 0.75 | 6 | 分享帖 | false | true | self.iwanttorun |
+| 2025-09-29 04:08 | `1nt8hyn` | [推特上那些反移民推文有几个是真的](../posts/r_iwanttorun/250929040827_1nt8hyn.md) | H3_H2 | 4 | 1.0 | 3 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-09-28 20:24 | `1nsynko` | [有偿求帮忙](../posts/r_iwanttorun/250928202454_1nsynko.md) | LabDelicious534 | 1 | 1.0 | 2 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-09-28 14:54 | `1nsqdan` | [另一个身份！墨西哥！说一下我的特殊渠道](../posts/r_iwanttorun/250928145441_1nsqdan.md) | Neat-Zookeepergame71 | 7 | 0.66 | 30 | 分享帖 | false | true | self.iwanttorun |
+| 2025-09-28 05:38 | `1nsgewd` | [前辈们，朋友们，有什么建议吗，关于35岁拖家带口润](../posts/r_iwanttorun/250928053841_1nsgewd.md) | ChineseAsker | 9 | 0.72 | 24 | 讨论 | false | true | self.iwanttorun |
+| 2025-09-28 00:37 | `1nsav6j` | [不懂就问，庇护工卡持有者难道是触犯了美国哪条法律了？既然没触犯法律为什么ice要将其抓起来？](../posts/r_iwanttorun/250928003718_1nsav6j.md) | Time_Host_1935 | 0 | 0.5 | 6 | 不懂就问 | false | false | i.redd.it |
+| 2025-09-27 23:48 | `1ns9wkh` | [专升本申欧硕求建议](../posts/r_iwanttorun/250927234819_1ns9wkh.md) | JudyTenalach | 1 | 1.0 | 1 | 不懂就问 | false | false |  |
+| 2025-09-27 21:46 | `1ns79ov` | [想润的朋友朋可以考虑一下来新西兰](../posts/r_iwanttorun/250927214610_1ns79ov.md) | Larry_Liu89 | 1 | 0.67 | 3 | 分享帖 | false | true | self.iwanttorun |
+| 2025-09-27 16:49 | `1ns01qg` | [蚌埠住了](../posts/r_iwanttorun/250927164903_1ns01qg.md) | FreeXiJinpingAss | 6 | 0.8 | 1 | 炒作狗 | false | false | i.redd.it |
+| 2025-09-27 16:45 | `1nrzz25` | [红迪贴文存档项目（Reddit Archive）](../posts/r_iwanttorun/250927164559_1nrzz25.md) | No-Lab4175 | 0 | 0.5 | 1 | 分享帖 | false | false |  |
+| 2025-09-27 16:20 | `1nrzbwr` | [LOTUS Programme](../posts/r_iwanttorun/250927162008_1nrzbwr.md) | kyk00525 | 5 | 1.0 | 0 | 分享帖 | false | false | jst.go.jp |
 | 2025-09-27 14:21 | `1nrwh8g` | [大三cs本科生北美二国读研run选哪里](../posts/r_iwanttorun/250927142109_1nrwh8g.md) | Fragrant-Review3934 | 1 | 1.0 | 0 | 不懂就问 | false | true | self.iwanttorun |
-| 2025-09-27 14:13 | `1nrwa5h` | [小留想留在欧洲，蓝领也可以，有什么小众猎奇门路](../posts/r_iwanttorun/250927141300_1nrwa5h.md) | Scary_Decision_8793 | 4 | 1.0 | 13 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-09-27 14:13 | `1nrwa5h` | [小留想留在欧洲，蓝领也可以，有什么小众猎奇门路](../posts/r_iwanttorun/250927141300_1nrwa5h.md) | Scary_Decision_8793 | 15 | 0.89 | 26 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-09-27 13:03 | `1nruphi` | [挺藏留学生回国探亲被捕](../posts/r_iwanttorun/250927130326_1nruphi.md) | Pretty_Brilliant7159 | 2 | 1.0 | 2 | 分享帖 | false | false | reddit.com |
 | 2025-09-27 05:51 | `1nrnh7i` | [润日吧被封了还有平替吗](../posts/r_iwanttorun/250927055125_1nrnh7i.md) | Cucumberprince087 | 0 | 0.29 | 10 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-09-27 00:44 | `1nrht4z` | [浪人们！粉红们！](../posts/r_iwanttorun/250927004416_1nrht4z.md) | Own-Strength-7479 | 0 | 0.5 | 2 | ??? | false | true | self.iwanttorun |
