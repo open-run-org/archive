@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-02 08:42 | `1nvye9m` | [無任何增加要求，維多利亞州 2025-26 年技術移民計劃現已開放](../posts/r_iwanttorun/251002084242_1nvye9m.md) | cuter1982 | 1 | 1.0 | 0 | 分享帖 | false | false | liveinmelbourne.vic.gov.au |
 | 2025-10-02 01:03 | `1nvq37t` | [本版润蛆的终极形态](../posts/r_iwanttorun/251002010322_1nvq37t.md) | Subei-dog-hunter | 4 | 0.83 | 2 | 炒作狗 | false | false | i.redd.it |
 | 2025-10-01 22:36 | `1nvmu1j` | [Bundestag to vote on scrapping “turbo German citize nship”](../posts/r_iwanttorun/251001223632_1nvmu1j.md) | kyk00525 | 1 | 1.0 | 0 | 讨论 | false | false | iamexpat.de |
 | 2025-10-01 20:52 | `1nvk6uk` | [找工作 / Recherche d’un emploi à Lausanne](../posts/r_iwanttorun/251001205228_1nvk6uk.md) | Ambitious-Pirate3118 | 0 | 0.4 | 0 | 不懂就问 | false | true | self.iwanttorun |
