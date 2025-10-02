@@ -2,6 +2,8 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-09-29 18:24 | `1ntpsee` | [波兰移民分享](../posts/r_runEuropaAlliance/250929182436_1ntpsee.md) | Appropriate-Tart2439 | 7 | 0.89 | 9 | 分享 | Share | false | true | self.runEuropaAlliance |
+| 2025-09-29 10:18 | `1nte9as` | [还有三天美国政府就可能再次关门。现在这个阶段是比谁家更稳而不是更大增长。欧洲和我们澳洲还是稳](../posts/r_runEuropaAlliance/250929101822_1nte9as.md) | duck4355555 | 0 | 0.25 | 0 | 分享 | Share | false | true | self.runEuropaAlliance |
 | 2025-09-29 08:13 | `1ntcdy7` | [有学CS的荷兰润友吗？](../posts/r_runEuropaAlliance/250929081314_1ntcdy7.md) | LavishnessFun8543 | 1 | 1.0 | 1 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-09-29 05:19 | `1nt9pp8` | [特朗普政策不确定性对实体经济的影响](../posts/r_runEuropaAlliance/250929051929_1nt9pp8.md) | duck4355555 | 2 | 1.0 | 0 | 分享 | Share | false | false | youtu.be |
 | 2025-09-27 16:43 | `1nrzwoq` | [红迪贴文存档项目（Reddit Archive）](../posts/r_runEuropaAlliance/250927164319_1nrzwoq.md) | mofufu-bot | 1 | 1.0 | 0 | 分享 | Share | false | false |  |

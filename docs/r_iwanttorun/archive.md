@@ -2,6 +2,27 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-02 01:03 | `1nvq37t` | [本版润蛆的终极形态](../posts/r_iwanttorun/251002010322_1nvq37t.md) | Subei-dog-hunter | 4 | 0.83 | 2 | 炒作狗 | false | false | i.redd.it |
+| 2025-10-01 22:36 | `1nvmu1j` | [Bundestag to vote on scrapping “turbo German citize nship”](../posts/r_iwanttorun/251001223632_1nvmu1j.md) | kyk00525 | 1 | 1.0 | 0 | 讨论 | false | false | iamexpat.de |
+| 2025-10-01 20:52 | `1nvk6uk` | [找工作 / Recherche d’un emploi à Lausanne](../posts/r_iwanttorun/251001205228_1nvk6uk.md) | Ambitious-Pirate3118 | 0 | 0.4 | 0 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-01 18:37 | `1nvgjpg` | [还敢硬融吗](../posts/r_iwanttorun/251001183754_1nvgjpg.md) | FreeXiJinpingAss | 6 | 0.88 | 0 | 炒作狗 | false | false | i.redd.it |
+| 2025-10-01 17:24 | `1nvehqt` | [要润的大部分人都没必要被什么移民后没法给父母养老的言论PUA](../posts/r_iwanttorun/251001172418_1nvehqt.md) | H3_H2 | 28 | 0.95 | 9 | 讨论 | false | true | self.iwanttorun |
+| 2025-10-01 15:28 | `1nvbc8e` | [老钟小留为啥那么反印度人和非洲人移民](../posts/r_iwanttorun/251001152852_1nvbc8e.md) | H3_H2 | 7 | 0.67 | 4 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-01 07:36 | `1nv1x68` | [你们海外润人能享受到这种福利吗？😁](../posts/r_iwanttorun/251001073616_1nv1x68.md) | hiroshima_fireworks | 14 | 0.82 | 7 | 不懂就问 | false | false | i.redd.it |
+| 2025-10-01 05:06 | `1nuzith` | [现在我90%的工作都让ai做了](../posts/r_iwanttorun/251001050648_1nuzith.md) | Anarco-Statist | 27 | 0.92 | 26 | 分享帖 | false | true | self.iwanttorun |
+| 2025-10-01 01:34 | `1nuvcxa` | [电气大一想润，求建议/打醒](../posts/r_iwanttorun/251001013435_1nuvcxa.md) | Spiritual_Hyena_4068 | 0 | 0.5 | 2 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-09-30 21:42 | `1nuq66n` | [这次k签真的必须支持](../posts/r_iwanttorun/250930214203_1nuq66n.md) | Any-Experience7036 | 13 | 0.93 | 1 | 讨论 | false | true | self.iwanttorun |
+| 2025-09-30 18:22 | `1nukxlm` | [考研自命题改卷真的公平吗？](../posts/r_iwanttorun/250930182236_1nukxlm.md) | Inevitable-Tennis768 | 0 | 0.2 | 3 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-09-30 16:01 | `1nuh5kw` | [各位我想了解现在日本反移民是不是特别严重](../posts/r_iwanttorun/250930160132_1nuh5kw.md) | Ordinary-Warning-316 | 0 | 0.33 | 8 | 讨论 | false | true | self.iwanttorun |
+| 2025-09-30 13:38 | `1nudghi` | [中国强大到底能不能提高华人乃至亚裔在海外的地位？](../posts/r_iwanttorun/250930133830_1nudghi.md) | hiroshima_fireworks | 0 | 0.38 | 18 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-09-30 06:02 | `1nu5fgx` | [我在美国读几年书了，属实性压抑到极点，我都不明白其他亚男怎么保持心理健康的](../posts/r_iwanttorun/250930060223_1nu5fgx.md) | ccp-missionary | 0 | 0.47 | 93 | 讨论 | false | true | self.iwanttorun |
+| 2025-09-30 05:53 | `1nu5a1a` | [报！runtonihon已沦陷！](../posts/r_iwanttorun/250930055316_1nu5a1a.md) | yirongyiburong | 7 | 0.89 | 6 | 分享帖 | false | false | reddit.com |
+| 2025-09-29 20:47 | `1nttkmp` | [移民失败的常见原因 坐标新西兰](../posts/r_iwanttorun/250929204702_1nttkmp.md) | Larry_Liu89 | 13 | 0.93 | 3 | 分享帖 | false | true | self.iwanttorun |
+| 2025-09-29 16:42 | `1ntn1lc` | [立党彻底疯了](../posts/r_iwanttorun/250929164242_1ntn1lc.md) | H3_H2 | 19 | 1.0 | 7 | 炒作狗 | false | true | self.iwanttorun |
+| 2025-09-29 15:57 | `1ntlump` | [这辈子有了](../posts/r_iwanttorun/250929155720_1ntlump.md) | FreeXiJinpingAss | 7 | 0.82 | 3 | 炒作狗 | false | false | i.redd.it |
+| 2025-09-29 13:31 | `1nti3xu` | [澳洲脊柱治疗专业未来请教](../posts/r_iwanttorun/250929133132_1nti3xu.md) | Earthling_03 | 1 | 0.67 | 1 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-09-29 12:55 | `1nth9qi` | [Cabinet to make 10 years the new residency standard to go Dutch - DutchNews.nl](../posts/r_iwanttorun/250929125523_1nth9qi.md) | kyk00525 | 3 | 1.0 | 0 | 分享帖 | false | false | dutchnews.nl |
+| 2025-09-29 11:45 | `1ntfsdm` | [有了解迪拜菠菜行业的吗？ 现在都光明正大在小红书拉人了](../posts/r_iwanttorun/250929114547_1ntfsdm.md) | Individual_Cry9780 | 3 | 0.8 | 4 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-09-29 08:29 | `1ntcmf5` | [脊柱治療專業請教](../posts/r_iwanttorun/250929082933_1ntcmf5.md) | Earthling_03 | 1 | 1.0 | 0 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-09-29 05:55 | `1ntaa31` | [在美国感觉好难，想离开美国但是没钱，抑郁了](../posts/r_iwanttorun/250929055507_1ntaa31.md) | AmountImaginary | 2 | 0.75 | 6 | 分享帖 | false | true | self.iwanttorun |
 | 2025-09-29 04:08 | `1nt8hyn` | [推特上那些反移民推文有几个是真的](../posts/r_iwanttorun/250929040827_1nt8hyn.md) | H3_H2 | 4 | 1.0 | 3 | 不懂就问 | false | true | self.iwanttorun |

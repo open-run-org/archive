@@ -40,23 +40,19 @@ jobs:
         with:
           python-version: "3.x"
           cache: "pip"
-      - name: System deps
-        run: |
+      - run: |
           sudo apt-get update
           sudo apt-get install -y jq pandoc python3-venv
-      - name: Python venv
-        run: |
+      - run: |
           python -m venv .venv
           . .venv/bin/activate
           pip install -U pip
           pip install -r requirements.txt
-      - name: Check secrets
-        run: |
+      - run: |
           test -n "${REDDIT_CLIENT_ID}" || (echo "REDDIT_CLIENT_ID missing" && exit 1)
           test -n "${REDDIT_CLIENT_SECRET}" || (echo "REDDIT_CLIENT_SECRET missing" && exit 1)
           test -n "${REDDIT_USER_AGENT}" || (echo "REDDIT_USER_AGENT missing" && exit 1)
-      - name: Show subreddits
-        run: sed -e 's/\r$//' "${SUBS_FILE}" | sed '/^\s*#/d;/^\s*$/d' | nl -ba || true
+      - run: sed -e 's/\r$//' "${SUBS_FILE}" | sed '/^\s*#/d;/^\s*$/d' | nl -ba || true
       - name: Harvest
         env:
           REDDIT_CLIENT_ID: ${{ env.REDDIT_CLIENT_ID }}
@@ -66,10 +62,14 @@ jobs:
         run: |
           set -euxo pipefail
           bash scripts/harvest.sh "${DATA_ROOT}" "${SUBS_FILE}"
-      - name: JSONL to MD
+      - name: JSONL2MD
         run: |
           set -euxo pipefail
           bash scripts/jsonl2md.sh "${DATA_ROOT}" "${STAGED_ROOT}"
+      - name: gen docs
+        run: |
+          set -euxo pipefail
+          python scripts/materialize_docs.py "$(STAGED_ROOT)" docs
       - name: Commit and push changes
         run: |
           set -euxo pipefail
