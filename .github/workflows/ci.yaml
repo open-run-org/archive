@@ -69,7 +69,7 @@ jobs:
       - name: gen docs
         run: |
           set -euxo pipefail
-          python scripts/materialize_docs.py "$(STAGED_ROOT)" docs
+          python scripts/materialize_docs.py "${STAGED_ROOT}" docs
       - name: Commit and push changes
         run: |
           set -euxo pipefail
