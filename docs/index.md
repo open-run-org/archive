@@ -10,6 +10,9 @@
 
 ## Latest changes
 
+- `r_runEuropaAlliance` `251003014705` [西德這幾年的感受](posts/r_runEuropaAlliance/251002220459_1nwhjyd.md)
+- `r_runEuropaAlliance` `251003014705` [K签证问题为什么让国人破大防。沈逸教授告诉你答案“外国人在华超国民待遇”](posts/r_runEuropaAlliance/251002171550_1nw9tie.md)
+- `r_RunAustralia` `251003014703` [r/RunAustralia 已被纳入红迪归档计划](posts/r_RunAustralia/251002171544_1nw9teo.md)
 - `r_RunAustralia` `251002170123` [兄弟们我打算在国内做几年cnc润澳，麻烦看下我的计划怎么样](posts/r_RunAustralia/250810183716_1mmqb1j.md)
 - `r_RunAustralia` `251002170123` [肉厰工人簽證被拒后燙傷嬰兒逃離澳洲 最新進展](posts/r_RunAustralia/250818023927_1mta3wg.md)
 - `r_RunAustralia` `251002170123` [婴儿潮是如何点燃澳洲的留学学生数量](posts/r_RunAustralia/250731142037_1me2voq.md)
@@ -71,6 +74,3 @@
 - `r_RunAustralia` `251002170122` [耍小聪明想通过换学签 长留澳洲？拒签！](posts/r_RunAustralia/250905142713_1n96r7h.md)
 - `r_RunAustralia` `251002170122` [澳洲大學入學人數創歷史新高](posts/r_RunAustralia/251001132733_1nv86w8.md)
 - `r_RunAustralia` `251002170122` [8月澳洲要求正式公佈，三寶依然堅挺，大健康普遍80分，工程類90+](posts/r_RunAustralia/250902114627_1n6h9v1.md)
-- `r_RunAustralia` `251002170122` [澳洲移民局昨天偷偷发189邀请函了](posts/r_RunAustralia/250822040928_1mwwlq1.md)
-- `r_RunAustralia` `251002170122` [2025-26 年北領地普通技術移民提名申請9月11日開放更新](posts/r_RunAustralia/250913080749_1nfrx1z.md)
-- `r_RunAustralia` `251002170122` [2025年澳洲移民配额发布，和2024年一模一样](posts/r_RunAustralia/250904121202_1n88f70.md)

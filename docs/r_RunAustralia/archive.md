@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-02 17:15 | `1nw9teo` | [r/RunAustralia 已被纳入红迪归档计划](../posts/r_RunAustralia/251002171544_1nw9teo.md) | No-Lab4175 | 1 | 1.0 | 0 |  | false | false |  |
 | 2025-10-02 08:39 | `1nvycbf` | [維多利亞州 2025-26 年技術移民計劃現已開放](../posts/r_RunAustralia/251002083917_1nvycbf.md) | cuter1982 | 1 | 1.0 | 0 |  | false | false | liveinmelbourne.vic.gov.au |
 | 2025-10-02 01:42 | `1nvqx30` | [2023年6月下旬的190，到现在都没下签证](../posts/r_RunAustralia/251002014206_1nvqx30.md) | wangwang2046 | 0 | 0.5 | 6 |  | false | true | self.RunAustralia |
 | 2025-10-02 01:40 | `1nvqw1n` | [刚拿到IT硕offer，但看形式太差，瑟瑟发抖，真诚求建议](../posts/r_RunAustralia/251002014045_1nvqw1n.md) | PresentationThen2228 | 1 | 0.56 | 51 |  | false | true | self.RunAustralia |
