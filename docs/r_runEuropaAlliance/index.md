@@ -4,6 +4,8 @@
 
 ## Latest changes
 
+- `251004014304` [伴随着2025年美国政府的关门，川普的权力达到了空前大的地步。实质上美国已经正式进入集权国家了，甚至在独裁国家的边缘。](../posts/r_runEuropaAlliance/251003034737_1nwouj5.md)
+- `251004014304` [终极讨论——芬兰究竟能不能毕业拿绿卡，本硕拿国籍](../posts/r_runEuropaAlliance/251003175824_1nx6bgu.md)
 - `251003014705` [西德這幾年的感受](../posts/r_runEuropaAlliance/251002220459_1nwhjyd.md)
 - `251003014705` [K签证问题为什么让国人破大防。沈逸教授告诉你答案“外国人在华超国民待遇”](../posts/r_runEuropaAlliance/251002171550_1nw9tie.md)
 - `250930014820` [还有三天美国政府就可能再次关门。现在这个阶段是比谁家更稳而不是更大增长。欧洲和我们澳洲还是稳](../posts/r_runEuropaAlliance/250929101822_1nte9as.md)
@@ -66,5 +68,3 @@
 - `250927160452` [隔壁的r/studium裡面對於計算語言學的討論，hopefully可以回答一下最近sub裡的一些討論](../posts/r_runEuropaAlliance/250727081122_1magwg9.md)
 - `250927160452` [欧陆本科选校跪求建议（荷兰/芬兰/捷克）](../posts/r_runEuropaAlliance/250527142248_1kwojaw.md)
 - `250927160452` [关于法国海外领地一些问题](../posts/r_runEuropaAlliance/250317065629_1jd6omx.md)
-- `250927160452` [德本本科可行不？怎么才能最大化找工的可能性？](../posts/r_runEuropaAlliance/250722055138_1m665f8.md)
-- `250927160452` [临床医学狗润🇩🇪🇳🇱🇧🇪🇱🇺🇫🇷🇬🇧知无不言](../posts/r_runEuropaAlliance/250721225751_1m5xswh.md)

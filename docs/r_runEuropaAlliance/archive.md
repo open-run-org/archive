@@ -2,6 +2,8 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-03 17:58 | `1nx6bgu` | [终极讨论——芬兰究竟能不能毕业拿绿卡，本硕拿国籍](../posts/r_runEuropaAlliance/251003175824_1nx6bgu.md) | Confident-Coconut751 | 11 | 0.92 | 5 | 討論 | Discuss | false | true | self.runEuropaAlliance |
+| 2025-10-03 03:47 | `1nwouj5` | [伴随着2025年美国政府的关门，川普的权力达到了空前大的地步。实质上美国已经正式进入集权国家了，甚至在独裁国家的边缘。](../posts/r_runEuropaAlliance/251003034737_1nwouj5.md) | duck4355555 | 0 | 0.27 | 1 | 分享 | Share | false | false |  |
 | 2025-10-02 22:04 | `1nwhjyd` | [西德這幾年的感受](../posts/r_runEuropaAlliance/251002220459_1nwhjyd.md) | EdwinYZW | 1 | 0.52 | 15 | 分享 | Share | false | true | self.runEuropaAlliance |
 | 2025-10-02 17:15 | `1nw9tie` | [K签证问题为什么让国人破大防。沈逸教授告诉你答案“外国人在华超国民待遇”](../posts/r_runEuropaAlliance/251002171550_1nw9tie.md) | duck4355555 | 1 | 1.0 | 0 | 分享 | Share | true | false | youtu.be |
 | 2025-09-29 18:24 | `1ntpsee` | [波兰移民分享](../posts/r_runEuropaAlliance/250929182436_1ntpsee.md) | Appropriate-Tart2439 | 7 | 0.89 | 9 | 分享 | Share | false | true | self.runEuropaAlliance |

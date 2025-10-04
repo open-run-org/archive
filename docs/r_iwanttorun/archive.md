@@ -2,6 +2,13 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-04 00:27 | `1nxfttu` | [加拿大到底最适合什么样的人润过去？难道真的只有官老爷的二奶和大企业家们可以润过去了吗](../posts/r_iwanttorun/251004002719_1nxfttu.md) | Time_Host_1935 | 3 | 1.0 | 2 | 炒作狗 | false | true | self.iwanttorun |
+| 2025-10-03 18:37 | `1nx7cw1` | [中国邮寄各国集运成本](../posts/r_iwanttorun/251003183717_1nx7cw1.md) | Exciting_Flight_3550 | 4 | 1.0 | 1 | 分享帖 | false | true | self.iwanttorun |
+| 2025-10-03 15:27 | `1nx28rp` | [无耻下作的保利地产在澳洲坑同胞](../posts/r_iwanttorun/251003152736_1nx28rp.md) | Miao906 | 3 | 0.64 | 9 | 不懂就问 | false | false | reddit.com |
+| 2025-10-03 13:05 | `1nwylyj` | [印拿大和中拿大，你们更喜欢哪个？](../posts/r_iwanttorun/251003130543_1nwylyj.md) | hiroshima_fireworks | 0 | 0.25 | 0 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-03 11:49 | `1nwwxi5` | [Shameless and Dishonorable Poly Real Estate from China](../posts/r_iwanttorun/251003114943_1nwwxi5.md) | Miao906 | 1 | 1.0 | 1 | 不懂就问 | false | false | reddit.com |
+| 2025-10-03 09:37 | `1nwujs0` | [零基础法语计划](../posts/r_iwanttorun/251003093723_1nwujs0.md) | ellenchen97 | 11 | 0.92 | 4 | 分享帖 | false | true | self.iwanttorun |
+| 2025-10-03 04:57 | `1nwq42o` | [怎么禁评了呢？](../posts/r_iwanttorun/251003045706_1nwq42o.md) | bigbackclock777 | 16 | 0.83 | 8 | ??? | false | false | i.redd.it |
 | 2025-10-02 13:42 | `1nw454w` | [抗绿老英雄](../posts/r_iwanttorun/251002134243_1nw454w.md) | Undocumented_1649 | 9 | 1.0 | 4 | 分享帖 | false | false | v.redd.it |
 | 2025-10-02 08:42 | `1nvye9m` | [無任何增加要求，維多利亞州 2025-26 年技術移民計劃現已開放](../posts/r_iwanttorun/251002084242_1nvye9m.md) | cuter1982 | 1 | 1.0 | 0 | 分享帖 | false | false | liveinmelbourne.vic.gov.au |
 | 2025-10-02 01:03 | `1nvq37t` | [本版润蛆的终极形态](../posts/r_iwanttorun/251002010322_1nvq37t.md) | Subei-dog-hunter | 4 | 0.83 | 2 | 炒作狗 | false | false | i.redd.it |

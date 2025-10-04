@@ -2,6 +2,9 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-03 12:40 | `1nwy0ve` | [有没有交朋友的](../posts/r_runtoJapan2/251003124032_1nwy0ve.md) | Hot-Reflection-6984 | 1 | 0.67 | 6 |  | false | true | self.runtoJapan2 |
+| 2025-10-03 08:17 | `1nwtb9t` | [分享一个日本政府提供的日常日语学习网站,涵盖了诸多日常生活中的场景，适合初中级水平的人](../posts/r_runtoJapan2/251003081731_1nwtb9t.md) | KaikouZzz | 7 | 0.82 | 2 | 语言学习 | false | true | self.runtoJapan2 |
+| 2025-10-03 08:04 | `1nwt4fr` | [寫點真正幫助潤的日本生活攻略吧](../posts/r_runtoJapan2/251003080457_1nwt4fr.md) | KaikouZzz | 15 | 1.0 | 7 | 经验分享 | false | true | self.runtoJapan2 |
 | 2025-10-02 13:08 | `1nw3atz` | [（答疑）刚正式到日本还没来得及炫就被封sub，欢迎提问](../posts/r_runtoJapan2/251002130800_1nw3atz.md) | 0000ffYakumo | 0 | 0.5 | 4 | 经验分享 | false | true | self.runtoJapan2 |
 | 2025-09-30 14:30 | `1nuer4m` | [【重要声明】r/runtoJapan2 独立运营与合规承诺（非任何社区的转生）  【Non-Affiliation Notice】r/runtoJapan2 is independent and policy-compliant  【合规公告】本社区与任何被封禁/关闭社区无关](../posts/r_runtoJapan2/250930143030_1nuer4m.md) | Acceptable_While2284 | 1 | 1.0 | 1 |  | false | true | self.runtoJapan2 |
 | 2025-09-30 07:43 | `1nu70sl` | [28岁读语言学校考修士还是直接找工作？](../posts/r_runtoJapan2/250930074325_1nu70sl.md) | Odd_Demand_6768 | 2 | 0.62 | 10 | 不懂就问 | false | true | self.runtoJapan2 |
