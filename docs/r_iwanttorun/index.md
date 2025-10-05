@@ -4,6 +4,9 @@
 
 ## Latest changes
 
+- `251005015724` [高市早苗这种极右翼当选首相，会加速日本社会排华吗？](../posts/r_iwanttorun/251004075911_1nxo2oz.md)
+- `251005015724` [日本二润求指导](../posts/r_iwanttorun/251004022607_1nxi7h6.md)
+- `251005015724` [备受鼓舞，震撼人心！润友们，新疆要崛起了，有没有去和田喀什库尔勒的](../posts/r_iwanttorun/251005015140_1nybszy.md)
 - `251004014259` [无耻下作的保利地产在澳洲坑同胞](../posts/r_iwanttorun/251003152736_1nx28rp.md)
 - `251004014259` [加拿大到底最适合什么样的人润过去？难道真的只有官老爷的二奶和大企业家们可以润过去了吗](../posts/r_iwanttorun/251004002719_1nxfttu.md)
 - `251004014259` [怎么禁评了呢？](../posts/r_iwanttorun/251003045706_1nwq42o.md)
@@ -65,6 +68,3 @@
 - `251002170120` [Cinco de Mayo parade canceled in Chicago due to fears over immigration enforcement](../posts/r_iwanttorun/250416125744_1k0jrsl.md)
 - `251002170120` [研究生（第一年）想run求建议](../posts/r_iwanttorun/250412103800_1jxeeea.md)
 - `251002170120` [怎么去朝鲜读网络安全专业？](../posts/r_iwanttorun/250415220227_1k04eay.md)
-- `251002170120` [Report: EC issues burner phones for visits to US](../posts/r_iwanttorun/250418175541_1k2b76o.md)
-- `251002170120` [问一下澳洲雇主担保186那种合约雇靠谱吗？](../posts/r_iwanttorun/250417083027_1k17uod.md)
-- `251002170120` [再成立個極右搭配需要多少年](../posts/r_iwanttorun/250422141852_1k57gs8.md)

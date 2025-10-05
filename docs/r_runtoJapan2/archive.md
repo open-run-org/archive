@@ -2,7 +2,13 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-04 11:03 | `1nxr1d9` | [请问想考取介护福祉士资格是走特定技能还是联系设施由设施提供学费上专门学校好呢](../posts/r_runtoJapan2/251004110330_1nxr1d9.md) | HeatherIcy | 1 | 1.0 | 1 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-04 08:38 | `1nxoowl` | [纸日纸的好日子要来了](../posts/r_runtoJapan2/251004083828_1nxoowl.md) | Shiorin01 | 3 | 0.71 | 7 | 政策新闻 | false | false | i.redd.it |
+| 2025-10-04 05:58 | `1nxm3u2` | [高市早苗赢了](../posts/r_runtoJapan2/251004055841_1nxm3u2.md) | ayakaship123 | 17 | 0.95 | 13 |  | false | true | self.runtoJapan2 |
+| 2025-10-04 04:56 | `1nxl1h2` | [语校小留的一些焦虑](../posts/r_runtoJapan2/251004045610_1nxl1h2.md) | Mountain-Band-1980 | 5 | 0.86 | 6 | 不懂就问 | false | false | reddit.com |
+| 2025-10-04 04:27 | `1nxkixd` | [目前在关东上专门学校 作为一个内向自闭郁郁蹲蛆废物只能说活着好难也好无聊 而且最焦虑的还是不知道怎么继续呆在日本下去](../posts/r_runtoJapan2/251004042703_1nxkixd.md) | zhizhuzhizhutu | 7 | 0.77 | 6 | 聊天吹水 | false | true | self.runtoJapan2 |
 | 2025-10-03 12:40 | `1nwy0ve` | [有没有交朋友的](../posts/r_runtoJapan2/251003124032_1nwy0ve.md) | Hot-Reflection-6984 | 1 | 0.67 | 6 |  | false | true | self.runtoJapan2 |
+| 2025-10-03 11:22 | `1nwwe5a` | [金融润日计划](../posts/r_runtoJapan2/251003112249_1nwwe5a.md) | NovemberRai | 0 | 0.5 | 1 |  | false | true | self.runtoJapan2 |
 | 2025-10-03 08:17 | `1nwtb9t` | [分享一个日本政府提供的日常日语学习网站,涵盖了诸多日常生活中的场景，适合初中级水平的人](../posts/r_runtoJapan2/251003081731_1nwtb9t.md) | KaikouZzz | 7 | 0.82 | 2 | 语言学习 | false | true | self.runtoJapan2 |
 | 2025-10-03 08:04 | `1nwt4fr` | [寫點真正幫助潤的日本生活攻略吧](../posts/r_runtoJapan2/251003080457_1nwt4fr.md) | KaikouZzz | 15 | 1.0 | 7 | 经验分享 | false | true | self.runtoJapan2 |
 | 2025-10-02 13:08 | `1nw3atz` | [（答疑）刚正式到日本还没来得及炫就被封sub，欢迎提问](../posts/r_runtoJapan2/251002130800_1nw3atz.md) | 0000ffYakumo | 0 | 0.5 | 4 | 经验分享 | false | true | self.runtoJapan2 |

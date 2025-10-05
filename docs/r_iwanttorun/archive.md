@@ -2,6 +2,9 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-05 01:51 | `1nybszy` | [备受鼓舞，震撼人心！润友们，新疆要崛起了，有没有去和田喀什库尔勒的](../posts/r_iwanttorun/251005015140_1nybszy.md) | SLucceksful-LAubike | 2 | 1.0 | 0 | 讨论 | false | false | v.redd.it |
+| 2025-10-04 07:59 | `1nxo2oz` | [高市早苗这种极右翼当选首相，会加速日本社会排华吗？](../posts/r_iwanttorun/251004075911_1nxo2oz.md) | hiroshima_fireworks | 0 | 0.35 | 16 | 不懂就问 | false | false | i.redd.it |
+| 2025-10-04 02:26 | `1nxi7h6` | [日本二润求指导](../posts/r_iwanttorun/251004022607_1nxi7h6.md) | Conscious-Manager563 | 0 | 0.47 | 9 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-04 00:27 | `1nxfttu` | [加拿大到底最适合什么样的人润过去？难道真的只有官老爷的二奶和大企业家们可以润过去了吗](../posts/r_iwanttorun/251004002719_1nxfttu.md) | Time_Host_1935 | 3 | 1.0 | 2 | 炒作狗 | false | true | self.iwanttorun |
 | 2025-10-03 18:37 | `1nx7cw1` | [中国邮寄各国集运成本](../posts/r_iwanttorun/251003183717_1nx7cw1.md) | Exciting_Flight_3550 | 4 | 1.0 | 1 | 分享帖 | false | true | self.iwanttorun |
 | 2025-10-03 15:27 | `1nx28rp` | [无耻下作的保利地产在澳洲坑同胞](../posts/r_iwanttorun/251003152736_1nx28rp.md) | Miao906 | 3 | 0.64 | 9 | 不懂就问 | false | false | reddit.com |
