@@ -2,6 +2,13 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-06 00:36 | `1nz4xom` | [听说拍到我🩲了](../posts/r_iwanttorun/251006003607_1nz4xom.md) | liuxu1028 | 0 | 0.14 | 11 | 分享帖 | true | false | reddit.com |
+| 2025-10-05 23:45 | `1nz3u9b` | [【免费咨询】用 AI给“穷哥们”跑了上百条润路，现在我需要帮助。](../posts/r_iwanttorun/251005234515_1nz3u9b.md) | KINCII | 0 | 0.2 | 6 | 炒作狗 | false | true | self.iwanttorun |
+| 2025-10-05 21:30 | `1nz0qlb` | [浪人的困惑](../posts/r_iwanttorun/251005213033_1nz0qlb.md) | Select_Atmosphere630 | 0 | 0.29 | 1 | 讨论 | false | true | self.iwanttorun |
+| 2025-10-05 17:17 | `1nyu2ki` | [润友们，这个该如何反驳捏](../posts/r_iwanttorun/251005171749_1nyu2ki.md) | Legitimate_Gas_7846 | 12 | 0.84 | 18 | 不懂就问 | false | false | i.redd.it |
+| 2025-10-05 10:42 | `1nyky50` | [去法国读工科硕士容易留下来吗](../posts/r_iwanttorun/251005104252_1nyky50.md) | john-poller | 8 | 0.84 | 11 | 不懂就问 | false | false | i.redd.it |
+| 2025-10-05 08:52 | `1nyj5s4` | [留学](../posts/r_iwanttorun/251005085225_1nyj5s4.md) | Historical_Story7241 | 5 | 0.78 | 1 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-05 07:59 | `1nyib7j` | [为什么闹钟的英语闻着有股味？](../posts/r_iwanttorun/251005075912_1nyib7j.md) | bigbackclock777 | 24 | 0.69 | 53 | 讨论 | false | false | reddit.com |
 | 2025-10-05 01:51 | `1nybszy` | [备受鼓舞，震撼人心！润友们，新疆要崛起了，有没有去和田喀什库尔勒的](../posts/r_iwanttorun/251005015140_1nybszy.md) | SLucceksful-LAubike | 2 | 1.0 | 0 | 讨论 | false | false | v.redd.it |
 | 2025-10-04 07:59 | `1nxo2oz` | [高市早苗这种极右翼当选首相，会加速日本社会排华吗？](../posts/r_iwanttorun/251004075911_1nxo2oz.md) | hiroshima_fireworks | 0 | 0.35 | 16 | 不懂就问 | false | false | i.redd.it |
 | 2025-10-04 02:26 | `1nxi7h6` | [日本二润求指导](../posts/r_iwanttorun/251004022607_1nxi7h6.md) | Conscious-Manager563 | 0 | 0.47 | 9 | 不懂就问 | false | true | self.iwanttorun |
