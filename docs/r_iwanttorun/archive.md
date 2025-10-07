@@ -2,6 +2,11 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-07 01:24 | `1o01gmk` | [幽默老日](../posts/r_iwanttorun/251007012415_1o01gmk.md) | neko_canyon | 2 | 1.0 | 0 | ??? | false | false | i.redd.it |
+| 2025-10-06 14:46 | `1nzl2da` | [Oglasio se MUP o nesreći na Dunavu: Kineski državljani pokušali da pređu granicu, jedan stradao](../posts/r_iwanttorun/251006144602_1nzl2da.md) | kyk00525 | 0 | 0.5 | 1 | 分享帖 | false | false | nova.rs |
+| 2025-10-06 14:16 | `1nzk9v8` | [Why is my English so good](../posts/r_iwanttorun/251006141608_1nzk9v8.md) | FreeXiJinpingAss | 0 | 0.22 | 4 | 炒作狗 | false | true | self.iwanttorun |
+| 2025-10-06 09:25 | `1nzecj5` | [盘了个农场开始种地了塞班这里冬瓜一个卖25美金](../posts/r_iwanttorun/251006092538_1nzecj5.md) | ivan_nc | 0 | 0.17 | 2 | 分享帖 | false | true | self.iwanttorun |
+| 2025-10-06 03:36 | `1nz8mu4` | [畢業申請485簽證 忘記勾選無犯罪申請被拒簽](../posts/r_iwanttorun/251006033621_1nz8mu4.md) | cuter1982 | 2 | 0.75 | 0 | 分享帖 | false | false | youtube.com |
 | 2025-10-06 00:36 | `1nz4xom` | [听说拍到我🩲了](../posts/r_iwanttorun/251006003607_1nz4xom.md) | liuxu1028 | 0 | 0.14 | 11 | 分享帖 | true | false | reddit.com |
 | 2025-10-05 23:45 | `1nz3u9b` | [【免费咨询】用 AI给“穷哥们”跑了上百条润路，现在我需要帮助。](../posts/r_iwanttorun/251005234515_1nz3u9b.md) | KINCII | 0 | 0.2 | 6 | 炒作狗 | false | true | self.iwanttorun |
 | 2025-10-05 21:30 | `1nz0qlb` | [浪人的困惑](../posts/r_iwanttorun/251005213033_1nz0qlb.md) | Select_Atmosphere630 | 0 | 0.29 | 1 | 讨论 | false | true | self.iwanttorun |

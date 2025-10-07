@@ -4,6 +4,7 @@
 
 ## Latest changes
 
+- `251007014930` [去法国读工科硕士容易留下来吗](../posts/r_runEuropaAlliance/251006103328_1nzffeb.md)
 - `251005015727` [Cs本科，有没有推荐的国家硕士](../posts/r_runEuropaAlliance/251004133253_1nxu4bu.md)
 - `251004014304` [伴随着2025年美国政府的关门，川普的权力达到了空前大的地步。实质上美国已经正式进入集权国家了，甚至在独裁国家的边缘。](../posts/r_runEuropaAlliance/251003034737_1nwouj5.md)
 - `251004014304` [终极讨论——芬兰究竟能不能毕业拿绿卡，本硕拿国籍](../posts/r_runEuropaAlliance/251003175824_1nx6bgu.md)
@@ -67,4 +68,3 @@
 - `250927160452` [北欧留学问题请教，求建议](../posts/r_runEuropaAlliance/250505003908_1keyxwa.md)
 - `250927160452` [求助｜17岁体制内高二，目标27秋欧陆CS/工科，预算≤40w；看上意大利Bocconi（ISEE-U或许全免+补助），要不要刷SAT更稳？](../posts/r_runEuropaAlliance/250917130925_1njcpyj.md)
 - `250927160452` [隔壁的r/studium裡面對於計算語言學的討論，hopefully可以回答一下最近sub裡的一些討論](../posts/r_runEuropaAlliance/250727081122_1magwg9.md)
-- `250927160452` [欧陆本科选校跪求建议（荷兰/芬兰/捷克）](../posts/r_runEuropaAlliance/250527142248_1kwojaw.md)

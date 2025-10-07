@@ -2,6 +2,11 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-06 15:45 | `1nzmoez` | [问就不懂](../posts/r_runtoJapan2/251006154502_1nzmoez.md) | MINSEA01 | 0 | 0.5 | 11 | 不懂就问 | false | false | i.redd.it |
+| 2025-10-06 13:57 | `1nzjslp` | [求润日高手指点](../posts/r_runtoJapan2/251006135742_1nzjslp.md) | Key-Collar989 | 3 | 0.8 | 29 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-06 10:53 | `1nzfrqo` | [想问一下学长学姐们](../posts/r_runtoJapan2/251006105314_1nzfrqo.md) | hiraeth_Look_420 | 2 | 1.0 | 2 |  | false | true | self.runtoJapan2 |
+| 2025-10-06 10:32 | `1nzfert` | [横滨哪个住起来比较舒服](../posts/r_runtoJapan2/251006103231_1nzfert.md) | Prize-Quiet-8730 | 1 | 1.0 | 4 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-06 03:28 | `1nz8h7x` | [聊聊我知道的华人派遣](../posts/r_runtoJapan2/251006032817_1nz8h7x.md) | KingSubstantial3046 | 7 | 0.82 | 6 |  | false | true | self.runtoJapan2 |
 | 2025-10-05 18:33 | `1nyw3f3` | [穷润求指点](../posts/r_runtoJapan2/251005183301_1nyw3f3.md) | MindlessDamage3214 | 0 | 0.4 | 4 |  | false | true | self.runtoJapan2 |
 | 2025-10-05 17:30 | `1nyuf7b` | [之前有个浏览器日语插件的帖子，友友们有留存么，十分感谢](../posts/r_runtoJapan2/251005173052_1nyuf7b.md) | Gullible-Language634 | 2 | 1.0 | 3 |  | false | true | self.runtoJapan2 |
 | 2025-10-05 11:10 | `1nylfci` | [欧本润日规划](../posts/r_runtoJapan2/251005111048_1nylfci.md) | Future-Requirement50 | 5 | 1.0 | 11 | 不懂就问 | false | true | self.runtoJapan2 |
