@@ -2,6 +2,11 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-07 23:58 | `1o0vgpv` | [还走线欧洲吗](../posts/r_iwanttorun/251007235805_1o0vgpv.md) | Undocumented_1649 | 3 | 1.0 | 0 | 分享帖 | false | true | self.iwanttorun |
+| 2025-10-07 20:10 | `1o0priq` | [新西兰雇主担保需要多少钱](../posts/r_iwanttorun/251007201009_1o0priq.md) | Savings-Regret-1525 | 4 | 0.75 | 11 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-07 17:53 | `1o0lza1` | [现在的AI agent都在故意降低代码的readability好让用户形成依赖方便捞钱](../posts/r_iwanttorun/251007175338_1o0lza1.md) | FreeXiJinpingAss | 5 | 0.78 | 0 | 讨论 | false | true | self.iwanttorun |
+| 2025-10-07 15:58 | `1o0irme` | [24岁澳洲老鼠留求指导](../posts/r_iwanttorun/251007155814_1o0irme.md) | MudNo6250 | 4 | 0.84 | 2 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-07 07:17 | `1o0806n` | [分享生活](../posts/r_iwanttorun/251007071750_1o0806n.md) | liuxu1028 | 0 | 0.21 | 9 | 分享帖 | true | false | reddit.com |
 | 2025-10-07 01:24 | `1o01gmk` | [幽默老日](../posts/r_iwanttorun/251007012415_1o01gmk.md) | neko_canyon | 2 | 1.0 | 0 | ??? | false | false | i.redd.it |
 | 2025-10-06 14:46 | `1nzl2da` | [Oglasio se MUP o nesreći na Dunavu: Kineski državljani pokušali da pređu granicu, jedan stradao](../posts/r_iwanttorun/251006144602_1nzl2da.md) | kyk00525 | 0 | 0.5 | 1 | 分享帖 | false | false | nova.rs |
 | 2025-10-06 14:16 | `1nzk9v8` | [Why is my English so good](../posts/r_iwanttorun/251006141608_1nzk9v8.md) | FreeXiJinpingAss | 0 | 0.22 | 4 | 炒作狗 | false | true | self.iwanttorun |

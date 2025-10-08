@@ -2,6 +2,11 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-08 00:43 | `1o0wgg6` | [奈良的鹿是不是有些被过度神化了？](../posts/r_runtoJapan2/251008004333_1o0wgg6.md) | Salt-Philosopher1071 | 2 | 1.0 | 1 |  | false | false | reddit.com |
+| 2025-10-07 22:38 | `1o0tm6y` | [一个关于东京音乐大学的故事](../posts/r_runtoJapan2/251007223810_1o0tm6y.md) | zhizhuzhizhutu | 1 | 0.56 | 3 | 杂谈 | false | true | self.runtoJapan2 |
+| 2025-10-07 07:33 | `1o088om` | [魔怔tv之友友们如何在御三家实现地中海饮食](../posts/r_runtoJapan2/251007073309_1o088om.md) | Gullible-Language634 | 7 | 1.0 | 21 |  | false | true | self.runtoJapan2 |
+| 2025-10-07 07:26 | `1o084tr` | [谁家支黑](../posts/r_runtoJapan2/251007072608_1o084tr.md) | monnsann | 2 | 0.6 | 7 | 聊天吹水 | false | false | i.redd.it |
+| 2025-10-07 06:06 | `1o06ve0` | [高市：我要明确说明，我反对移民政策](../posts/r_runtoJapan2/251007060636_1o06ve0.md) | Odd_College_759 | 56 | 0.89 | 42 |  | false | false | v.redd.it |
 | 2025-10-06 15:45 | `1nzmoez` | [问就不懂](../posts/r_runtoJapan2/251006154502_1nzmoez.md) | MINSEA01 | 0 | 0.5 | 11 | 不懂就问 | false | false | i.redd.it |
 | 2025-10-06 13:57 | `1nzjslp` | [求润日高手指点](../posts/r_runtoJapan2/251006135742_1nzjslp.md) | Key-Collar989 | 3 | 0.8 | 29 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-06 10:53 | `1nzfrqo` | [想问一下学长学姐们](../posts/r_runtoJapan2/251006105314_1nzfrqo.md) | hiraeth_Look_420 | 2 | 1.0 | 2 |  | false | true | self.runtoJapan2 |

@@ -4,6 +4,11 @@
 
 ## Latest changes
 
+- `251008014807` [24岁澳洲老鼠留求指导](../posts/r_iwanttorun/251007155814_1o0irme.md)
+- `251008014807` [还走线欧洲吗](../posts/r_iwanttorun/251007235805_1o0vgpv.md)
+- `251008014807` [新西兰雇主担保需要多少钱](../posts/r_iwanttorun/251007201009_1o0priq.md)
+- `251008014807` [现在的AI agent都在故意降低代码的readability好让用户形成依赖方便捞钱](../posts/r_iwanttorun/251007175338_1o0lza1.md)
+- `251008014807` [分享生活](../posts/r_iwanttorun/251007071750_1o0806n.md)
 - `251007014926` [Oglasio se MUP o nesreći na Dunavu: Kineski državljani pokušali da pređu granicu, jedan stradao](../posts/r_iwanttorun/251006144602_1nzl2da.md)
 - `251007014926` [幽默老日](../posts/r_iwanttorun/251007012415_1o01gmk.md)
 - `251007014926` [盘了个农场开始种地了塞班这里冬瓜一个卖25美金](../posts/r_iwanttorun/251006092538_1nzecj5.md)
@@ -63,8 +68,3 @@
 - `251002170120` [出口国货换标签业务的老板是不是赚麻了](../posts/r_iwanttorun/250409201508_1jvfliw.md)
 - `251002170120` [热知识你sub大部分川普炒作贴都是这个炒作曲在发，不想被贩卖焦虑的赶紧b了](../posts/r_iwanttorun/250408195042_1jumrue.md)
 - `251002170120` [导师只花了六分钟提交推荐信](../posts/r_iwanttorun/250414095157_1jyv1fk.md)
-- `251002170120` [有人办过绿名单新西兰移民么](../posts/r_iwanttorun/250410111538_1jvvddi.md)
-- `251002170120` [中国人是没有祖国和民族的，但凡还没认识到这一点，就不要润](../posts/r_iwanttorun/250412072153_1jxbr20.md)
-- `251002170120` [潤友要不要來台灣賣屁眼](../posts/r_iwanttorun/250421065552_1k4791u.md)
-- `251002170120` [多伦多大学密西沙加校区ccit专业和约克大学 数字媒体专业 怎么选啊](../posts/r_iwanttorun/250422201838_1k5get7.md)
-- `251002170120` [上次成功了 來個梅開二度？](../posts/r_iwanttorun/250409114014_1jv3o86.md)
