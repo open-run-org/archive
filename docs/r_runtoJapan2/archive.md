@@ -2,6 +2,10 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-08 16:46 | `1o1ftic` | [求润日前辈指点！](../posts/r_runtoJapan2/251008164628_1o1ftic.md) | Fun_Access9754 | 3 | 1.0 | 9 |  | false | true | self.runtoJapan2 |
+| 2025-10-08 16:02 | `1o1en21` | [想问一下各位关于「留学」转「就职签证」的内容](../posts/r_runtoJapan2/251008160253_1o1en21.md) | Salt-Philosopher1071 | 1 | 1.0 | 4 | 不懂就问 | false | false | reddit.com |
+| 2025-10-08 08:40 | `1o152gf` | [拔土豆～](../posts/r_runtoJapan2/251008084033_1o152gf.md) | HonestzPractice | 7 | 0.77 | 4 | 日常生活 | false | false | i.redd.it |
+| 2025-10-08 03:20 | `1o0zpoq` | [有Discord交流群吗](../posts/r_runtoJapan2/251008032038_1o0zpoq.md) | whatanywayever | 8 | 0.89 | 9 | 聊天吹水 | false | true | self.runtoJapan2 |
 | 2025-10-08 00:43 | `1o0wgg6` | [奈良的鹿是不是有些被过度神化了？](../posts/r_runtoJapan2/251008004333_1o0wgg6.md) | Salt-Philosopher1071 | 2 | 1.0 | 1 |  | false | false | reddit.com |
 | 2025-10-07 22:38 | `1o0tm6y` | [一个关于东京音乐大学的故事](../posts/r_runtoJapan2/251007223810_1o0tm6y.md) | zhizhuzhizhutu | 1 | 0.56 | 3 | 杂谈 | false | true | self.runtoJapan2 |
 | 2025-10-07 07:33 | `1o088om` | [魔怔tv之友友们如何在御三家实现地中海饮食](../posts/r_runtoJapan2/251007073309_1o088om.md) | Gullible-Language634 | 7 | 1.0 | 21 |  | false | true | self.runtoJapan2 |
@@ -14,6 +18,7 @@
 | 2025-10-06 03:28 | `1nz8h7x` | [聊聊我知道的华人派遣](../posts/r_runtoJapan2/251006032817_1nz8h7x.md) | KingSubstantial3046 | 7 | 0.82 | 6 |  | false | true | self.runtoJapan2 |
 | 2025-10-05 18:33 | `1nyw3f3` | [穷润求指点](../posts/r_runtoJapan2/251005183301_1nyw3f3.md) | MindlessDamage3214 | 0 | 0.4 | 4 |  | false | true | self.runtoJapan2 |
 | 2025-10-05 17:30 | `1nyuf7b` | [之前有个浏览器日语插件的帖子，友友们有留存么，十分感谢](../posts/r_runtoJapan2/251005173052_1nyuf7b.md) | Gullible-Language634 | 2 | 1.0 | 3 |  | false | true | self.runtoJapan2 |
+| 2025-10-05 14:48 | `1nyq5uv` | [想问下这个日语播客网站有没有推荐的频道](../posts/r_runtoJapan2/251005144803_1nyq5uv.md) | whatanywayever | 1 | 1.0 | 1 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-05 11:10 | `1nylfci` | [欧本润日规划](../posts/r_runtoJapan2/251005111048_1nylfci.md) | Future-Requirement50 | 5 | 1.0 | 11 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-04 11:03 | `1nxr1d9` | [请问想考取介护福祉士资格是走特定技能还是联系设施由设施提供学费上专门学校好呢](../posts/r_runtoJapan2/251004110330_1nxr1d9.md) | HeatherIcy | 1 | 1.0 | 1 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-04 08:38 | `1nxoowl` | [纸日纸的好日子要来了](../posts/r_runtoJapan2/251004083828_1nxoowl.md) | Shiorin01 | 3 | 0.71 | 7 | 政策新闻 | false | false | i.redd.it |

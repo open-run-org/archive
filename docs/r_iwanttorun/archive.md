@@ -2,6 +2,14 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-08 22:25 | `1o1p9on` | [我这样的中登还有哪些路线可选](../posts/r_iwanttorun/251008222503_1o1p9on.md) | ducazzZ | 2 | 0.67 | 7 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-08 21:57 | `1o1ompy` | [限制出境/边控人士可协助出境](../posts/r_iwanttorun/251008215752_1o1ompy.md) | visaall | 0 | 0.43 | 1 | 分享帖 | false | true | self.iwanttorun |
+| 2025-10-08 19:03 | `1o1jpqn` | [大佬们给点建议，我这情况怎么润？](../posts/r_iwanttorun/251008190328_1o1jpqn.md) | Lonely_Run_7808 | 0 | 0.5 | 16 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-08 18:08 | `1o1i3dj` | [加拿大物理治疗师好移民吗](../posts/r_iwanttorun/251008180838_1o1i3dj.md) | Even-Emu-1600 | 0 | 0.33 | 5 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-08 13:22 | `1o1adrm` | [英国留学肛裂预约难等回国治疗，这也太幽默了，不管事出何因，都让人浮想联翩啊](../posts/r_iwanttorun/251008132257_1o1adrm.md) | uniyk | 1 | 0.57 | 1 | ??? | false | false | v.redd.it |
+| 2025-10-08 12:58 | `1o19ry8` | [求问我这种情况怎么润](../posts/r_iwanttorun/251008125829_1o19ry8.md) | Particular-Buy5725 | 3 | 0.67 | 25 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-08 10:36 | `1o16wct` | [比哈奇有队友吗](../posts/r_iwanttorun/251008103648_1o16wct.md) | Ok_Mechanic6916 | 0 | 0.33 | 2 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-08 04:00 | `1o10gxx` | [我这种心理是不是已经逐渐病态了😩](../posts/r_iwanttorun/251008040024_1o10gxx.md) | Savings-Regret-1525 | 6 | 0.56 | 58 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-07 23:58 | `1o0vgpv` | [还走线欧洲吗](../posts/r_iwanttorun/251007235805_1o0vgpv.md) | Undocumented_1649 | 3 | 1.0 | 0 | 分享帖 | false | true | self.iwanttorun |
 | 2025-10-07 20:10 | `1o0priq` | [新西兰雇主担保需要多少钱](../posts/r_iwanttorun/251007201009_1o0priq.md) | Savings-Regret-1525 | 4 | 0.75 | 11 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-07 17:53 | `1o0lza1` | [现在的AI agent都在故意降低代码的readability好让用户形成依赖方便捞钱](../posts/r_iwanttorun/251007175338_1o0lza1.md) | FreeXiJinpingAss | 5 | 0.78 | 0 | 讨论 | false | true | self.iwanttorun |

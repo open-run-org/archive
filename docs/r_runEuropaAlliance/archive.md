@@ -2,7 +2,10 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-08 18:19 | `1o1idmz` | [法国高商本科怎么留下来](../posts/r_runEuropaAlliance/251008181902_1o1idmz.md) | Forward-Guess-6534 | 0 | 0.33 | 21 | 討論 | Discuss | false | true | self.runEuropaAlliance |
 | 2025-10-06 10:33 | `1nzffeb` | [去法国读工科硕士容易留下来吗](../posts/r_runEuropaAlliance/251006103328_1nzffeb.md) | john-poller | 0 | 0.5 | 18 | 提問 | Ask | false | false | i.redd.it |
+| 2025-10-05 21:32 | `1nz0std` | [润欧心理学：睡觉，赌徒和人生的筹码](../posts/r_runEuropaAlliance/251005213258_1nz0std.md) | No-Entrance-2763 | 10 | 1.0 | 10 | 分享 | Share | false | true | self.runEuropaAlliance |
+| 2025-10-05 08:42 | `1nyj0el` | [荷兰庇护人员现身说法了 来吧](../posts/r_runEuropaAlliance/251005084256_1nyj0el.md) | Hot_Chemist4259 | 14 | 1.0 | 11 | 討論 | Discuss | false | true | self.runEuropaAlliance |
 | 2025-10-04 13:32 | `1nxu4bu` | [Cs本科，有没有推荐的国家硕士](../posts/r_runEuropaAlliance/251004133253_1nxu4bu.md) | Icy-Biscotti-6303 | 0 | 0.22 | 9 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-10-03 17:58 | `1nx6bgu` | [终极讨论——芬兰究竟能不能毕业拿绿卡，本硕拿国籍](../posts/r_runEuropaAlliance/251003175824_1nx6bgu.md) | Confident-Coconut751 | 11 | 0.92 | 5 | 討論 | Discuss | false | true | self.runEuropaAlliance |
 | 2025-10-03 03:47 | `1nwouj5` | [伴随着2025年美国政府的关门，川普的权力达到了空前大的地步。实质上美国已经正式进入集权国家了，甚至在独裁国家的边缘。](../posts/r_runEuropaAlliance/251003034737_1nwouj5.md) | duck4355555 | 0 | 0.27 | 1 | 分享 | Share | false | false |  |

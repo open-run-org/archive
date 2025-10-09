@@ -4,6 +4,9 @@
 
 ## Latest changes
 
+- `251009014850` [法国高商本科怎么留下来](../posts/r_runEuropaAlliance/251008181902_1o1idmz.md)
+- `251009014850` [荷兰庇护人员现身说法了 来吧](../posts/r_runEuropaAlliance/251005084256_1nyj0el.md)
+- `251009014850` [润欧心理学：睡觉，赌徒和人生的筹码](../posts/r_runEuropaAlliance/251005213258_1nz0std.md)
 - `251007014930` [去法国读工科硕士容易留下来吗](../posts/r_runEuropaAlliance/251006103328_1nzffeb.md)
 - `251005015727` [Cs本科，有没有推荐的国家硕士](../posts/r_runEuropaAlliance/251004133253_1nxu4bu.md)
 - `251004014304` [伴随着2025年美国政府的关门，川普的权力达到了空前大的地步。实质上美国已经正式进入集权国家了，甚至在独裁国家的边缘。](../posts/r_runEuropaAlliance/251003034737_1nwouj5.md)
@@ -65,6 +68,3 @@
 - `250927160452` [地缘政治老嗨进！欧洲会有可能打仗吗？最近万斯已经明确弃欧了，下周一欧洲也要开会讨论组建欧洲联军](../posts/r_runEuropaAlliance/250216100323_1iqp4dx.md)
 - `250927160452` [求助，北美CS本科润欧（主要法国）来个欧老嗨](../posts/r_runEuropaAlliance/250920002947_1nlk4y7.md)
 - `250927160452` [求润德国博士规划](../posts/r_runEuropaAlliance/250729013651_1mbynzz.md)
-- `250927160452` [北欧留学问题请教，求建议](../posts/r_runEuropaAlliance/250505003908_1keyxwa.md)
-- `250927160452` [求助｜17岁体制内高二，目标27秋欧陆CS/工科，预算≤40w；看上意大利Bocconi（ISEE-U或许全免+补助），要不要刷SAT更稳？](../posts/r_runEuropaAlliance/250917130925_1njcpyj.md)
-- `250927160452` [隔壁的r/studium裡面對於計算語言學的討論，hopefully可以回答一下最近sub裡的一些討論](../posts/r_runEuropaAlliance/250727081122_1magwg9.md)
