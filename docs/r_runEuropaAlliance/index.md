@@ -4,6 +4,7 @@
 
 ## Latest changes
 
+- `251010014934` [潤歐陸建議](../posts/r_runEuropaAlliance/251009151721_1o28p7d.md)
 - `251009014850` [法国高商本科怎么留下来](../posts/r_runEuropaAlliance/251008181902_1o1idmz.md)
 - `251009014850` [荷兰庇护人员现身说法了 来吧](../posts/r_runEuropaAlliance/251005084256_1nyj0el.md)
 - `251009014850` [润欧心理学：睡觉，赌徒和人生的筹码](../posts/r_runEuropaAlliance/251005213258_1nz0std.md)
@@ -67,4 +68,3 @@
 - `250927160452` [edit:你sub马上完蛋了](../posts/r_runEuropaAlliance/250721014419_1m569cs.md)
 - `250927160452` [地缘政治老嗨进！欧洲会有可能打仗吗？最近万斯已经明确弃欧了，下周一欧洲也要开会讨论组建欧洲联军](../posts/r_runEuropaAlliance/250216100323_1iqp4dx.md)
 - `250927160452` [求助，北美CS本科润欧（主要法国）来个欧老嗨](../posts/r_runEuropaAlliance/250920002947_1nlk4y7.md)
-- `250927160452` [求润德国博士规划](../posts/r_runEuropaAlliance/250729013651_1mbynzz.md)

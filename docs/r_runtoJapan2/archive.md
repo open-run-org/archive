@@ -2,6 +2,11 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-10 01:19 | `1o2nmce` | [最近怎么了，怎么感觉甚至一堆美本澳本都想润日本，日本真的留越来越卷了](../posts/r_runtoJapan2/251010011909_1o2nmce.md) | DevelopmentThen5716 | 1 | 0.67 | 2 | 杂谈 | false | true | self.runtoJapan2 |
+| 2025-10-09 16:58 | `1o2beal` | [期待公明党脱离连立](../posts/r_runtoJapan2/251009165821_1o2beal.md) | ayakaship123 | 0 | 0.5 | 4 |  | false | true | self.runtoJapan2 |
+| 2025-10-09 07:51 | `1o1zys7` | [请问托业和托福的成绩是所有大学都承认的吗？](../posts/r_runtoJapan2/251009075128_1o1zys7.md) | Any-Introduction9384 | 4 | 0.84 | 5 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-09 02:32 | `1o1ukgj` | [求润日路径](../posts/r_runtoJapan2/251009023232_1o1ukgj.md) | PlentyOk284 | 0 | 0.38 | 8 |  | false | true | self.runtoJapan2 |
+| 2025-10-09 01:55 | `1o1ttbp` | [来自日本人的留言](../posts/r_runtoJapan2/251009015557_1o1ttbp.md) | nanto-1633 | 92 | 0.96 | 115 |  | false | true | self.runtoJapan2 |
 | 2025-10-08 16:46 | `1o1ftic` | [求润日前辈指点！](../posts/r_runtoJapan2/251008164628_1o1ftic.md) | Fun_Access9754 | 3 | 1.0 | 9 |  | false | true | self.runtoJapan2 |
 | 2025-10-08 16:02 | `1o1en21` | [想问一下各位关于「留学」转「就职签证」的内容](../posts/r_runtoJapan2/251008160253_1o1en21.md) | Salt-Philosopher1071 | 1 | 1.0 | 4 | 不懂就问 | false | false | reddit.com |
 | 2025-10-08 08:40 | `1o152gf` | [拔土豆～](../posts/r_runtoJapan2/251008084033_1o152gf.md) | HonestzPractice | 7 | 0.77 | 4 | 日常生活 | false | false | i.redd.it |

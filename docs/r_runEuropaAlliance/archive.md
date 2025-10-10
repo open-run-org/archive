@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-09 15:17 | `1o28p7d` | [潤歐陸建議](../posts/r_runEuropaAlliance/251009151721_1o28p7d.md) | rotxtoxcore | 6 | 0.75 | 43 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-10-08 18:19 | `1o1idmz` | [法国高商本科怎么留下来](../posts/r_runEuropaAlliance/251008181902_1o1idmz.md) | Forward-Guess-6534 | 0 | 0.33 | 21 | 討論 | Discuss | false | true | self.runEuropaAlliance |
 | 2025-10-06 10:33 | `1nzffeb` | [去法国读工科硕士容易留下来吗](../posts/r_runEuropaAlliance/251006103328_1nzffeb.md) | john-poller | 0 | 0.5 | 18 | 提問 | Ask | false | false | i.redd.it |
 | 2025-10-05 21:32 | `1nz0std` | [润欧心理学：睡觉，赌徒和人生的筹码](../posts/r_runEuropaAlliance/251005213258_1nz0std.md) | No-Entrance-2763 | 10 | 1.0 | 10 | 分享 | Share | false | true | self.runEuropaAlliance |

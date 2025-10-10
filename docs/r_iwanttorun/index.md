@@ -4,6 +4,12 @@
 
 ## Latest changes
 
+- `251010014929` [中国移动CMLINK意大利卡可以买吗？](../posts/r_iwanttorun/251009033820_1o1vudi.md)
+- `251010014929` [美國有maga，台灣有青鳥，大陸有粉紅，日本有什麼](../posts/r_iwanttorun/251009174009_1o2cimn.md)
+- `251010014929` [今天要說什麼啊](../posts/r_iwanttorun/251009173838_1o2ch7o.md)
+- `251010014929` [兄弟萌，潤墨西哥怎么说？](../posts/r_iwanttorun/251009091326_1o215ve.md)
+- `251010014929` [r/runtojapan怎么没了？](../posts/r_iwanttorun/251009125743_1o2583t.md)
+- `251010014929` [文科靠自己想润想有希望吗](../posts/r_iwanttorun/251009140551_1o26ue9.md)
 - `251009014846` [求问我这种情况怎么润](../posts/r_iwanttorun/251008125829_1o19ry8.md)
 - `251009014846` [限制出境/边控人士可协助出境](../posts/r_iwanttorun/251008215752_1o1ompy.md)
 - `251009014846` [大佬们给点建议，我这情况怎么润？](../posts/r_iwanttorun/251008190328_1o1jpqn.md)
@@ -62,9 +68,3 @@
 - `251002170120` [中國人快去買機票吧... 川普：我們需要非法移民來美工作](../posts/r_iwanttorun/250411023909_1jwfm32.md)
 - `251002170120` [台灣台北怎麼樣，說說他的缺點](../posts/r_iwanttorun/250424033649_1k6ioiy.md)
 - `251002170120` [求助｜因过往arrest记录被终止SEVIS，面临离境，是否有转身份或其他合法途径？](../posts/r_iwanttorun/250409073929_1jv06zt.md)
-- `251002170120` [The unexamined life is not worth living.](../posts/r_iwanttorun/250421090424_1k491bd.md)
-- `251002170120` [【求建议】暑研和博士申请能不能同时套磁？](../posts/r_iwanttorun/250418014735_1k1tjyj.md)
-- `251002170120` [求西班牙语大手指导](../posts/r_iwanttorun/250411014007_1jwei3r.md)
-- `251002170120` [多大中国小瘤惨遭开除](../posts/r_iwanttorun/250413040023_1jxz4q5.md)
-- `251002170120` [笑死](../posts/r_iwanttorun/250418131531_1k24o3b.md)
-- `251002170120` [这个sub里面说新西兰whv随便抢的，给老子滚出来](../posts/r_iwanttorun/250412031400_1jx7wk1.md)

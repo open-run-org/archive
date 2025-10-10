@@ -2,6 +2,12 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-09 17:40 | `1o2cimn` | [美國有maga，台灣有青鳥，大陸有粉紅，日本有什麼](../posts/r_iwanttorun/251009174009_1o2cimn.md) | this0great | 6 | 0.71 | 1 | 讨论 | true | false | i.redd.it |
+| 2025-10-09 17:38 | `1o2ch7o` | [今天要說什麼啊](../posts/r_iwanttorun/251009173838_1o2ch7o.md) | this0great | 7 | 0.9 | 0 | 讨论 | false | false | i.redd.it |
+| 2025-10-09 14:05 | `1o26ue9` | [文科靠自己想润想有希望吗](../posts/r_iwanttorun/251009140551_1o26ue9.md) | MathildeJQ | 0 | 0.17 | 12 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-09 12:57 | `1o2583t` | [r/runtojapan怎么没了？](../posts/r_iwanttorun/251009125743_1o2583t.md) | Most_Ingenuity_2591 | 1 | 0.57 | 3 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-09 09:13 | `1o215ve` | [兄弟萌，潤墨西哥怎么说？](../posts/r_iwanttorun/251009091326_1o215ve.md) | Worthy-gaylord69 | 3 | 0.67 | 18 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-09 03:38 | `1o1vudi` | [中国移动CMLINK意大利卡可以买吗？](../posts/r_iwanttorun/251009033820_1o1vudi.md) | liuxu1028 | 0 | 0.5 | 0 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-08 22:25 | `1o1p9on` | [我这样的中登还有哪些路线可选](../posts/r_iwanttorun/251008222503_1o1p9on.md) | ducazzZ | 2 | 0.67 | 7 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-08 21:57 | `1o1ompy` | [限制出境/边控人士可协助出境](../posts/r_iwanttorun/251008215752_1o1ompy.md) | visaall | 0 | 0.43 | 1 | 分享帖 | false | true | self.iwanttorun |
 | 2025-10-08 19:03 | `1o1jpqn` | [大佬们给点建议，我这情况怎么润？](../posts/r_iwanttorun/251008190328_1o1jpqn.md) | Lonely_Run_7808 | 0 | 0.5 | 16 | 不懂就问 | false | true | self.iwanttorun |
