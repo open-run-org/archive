@@ -4,6 +4,12 @@
 
 ## Latest changes
 
+- `251011014505` [想向润友请教关于二润](../posts/r_iwanttorun/251010045936_1o2rz6u.md)
+- `251011014505` [你澳猾人开的店有正常的吗](../posts/r_iwanttorun/251010025219_1o2pjb9.md)
+- `251011014505` [那些来中国留学的外国人一般学什么专业？](../posts/r_iwanttorun/251011012937_1o3ixvq.md)
+- `251011014505` [An efficient job tool for automated resumes and task tracking, helping users track jobs, companies, and contacts smoothly  Luckykoi](../posts/r_iwanttorun/251010120523_1o2z1he.md)
+- `251011014505` [瑞士多座机场将启用申根区新出入境系统](../posts/r_iwanttorun/251010080006_1o2uvs5.md)
+- `251011014505` [在川主席的领导下，印度学签发放量暴跌44%](../posts/r_iwanttorun/251011000757_1o3h9ne.md)
 - `251010014929` [中国移动CMLINK意大利卡可以买吗？](../posts/r_iwanttorun/251009033820_1o1vudi.md)
 - `251010014929` [美國有maga，台灣有青鳥，大陸有粉紅，日本有什麼](../posts/r_iwanttorun/251009174009_1o2cimn.md)
 - `251010014929` [今天要說什麼啊](../posts/r_iwanttorun/251009173838_1o2ch7o.md)
@@ -62,9 +68,3 @@
 - `251002170120` [美国的ATM为什么就他妈的不联网？？？真他妈的气死我了！！！](../posts/r_iwanttorun/250416134030_1k0kp11.md)
 - `251002170120` [分享一个小众润法，成功率极高](../posts/r_iwanttorun/250415202104_1k020x7.md)
 - `251002170120` [非法移民能抱团武德充沛ICE不敢抓，只敢去学校里抓F1费拉原子人](../posts/r_iwanttorun/250411165541_1jwupks.md)
-- `251002170120` [关税加到150%   天朝经济彻底崩溃，  天朝十亿屁民迎来快乐的吃草日子](../posts/r_iwanttorun/250411170312_1jwuw9h.md)
-- `251002170120` [Calls for investigation into axed golden visa scheme](../posts/r_iwanttorun/250415124333_1jzqxwy.md)
-- `251002170120` [本周讨论区 - 2022年6月3日](../posts/r_iwanttorun/250418122607_1k23opw.md)
-- `251002170120` [中國人快去買機票吧... 川普：我們需要非法移民來美工作](../posts/r_iwanttorun/250411023909_1jwfm32.md)
-- `251002170120` [台灣台北怎麼樣，說說他的缺點](../posts/r_iwanttorun/250424033649_1k6ioiy.md)
-- `251002170120` [求助｜因过往arrest记录被终止SEVIS，面临离境，是否有转身份或其他合法途径？](../posts/r_iwanttorun/250409073929_1jv06zt.md)

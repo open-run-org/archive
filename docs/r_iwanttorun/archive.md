@@ -2,6 +2,12 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-11 01:29 | `1o3ixvq` | [那些来中国留学的外国人一般学什么专业？](../posts/r_iwanttorun/251011012937_1o3ixvq.md) | hiroshima_fireworks | 2 | 1.0 | 0 | 不懂就问 | false | false | reddit.com |
+| 2025-10-11 00:07 | `1o3h9ne` | [在川主席的领导下，印度学签发放量暴跌44%](../posts/r_iwanttorun/251011000757_1o3h9ne.md) | Time_Host_1935 | 4 | 0.84 | 4 | 炒作狗 | false | false | i.redd.it |
+| 2025-10-10 12:05 | `1o2z1he` | [An efficient job tool for automated resumes and task tracking, helping users track jobs, companies, and contacts smoothly  Luckykoi](../posts/r_iwanttorun/251010120523_1o2z1he.md) | MobileBroccoli7158 | 1 | 1.0 | 1 | 讨论 | false | true | self.iwanttorun |
+| 2025-10-10 08:00 | `1o2uvs5` | [瑞士多座机场将启用申根区新出入境系统](../posts/r_iwanttorun/251010080006_1o2uvs5.md) | Admirable-Total7964 | 3 | 1.0 | 0 | 分享帖 | false | false | swissinfo.ch |
+| 2025-10-10 04:59 | `1o2rz6u` | [想向润友请教关于二润](../posts/r_iwanttorun/251010045936_1o2rz6u.md) | kamiwasohai | 9 | 0.84 | 9 | 讨论 | false | true | self.iwanttorun |
+| 2025-10-10 02:52 | `1o2pjb9` | [你澳猾人开的店有正常的吗](../posts/r_iwanttorun/251010025219_1o2pjb9.md) | Schrodingers_Gun | 23 | 0.88 | 9 | 讨论 | false | false | i.redd.it |
 | 2025-10-09 17:40 | `1o2cimn` | [美國有maga，台灣有青鳥，大陸有粉紅，日本有什麼](../posts/r_iwanttorun/251009174009_1o2cimn.md) | this0great | 6 | 0.71 | 1 | 讨论 | true | false | i.redd.it |
 | 2025-10-09 17:38 | `1o2ch7o` | [今天要說什麼啊](../posts/r_iwanttorun/251009173838_1o2ch7o.md) | this0great | 7 | 0.9 | 0 | 讨论 | false | false | i.redd.it |
 | 2025-10-09 14:05 | `1o26ue9` | [文科靠自己想润想有希望吗](../posts/r_iwanttorun/251009140551_1o26ue9.md) | MathildeJQ | 0 | 0.17 | 12 | 不懂就问 | false | true | self.iwanttorun |

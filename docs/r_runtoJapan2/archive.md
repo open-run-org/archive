@@ -2,6 +2,17 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-10 20:35 | `1o3c91w` | [沒有人去解釋？](../posts/r_runtoJapan2/251010203559_1o3c91w.md) | this0great | 1 | 1.0 | 3 | 聊天吹水 | false | false | i.redd.it |
+| 2025-10-10 14:43 | `1o32trc` | [【须知】本sub主要为日常讨论 不建议发送nsfw相关内容](../posts/r_runtoJapan2/251010144326_1o32trc.md) | HonestzPractice | 1 | 0.6 | 2 | 经验分享 | false | true | self.runtoJapan2 |
+| 2025-10-10 13:03 | `1o30bp7` | [EJU最后一个月听力怎么提升](../posts/r_runtoJapan2/251010130340_1o30bp7.md) | Eternal-M | 2 | 1.0 | 2 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-10 11:13 | `1o2y0p1` | [自闭鼠人郁郁废物，朋友也没有，日语也没学好，我该怎么活下去😭](../posts/r_runtoJapan2/251010111302_1o2y0p1.md) | zhizhuzhizhutu | 0 | 0.38 | 11 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-10-10 10:23 | `1o2x4y9` | [这种的是不是好的偶像](../posts/r_runtoJapan2/251010102335_1o2x4y9.md) | HonestzPractice | 0 | 0.5 | 17 | 聊天吹水 | false | false | i.redd.it |
+| 2025-10-10 09:07 | `1o2vwkz` | [有没有润日医学朋友](../posts/r_runtoJapan2/251010090731_1o2vwkz.md) | Prestigious_Tip_9441 | 3 | 0.62 | 21 |  | false | true | self.runtoJapan2 |
+| 2025-10-10 07:08 | `1o2u44v` | [大新闻！公明党确认脱离和自民党的连立](../posts/r_runtoJapan2/251010070834_1o2u44v.md) | ayakaship123 | 13 | 0.84 | 6 | 政策新闻 | false | true | self.runtoJapan2 |
+| 2025-10-10 05:16 | `1o2sa0m` | [一家好店](../posts/r_runtoJapan2/251010051631_1o2sa0m.md) | DietrichLin | 38 | 0.94 | 14 | 日常生活 | false | false | reddit.com |
+| 2025-10-10 04:24 | `1o2rcii` | [肉铺推荐](../posts/r_runtoJapan2/251010042442_1o2rcii.md) | Safe_Barber_7554 | 1 | 1.0 | 5 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-10 03:46 | `1o2qlzo` | [好吃便宜多卡路里的餐點有沒有什麽推薦](../posts/r_runtoJapan2/251010034610_1o2qlzo.md) | MaryPaku | 3 | 1.0 | 7 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-10 02:51 | `1o2picv` | [日本留学项目，包括英文SGU项目的热门是否会对留学培训行业利好？](../posts/r_runtoJapan2/251010025101_1o2picv.md) | crowchan114514 | 1 | 0.67 | 11 |  | false | true | self.runtoJapan2 |
 | 2025-10-10 01:19 | `1o2nmce` | [最近怎么了，怎么感觉甚至一堆美本澳本都想润日本，日本真的留越来越卷了](../posts/r_runtoJapan2/251010011909_1o2nmce.md) | DevelopmentThen5716 | 1 | 0.67 | 2 | 杂谈 | false | true | self.runtoJapan2 |
 | 2025-10-09 16:58 | `1o2beal` | [期待公明党脱离连立](../posts/r_runtoJapan2/251009165821_1o2beal.md) | ayakaship123 | 0 | 0.5 | 4 |  | false | true | self.runtoJapan2 |
 | 2025-10-09 07:51 | `1o1zys7` | [请问托业和托福的成绩是所有大学都承认的吗？](../posts/r_runtoJapan2/251009075128_1o1zys7.md) | Any-Introduction9384 | 4 | 0.84 | 5 | 不懂就问 | false | true | self.runtoJapan2 |

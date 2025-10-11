@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-10 14:36 | `1o32n0r` | [大家都花了多久来让语言到达门槛呢](../posts/r_runEuropaAlliance/251010143621_1o32n0r.md) | RipLoud3334 | 10 | 1.0 | 7 | 討論 | Discuss | false | true | self.runEuropaAlliance |
 | 2025-10-09 15:17 | `1o28p7d` | [潤歐陸建議](../posts/r_runEuropaAlliance/251009151721_1o28p7d.md) | rotxtoxcore | 6 | 0.75 | 43 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-10-08 18:19 | `1o1idmz` | [法国高商本科怎么留下来](../posts/r_runEuropaAlliance/251008181902_1o1idmz.md) | Forward-Guess-6534 | 0 | 0.33 | 21 | 討論 | Discuss | false | true | self.runEuropaAlliance |
 | 2025-10-06 10:33 | `1nzffeb` | [去法国读工科硕士容易留下来吗](../posts/r_runEuropaAlliance/251006103328_1nzffeb.md) | john-poller | 0 | 0.5 | 18 | 提問 | Ask | false | false | i.redd.it |
