@@ -4,6 +4,10 @@
 
 ## Latest changes
 
+- `251012015251` [WES认证到底是怎么个事&我的出路](../posts/r_iwanttorun/251011151231_1o3y3pd.md)
+- `251012015251` [球支也是支](../posts/r_iwanttorun/251011184833_1o43gvf.md)
+- `251012015251` [想问问美国在线硕士靠谱吗](../posts/r_iwanttorun/251011154242_1o3yuev.md)
+- `251012015251` [SIJS Fact Sheet](../posts/r_iwanttorun/251011015543_1o3jge8.md)
 - `251011014505` [想向润友请教关于二润](../posts/r_iwanttorun/251010045936_1o2rz6u.md)
 - `251011014505` [你澳猾人开的店有正常的吗](../posts/r_iwanttorun/251010025219_1o2pjb9.md)
 - `251011014505` [那些来中国留学的外国人一般学什么专业？](../posts/r_iwanttorun/251011012937_1o3ixvq.md)
@@ -64,7 +68,3 @@
 - `251002170120` [美硕回洼地迷茫想二润认真求助](../posts/r_iwanttorun/250425103155_1k7hnul.md)
 - `251002170120` [为啥我劝大家不要来uoft](../posts/r_iwanttorun/250420233949_1k3zpe0.md)
 - `251002170120` [中国国运已经过了巅峰，现在进入了加速坠落期，十亿奴隶们在机舱里眼睁睁看着越来越近的陆地，却无法跳伞](../posts/r_iwanttorun/250412180857_1jxnhxq.md)
-- `251002170120` [Good souvenir](../posts/r_iwanttorun/250424234111_1k76ulk.md)
-- `251002170120` [美国的ATM为什么就他妈的不联网？？？真他妈的气死我了！！！](../posts/r_iwanttorun/250416134030_1k0kp11.md)
-- `251002170120` [分享一个小众润法，成功率极高](../posts/r_iwanttorun/250415202104_1k020x7.md)
-- `251002170120` [非法移民能抱团武德充沛ICE不敢抓，只敢去学校里抓F1费拉原子人](../posts/r_iwanttorun/250411165541_1jwupks.md)

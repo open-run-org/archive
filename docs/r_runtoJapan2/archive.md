@@ -2,8 +2,14 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-11 21:17 | `1o472gg` | [所以说非常不建议大家润日，希望中国人不要来日本了🙏](../posts/r_runtoJapan2/251011211709_1o472gg.md) | zhizhuzhizhutu | 17 | 0.87 | 9 | 聊天吹水 | false | false | i.redd.it |
+| 2025-10-11 16:28 | `1o3zzrz` | [赴日中介发来的工作，好多都要收一万块左右的行政书士费，这是正常的吗？](../posts/r_runtoJapan2/251011162834_1o3zzrz.md) | itsuouhaku | 2 | 0.75 | 7 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-11 13:14 | `1o3vcvg` | [求推荐的讲英语来源的日语片假名词的规律的文章](../posts/r_runtoJapan2/251011131450_1o3vcvg.md) | whatanywayever | 4 | 0.84 | 12 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-11 07:04 | `1o3ozr3` | [日本金融業那麼悲哀嗎](../posts/r_runtoJapan2/251011070440_1o3ozr3.md) | this0great | 3 | 0.8 | 7 |  | false | false | i.redd.it |
+| 2025-10-11 04:51 | `1o3mqsu` | [有犯罪记录润日可行吗](../posts/r_runtoJapan2/251011045151_1o3mqsu.md) | OpeningOpportunity12 | 0 | 0.27 | 12 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-10 20:35 | `1o3c91w` | [沒有人去解釋？](../posts/r_runtoJapan2/251010203559_1o3c91w.md) | this0great | 1 | 1.0 | 3 | 聊天吹水 | false | false | i.redd.it |
 | 2025-10-10 14:43 | `1o32trc` | [【须知】本sub主要为日常讨论 不建议发送nsfw相关内容](../posts/r_runtoJapan2/251010144326_1o32trc.md) | HonestzPractice | 1 | 0.6 | 2 | 经验分享 | false | true | self.runtoJapan2 |
+| 2025-10-10 14:30 | `1o32hdf` | [高知工科大学怎么样？](../posts/r_runtoJapan2/251010143015_1o32hdf.md) | yajimi | 2 | 1.0 | 5 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-10 13:03 | `1o30bp7` | [EJU最后一个月听力怎么提升](../posts/r_runtoJapan2/251010130340_1o30bp7.md) | Eternal-M | 2 | 1.0 | 2 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-10 11:13 | `1o2y0p1` | [自闭鼠人郁郁废物，朋友也没有，日语也没学好，我该怎么活下去😭](../posts/r_runtoJapan2/251010111302_1o2y0p1.md) | zhizhuzhizhutu | 0 | 0.38 | 11 | 聊天吹水 | false | true | self.runtoJapan2 |
 | 2025-10-10 10:23 | `1o2x4y9` | [这种的是不是好的偶像](../posts/r_runtoJapan2/251010102335_1o2x4y9.md) | HonestzPractice | 0 | 0.5 | 17 | 聊天吹水 | false | false | i.redd.it |

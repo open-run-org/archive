@@ -2,6 +2,10 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-11 18:48 | `1o43gvf` | [球支也是支](../posts/r_iwanttorun/251011184833_1o43gvf.md) | FreeXiJinpingAss | 3 | 0.64 | 1 | 炒作狗 | false | true | self.iwanttorun |
+| 2025-10-11 15:42 | `1o3yuev` | [想问问美国在线硕士靠谱吗](../posts/r_iwanttorun/251011154242_1o3yuev.md) | Primary-Animal1307 | 2 | 0.67 | 8 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-11 15:12 | `1o3y3pd` | [WES认证到底是怎么个事&我的出路](../posts/r_iwanttorun/251011151231_1o3y3pd.md) | wojioclibang | 0 | 0.5 | 13 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-11 01:55 | `1o3jge8` | [SIJS Fact Sheet](../posts/r_iwanttorun/251011015543_1o3jge8.md) | Time_Amounts | 5 | 1.0 | 3 | 分享帖 | false | true | self.iwanttorun |
 | 2025-10-11 01:29 | `1o3ixvq` | [那些来中国留学的外国人一般学什么专业？](../posts/r_iwanttorun/251011012937_1o3ixvq.md) | hiroshima_fireworks | 2 | 1.0 | 0 | 不懂就问 | false | false | reddit.com |
 | 2025-10-11 00:07 | `1o3h9ne` | [在川主席的领导下，印度学签发放量暴跌44%](../posts/r_iwanttorun/251011000757_1o3h9ne.md) | Time_Host_1935 | 4 | 0.84 | 4 | 炒作狗 | false | false | i.redd.it |
 | 2025-10-10 12:05 | `1o2z1he` | [An efficient job tool for automated resumes and task tracking, helping users track jobs, companies, and contacts smoothly  Luckykoi](../posts/r_iwanttorun/251010120523_1o2z1he.md) | MobileBroccoli7158 | 1 | 1.0 | 1 | 讨论 | false | true | self.iwanttorun |
