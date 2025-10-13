@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-12 12:29 | `1o4nt0o` | [英语口语到瓶颈了，融入不了本地圈子怎么办](../posts/r_iwanttorun/251012122920_1o4nt0o.md) | realemo1979 | 24 | 0.9 | 34 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-11 18:48 | `1o43gvf` | [球支也是支](../posts/r_iwanttorun/251011184833_1o43gvf.md) | FreeXiJinpingAss | 3 | 0.64 | 1 | 炒作狗 | false | true | self.iwanttorun |
 | 2025-10-11 15:42 | `1o3yuev` | [想问问美国在线硕士靠谱吗](../posts/r_iwanttorun/251011154242_1o3yuev.md) | Primary-Animal1307 | 2 | 0.67 | 8 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-11 15:12 | `1o3y3pd` | [WES认证到底是怎么个事&我的出路](../posts/r_iwanttorun/251011151231_1o3y3pd.md) | wojioclibang | 0 | 0.5 | 13 | 不懂就问 | false | true | self.iwanttorun |

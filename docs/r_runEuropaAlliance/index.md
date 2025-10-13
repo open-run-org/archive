@@ -4,6 +4,7 @@
 
 ## Latest changes
 
+- `251013015652` [其实澳大利亚和美国都能生产稀土，美国重启MPMeterials稀土矿，我们澳大利亚Lyans一直都是世界第三大稀土和成品制造商。](../posts/r_runEuropaAlliance/251012230434_1o53l0k.md)
 - `251011014508` [大家都花了多久来让语言到达门槛呢](../posts/r_runEuropaAlliance/251010143621_1o32n0r.md)
 - `251010014934` [潤歐陸建議](../posts/r_runEuropaAlliance/251009151721_1o28p7d.md)
 - `251009014850` [法国高商本科怎么留下来](../posts/r_runEuropaAlliance/251008181902_1o1idmz.md)
@@ -67,4 +68,3 @@
 - `250927160452` [19年以來少數勞動力市場仍在增加的國家：荷蘭、挪威、澳洲](../posts/r_runEuropaAlliance/250829025908_1n2w789.md)
 - `250927160452` [25岁本科肄业家里蹲，只有英语雅思5.5，金币大概支撑三十多个，如何破局。](../posts/r_runEuropaAlliance/250914051505_1ngin8f.md)
 - `250927160452` [edit:你sub马上完蛋了](../posts/r_runEuropaAlliance/250721014419_1m569cs.md)
-- `250927160452` [地缘政治老嗨进！欧洲会有可能打仗吗？最近万斯已经明确弃欧了，下周一欧洲也要开会讨论组建欧洲联军](../posts/r_runEuropaAlliance/250216100323_1iqp4dx.md)

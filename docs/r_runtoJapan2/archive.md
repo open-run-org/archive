@@ -2,6 +2,14 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-12 23:22 | `1o53zc6` | [该选哪个好呢](../posts/r_runtoJapan2/251012232250_1o53zc6.md) | zhizhuzhizhutu | 0 | 0.25 | 13 | 聊天吹水 | false | false | i.redd.it |
+| 2025-10-12 20:11 | `1o4zcr8` | [研二科班计算机求指导](../posts/r_runtoJapan2/251012201113_1o4zcr8.md) | Appropriate-Algae422 | 1 | 0.67 | 5 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-12 18:14 | `1o4wc3k` | [日本灾害多发，资源匮乏，这也许不是宿命的诅咒，而是一场模拟考](../posts/r_runtoJapan2/251012181435_1o4wc3k.md) | H3_H2 | 1 | 0.55 | 5 |  | false | true | self.runtoJapan2 |
+| 2025-10-12 16:09 | `1o4t27t` | [日本不是天堂](../posts/r_runtoJapan2/251012160939_1o4t27t.md) | blues_submarine | 12 | 0.72 | 12 |  | false | true | self.runtoJapan2 |
+| 2025-10-12 13:29 | `1o4p3o9` | [刚来日本，冒昧发帖，请问各位前辈，能否推荐买到便宜米的方法，感谢🙏](../posts/r_runtoJapan2/251012132902_1o4p3o9.md) | Electrical_While9299 | 4 | 0.75 | 29 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-12 12:35 | `1o4nxgu` | [明年情报学修士夏季考求指点](../posts/r_runtoJapan2/251012123511_1o4nxgu.md) | Altruistic_Worth1663 | 2 | 0.67 | 9 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-12 08:22 | `1o4jnjo` | [在日本开个健身房可以赚钱吗？](../posts/r_runtoJapan2/251012082224_1o4jnjo.md) | Cool-Cancel3446 | 0 | 0.5 | 23 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-12 06:21 | `1o4hrdi` | [這是日本新鮮人大部分人的薪水嗎](../posts/r_runtoJapan2/251012062139_1o4hrdi.md) | this0great | 19 | 0.83 | 20 |  | false | false | i.redd.it |
 | 2025-10-11 21:17 | `1o472gg` | [所以说非常不建议大家润日，希望中国人不要来日本了🙏](../posts/r_runtoJapan2/251011211709_1o472gg.md) | zhizhuzhizhutu | 17 | 0.87 | 9 | 聊天吹水 | false | false | i.redd.it |
 | 2025-10-11 16:28 | `1o3zzrz` | [赴日中介发来的工作，好多都要收一万块左右的行政书士费，这是正常的吗？](../posts/r_runtoJapan2/251011162834_1o3zzrz.md) | itsuouhaku | 2 | 0.75 | 7 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-11 13:14 | `1o3vcvg` | [求推荐的讲英语来源的日语片假名词的规律的文章](../posts/r_runtoJapan2/251011131450_1o3vcvg.md) | whatanywayever | 4 | 0.84 | 12 | 不懂就问 | false | true | self.runtoJapan2 |
