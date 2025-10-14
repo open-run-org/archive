@@ -2,6 +2,8 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-13 16:43 | `1o5oy3g` | [友達作ろう](../posts/r_iwanttorun/251013164341_1o5oy3g.md) | i_rabi | 0 | 0.5 | 3 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-13 13:46 | `1o5k5x9` | [原来习近平同志是GAY🏳‍🌈](../posts/r_iwanttorun/251013134646_1o5k5x9.md) | New_Teacher_2815 | 15 | 0.8 | 4 | 炒作狗 | false | false | i.redd.it |
 | 2025-10-12 12:29 | `1o4nt0o` | [英语口语到瓶颈了，融入不了本地圈子怎么办](../posts/r_iwanttorun/251012122920_1o4nt0o.md) | realemo1979 | 24 | 0.9 | 34 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-11 18:48 | `1o43gvf` | [球支也是支](../posts/r_iwanttorun/251011184833_1o43gvf.md) | FreeXiJinpingAss | 3 | 0.64 | 1 | 炒作狗 | false | true | self.iwanttorun |
 | 2025-10-11 15:42 | `1o3yuev` | [想问问美国在线硕士靠谱吗](../posts/r_iwanttorun/251011154242_1o3yuev.md) | Primary-Animal1307 | 2 | 0.67 | 8 | 不懂就问 | false | true | self.iwanttorun |

@@ -2,9 +2,21 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-13 17:04 | `1o5pjyk` | [Charlie Kirk长得神似大谷翔平](../posts/r_runtoJapan2/251013170459_1o5pjyk.md) | Gullible-Language634 | 0 | 0.11 | 5 | 聊天吹水 | false | false | reddit.com |
+| 2025-10-13 14:13 | `1o5ku5z` | [sim卡相关](../posts/r_runtoJapan2/251013141330_1o5ku5z.md) | Aoesun | 3 | 0.81 | 11 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-13 13:58 | `1o5kgex` | [一直以来都没事 这个世界是座舞厅](../posts/r_runtoJapan2/251013135836_1o5kgex.md) | HonestzPractice | 1 | 0.67 | 2 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-10-13 13:40 | `1o5k057` | [请问这个sub会封禁china_irl用户吗？](../posts/r_runtoJapan2/251013134011_1o5k057.md) | Outrageous_Level_223 | 0 | 0.25 | 13 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-13 13:07 | `1o5j8gh` | [柬埔寨绑架杀害韩国人的中国籍在逃犯人身份被人给扒出来了](../posts/r_runtoJapan2/251013130758_1o5j8gh.md) | LarnMk4 | 3 | 0.67 | 1 | 经验分享 | false | false | i.redd.it |
+| 2025-10-13 08:40 | `1o5ebhi` | [谁偷走了我的生活](../posts/r_runtoJapan2/251013084055_1o5ebhi.md) | Creepy-Relation-9132 | 3 | 0.6 | 7 | 聊天吹水 | false | false | v.redd.it |
+| 2025-10-13 08:19 | `1o5dzvz` | [手毬吃麦当劳~](../posts/r_runtoJapan2/251013081951_1o5dzvz.md) | HonestzPractice | 14 | 0.9 | 6 | 日常生活 | false | false | i.redd.it |
+| 2025-10-13 04:51 | `1o5alf7` | [求问日本土木行业前景](../posts/r_runtoJapan2/251013045103_1o5alf7.md) | Weak-Factor2292 | 8 | 0.83 | 8 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-13 04:14 | `1o59x5k` | [如何看待這個圖](../posts/r_runtoJapan2/251013041426_1o59x5k.md) | this0great | 0 | 0.44 | 2 |  | false | false | i.redd.it |
+| 2025-10-13 04:08 | `1o59t2n` | [国人开始扎堆的地方总让我有不好的预感](../posts/r_runtoJapan2/251013040816_1o59t2n.md) | sacekett | 48 | 0.9 | 19 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-10-13 03:16 | `1o58ryr` | [来日本半年了，寻友](../posts/r_runtoJapan2/251013031601_1o58ryr.md) | Chance-Ad-7852 | 5 | 0.67 | 32 | 日常生活 | false | true | self.runtoJapan2 |
 | 2025-10-12 23:22 | `1o53zc6` | [该选哪个好呢](../posts/r_runtoJapan2/251012232250_1o53zc6.md) | zhizhuzhizhutu | 0 | 0.25 | 13 | 聊天吹水 | false | false | i.redd.it |
 | 2025-10-12 20:11 | `1o4zcr8` | [研二科班计算机求指导](../posts/r_runtoJapan2/251012201113_1o4zcr8.md) | Appropriate-Algae422 | 1 | 0.67 | 5 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-12 18:14 | `1o4wc3k` | [日本灾害多发，资源匮乏，这也许不是宿命的诅咒，而是一场模拟考](../posts/r_runtoJapan2/251012181435_1o4wc3k.md) | H3_H2 | 1 | 0.55 | 5 |  | false | true | self.runtoJapan2 |
+| 2025-10-12 16:48 | `1o4u2ij` | [想润日求建议](../posts/r_runtoJapan2/251012164833_1o4u2ij.md) | nujabes4ever | 1 | 0.6 | 12 |  | false | true | self.runtoJapan2 |
 | 2025-10-12 16:09 | `1o4t27t` | [日本不是天堂](../posts/r_runtoJapan2/251012160939_1o4t27t.md) | blues_submarine | 12 | 0.72 | 12 |  | false | true | self.runtoJapan2 |
 | 2025-10-12 13:29 | `1o4p3o9` | [刚来日本，冒昧发帖，请问各位前辈，能否推荐买到便宜米的方法，感谢🙏](../posts/r_runtoJapan2/251012132902_1o4p3o9.md) | Electrical_While9299 | 4 | 0.75 | 29 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-12 12:35 | `1o4nxgu` | [明年情报学修士夏季考求指点](../posts/r_runtoJapan2/251012123511_1o4nxgu.md) | Altruistic_Worth1663 | 2 | 0.67 | 9 | 不懂就问 | false | true | self.runtoJapan2 |
