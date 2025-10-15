@@ -2,6 +2,10 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-14 16:49 | `1o6ktog` | [求助｜超想润意大利有什么办法吗](../posts/r_iwanttorun/251014164911_1o6ktog.md) | Outside_Respond4227 | 5 | 0.78 | 5 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-14 11:08 | `1o6cj7m` | [我是whv签证来澳洲两个月了，人在悉尼，现在准备回国了](../posts/r_iwanttorun/251014110844_1o6cj7m.md) | Electronic-Arm-3960 | 17 | 0.77 | 29 | 分享帖 | false | true | self.iwanttorun |
+| 2025-10-14 07:48 | `1o699ut` | [我朋友两口子办美签过了，准备去美国生小孩了。就这么简单run了？](../posts/r_iwanttorun/251014074806_1o699ut.md) | Fresh_Airline3897 | 0 | 0.33 | 19 | 讨论 | false | true | self.iwanttorun |
+| 2025-10-14 03:12 | `1o64j01` | [真是长见识了，澳洲随便一个餐馆端盘子的岗位都有十几个人卷](../posts/r_iwanttorun/251014031232_1o64j01.md) | Electronic-Arm-3960 | 9 | 0.85 | 19 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-13 16:43 | `1o5oy3g` | [友達作ろう](../posts/r_iwanttorun/251013164341_1o5oy3g.md) | i_rabi | 0 | 0.5 | 3 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-13 13:46 | `1o5k5x9` | [原来习近平同志是GAY🏳‍🌈](../posts/r_iwanttorun/251013134646_1o5k5x9.md) | New_Teacher_2815 | 15 | 0.8 | 4 | 炒作狗 | false | false | i.redd.it |
 | 2025-10-12 12:29 | `1o4nt0o` | [英语口语到瓶颈了，融入不了本地圈子怎么办](../posts/r_iwanttorun/251012122920_1o4nt0o.md) | realemo1979 | 24 | 0.9 | 34 | 不懂就问 | false | true | self.iwanttorun |

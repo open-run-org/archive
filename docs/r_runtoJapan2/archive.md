@@ -2,6 +2,10 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-14 12:54 | `1o6epf1` | [打工被拒十多次了](../posts/r_runtoJapan2/251014125423_1o6epf1.md) | AkabaJeanne | 20 | 0.89 | 35 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-10-14 10:11 | `1o6bi68` | [卖铁球的小女孩 如何评价](../posts/r_runtoJapan2/251014101104_1o6bi68.md) | HonestzPractice | 7 | 0.73 | 7 | 聊天吹水 | false | false | i.redd.it |
+| 2025-10-14 07:25 | `1o68xpt` | [如果你遇到这样的学妹你会怎么做~](../posts/r_runtoJapan2/251014072555_1o68xpt.md) | HonestzPractice | 0 | 0.47 | 5 | 聊天吹水 | false | false | i.redd.it |
+| 2025-10-14 03:00 | `1o649xq` | [关于日本找工作的事宜](../posts/r_runtoJapan2/251014030014_1o649xq.md) | DifferentMovie9527 | 0 | 0.44 | 17 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-13 17:04 | `1o5pjyk` | [Charlie Kirk长得神似大谷翔平](../posts/r_runtoJapan2/251013170459_1o5pjyk.md) | Gullible-Language634 | 0 | 0.11 | 5 | 聊天吹水 | false | false | reddit.com |
 | 2025-10-13 14:13 | `1o5ku5z` | [sim卡相关](../posts/r_runtoJapan2/251013141330_1o5ku5z.md) | Aoesun | 3 | 0.81 | 11 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-13 13:58 | `1o5kgex` | [一直以来都没事 这个世界是座舞厅](../posts/r_runtoJapan2/251013135836_1o5kgex.md) | HonestzPractice | 1 | 0.67 | 2 | 聊天吹水 | false | true | self.runtoJapan2 |
