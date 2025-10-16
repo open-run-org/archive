@@ -2,6 +2,18 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-15 23:38 | `1o7qxfv` | [日本警察对外国人/老钟开的店会额外关照吗？](../posts/r_runtoJapan2/251015233850_1o7qxfv.md) | Based_Boiiii | 1 | 0.67 | 1 | 日常生活 | false | true | self.runtoJapan2 |
+| 2025-10-15 20:03 | `1o7lktq` | [还有什么能看之前runtojapan帖子的办法吗](../posts/r_runtoJapan2/251015200356_1o7lktq.md) | Interesting-Ebb8666 | 0 | 0.5 | 2 |  | false | true | self.runtoJapan2 |
+| 2025-10-15 17:28 | `1o7heek` | [さいたま，隐忍……](../posts/r_runtoJapan2/251015172821_1o7heek.md) | Gullible-Language634 | 8 | 0.9 | 9 | 聊天吹水 | false | false | i.redd.it |
+| 2025-10-15 16:17 | `1o7fh99` | [日本一堆人很反感你們欸](../posts/r_runtoJapan2/251015161733_1o7fh99.md) | this0great | 0 | 0.33 | 10 |  | false | false | i.redd.it |
+| 2025-10-15 15:50 | `1o7er5w` | [二选一](../posts/r_runtoJapan2/251015155036_1o7er5w.md) | HonestzPractice | 0 | 0.4 | 1 | 无意搞笑 | false | false | i.redd.it |
+| 2025-10-15 13:28 | `1o7b04v` | [如何看待日本年輕人的這個想法](../posts/r_runtoJapan2/251015132811_1o7b04v.md) | this0great | 7 | 0.88 | 9 |  | false | false | i.redd.it |
+| 2025-10-15 11:28 | `1o78es4` | [這裡像日本嗎](../posts/r_runtoJapan2/251015112845_1o78es4.md) | this0great | 0 | 0.38 | 11 |  | false | false | i.redd.it |
+| 2025-10-15 11:23 | `1o78b0i` | [今天吃饱了没事干来吐槽吐槽日本IT](../posts/r_runtoJapan2/251015112308_1o78b0i.md) | Professional_Buy9863 | 26 | 0.83 | 31 | 经验分享 | false | true | self.runtoJapan2 |
+| 2025-10-15 08:03 | `1o751v8` | [如何看這個說法](../posts/r_runtoJapan2/251015080314_1o751v8.md) | this0great | 0 | 0.48 | 17 |  | false | false | i.redd.it |
+| 2025-10-15 07:56 | `1o74y8g` | [如果润友们遇到这种情况会怎么做？](../posts/r_runtoJapan2/251015075634_1o74y8g.md) | HonestzPractice | 0 | 0.38 | 2 | 聊天吹水 | true | false | v.redd.it |
+| 2025-10-15 05:12 | `1o72bqg` | [海外薬学部卒業後の進路に悩んでいます](../posts/r_runtoJapan2/251015051223_1o72bqg.md) | AokoGreen | 2 | 0.75 | 3 | 杂谈 | false | false |  |
+| 2025-10-15 02:00 | `1o6ylae` | [28岁读修士对就职有帮助吗？](../posts/r_runtoJapan2/251015020016_1o6ylae.md) | Odd_Demand_6768 | 8 | 0.83 | 25 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-14 12:54 | `1o6epf1` | [打工被拒十多次了](../posts/r_runtoJapan2/251014125423_1o6epf1.md) | AkabaJeanne | 20 | 0.89 | 35 | 聊天吹水 | false | true | self.runtoJapan2 |
 | 2025-10-14 10:11 | `1o6bi68` | [卖铁球的小女孩 如何评价](../posts/r_runtoJapan2/251014101104_1o6bi68.md) | HonestzPractice | 7 | 0.73 | 7 | 聊天吹水 | false | false | i.redd.it |
 | 2025-10-14 07:25 | `1o68xpt` | [如果你遇到这样的学妹你会怎么做~](../posts/r_runtoJapan2/251014072555_1o68xpt.md) | HonestzPractice | 0 | 0.47 | 5 | 聊天吹水 | false | false | i.redd.it |
