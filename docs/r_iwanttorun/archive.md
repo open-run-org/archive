@@ -2,6 +2,8 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-16 23:04 | `1o8l5l7` | [不要怕去医院看病不会用英语描述症状](../posts/r_iwanttorun/251016230452_1o8l5l7.md) | FreeXiJinpingAss | 4 | 0.75 | 4 | 炒作狗 | false | true | self.iwanttorun |
+| 2025-10-16 16:22 | `1o8aong` | [被边控了！求帮助！](../posts/r_iwanttorun/251016162251_1o8aong.md) | Euphoric-Date-1816 | 10 | 0.82 | 16 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-15 22:04 | `1o7oomd` | [我刷英语短视频毫无压力，说明我的英语已经达到了美国费拉genz的水平](../posts/r_iwanttorun/251015220418_1o7oomd.md) | FreeXiJinpingAss | 7 | 0.77 | 8 | 炒作狗 | false | true | self.iwanttorun |
 | 2025-10-15 07:31 | `1o74l29` | [润思路和路线求问](../posts/r_iwanttorun/251015073147_1o74l29.md) | langgozombie | 0 | 0.2 | 12 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-15 03:47 | `1o70sad` | [大二想run](../posts/r_iwanttorun/251015034742_1o70sad.md) | Historical_Story7241 | 0 | 0.5 | 9 | 不懂就问 | false | true | self.iwanttorun |

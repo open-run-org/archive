@@ -2,7 +2,8 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
-| 2025-10-15 00:46 | `1o6x069` | [🇸🇪 瑞典一站式留学申请 & KTH生活指南](../posts/r_runEuropaAlliance/251015004633_1o6x069.md) | Eplankton | 2 | 1.0 | 0 | 分享 | Share | false | true | self.runEuropaAlliance |
+| 2025-10-16 20:42 | `1o8hom8` | [求助！B站大会员Apple Pay不能用了，怎么办？](../posts/r_runEuropaAlliance/251016204217_1o8hom8.md) | ClimateAlarming6875 | 2 | 0.6 | 2 | 提問 | Ask | false | true | self.runEuropaAlliance |
+| 2025-10-15 00:46 | `1o6x069` | [🇸🇪 瑞典一站式留学申请 & KTH生活指南](../posts/r_runEuropaAlliance/251015004633_1o6x069.md) | Eplankton | 25 | 0.96 | 0 | 分享 | Share | false | true | self.runEuropaAlliance |
 | 2025-10-13 07:06 | `1o5cute` | [欧洲留学选择求助（弱电/cs方向）](../posts/r_runEuropaAlliance/251013070615_1o5cute.md) | Tricky_Bake_909 | 0 | 0.44 | 33 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-10-12 23:04 | `1o53l0k` | [其实澳大利亚和美国都能生产稀土，美国重启MPMeterials稀土矿，我们澳大利亚Lyans一直都是世界第三大稀土和成品制造商。](../posts/r_runEuropaAlliance/251012230434_1o53l0k.md) | duck4355555 | 0 | 0.5 | 1 | 分享 | Share | false | false |  |
 | 2025-10-10 14:36 | `1o32n0r` | [大家都花了多久来让语言到达门槛呢](../posts/r_runEuropaAlliance/251010143621_1o32n0r.md) | RipLoud3334 | 10 | 1.0 | 7 | 討論 | Discuss | false | true | self.runEuropaAlliance |

@@ -4,6 +4,8 @@
 
 ## Latest changes
 
+- `251017015140` [不要怕去医院看病不会用英语描述症状](../posts/r_iwanttorun/251016230452_1o8l5l7.md)
+- `251017015140` [被边控了！求帮助！](../posts/r_iwanttorun/251016162251_1o8aong.md)
 - `251016015138` [大二想run](../posts/r_iwanttorun/251015034742_1o70sad.md)
 - `251016015138` [润思路和路线求问](../posts/r_iwanttorun/251015073147_1o74l29.md)
 - `251016015138` [我刷英语短视频毫无压力，说明我的英语已经达到了美国费拉genz的水平](../posts/r_iwanttorun/251015220418_1o7oomd.md)
@@ -66,5 +68,3 @@
 - `251004014259` [中国邮寄各国集运成本](../posts/r_iwanttorun/251003183717_1nx7cw1.md)
 - `251004014259` [Shameless and Dishonorable Poly Real Estate from China](../posts/r_iwanttorun/251003114943_1nwwxi5.md)
 - `251002170120` [想问问各位加小留你们平时打工都在哪打？感觉如何？能兼顾学业吗？](../posts/r_iwanttorun/250422211415_1k5hru3.md)
-- `251002170120` [求润恳请好心人指导](../posts/r_iwanttorun/250415172725_1jzxqb2.md)
-- `251002170120` [米国到底是左还是右啊，分不清一点分不清](../posts/r_iwanttorun/250409150852_1jv83b4.md)
