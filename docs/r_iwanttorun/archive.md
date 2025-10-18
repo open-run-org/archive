@@ -2,6 +2,11 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-17 21:58 | `1o9ei97` | [怎么润瑞士](../posts/r_iwanttorun/251017215834_1o9ei97.md) | Individual_Cry9780 | 0 | 0.14 | 5 | 炒作狗 | false | true | self.iwanttorun |
+| 2025-10-17 16:23 | `1o95viu` | [各位被边控的润友，你们都是怎么被边控的？](../posts/r_iwanttorun/251017162320_1o95viu.md) | Accomplished_Sign433 | 0 | 0.5 | 6 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-17 14:51 | `1o93f9a` | [求助！关于越南激活护照！！](../posts/r_iwanttorun/251017145137_1o93f9a.md) | Euphoric-Date-1816 | 0 | 0.5 | 8 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-17 11:36 | `1o8ywjb` | [大三穷蛆求求建议](../posts/r_iwanttorun/251017113643_1o8ywjb.md) | CountryInformal9467 | 11 | 0.87 | 10 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-17 03:26 | `1o8qphx` | [远离简中论坛保持身心健康](../posts/r_iwanttorun/251017032638_1o8qphx.md) | [deleted] | 23 | 0.79 | 17 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-16 23:04 | `1o8l5l7` | [不要怕去医院看病不会用英语描述症状](../posts/r_iwanttorun/251016230452_1o8l5l7.md) | FreeXiJinpingAss | 4 | 0.75 | 4 | 炒作狗 | false | true | self.iwanttorun |
 | 2025-10-16 16:22 | `1o8aong` | [被边控了！求帮助！](../posts/r_iwanttorun/251016162251_1o8aong.md) | Euphoric-Date-1816 | 10 | 0.82 | 16 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-15 22:04 | `1o7oomd` | [我刷英语短视频毫无压力，说明我的英语已经达到了美国费拉genz的水平](../posts/r_iwanttorun/251015220418_1o7oomd.md) | FreeXiJinpingAss | 7 | 0.77 | 8 | 炒作狗 | false | true | self.iwanttorun |

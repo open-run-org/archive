@@ -2,6 +2,16 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-17 18:34 | `1o99c29` | [薪水停滯，物價起飛](../posts/r_runtoJapan2/251017183428_1o99c29.md) | this0great | 5 | 0.69 | 5 |  | false | false | i.redd.it |
+| 2025-10-17 16:53 | `1o96nzq` | [離開東京23區，房租有那麼便宜嗎](../posts/r_runtoJapan2/251017165327_1o96nzq.md) | this0great | 6 | 0.8 | 4 |  | false | false | i.redd.it |
+| 2025-10-17 15:26 | `1o94dsh` | [日本政府考虑将签证费提高至“欧美水平”以促进入境旅游](../posts/r_runtoJapan2/251017152653_1o94dsh.md) | KaikouZzz | 0 | 0.5 | 2 | 政策新闻 | false | false | nikkei.com |
+| 2025-10-17 15:18 | `1o946c5` | [为什么太君这么爱吃碳水](../posts/r_runtoJapan2/251017151855_1o946c5.md) | yrsn509 | 0 | 0.43 | 26 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-17 13:21 | `1o916jo` | [改革开放之初，日本曾呼吁欧美各国，一定要帮中国实现现代化。](../posts/r_runtoJapan2/251017132150_1o916jo.md) | nagarythechild | 35 | 0.84 | 12 | 经典回顾 | false | false | i.redd.it |
+| 2025-10-17 09:14 | `1o8wi3y` | [1965～2023年日本人与外国人结婚数量](../posts/r_runtoJapan2/251017091455_1o8wi3y.md) | KaikouZzz | 2 | 0.67 | 3 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-10-17 08:51 | `1o8w4q5` | [中国智慧](../posts/r_runtoJapan2/251017085114_1o8w4q5.md) | zhizhuzhizhutu | 15 | 0.89 | 7 | 经典回顾 | false | false | i.redd.it |
+| 2025-10-17 08:35 | `1o8vw02` | [关于学校文法和教育文法的一个资源分享](../posts/r_runtoJapan2/251017083507_1o8vw02.md) | KaikouZzz | 10 | 0.92 | 3 | 经验分享 | false | true | self.runtoJapan2 |
+| 2025-10-17 08:20 | `1o8vo4h` | [分享一个日文学习浏览器插件](../posts/r_runtoJapan2/251017082052_1o8vo4h.md) | KaikouZzz | 9 | 1.0 | 1 | 经验分享 | false | true | self.runtoJapan2 |
+| 2025-10-17 08:04 | `1o8vf4l` | [🗾runtoJapan2｜移民日本资料整合帖【持续更新】](../posts/r_runtoJapan2/251017080419_1o8vf4l.md) | KaikouZzz | 10 | 0.86 | 1 | 经验分享 | false | true | self.runtoJapan2 |
 | 2025-10-16 23:17 | `1o8lg7k` | [同性婚姻](../posts/r_runtoJapan2/251016231756_1o8lg7k.md) | Competitive-Fish-700 | 4 | 0.7 | 7 | 日常生活 | false | true | self.runtoJapan2 |
 | 2025-10-16 15:25 | `1o894tw` | [碳水大餐便当](../posts/r_runtoJapan2/251016152506_1o894tw.md) | zhizhuzhizhutu | 8 | 0.9 | 5 | 日常生活 | false | false | i.redd.it |
 | 2025-10-16 11:04 | `1o83652` | [【求助】研修转特定技能后，再从特定技能转留学签证可以直接在日本申请吗？](../posts/r_runtoJapan2/251016110407_1o83652.md) | Free_178 | 2 | 1.0 | 3 | 不懂就问 | false | true | self.runtoJapan2 |

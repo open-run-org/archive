@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-17 12:21 | `1o8zsrl` | [大三穷蛆求求建议](../posts/r_RunAustralia/251017122127_1o8zsrl.md) | CountryInformal9467 | 0 | 0.5 | 0 |  | false | false |  |
 | 2025-10-10 10:27 | `1o2x75u` | [没有，没有，通过](../posts/r_RunAustralia/251010102713_1o2x75u.md) | Electronic-Arm-3960 | 2 | 0.75 | 1 |  | false | false | i.redd.it |
 | 2025-10-06 03:35 | `1nz8m2r` | [畢業申請485簽證 忘記勾選無犯罪申請被拒簽](../posts/r_RunAustralia/251006033517_1nz8m2r.md) | cuter1982 | 3 | 1.0 | 0 |  | false | false | youtube.com |
 | 2025-10-04 08:04 | `1nxo5mf` | [悉尼小力工一天250，房租40，吃饭+交通25](../posts/r_RunAustralia/251004080410_1nxo5mf.md) | Electronic-Arm-3960 | 16 | 0.9 | 15 |  | false | true | self.RunAustralia |

@@ -4,6 +4,11 @@
 
 ## Latest changes
 
+- `251018014522` [各位被边控的润友，你们都是怎么被边控的？](../posts/r_iwanttorun/251017162320_1o95viu.md)
+- `251018014522` [怎么润瑞士](../posts/r_iwanttorun/251017215834_1o9ei97.md)
+- `251018014522` [远离简中论坛保持身心健康](../posts/r_iwanttorun/251017032638_1o8qphx.md)
+- `251018014522` [求助！关于越南激活护照！！](../posts/r_iwanttorun/251017145137_1o93f9a.md)
+- `251018014522` [大三穷蛆求求建议](../posts/r_iwanttorun/251017113643_1o8ywjb.md)
 - `251017015140` [不要怕去医院看病不会用英语描述症状](../posts/r_iwanttorun/251016230452_1o8l5l7.md)
 - `251017015140` [被边控了！求帮助！](../posts/r_iwanttorun/251016162251_1o8aong.md)
 - `251016015138` [大二想run](../posts/r_iwanttorun/251015034742_1o70sad.md)
@@ -63,8 +68,3 @@
 - `251004014259` [无耻下作的保利地产在澳洲坑同胞](../posts/r_iwanttorun/251003152736_1nx28rp.md)
 - `251004014259` [加拿大到底最适合什么样的人润过去？难道真的只有官老爷的二奶和大企业家们可以润过去了吗](../posts/r_iwanttorun/251004002719_1nxfttu.md)
 - `251004014259` [怎么禁评了呢？](../posts/r_iwanttorun/251003045706_1nwq42o.md)
-- `251004014259` [零基础法语计划](../posts/r_iwanttorun/251003093723_1nwujs0.md)
-- `251004014259` [印拿大和中拿大，你们更喜欢哪个？](../posts/r_iwanttorun/251003130543_1nwylyj.md)
-- `251004014259` [中国邮寄各国集运成本](../posts/r_iwanttorun/251003183717_1nx7cw1.md)
-- `251004014259` [Shameless and Dishonorable Poly Real Estate from China](../posts/r_iwanttorun/251003114943_1nwwxi5.md)
-- `251002170120` [想问问各位加小留你们平时打工都在哪打？感觉如何？能兼顾学业吗？](../posts/r_iwanttorun/250422211415_1k5hru3.md)
