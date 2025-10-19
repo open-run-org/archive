@@ -9,6 +9,7 @@ services:
       - "8888:8000"
     volumes:
       - "..:/workspace"
+      - "/mnt/d/data/reddit:/workspace/data/pushshift/reddit:rw"
     command: >
       bash -lc "
         apt-get update &&
