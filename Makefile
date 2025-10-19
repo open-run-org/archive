@@ -26,7 +26,11 @@ AT_TRACKERS ?= udp://tracker.opentrackr.org:1337/announce,https://tracker.zhuqiy
 .PHONY: deps fetch-monthly ids hydrate sync-backfill jsonl2md docs serve build sync harvest harvest-comments jsonl2md-comments ci
 
 deps:
-	apt-get update && apt-get install -y python3 python3-venv jq pandoc aria2 zstd curl xz-utils bzip2 gzip
+	@if [ -z "$$CI" ]; then \
+	  apt-get update && apt-get install -y python3 python3-venv jq pandoc aria2 zstd curl xz-utils bzip2 gzip ; \
+	else \
+	  echo "[deps] CI=true detected, skip apt-get"; \
+	fi
 	test -d $(VENV) || python3 -m venv $(VENV)
 	$(VENV)/bin/pip install --upgrade pip
 	$(VENV)/bin/pip install -r requirements.txt
@@ -80,5 +84,10 @@ harvest-comments:
 jsonl2md-comments:
 	bash scripts/jsonl2md_comments.sh $(DATA_ROOT) $(STAGED_ROOT)
 
-ci: deps harvest harvest-comments jsonl2md jsonl2md-comments docs
+ci:
+	$(MAKE) harvest
+	$(MAKE) harvest-comments
+	$(MAKE) jsonl2md
+	$(MAKE) jsonl2md-comments
+	$(MAKE) docs
 	@echo "[ci] pipeline done"

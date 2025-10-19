@@ -2,6 +2,14 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-19 20:16 | `1oazwgj` | [分享一个访问已被封的 sub 的贴文和评论的方法](../posts/r_runtoJapan2/251019201646_1oazwgj.md) | No-Lab4175 | 2 | 1.0 | 1 | 经验分享 | false | true | self.runtoJapan2 |
+| 2025-10-19 15:26 | `1oasfxn` | [綠綠對和服人偶的行為](../posts/r_runtoJapan2/251019152609_1oasfxn.md) | this0great | 2 | 0.63 | 1 |  | false | false | i.redd.it |
+| 2025-10-19 13:32 | `1oapqfl` | [请关注21日的首相选举结果，决定你的后续行动](../posts/r_runtoJapan2/251019133202_1oapqfl.md) | ztstillwater | 0 | 0.44 | 11 | 政策新闻 | false | true | self.runtoJapan2 |
+| 2025-10-19 08:25 | `1oakcy1` | [求建议](../posts/r_runtoJapan2/251019082538_1oakcy1.md) | afunnypersonlol0 | 0 | 0.5 | 15 |  | false | true | self.runtoJapan2 |
+| 2025-10-19 08:12 | `1oak5mt` | [今天来讲讲IT的派遣、受託、自社的区别，以工作体验为主](../posts/r_runtoJapan2/251019081219_1oak5mt.md) | Professional_Buy9863 | 21 | 0.97 | 5 | 经验分享 | false | true | self.runtoJapan2 |
+| 2025-10-19 08:02 | `1oak011` | [「我爱北京天安门」淫夢バージョン　我爱东京下北泽 / 私は東京の下北沢が好きだ](../posts/r_runtoJapan2/251019080202_1oak011.md) | this0great | 6 | 0.88 | 1 |  | false | false | youtu.be |
+| 2025-10-19 06:57 | `1oaizyb` | [80000日元一包 谁买？？](../posts/r_runtoJapan2/251019065756_1oaizyb.md) | HonestzPractice | 1 | 0.57 | 2 | 日常生活 | false | false | i.redd.it |
+| 2025-10-19 04:05 | `1oag3tf` | [21岁 国内非日专本科毕业 有N2证书](../posts/r_runtoJapan2/251019040516_1oag3tf.md) | Virtual_Inevitable49 | 6 | 0.8 | 15 |  | false | true | self.runtoJapan2 |
 | 2025-10-18 15:23 | `1o9ynic` | [谁来了？？](../posts/r_runtoJapan2/251018152310_1o9ynic.md) | HonestzPractice | 0 | 0.5 | 1 | 日常生活 | false | false | i.redd.it |
 | 2025-10-18 11:17 | `1o9t40m` | [最近在备考JTEST，感觉比JLPT要合理得多](../posts/r_runtoJapan2/251018111723_1o9t40m.md) | ztstillwater | 5 | 0.78 | 3 | 语言学习 | false | true | self.runtoJapan2 |
 | 2025-10-18 08:00 | `1o9pz7n` | [为什么日本的泡面没叉子？](../posts/r_runtoJapan2/251018080048_1o9pz7n.md) | Massive-Bit3069 | 0 | 0.5 | 9 |  | false | true | self.runtoJapan2 |
@@ -17,7 +25,7 @@
 | 2025-10-17 08:51 | `1o8w4q5` | [中国智慧](../posts/r_runtoJapan2/251017085114_1o8w4q5.md) | zhizhuzhizhutu | 15 | 0.89 | 7 | 经典回顾 | false | false | i.redd.it |
 | 2025-10-17 08:35 | `1o8vw02` | [关于学校文法和教育文法的一个资源分享](../posts/r_runtoJapan2/251017083507_1o8vw02.md) | KaikouZzz | 10 | 0.92 | 3 | 经验分享 | false | true | self.runtoJapan2 |
 | 2025-10-17 08:20 | `1o8vo4h` | [分享一个日文学习浏览器插件](../posts/r_runtoJapan2/251017082052_1o8vo4h.md) | KaikouZzz | 9 | 1.0 | 1 | 经验分享 | false | true | self.runtoJapan2 |
-| 2025-10-17 08:04 | `1o8vf4l` | [🗾runtoJapan2｜移民日本资料整合帖【持续更新】](../posts/r_runtoJapan2/251017080419_1o8vf4l.md) | KaikouZzz | 10 | 0.86 | 1 | 经验分享 | false | true | self.runtoJapan2 |
+| 2025-10-17 08:04 | `1o8vf4l` | [🗾runtoJapan2｜移民日本资料整合帖【持续更新】](../posts/r_runtoJapan2/251017080419_1o8vf4l.md) | KaikouZzz | 16 | 0.9 | 1 | 经验分享 | false | true | self.runtoJapan2 |
 | 2025-10-16 23:17 | `1o8lg7k` | [同性婚姻](../posts/r_runtoJapan2/251016231756_1o8lg7k.md) | Competitive-Fish-700 | 4 | 0.7 | 7 | 日常生活 | false | true | self.runtoJapan2 |
 | 2025-10-16 15:25 | `1o894tw` | [碳水大餐便当](../posts/r_runtoJapan2/251016152506_1o894tw.md) | zhizhuzhizhutu | 8 | 0.9 | 5 | 日常生活 | false | false | i.redd.it |
 | 2025-10-16 11:04 | `1o83652` | [【求助】研修转特定技能后，再从特定技能转留学签证可以直接在日本申请吗？](../posts/r_runtoJapan2/251016110407_1o83652.md) | Free_178 | 2 | 1.0 | 3 | 不懂就问 | false | true | self.runtoJapan2 |
@@ -85,7 +93,7 @@
 | 2025-10-10 01:19 | `1o2nmce` | [最近怎么了，怎么感觉甚至一堆美本澳本都想润日本，日本真的留越来越卷了](../posts/r_runtoJapan2/251010011909_1o2nmce.md) | DevelopmentThen5716 | 1 | 0.67 | 2 | 杂谈 | false | true | self.runtoJapan2 |
 | 2025-10-09 16:58 | `1o2beal` | [期待公明党脱离连立](../posts/r_runtoJapan2/251009165821_1o2beal.md) | ayakaship123 | 0 | 0.5 | 4 |  | false | true | self.runtoJapan2 |
 | 2025-10-09 07:51 | `1o1zys7` | [请问托业和托福的成绩是所有大学都承认的吗？](../posts/r_runtoJapan2/251009075128_1o1zys7.md) | Any-Introduction9384 | 4 | 0.84 | 5 | 不懂就问 | false | true | self.runtoJapan2 |
-| 2025-10-09 02:32 | `1o1ukgj` | [求润日路径](../posts/r_runtoJapan2/251009023232_1o1ukgj.md) | PlentyOk284 | 0 | 0.38 | 8 |  | false | true | self.runtoJapan2 |
+| 2025-10-09 02:32 | `1o1ukgj` | [求润日路径](../posts/r_runtoJapan2/251009023232_1o1ukgj.md) | PlentyOk284 | 8 | 0.7 | 31 |  | false | true | self.runtoJapan2 |
 | 2025-10-09 01:55 | `1o1ttbp` | [来自日本人的留言](../posts/r_runtoJapan2/251009015557_1o1ttbp.md) | nanto-1633 | 92 | 0.96 | 115 |  | false | true | self.runtoJapan2 |
 | 2025-10-08 16:46 | `1o1ftic` | [求润日前辈指点！](../posts/r_runtoJapan2/251008164628_1o1ftic.md) | Fun_Access9754 | 3 | 1.0 | 9 |  | false | true | self.runtoJapan2 |
 | 2025-10-08 16:02 | `1o1en21` | [想问一下各位关于「留学」转「就职签证」的内容](../posts/r_runtoJapan2/251008160253_1o1en21.md) | Salt-Philosopher1071 | 1 | 1.0 | 4 | 不懂就问 | false | false | reddit.com |
@@ -117,7 +125,7 @@
 | 2025-10-02 13:08 | `1nw3atz` | [（答疑）刚正式到日本还没来得及炫就被封sub，欢迎提问](../posts/r_runtoJapan2/251002130800_1nw3atz.md) | 0000ffYakumo | 0 | 0.5 | 4 | 经验分享 | false | true | self.runtoJapan2 |
 | 2025-09-30 14:30 | `1nuer4m` | [【重要声明】r/runtoJapan2 独立运营与合规承诺（非任何社区的转生）  【Non-Affiliation Notice】r/runtoJapan2 is independent and policy-compliant  【合规公告】本社区与任何被封禁/关闭社区无关](../posts/r_runtoJapan2/250930143030_1nuer4m.md) | Acceptable_While2284 | 1 | 1.0 | 1 |  | false | true | self.runtoJapan2 |
 | 2025-09-30 07:43 | `1nu70sl` | [28岁读语言学校考修士还是直接找工作？](../posts/r_runtoJapan2/250930074325_1nu70sl.md) | Odd_Demand_6768 | 2 | 0.62 | 10 | 不懂就问 | false | true | self.runtoJapan2 |
-| 2025-09-30 07:31 | `1nu6u3k` | [【社区声明】本社区为独立新建社区 Non-Affiliation & No “Sequel/Mirror” Notice       TL;DR：本社区是全新创建、独立运营的社区，与任何其他社区无隶属、无继承、无“转生/镜像”关系。请避免使用“官方续作/二部/复活/原班人马”等表述。](../posts/r_runtoJapan2/250930073117_1nu6u3k.md) | Acceptable_While2284 | 0 | 0.5 | 3 | 政策新闻 | false | true | self.runtoJapan2 |
+| 2025-09-30 07:31 | `1nu6u3k` | [【社区声明】本社区为独立新建社区 Non-Affiliation & No “Sequel/Mirror” Notice       TL;DR：本社区是全新创建、独立运营的社区，与任何其他社区无隶属、无继承、无“转生/镜像”关系。请避免使用“官方续作/二部/复活/原班人马”等表述。](../posts/r_runtoJapan2/250930073117_1nu6u3k.md) | Acceptable_While2284 | 5 | 0.67 | 3 | 政策新闻 | false | true | self.runtoJapan2 |
 | 2025-09-30 07:16 | `1nu6lxa` | [大家尽量不要发 某某社区被封的贴子。只讨论你实际遇到的润日问题及在日趣事](../posts/r_runtoJapan2/250930071646_1nu6lxa.md) | Acceptable_While2284 | 0 | 0.38 | 2 |  | false | true | self.runtoJapan2 |
 | 2025-09-30 04:07 | `1nu3f8g` | [本Sub是全新的Sub，已与之前的Sub做彻底切割，只给想移民的新人无偿提供帮助，不参与任何争斗。不歧视、不仇恨任何群体和个人。](../posts/r_runtoJapan2/250930040700_1nu3f8g.md) | Acceptable_While2284 | 4 | 0.64 | 3 |  | false | true | self.runtoJapan2 |
 | 2025-09-29 23:11 | `1ntx4md` | [如果感染梅治愈了，还能入籍家乡吗？](../posts/r_runtoJapan2/250929231125_1ntx4md.md) | No_Possible_2931 | 2 | 0.75 | 5 | 不懂就问 | false | true | self.runtoJapan2 |

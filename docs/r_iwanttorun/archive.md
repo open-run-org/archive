@@ -2,6 +2,13 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-19 20:15 | `1oazv4o` | [大家好 我是墙内一个高三生 想要润出这个国家 但我有点迷茫 希望大佬们可以给我一些建议](../posts/r_iwanttorun/251019201522_1oazv4o.md) | Savings-Anything4633 | 2 | 1.0 | 2 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-19 16:58 | `1oausl7` | [23岁无业游民想文转码润欧，求大神指导](../posts/r_iwanttorun/251019165850_1oausl7.md) | Overall-Test-774 | 0 | 0.33 | 15 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-19 16:43 | `1oauezy` | [提供新西兰雇主担保offer](../posts/r_iwanttorun/251019164356_1oauezy.md) | Prize_Calendar_6449 | 0 | 0.25 | 2 | 分享帖 | false | true | self.iwanttorun |
+| 2025-10-19 13:13 | `1oapbxv` | [支持no kings运动，川普打击走线客，是压垮我们无产阶级的最后一根稻草，真心希望他下台](../posts/r_iwanttorun/251019131328_1oapbxv.md) | hiroshima_fireworks | 0 | 0.39 | 4 | 分享帖 | false | true | self.iwanttorun |
+| 2025-10-19 12:49 | `1oaot1x` | [想从欧洲润去美国 求方法](../posts/r_iwanttorun/251019124902_1oaot1x.md) | Orangedadaism | 0 | 0.24 | 21 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-19 07:54 | `1oajvr1` | [中国人移民的鄙视链是怎样的？](../posts/r_iwanttorun/251019075429_1oajvr1.md) | hiroshima_fireworks | 0 | 0.25 | 12 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-19 05:42 | `1oahrth` | [今天又有以前多大本科的校友加我微信吐槽了](../posts/r_iwanttorun/251019054208_1oahrth.md) | Zilojqiao | 9 | 0.76 | 38 | 分享帖 | false | true | self.iwanttorun |
 | 2025-10-18 23:06 | `1oaa7qn` | [祝福各位能成為下面的人](../posts/r_iwanttorun/251018230631_1oaa7qn.md) | this0great | 14 | 0.95 | 1 | 讨论 | false | false | i.redd.it |
 | 2025-10-18 14:56 | `1o9xyv3` | [Poll shows massive majority of Australians want to slash immigration](../posts/r_iwanttorun/251018145601_1o9xyv3.md) | kyk00525 | 3 | 1.0 | 0 | 讨论 | false | false | dailymail.co.uk |
 | 2025-10-18 13:36 | `1o9w0mu` | [关于欧陆硕士和国内硕士的请教](../posts/r_iwanttorun/251018133624_1o9w0mu.md) | Relative-Union-3116 | 5 | 0.86 | 15 | 不懂就问 | false | true | self.iwanttorun |
@@ -28,7 +35,7 @@
 | 2025-10-11 15:12 | `1o3y3pd` | [WES认证到底是怎么个事&我的出路](../posts/r_iwanttorun/251011151231_1o3y3pd.md) | wojioclibang | 0 | 0.5 | 13 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-11 01:55 | `1o3jge8` | [SIJS Fact Sheet](../posts/r_iwanttorun/251011015543_1o3jge8.md) | Time_Amounts | 5 | 1.0 | 3 | 分享帖 | false | true | self.iwanttorun |
 | 2025-10-11 01:29 | `1o3ixvq` | [那些来中国留学的外国人一般学什么专业？](../posts/r_iwanttorun/251011012937_1o3ixvq.md) | hiroshima_fireworks | 2 | 1.0 | 0 | 不懂就问 | false | false | reddit.com |
-| 2025-10-11 00:07 | `1o3h9ne` | [在川主席的领导下，印度学签发放量暴跌44%](../posts/r_iwanttorun/251011000757_1o3h9ne.md) | Time_Host_1935 | 4 | 0.84 | 4 | 炒作狗 | false | false | i.redd.it |
+| 2025-10-11 00:07 | `1o3h9ne` | [在川主席的领导下，印度学签发放量暴跌44%](../posts/r_iwanttorun/251011000757_1o3h9ne.md) | [deleted] | 23 | 0.93 | 12 | 炒作狗 | false | false | i.redd.it |
 | 2025-10-10 12:05 | `1o2z1he` | [An efficient job tool for automated resumes and task tracking, helping users track jobs, companies, and contacts smoothly  Luckykoi](../posts/r_iwanttorun/251010120523_1o2z1he.md) | MobileBroccoli7158 | 1 | 1.0 | 1 | 讨论 | false | true | self.iwanttorun |
 | 2025-10-10 08:00 | `1o2uvs5` | [瑞士多座机场将启用申根区新出入境系统](../posts/r_iwanttorun/251010080006_1o2uvs5.md) | Admirable-Total7964 | 3 | 1.0 | 0 | 分享帖 | false | false | swissinfo.ch |
 | 2025-10-10 04:59 | `1o2rz6u` | [想向润友请教关于二润](../posts/r_iwanttorun/251010045936_1o2rz6u.md) | kamiwasohai | 9 | 0.84 | 9 | 讨论 | false | true | self.iwanttorun |
@@ -67,7 +74,7 @@
 | 2025-10-05 01:51 | `1nybszy` | [备受鼓舞，震撼人心！润友们，新疆要崛起了，有没有去和田喀什库尔勒的](../posts/r_iwanttorun/251005015140_1nybszy.md) | SLucceksful-LAubike | 2 | 1.0 | 0 | 讨论 | false | false | v.redd.it |
 | 2025-10-04 07:59 | `1nxo2oz` | [高市早苗这种极右翼当选首相，会加速日本社会排华吗？](../posts/r_iwanttorun/251004075911_1nxo2oz.md) | hiroshima_fireworks | 0 | 0.35 | 16 | 不懂就问 | false | false | i.redd.it |
 | 2025-10-04 02:26 | `1nxi7h6` | [日本二润求指导](../posts/r_iwanttorun/251004022607_1nxi7h6.md) | Conscious-Manager563 | 0 | 0.47 | 9 | 不懂就问 | false | true | self.iwanttorun |
-| 2025-10-04 00:27 | `1nxfttu` | [加拿大到底最适合什么样的人润过去？难道真的只有官老爷的二奶和大企业家们可以润过去了吗](../posts/r_iwanttorun/251004002719_1nxfttu.md) | Time_Host_1935 | 3 | 1.0 | 2 | 炒作狗 | false | true | self.iwanttorun |
+| 2025-10-04 00:27 | `1nxfttu` | [加拿大到底最适合什么样的人润过去？难道真的只有官老爷的二奶和大企业家们可以润过去了吗](../posts/r_iwanttorun/251004002719_1nxfttu.md) | [deleted] | 23 | 0.88 | 20 | 炒作狗 | false | true | self.iwanttorun |
 | 2025-10-03 18:37 | `1nx7cw1` | [中国邮寄各国集运成本](../posts/r_iwanttorun/251003183717_1nx7cw1.md) | Exciting_Flight_3550 | 4 | 1.0 | 1 | 分享帖 | false | true | self.iwanttorun |
 | 2025-10-03 15:27 | `1nx28rp` | [无耻下作的保利地产在澳洲坑同胞](../posts/r_iwanttorun/251003152736_1nx28rp.md) | Miao906 | 3 | 0.64 | 9 | 不懂就问 | false | false | reddit.com |
 | 2025-10-03 13:05 | `1nwylyj` | [印拿大和中拿大，你们更喜欢哪个？](../posts/r_iwanttorun/251003130543_1nwylyj.md) | hiroshima_fireworks | 0 | 0.25 | 0 | 不懂就问 | false | true | self.iwanttorun |

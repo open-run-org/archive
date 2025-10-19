@@ -1,9 +1,9 @@
-#!/usr/bin/env python3
-import os, sys, glob, pathlib, datetime, shutil
+import os, sys, glob, pathlib, datetime, shutil, json
 
 STAGED = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else "data/staged")
 DOCS = pathlib.Path(sys.argv[2] if len(sys.argv) > 2 else "docs")
 RECENT_N = int(os.environ.get("GEN_RECENT", "64"))
+RAW = pathlib.Path(os.environ.get("DATA_ROOT", "data/raw"))
 
 def read_fm_body(p: pathlib.Path):
     with open(p, "r", encoding="utf-8") as f:
@@ -70,6 +70,121 @@ def fmt_iso_minutes(ts: int) -> str:
 
 def fmt_iso_seconds(ts: int) -> str:
     return datetime.datetime.fromtimestamp(ts, datetime.UTC).strftime("%Y-%m-%d %H:%M:%S UTC")
+
+def pick_latest_staged_comments_md(staged_root: pathlib.Path, staged_sub: str, created_id: str):
+    d = staged_root / staged_sub / "comments" / created_id
+    if not d.exists():
+        return None
+    files = sorted([p for p in d.glob("*.md") if p.is_file()])
+    if not files:
+        return None
+    return files[-1]
+
+def read_text(p: pathlib.Path) -> str:
+    with open(p, "r", encoding="utf-8") as f:
+        return f.read()
+
+def pick_latest_comments_capture(raw_sub: str, created_id: str):
+    d = RAW / raw_sub / "comments" / created_id
+    if not d.exists():
+        return None
+    files = sorted([p for p in d.glob("*.jsonl") if p.is_file()])
+    if not files:
+        return None
+    return files[-1]
+
+def load_comments_jsonl(p: pathlib.Path):
+    out = []
+    with open(p, "r", encoding="utf-8") as f:
+        for ln in f:
+            s = ln.strip()
+            if not s:
+                continue
+            try:
+                out.append(json.loads(s))
+            except Exception:
+                continue
+    return out
+
+def build_comment_tree(rows, post_id):
+    by_id = {}
+    children = {}
+    roots = []
+    for r in rows:
+        cid = r.get("id","")
+        if not cid:
+            continue
+        by_id[cid] = r
+    for r in rows:
+        cid = r.get("id","")
+        pid = r.get("parent_id","")
+        if not cid:
+            continue
+        if pid.startswith("t3_"):
+            roots.append(cid)
+        elif pid.startswith("t1_"):
+            parent = pid[3:]
+            children.setdefault(parent, []).append(cid)
+        else:
+            roots.append(cid)
+    for k in children:
+        children[k].sort(key=lambda x: (float(by_id.get(x,{}).get("created_utc",0)), x))
+    roots.sort(key=lambda x: (float(by_id.get(x,{}).get("created_utc",0)), x))
+    return by_id, children, roots
+
+def render_comment(by_id, children, cid, depth):
+    r = by_id[cid]
+    created = int(float(r.get("created_utc", 0)))
+    author = r.get("author","")
+    score = r.get("score",0)
+    ups = r.get("ups",0)
+    downs = r.get("downs",0)
+    pid = r.get("id","")
+    permalink = r.get("permalink","")
+    body_text = r.get("body","")
+    prefix = ">"*depth + " "
+    lines = []
+    lines.append(prefix + f"- Author: {author}")
+    lines.append(prefix + f"- Created: {fmt_iso_seconds(created)}")
+    lines.append(prefix + f"- Score: {score}")
+    lines.append(prefix + f"- ID: {pid}")
+    lines.append(prefix + f"- Ups={ups} | Downs={downs} | Permalink={permalink}")
+    lines.append(">"*depth)
+    if body_text:
+        for ln in body_text.splitlines():
+            lines.append(prefix + ln)
+    else:
+        lines.append(prefix + "_(no text)_")
+    if children.get(cid):
+        lines.append("")
+        for kid in children.get(cid, []):
+            lines.extend(render_comment(by_id, children, kid, depth+1))
+            lines.append("")
+        while lines and lines[-1]=="":
+            lines.pop()
+    return lines
+
+def render_comments_block(raw_sub: str, created_id: str, post_id: str):
+    latest = pick_latest_comments_capture(raw_sub, created_id)
+    if not latest:
+        return ""
+    rows = load_comments_jsonl(latest)
+    if not rows:
+        return ""
+    by_id, children, roots = build_comment_tree(rows, post_id)
+    if not roots:
+        return ""
+    out = []
+    out.append("")
+    out.append("---")
+    out.append("")
+    for i, cid in enumerate(roots):
+        out.extend(render_comment(by_id, children, cid, 1))
+        if i != len(roots)-1:
+            out.append("")
+    while out and out[-1]=="":
+        out.pop()
+    return "\n".join(out)
 
 def build():
     if DOCS.exists():
@@ -151,19 +266,17 @@ def build():
             lines.append(f"- Flair: {it['flair']}")
         lines.append("")
         lines.append(it["body"] if it["body"].strip() else "_(no selftext)_")
-        sub_dir = DOCS / "posts" / it["sub"]
-        comments_dir = STAGED / it["sub"] / "comments" / it["created_id"]
-        comments_md = ""
-        if comments_dir.exists():
-            cand = sorted([p for p in comments_dir.iterdir() if p.suffix==".md"], key=lambda p: p.stem, reverse=True)
-            if cand:
-                comments_md = cand[0].read_text(encoding="utf-8").strip()
-        if comments_md:
-            lines.append("")
-            lines.append("---")
-            lines.append("")
-            lines.append(comments_md)
-        write(sub_dir / f"{it['created_id']}.md", "\n".join(lines) + "\n")
+
+        cm_md = pick_latest_staged_comments_md(STAGED, it["sub"], it["created_id"])
+        if cm_md:
+            lines.extend(["", "---", ""])
+            lines.append(read_text(cm_md).rstrip())
+        else:
+            block = render_comments_block(it["sub"], it["created_id"], it["post_id"])
+            if block:
+                lines.append(block)
+
+        write(DOCS / "posts" / it["sub"] / f"{it['created_id']}.md", "\n".join(lines) + "\n")
 
 if __name__ == "__main__":
     build()

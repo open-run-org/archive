@@ -1,7 +1,11 @@
 import os, sys, json, pathlib, argparse, datetime
 
 def fmt_iso(ts):
-    return datetime.datetime.fromtimestamp(int(float(ts)), datetime.timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
+    try:
+        v = int(float(ts or 0))
+    except Exception:
+        v = 0
+    return datetime.datetime.fromtimestamp(v, datetime.timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
 
 def load_lines(p):
     out=[]
@@ -15,40 +19,127 @@ def load_lines(p):
                 pass
     return out
 
-def build_tree(rows, link_fullname):
-    children={}
-    roots=[]
+def expand_replies(node):
+    bag=[]
+    rep = node.get("replies")
+    if isinstance(rep, dict) and rep.get("kind") and isinstance(rep.get("data"), dict):
+        ch = rep["data"].get("children") or []
+        for c in ch:
+            if not isinstance(c, dict): continue
+            if c.get("kind") != "t1":
+                continue
+            cd = c.get("data") or {}
+            bag.append(cd)
+            bag.extend(expand_replies(cd))
+    return bag
+
+def flatten_all(rows):
+    flat=[]
     for r in rows:
-        pid=r.get("parent_id","")
-        if pid==link_fullname:
-            roots.append(r)
+        if isinstance(r, dict) and "body" in r and "id" in r:
+            flat.append(r)
+            flat.extend(expand_replies(r))
         else:
-            children.setdefault(pid,[]).append(r)
-    for k in children:
-        children[k].sort(key=lambda x: x.get("created_utc",0))
-    roots.sort(key=lambda x: x.get("created_utc",0))
-    return roots, children
+            d = r.get("data") if isinstance(r, dict) else None
+            if isinstance(d, dict) and "body" in d:
+                flat.append(d)
+                flat.extend(expand_replies(d))
+    seen=set()
+    uniq=[]
+    for r in flat:
+        name = r.get("name") or ("t1_"+(r.get("id","") or ""))
+        if name in seen: continue
+        seen.add(name)
+        uniq.append(r)
+    return uniq
 
-def render_comment(r, idx, depth):
-    a=r.get("author","")
-    b=r.get("body","") or ""
-    t=fmt_iso(r.get("created_utc",0))
-    s=r.get("score","")
-    cid=r.get("id","")
-    head=[f"Comment {idx}","","- Author: "+a,"- Created: "+t,"- Score: "+str(s),f"- ID: {cid}",""]
-    body=[("> " * depth)+ln if ln else "" for ln in b.splitlines()]
-    return "\n".join(head+body)+("\n" if body and body[-1] else "\n")
+def build_tree(rows, link_fullname):
+    by_parent={}
+    for r in rows:
+        pid = r.get("parent_id","")
+        by_parent.setdefault(pid,[]).append(r)
+    for k in by_parent:
+        by_parent[k].sort(key=lambda x: (x.get("created_utc",0), x.get("id","")))
+    roots = by_parent.get(link_fullname,[])
+    roots.sort(key=lambda x: (x.get("created_utc",0), x.get("id","")))
+    return roots, by_parent
 
-def render_tree(roots, children, depth=1, start_idx=1, acc=None):
-    if acc is None: acc=[]
-    i=start_idx
-    for r in roots:
-        acc.append(render_comment(r, i, depth))
-        i+=1
-        ch=children.get("t1_"+r.get("id",""),[])
+def qprefix(depth):
+    return ">"*depth + " "
+
+def meta_lines(r, depth):
+    p = qprefix(depth)
+    auth = r.get("author","") or ""
+    created = fmt_iso(r.get("created_utc",0))
+    score = r.get("score", r.get("ups", 0))
+    cid = r.get("id","")
+    ups = r.get("ups", "")
+    downs = r.get("downs", "")
+    is_submitter = r.get("is_submitter", False)
+    distinguished = r.get("distinguished", None)
+    stickied = r.get("stickied", False)
+    archived = r.get("archived", False)
+    locked = r.get("locked", False)
+    controversiality = r.get("controversiality", 0)
+    gilded = r.get("gilded", 0)
+    tawards = r.get("total_awards_received", 0)
+    aflair = r.get("author_flair_text", "")
+    aflair_css = r.get("author_flair_css_class", "")
+    aflair_color = r.get("author_flair_text_color", "")
+    apremium = r.get("author_premium", False)
+    permalink = r.get("permalink","")
+    lines = [
+        f"{p}- Author: {auth}",
+        f"{p}- Created: {created}",
+        f"{p}- Score: {score}",
+        f"{p}- ID: {cid}",
+    ]
+    extra = []
+    if ups != "": extra.append(f"Ups={ups}")
+    if downs != "": extra.append(f"Downs={downs}")
+    if is_submitter: extra.append("Submitter=true")
+    if distinguished: extra.append(f"Distinguished={distinguished}")
+    if stickied: extra.append("Stickied=true")
+    if archived: extra.append("Archived=true")
+    if locked: extra.append("Locked=true")
+    if controversiality: extra.append(f"Controversiality={controversiality}")
+    if gilded: extra.append(f"Gilded={gilded}")
+    if tawards: extra.append(f"Awards={tawards}")
+    if aflair: extra.append(f"Flair={aflair}")
+    if aflair_css: extra.append(f"FlairCSS={aflair_css}")
+    if aflair_color: extra.append(f"FlairColor={aflair_color}")
+    if apremium: extra.append("AuthorPremium=true")
+    if permalink: extra.append(f"Permalink={permalink}")
+    if extra:
+        lines.append(p + "- " + " | ".join(extra))
+    return lines
+
+def render_one(r, depth):
+    lines = []
+    lines += meta_lines(r, depth)
+    lines.append(">"*depth)
+    body = (r.get("body","") or "").splitlines()
+    if not body:
+        body = ["_(no content)_"]
+    bp = qprefix(depth)
+    for ln in body:
+        lines.append(f"{bp}{ln}")
+    return lines
+
+def render_tree(nodes, by_parent, depth):
+    out=[]
+    for idx, r in enumerate(nodes):
+        out += render_one(r, depth)
+        child_key = "t1_"+(r.get("id","") or "")
+        ch = by_parent.get(child_key, [])
         if ch:
-            render_tree(ch, children, depth+1, 1, acc)
-    return acc
+            out.append("")
+            out += render_tree(ch, by_parent, depth+1)
+        if idx != len(nodes)-1:
+            out.append("")
+    while out and out[-1]=="":
+        out.pop()
+    return out
 
 def main():
     ap=argparse.ArgumentParser()
@@ -58,27 +149,23 @@ def main():
     in_root=pathlib.Path(args.in_root)
     out_root=pathlib.Path(args.out_root)
     files=sorted(in_root.glob("r_*/comments/*/*.jsonl"))
-    for f in files:
+    total=len(files)
+    for i,f in enumerate(files,1):
         sub=f.parts[-4]
         created_id=f.parts[-2]
         cap=f.stem
         rows=load_lines(f)
-        link="t3_"+created_id.split("_",1)[1]
-        roots, children = build_tree(rows, link)
-        lines=[]
-        idx=1
-        for r in roots:
-            lines.append(render_comment(r, idx, 1))
-            idx+=1
-            ch=children.get("t1_"+r.get("id",""),[])
-            if ch:
-                lines.extend(render_tree(ch, children, 2, 1))
+        flat=flatten_all(rows)
+        post_id=created_id.split("_",1)[1]
+        link="t3_"+post_id
+        roots, by_parent = build_tree(flat, link)
+        lines=render_tree(roots, by_parent, 1)
         out_dir=out_root/sub/"comments"/created_id
         out_dir.mkdir(parents=True, exist_ok=True)
         out_file=out_dir/(cap+".md")
         with open(out_file,"w",encoding="utf-8") as w:
             w.write("\n".join(lines).rstrip()+"\n")
-        sys.stdout.write(f"[cmd] {f} -> {out_file}\n")
+        sys.stdout.write(f"[mdc] ({i}/{total}) {f} -> {out_file} roots={len(roots)} total_flat={len(flat)}\n")
 
 if __name__=="__main__":
     main()
