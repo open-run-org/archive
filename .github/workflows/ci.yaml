@@ -33,43 +33,51 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: true
+
       - uses: actions/setup-go@v6
         with:
           go-version-file: "go.mod"
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
           cache: "pip"
-      - run: |
+
+      - name: System deps
+        run: |
           sudo apt-get update
           sudo apt-get install -y jq pandoc python3-venv
-      - run: |
+
+      - name: Python venv
+        run: |
           python -m venv .venv
           . .venv/bin/activate
           pip install -U pip
           pip install -r requirements.txt
-      - run: |
+
+      - name: Check secrets and subs
+        run: |
           test -n "${REDDIT_CLIENT_ID}" || (echo "REDDIT_CLIENT_ID missing" && exit 1)
           test -n "${REDDIT_CLIENT_SECRET}" || (echo "REDDIT_CLIENT_SECRET missing" && exit 1)
           test -n "${REDDIT_USER_AGENT}" || (echo "REDDIT_USER_AGENT missing" && exit 1)
-      - run: sed -e 's/\r$//' "${SUBS_FILE}" | sed '/^\s*#/d;/^\s*$/d' | nl -ba || true
-      - name: Harvest
+          sed -e 's/\r$//' "${SUBS_FILE}" | sed '/^\s*#/d;/^\s*$/d' | nl -ba || true
+
+      - name: Make CI pipeline
         env:
+          GEN_RECENT: ${{ env.GEN_RECENT }}
+          DAYS: ${{ env.DAYS }}
+          DATA_ROOT: ${{ env.DATA_ROOT }}
+          STAGED_ROOT: ${{ env.STAGED_ROOT }}
+          SUBS_FILE: ${{ env.SUBS_FILE }}
           REDDIT_CLIENT_ID: ${{ env.REDDIT_CLIENT_ID }}
           REDDIT_CLIENT_SECRET: ${{ env.REDDIT_CLIENT_SECRET }}
           REDDIT_USER_AGENT: ${{ env.REDDIT_USER_AGENT }}
-          DAYS: ${{ env.DAYS }}
+          REDDIT_USERNAME: ${{ env.REDDIT_USERNAME }}
+          REDDIT_PASSWORD: ${{ env.REDDIT_PASSWORD }}
         run: |
           set -euxo pipefail
-          bash scripts/harvest.sh "${DATA_ROOT}" "${SUBS_FILE}"
-      - name: JSONL2MD
-        run: |
-          set -euxo pipefail
-          bash scripts/jsonl2md.sh "${DATA_ROOT}" "${STAGED_ROOT}"
-      - name: gen docs
-        run: |
-          set -euxo pipefail
-          python scripts/materialize_docs.py "${STAGED_ROOT}" docs
+          make ci
+
       - name: Commit and push changes
         run: |
           set -euxo pipefail
@@ -82,8 +90,10 @@ jobs:
           else
             echo "no content changes"
           fi
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
+
       - name: Build site
         env:
           GEN_RECENT: ${{ env.GEN_RECENT }}
@@ -91,10 +101,12 @@ jobs:
           set -euxo pipefail
           . .venv/bin/activate
           mkdocs build --strict
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./site
+
   deploy:
     runs-on: ubuntu-latest
     needs: build

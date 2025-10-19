@@ -94,7 +94,7 @@ def build():
     for it in latest_changes:
         title = it["title"] or it["created_id"]
         ts = it["capture_ts"]
-        href = f'posts/{it["sub"]}/{it["created_id"]}.md'  # from /index.md to /posts/...
+        href = f'posts/{it["sub"]}/{it["created_id"]}.md'
         home.append(f'- `{it["sub"]}` `{ts}` [{title}]({href})')
     write(DOCS / "index.md", "\n".join(home) + "\n")
 
@@ -107,7 +107,7 @@ def build():
         lines = [f"# {s}", "", "[Full archive](archive.md)", "", "## Latest changes", ""]
         for it in arr_sorted:
             title = it["title"] or it["created_id"]
-            href = f'../posts/{it["sub"]}/{it["created_id"]}.md'  # from /r_sub/ to /posts/...
+            href = f'../posts/{it["sub"]}/{it["created_id"]}.md'
             lines.append(f'- `{it["capture_ts"]}` [{title}]({href})')
         write(DOCS / s / "index.md", "\n".join(lines) + "\n")
 
@@ -125,7 +125,7 @@ def build():
         ]
         for it in arr_sorted:
             title = (it["title"] or it["created_id"]).replace("|", "\\|")
-            href = f'../posts/{it["sub"]}/{it["created_id"]}.md'  # from /r_sub/archive.md to /posts/...
+            href = f'../posts/{it["sub"]}/{it["created_id"]}.md'
             t.append(
                 f'| {fmt_iso_minutes(it["created_utc"])} | `{it["post_id"]}` | [{title}]({href}) | '
                 f'{it["author"]} | {it["ups"]} | {it["upvote_ratio"]} | {it["num_comments"]} | '
@@ -139,20 +139,31 @@ def build():
         lines = [
             f"# {title}",
             "",
-            "- Metadata:",
-            f"  - Subreddit: {it['sub']}",
-            f"  - Author: {it['author']}",
-            f"  - Created: {fmt_iso_seconds(it['created_utc'])}",
-            f"  - Permalink: {it['permalink']}",
+            f"- Subreddit: {it['sub']}",
+            f"- Author: {it['author']}",
+            f"- Created: {fmt_iso_seconds(it['created_utc'])}",
+            f"- Permalink: {it['permalink']}",
         ]
         if it["url"]:
-            lines.append(f"  - URL: {it['url']}")
-        lines.append(f"  - Ups: {it['ups']} | Ratio: {it['upvote_ratio']} | Comments: {it['num_comments']}")
+            lines.append(f"- URL: {it['url']}")
+        lines.append(f"- Ups: {it['ups']} | Ratio: {it['upvote_ratio']} | Comments: {it['num_comments']}")
         if it["flair"]:
-            lines.append(f"  - Flair: {it['flair']}")
+            lines.append(f"- Flair: {it['flair']}")
         lines.append("")
         lines.append(it["body"] if it["body"].strip() else "_(no selftext)_")
-        write(DOCS / "posts" / it["sub"] / f"{it['created_id']}.md", "\n".join(lines) + "\n")
+        sub_dir = DOCS / "posts" / it["sub"]
+        comments_dir = STAGED / it["sub"] / "comments" / it["created_id"]
+        comments_md = ""
+        if comments_dir.exists():
+            cand = sorted([p for p in comments_dir.iterdir() if p.suffix==".md"], key=lambda p: p.stem, reverse=True)
+            if cand:
+                comments_md = cand[0].read_text(encoding="utf-8").strip()
+        if comments_md:
+            lines.append("")
+            lines.append("---")
+            lines.append("")
+            lines.append(comments_md)
+        write(sub_dir / f"{it['created_id']}.md", "\n".join(lines) + "\n")
 
 if __name__ == "__main__":
     build()

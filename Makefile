@@ -4,6 +4,10 @@ DATA_ROOT ?= data/raw
 STAGED_ROOT ?= data/staged
 SUBS_FILE ?= configs/subreddits.txt
 
+DAYS ?= 65536
+PORT ?= 8000
+ADDR ?= 0.0.0.0
+
 VENV ?= .venv
 PY ?= $(VENV)/bin/python
 MKDOCS ?= $(VENV)/bin/mkdocs
@@ -19,7 +23,7 @@ AT_MONTHLY_SUBS_MAGNET ?= magnet:?xt=urn:btih:30dee5f0406da7a353aff6a8caa2d54fd0
 AT_MONTHLY_COMMENTS_MAGNET ?= magnet:?xt=urn:btih:30dee5f0406da7a353aff6a8caa2d54fd01f2ca1
 AT_TRACKERS ?= udp://tracker.opentrackr.org:1337/announce,https://tracker.zhuqiy.com:443/announce
 
-.PHONY: deps fetch-monthly ids hydrate sync-backfill jsonl2md docs build sync
+.PHONY: deps fetch-monthly ids hydrate sync-backfill jsonl2md docs serve build sync harvest harvest-comments jsonl2md-comments ci
 
 deps:
 	apt-get update && apt-get install -y python3 python3-venv jq pandoc aria2 zstd curl xz-utils bzip2 gzip
@@ -59,7 +63,22 @@ jsonl2md:
 docs:
 	GEN_RECENT=$(GEN_RECENT) $(PY) scripts/materialize_docs.py $(STAGED_ROOT) docs
 
+serve:
+	$(MKDOCS) serve --dev-addr=$(ADDR):$(PORT) -v
+
 build:
 	$(MKDOCS) build --strict
 
 sync: deps fetch-monthly hydrate sync-backfill jsonl2md docs build
+
+harvest:
+	DAYS=$(DAYS) bash scripts/harvest.sh $(DATA_ROOT) $(SUBS_FILE)
+
+harvest-comments:
+	DAYS=$(DAYS) bash scripts/harvest_comments.sh $(DATA_ROOT) $(SUBS_FILE)
+
+jsonl2md-comments:
+	bash scripts/jsonl2md_comments.sh $(DATA_ROOT) $(STAGED_ROOT)
+
+ci: deps harvest harvest-comments jsonl2md jsonl2md-comments docs
+	@echo "[ci] pipeline done"
