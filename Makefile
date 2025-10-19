@@ -4,7 +4,7 @@ DATA_ROOT ?= data/raw
 STAGED_ROOT ?= data/staged
 SUBS_FILE ?= configs/subreddits.txt
 
-DAYS ?= 65536
+DAYS ?= 16
 PORT ?= 8000
 ADDR ?= 0.0.0.0
 
