@@ -4,6 +4,10 @@
 
 ## Latest changes
 
+- `251019020249` [关于欧陆硕士和国内硕士的请教](../posts/r_iwanttorun/251018133624_1o9w0mu.md)
+- `251019020249` [祝福各位能成為下面的人](../posts/r_iwanttorun/251018230631_1oaa7qn.md)
+- `251019020249` [Poll shows massive majority of Australians want to slash immigration](../posts/r_iwanttorun/251018145601_1o9xyv3.md)
+- `251019020249` [请问美国B2被拒是否影响澳大利亚whv](../posts/r_iwanttorun/251018020651_1o9js05.md)
 - `251018014522` [各位被边控的润友，你们都是怎么被边控的？](../posts/r_iwanttorun/251017162320_1o95viu.md)
 - `251018014522` [怎么润瑞士](../posts/r_iwanttorun/251017215834_1o9ei97.md)
 - `251018014522` [远离简中论坛保持身心健康](../posts/r_iwanttorun/251017032638_1o8qphx.md)
@@ -64,7 +68,3 @@
 - `251006015100` [去法国读工科硕士容易留下来吗](../posts/r_iwanttorun/251005104252_1nyky50.md)
 - `251005015724` [高市早苗这种极右翼当选首相，会加速日本社会排华吗？](../posts/r_iwanttorun/251004075911_1nxo2oz.md)
 - `251005015724` [日本二润求指导](../posts/r_iwanttorun/251004022607_1nxi7h6.md)
-- `251005015724` [备受鼓舞，震撼人心！润友们，新疆要崛起了，有没有去和田喀什库尔勒的](../posts/r_iwanttorun/251005015140_1nybszy.md)
-- `251004014259` [无耻下作的保利地产在澳洲坑同胞](../posts/r_iwanttorun/251003152736_1nx28rp.md)
-- `251004014259` [加拿大到底最适合什么样的人润过去？难道真的只有官老爷的二奶和大企业家们可以润过去了吗](../posts/r_iwanttorun/251004002719_1nxfttu.md)
-- `251004014259` [怎么禁评了呢？](../posts/r_iwanttorun/251003045706_1nwq42o.md)

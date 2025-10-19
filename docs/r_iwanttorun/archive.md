@@ -2,6 +2,10 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-18 23:06 | `1oaa7qn` | [祝福各位能成為下面的人](../posts/r_iwanttorun/251018230631_1oaa7qn.md) | this0great | 14 | 0.95 | 1 | 讨论 | false | false | i.redd.it |
+| 2025-10-18 14:56 | `1o9xyv3` | [Poll shows massive majority of Australians want to slash immigration](../posts/r_iwanttorun/251018145601_1o9xyv3.md) | kyk00525 | 3 | 1.0 | 0 | 讨论 | false | false | dailymail.co.uk |
+| 2025-10-18 13:36 | `1o9w0mu` | [关于欧陆硕士和国内硕士的请教](../posts/r_iwanttorun/251018133624_1o9w0mu.md) | Relative-Union-3116 | 5 | 0.86 | 15 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-18 02:06 | `1o9js05` | [请问美国B2被拒是否影响澳大利亚whv](../posts/r_iwanttorun/251018020651_1o9js05.md) | Professional-Way8031 | 0 | 0.25 | 7 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-17 21:58 | `1o9ei97` | [怎么润瑞士](../posts/r_iwanttorun/251017215834_1o9ei97.md) | Individual_Cry9780 | 0 | 0.14 | 5 | 炒作狗 | false | true | self.iwanttorun |
 | 2025-10-17 16:23 | `1o95viu` | [各位被边控的润友，你们都是怎么被边控的？](../posts/r_iwanttorun/251017162320_1o95viu.md) | Accomplished_Sign433 | 0 | 0.5 | 6 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-17 14:51 | `1o93f9a` | [求助！关于越南激活护照！！](../posts/r_iwanttorun/251017145137_1o93f9a.md) | Euphoric-Date-1816 | 0 | 0.5 | 8 | 不懂就问 | false | true | self.iwanttorun |

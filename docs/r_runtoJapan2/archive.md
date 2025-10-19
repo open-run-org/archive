@@ -2,6 +2,12 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-18 15:23 | `1o9ynic` | [谁来了？？](../posts/r_runtoJapan2/251018152310_1o9ynic.md) | HonestzPractice | 0 | 0.5 | 1 | 日常生活 | false | false | i.redd.it |
+| 2025-10-18 11:17 | `1o9t40m` | [最近在备考JTEST，感觉比JLPT要合理得多](../posts/r_runtoJapan2/251018111723_1o9t40m.md) | ztstillwater | 5 | 0.78 | 3 | 语言学习 | false | true | self.runtoJapan2 |
+| 2025-10-18 08:00 | `1o9pz7n` | [为什么日本的泡面没叉子？](../posts/r_runtoJapan2/251018080048_1o9pz7n.md) | Massive-Bit3069 | 0 | 0.5 | 9 |  | false | true | self.runtoJapan2 |
+| 2025-10-18 06:49 | `1o9ou63` | [以后想休息，就直接发文说有针对自己的老中就行了🏃🏻‍♂️](../posts/r_runtoJapan2/251018064933_1o9ou63.md) | Salt-Philosopher1071 | 0 | 0.44 | 3 |  | false | false | i.redd.it |
+| 2025-10-18 06:16 | `1o9ob3h` | [穹区们羡慕吗？？](../posts/r_runtoJapan2/251018061658_1o9ob3h.md) | HonestzPractice | 0 | 0.14 | 13 | 日常生活 | false | false | i.redd.it |
+| 2025-10-18 05:10 | `1o9n75r` | [打直球](../posts/r_runtoJapan2/251018051050_1o9n75r.md) | Competitive-Fish-700 | 23 | 0.78 | 39 | 杂谈 | false | false | i.redd.it |
 | 2025-10-17 18:34 | `1o99c29` | [薪水停滯，物價起飛](../posts/r_runtoJapan2/251017183428_1o99c29.md) | this0great | 5 | 0.69 | 5 |  | false | false | i.redd.it |
 | 2025-10-17 16:53 | `1o96nzq` | [離開東京23區，房租有那麼便宜嗎](../posts/r_runtoJapan2/251017165327_1o96nzq.md) | this0great | 6 | 0.8 | 4 |  | false | false | i.redd.it |
 | 2025-10-17 15:26 | `1o94dsh` | [日本政府考虑将签证费提高至“欧美水平”以促进入境旅游](../posts/r_runtoJapan2/251017152653_1o94dsh.md) | KaikouZzz | 0 | 0.5 | 2 | 政策新闻 | false | false | nikkei.com |
