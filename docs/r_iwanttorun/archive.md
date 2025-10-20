@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-19 23:01 | `1ob3vlb` | [看来洋人不愿救哦](../posts/r_iwanttorun/251019230113_1ob3vlb.md) | pigeon_reborn | 1 | 0.67 | 2 | 分享帖 | false | false | i.redd.it |
 | 2025-10-19 20:15 | `1oazv4o` | [大家好 我是墙内一个高三生 想要润出这个国家 但我有点迷茫 希望大佬们可以给我一些建议](../posts/r_iwanttorun/251019201522_1oazv4o.md) | Savings-Anything4633 | 2 | 1.0 | 2 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-19 16:58 | `1oausl7` | [23岁无业游民想文转码润欧，求大神指导](../posts/r_iwanttorun/251019165850_1oausl7.md) | Overall-Test-774 | 0 | 0.33 | 15 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-19 16:43 | `1oauezy` | [提供新西兰雇主担保offer](../posts/r_iwanttorun/251019164356_1oauezy.md) | Prize_Calendar_6449 | 0 | 0.25 | 2 | 分享帖 | false | true | self.iwanttorun |

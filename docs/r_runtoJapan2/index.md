@@ -4,6 +4,8 @@
 
 ## Latest changes
 
+- `251020020115` [外语专门学校总出席80%是已完了吗](../posts/r_runtoJapan2/251020011742_1ob6u0l.md)
+- `251020020115` [老中在日本该用哪个交易所？](../posts/r_runtoJapan2/251019232629_1ob4fto.md)
 - `251019205754` [【社区声明】本社区为独立新建社区 Non-Affiliation & No “Sequel/Mirror” Notice       TL;DR：本社区是全新创建、独立运营的社区，与任何其他社区无隶属、无继承、无“转生/镜像”关系。请避免使用“官方续作/二部/复活/原班人马”等表述。](../posts/r_runtoJapan2/250930073117_1nu6u3k.md)
 - `251019205753` [綠綠對和服人偶的行為](../posts/r_runtoJapan2/251019152609_1oasfxn.md)
 - `251019205753` [21岁 国内非日专本科毕业 有N2证书](../posts/r_runtoJapan2/251019040516_1oag3tf.md)
@@ -66,5 +68,3 @@
 - `251014015113` [手毬吃麦当劳~](../posts/r_runtoJapan2/251013081951_1o5dzvz.md)
 - `251014015113` [一直以来都没事 这个世界是座舞厅](../posts/r_runtoJapan2/251013135836_1o5kgex.md)
 - `251014015113` [Charlie Kirk长得神似大谷翔平](../posts/r_runtoJapan2/251013170459_1o5pjyk.md)
-- `251014015113` [如何看待這個圖](../posts/r_runtoJapan2/251013041426_1o59x5k.md)
-- `251014015113` [想润日求建议](../posts/r_runtoJapan2/251012164833_1o4u2ij.md)

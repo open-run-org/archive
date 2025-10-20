@@ -2,6 +2,8 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-20 01:17 | `1ob6u0l` | [外语专门学校总出席80%是已完了吗](../posts/r_runtoJapan2/251020011742_1ob6u0l.md) | Hour_Season7780 | 3 | 1.0 | 6 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-19 23:26 | `1ob4fto` | [老中在日本该用哪个交易所？](../posts/r_runtoJapan2/251019232629_1ob4fto.md) | zhizhuzhizhutu | 0 | 0.5 | 2 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-19 20:16 | `1oazwgj` | [分享一个访问已被封的 sub 的贴文和评论的方法](../posts/r_runtoJapan2/251019201646_1oazwgj.md) | No-Lab4175 | 2 | 1.0 | 1 | 经验分享 | false | true | self.runtoJapan2 |
 | 2025-10-19 15:26 | `1oasfxn` | [綠綠對和服人偶的行為](../posts/r_runtoJapan2/251019152609_1oasfxn.md) | this0great | 2 | 0.63 | 1 |  | false | false | i.redd.it |
 | 2025-10-19 13:32 | `1oapqfl` | [请关注21日的首相选举结果，决定你的后续行动](../posts/r_runtoJapan2/251019133202_1oapqfl.md) | ztstillwater | 0 | 0.44 | 11 | 政策新闻 | false | true | self.runtoJapan2 |

@@ -10,6 +10,9 @@
 
 ## Latest changes
 
+- `r_runtoJapan2` `251020020115` [外语专门学校总出席80%是已完了吗](posts/r_runtoJapan2/251020011742_1ob6u0l.md)
+- `r_runtoJapan2` `251020020115` [老中在日本该用哪个交易所？](posts/r_runtoJapan2/251019232629_1ob4fto.md)
+- `r_iwanttorun` `251020020109` [看来洋人不愿救哦](posts/r_iwanttorun/251019230113_1ob3vlb.md)
 - `r_runtoJapan2` `251019205754` [【社区声明】本社区为独立新建社区 Non-Affiliation & No “Sequel/Mirror” Notice       TL;DR：本社区是全新创建、独立运营的社区，与任何其他社区无隶属、无继承、无“转生/镜像”关系。请避免使用“官方续作/二部/复活/原班人马”等表述。](posts/r_runtoJapan2/250930073117_1nu6u3k.md)
 - `r_runtoJapan2` `251019205753` [綠綠對和服人偶的行為](posts/r_runtoJapan2/251019152609_1oasfxn.md)
 - `r_runtoJapan2` `251019205753` [21岁 国内非日专本科毕业 有N2证书](posts/r_runtoJapan2/251019040516_1oag3tf.md)
@@ -71,6 +74,3 @@
 - `r_runtoJapan2` `251017015146` [分享一些我听过的日语播客频道](posts/r_runtoJapan2/251016055459_1o7yc8h.md)
 - `r_runtoJapan2` `251017015146` [如何看這個說法](posts/r_runtoJapan2/251015080314_1o751v8.md)
 - `r_runtoJapan2` `251017015146` [发工资后→发工资前](posts/r_runtoJapan2/251016060759_1o7yjra.md)
-- `r_runtoJapan2` `251017015146` [请问大佬们日本的材料化工前景如何](posts/r_runtoJapan2/251016044102_1o7x3d8.md)
-- `r_runtoJapan2` `251017015146` [吉他手二选一](posts/r_runtoJapan2/251016103142_1o82lmp.md)
-- `r_runEuropaAlliance` `251017015144` [求助！B站大会员Apple Pay不能用了，怎么办？](posts/r_runEuropaAlliance/251016204217_1o8hom8.md)
