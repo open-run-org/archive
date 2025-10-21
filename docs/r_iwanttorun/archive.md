@@ -2,6 +2,12 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-20 20:58 | `1obtmt7` | [对计算机不感兴趣的小留，我到底应该选择什么样的pathway？](../posts/r_iwanttorun/251020205856_1obtmt7.md) | Opposite-Car2809 | 0 | 0.17 | 3 | 讨论 | false | true | self.iwanttorun |
+| 2025-10-20 18:34 | `1obpqgq` | [Family who spent $40K seeking Canadian residency return to China after immigration nightmare](../posts/r_iwanttorun/251020183402_1obpqgq.md) | AngCAN888 | 4 | 1.0 | 1 | 分享帖 | false | true | self.iwanttorun |
+| 2025-10-20 15:10 | `1oblc36` | [No more Schengen visa free travel? EU approves mechanism to reinstate visas over golden passports - BusinessToday](../posts/r_iwanttorun/251020151028_1oblc36.md) | kyk00525 | 1 | 1.0 | 0 | 讨论 | false | false | businesstoday.in |
+| 2025-10-20 09:16 | `1obfbxi` | [有run欧盟的sub，有run日本的sub，也有潤澳洲的sub，怎么没看到run北美那边的sub](../posts/r_iwanttorun/251020091633_1obfbxi.md) | Worthy-gaylord69 | 4 | 1.0 | 5 | 讨论 | false | true | self.iwanttorun |
+| 2025-10-20 08:02 | `1obe6es` | [台海大战结束之后，发达国家会收留中国难民吗？🙏🏻](../posts/r_iwanttorun/251020080200_1obe6es.md) | hiroshima_fireworks | 0 | 0.39 | 28 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-20 06:40 | `1obcuf7` | [Hii someone can help me with this file?](../posts/r_iwanttorun/251020064043_1obcuf7.md) | Glad-Remove-5878 | 1 | 1.0 | 2 | ??? | false | true | self.iwanttorun |
 | 2025-10-19 23:01 | `1ob3vlb` | [看来洋人不愿救哦](../posts/r_iwanttorun/251019230113_1ob3vlb.md) | pigeon_reborn | 1 | 0.67 | 2 | 分享帖 | false | false | i.redd.it |
 | 2025-10-19 20:15 | `1oazv4o` | [大家好 我是墙内一个高三生 想要润出这个国家 但我有点迷茫 希望大佬们可以给我一些建议](../posts/r_iwanttorun/251019201522_1oazv4o.md) | Savings-Anything4633 | 2 | 1.0 | 2 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-19 16:58 | `1oausl7` | [23岁无业游民想文转码润欧，求大神指导](../posts/r_iwanttorun/251019165850_1oausl7.md) | Overall-Test-774 | 0 | 0.33 | 15 | 不懂就问 | false | true | self.iwanttorun |

@@ -2,6 +2,13 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-21 00:35 | `1obyr9q` | [以后JLPT等日语合格证书有没有可能增加有效期？](../posts/r_runtoJapan2/251021003509_1obyr9q.md) | ztstillwater | 1 | 0.67 | 2 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-10-20 20:22 | `1obsnih` | [怎麼辦](../posts/r_runtoJapan2/251020202236_1obsnih.md) | this0great | 0 | 0.33 | 3 |  | false | false | i.redd.it |
+| 2025-10-20 16:10 | `1obmmnn` | [穹区们有这么帅吗？](../posts/r_runtoJapan2/251020161019_1obmmnn.md) | HonestzPractice | 0 | 0.33 | 1 | 日常生活 | false | false | i.redd.it |
+| 2025-10-20 14:44 | `1obkrjj` | [观b站中日夫妇类的视频有感](../posts/r_runtoJapan2/251020144416_1obkrjj.md) | Cold_Com1248 | 8 | 0.68 | 9 |  | false | true | self.runtoJapan2 |
+| 2025-10-20 11:05 | `1obg3ei` | [很多年没碰英语早忘光了，学个新概念2来突击考托业650分左右是否可行？](../posts/r_runtoJapan2/251020110537_1obg3ei.md) | Acceptable-Fox-8161 | 0 | 0.5 | 5 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-20 09:08 | `1obf7ro` | [对自己很不满意的一点是生活很多细节还是不能做好](../posts/r_runtoJapan2/251020090855_1obf7ro.md) | whatanywayever | 3 | 0.72 | 8 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-10-20 09:03 | `1obf4qd` | [有没有人知道有哪些地方可以练口语](../posts/r_runtoJapan2/251020090303_1obf4qd.md) | Dense-Lion2842 | 2 | 0.75 | 9 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-20 01:17 | `1ob6u0l` | [外语专门学校总出席80%是已完了吗](../posts/r_runtoJapan2/251020011742_1ob6u0l.md) | Hour_Season7780 | 3 | 1.0 | 6 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-19 23:26 | `1ob4fto` | [老中在日本该用哪个交易所？](../posts/r_runtoJapan2/251019232629_1ob4fto.md) | zhizhuzhizhutu | 0 | 0.5 | 2 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-19 20:16 | `1oazwgj` | [分享一个访问已被封的 sub 的贴文和评论的方法](../posts/r_runtoJapan2/251019201646_1oazwgj.md) | No-Lab4175 | 2 | 1.0 | 1 | 经验分享 | false | true | self.runtoJapan2 |

@@ -4,6 +4,12 @@
 
 ## Latest changes
 
+- `251021015317` [No more Schengen visa free travel? EU approves mechanism to reinstate visas over golden passports - BusinessToday](../posts/r_iwanttorun/251020151028_1oblc36.md)
+- `251021015317` [Hii someone can help me with this file?](../posts/r_iwanttorun/251020064043_1obcuf7.md)
+- `251021015317` [台海大战结束之后，发达国家会收留中国难民吗？🙏🏻](../posts/r_iwanttorun/251020080200_1obe6es.md)
+- `251021015317` [对计算机不感兴趣的小留，我到底应该选择什么样的pathway？](../posts/r_iwanttorun/251020205856_1obtmt7.md)
+- `251021015317` [有run欧盟的sub，有run日本的sub，也有潤澳洲的sub，怎么没看到run北美那边的sub](../posts/r_iwanttorun/251020091633_1obfbxi.md)
+- `251021015317` [Family who spent $40K seeking Canadian residency return to China after immigration nightmare](../posts/r_iwanttorun/251020183402_1obpqgq.md)
 - `251020020109` [看来洋人不愿救哦](../posts/r_iwanttorun/251019230113_1ob3vlb.md)
 - `251019205723` [加拿大到底最适合什么样的人润过去？难道真的只有官老爷的二奶和大企业家们可以润过去了吗](../posts/r_iwanttorun/251004002719_1nxfttu.md)
 - `251019205723` [中国人移民的鄙视链是怎样的？](../posts/r_iwanttorun/251019075429_1oajvr1.md)
@@ -62,9 +68,3 @@
 - `251008014807` [24岁澳洲老鼠留求指导](../posts/r_iwanttorun/251007155814_1o0irme.md)
 - `251008014807` [还走线欧洲吗](../posts/r_iwanttorun/251007235805_1o0vgpv.md)
 - `251008014807` [新西兰雇主担保需要多少钱](../posts/r_iwanttorun/251007201009_1o0priq.md)
-- `251008014807` [现在的AI agent都在故意降低代码的readability好让用户形成依赖方便捞钱](../posts/r_iwanttorun/251007175338_1o0lza1.md)
-- `251008014807` [分享生活](../posts/r_iwanttorun/251007071750_1o0806n.md)
-- `251007014926` [Oglasio se MUP o nesreći na Dunavu: Kineski državljani pokušali da pređu granicu, jedan stradao](../posts/r_iwanttorun/251006144602_1nzl2da.md)
-- `251007014926` [幽默老日](../posts/r_iwanttorun/251007012415_1o01gmk.md)
-- `251007014926` [盘了个农场开始种地了塞班这里冬瓜一个卖25美金](../posts/r_iwanttorun/251006092538_1nzecj5.md)
-- `251007014926` [Why is my English so good](../posts/r_iwanttorun/251006141608_1nzk9v8.md)
