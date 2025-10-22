@@ -4,6 +4,7 @@
 
 ## Latest changes
 
+- `251022015814` [大三机械穷蛆如何破局？](../posts/r_runEuropaAlliance/251021065854_1oc62in.md)
 - `251021015321` [罗马一大/博洛尼亚大学/帕多瓦大学  古典学/历史学硕士申请求助](../posts/r_runEuropaAlliance/251020081539_1obeewl.md)
 - `251019205749` [港硕教育学向大佬们求读博建议 听劝！](../posts/r_runEuropaAlliance/251019114226_1oanipf.md)
 - `251019020253` [关于欧陆授课制硕士和国内硕士](../posts/r_runEuropaAlliance/251018134109_1o9w4sk.md)
@@ -67,4 +68,3 @@
 - `250927160452` [提问：国内大专（健康管理）后韩国升本专业选择。目标欧硕移民](../posts/r_runEuropaAlliance/250831122205_1n4tait.md)
 - `250927160452` [意大利真有可能缩短入籍居住年限要求吗？](../posts/r_runEuropaAlliance/250227080459_1izataf.md)
 - `250927160452` [现阶段德国it行业还好润吗](../posts/r_runEuropaAlliance/250705012949_1lryia5.md)
-- `250927160452` [都说法国行政效率低,到底低到了什么程度？](../posts/r_runEuropaAlliance/250827033301_1n16k3i.md)

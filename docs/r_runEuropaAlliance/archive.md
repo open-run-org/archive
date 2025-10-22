@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-21 06:58 | `1oc62in` | [大三机械穷蛆如何破局？](../posts/r_runEuropaAlliance/251021065854_1oc62in.md) | That_Pomegranate_718 | 0 | 0.5 | 25 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-10-20 08:15 | `1obeewl` | [罗马一大/博洛尼亚大学/帕多瓦大学  古典学/历史学硕士申请求助](../posts/r_runEuropaAlliance/251020081539_1obeewl.md) | RattieArttie | 0 | 0.5 | 8 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-10-19 11:42 | `1oanipf` | [港硕教育学向大佬们求读博建议 听劝！](../posts/r_runEuropaAlliance/251019114226_1oanipf.md) | Boring_Policy5516 | 2 | 0.75 | 0 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-10-18 13:41 | `1o9w4sk` | [关于欧陆授课制硕士和国内硕士](../posts/r_runEuropaAlliance/251018134109_1o9w4sk.md) | Relative-Union-3116 | 0 | 0.5 | 6 | 提問 | Ask | false | true | self.runEuropaAlliance |

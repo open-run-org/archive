@@ -2,6 +2,13 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-22 00:43 | `1ocu6f1` | [美国/加拿大/墨西哥旅游签好拿吗？我想明年去看世界杯](../posts/r_iwanttorun/251022004344_1ocu6f1.md) | hiroshima_fireworks | 2 | 1.0 | 3 | 不懂就问 | false | false | i.redd.it |
+| 2025-10-21 22:11 | `1ocqq6w` | [为什么本sub从来不讨论工程专业润？是因为基本就没有工科润不了的吗](../posts/r_iwanttorun/251021221152_1ocqq6w.md) | Opposite-Car2809 | 1 | 0.6 | 32 | 讨论 | false | true | self.iwanttorun |
+| 2025-10-21 17:53 | `1ocjv5s` | [加拿大旅游签好过吗](../posts/r_iwanttorun/251021175308_1ocjv5s.md) | ilovechanelcf | 0 | 0.33 | 1 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-21 12:34 | `1ocbpp5` | [Belize agrees to host migrants seeking asylum in US](../posts/r_iwanttorun/251021123418_1ocbpp5.md) | kyk00525 | 3 | 1.0 | 0 | 讨论 | false | false | bbc.com |
+| 2025-10-21 11:39 | `1ocalb5` | [失业狗如何翻身](../posts/r_iwanttorun/251021113920_1ocalb5.md) | Grouchy-Produce499 | 0 | 0.4 | 38 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-21 05:24 | `1oc4iot` | [美国政治庇护提交后21天还没安排面谈是不是就是要等几年才能安排上了？](../posts/r_iwanttorun/251021052404_1oc4iot.md) | Time_Amounts | 2 | 0.75 | 8 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-21 02:41 | `1oc1g3o` | [上周五累了不想工作，但不想工作导致罪恶感，结果纠结到半夜，不仅没干完活，也没休息够，周末两天浑浑噩噩的，今天周一也浑浑噩噩的，一天都没怎么干活。](../posts/r_iwanttorun/251021024118_1oc1g3o.md) | FreeXiJinpingAss | 9 | 0.91 | 6 | 讨论 | false | true | self.iwanttorun |
 | 2025-10-20 20:58 | `1obtmt7` | [对计算机不感兴趣的小留，我到底应该选择什么样的pathway？](../posts/r_iwanttorun/251020205856_1obtmt7.md) | Opposite-Car2809 | 0 | 0.17 | 3 | 讨论 | false | true | self.iwanttorun |
 | 2025-10-20 18:34 | `1obpqgq` | [Family who spent $40K seeking Canadian residency return to China after immigration nightmare](../posts/r_iwanttorun/251020183402_1obpqgq.md) | AngCAN888 | 4 | 1.0 | 1 | 分享帖 | false | true | self.iwanttorun |
 | 2025-10-20 15:10 | `1oblc36` | [No more Schengen visa free travel? EU approves mechanism to reinstate visas over golden passports - BusinessToday](../posts/r_iwanttorun/251020151028_1oblc36.md) | kyk00525 | 1 | 1.0 | 0 | 讨论 | false | false | businesstoday.in |
@@ -10,7 +17,7 @@
 | 2025-10-20 06:40 | `1obcuf7` | [Hii someone can help me with this file?](../posts/r_iwanttorun/251020064043_1obcuf7.md) | Glad-Remove-5878 | 1 | 1.0 | 2 | ??? | false | true | self.iwanttorun |
 | 2025-10-19 23:01 | `1ob3vlb` | [看来洋人不愿救哦](../posts/r_iwanttorun/251019230113_1ob3vlb.md) | pigeon_reborn | 1 | 0.67 | 2 | 分享帖 | false | false | i.redd.it |
 | 2025-10-19 20:15 | `1oazv4o` | [大家好 我是墙内一个高三生 想要润出这个国家 但我有点迷茫 希望大佬们可以给我一些建议](../posts/r_iwanttorun/251019201522_1oazv4o.md) | Savings-Anything4633 | 2 | 1.0 | 2 | 不懂就问 | false | true | self.iwanttorun |
-| 2025-10-19 16:58 | `1oausl7` | [23岁无业游民想文转码润欧，求大神指导](../posts/r_iwanttorun/251019165850_1oausl7.md) | Overall-Test-774 | 0 | 0.33 | 15 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-19 16:58 | `1oausl7` | [23岁无业游民想文转码润欧，求大神指导](../posts/r_iwanttorun/251019165850_1oausl7.md) | Overall-Test-774 | 1 | 0.54 | 34 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-19 16:43 | `1oauezy` | [提供新西兰雇主担保offer](../posts/r_iwanttorun/251019164356_1oauezy.md) | Prize_Calendar_6449 | 0 | 0.25 | 2 | 分享帖 | false | true | self.iwanttorun |
 | 2025-10-19 13:13 | `1oapbxv` | [支持no kings运动，川普打击走线客，是压垮我们无产阶级的最后一根稻草，真心希望他下台](../posts/r_iwanttorun/251019131328_1oapbxv.md) | hiroshima_fireworks | 0 | 0.39 | 4 | 分享帖 | false | true | self.iwanttorun |
 | 2025-10-19 12:49 | `1oaot1x` | [想从欧洲润去美国 求方法](../posts/r_iwanttorun/251019124902_1oaot1x.md) | Orangedadaism | 0 | 0.24 | 21 | 不懂就问 | false | true | self.iwanttorun |

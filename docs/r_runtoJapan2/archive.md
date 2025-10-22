@@ -2,6 +2,13 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-22 00:05 | `1octcq9` | [一个在日本生活的tip](../posts/r_runtoJapan2/251022000539_1octcq9.md) | KingSubstantial3046 | 2 | 0.75 | 2 | 经验分享 | false | true | self.runtoJapan2 |
+| 2025-10-21 16:25 | `1ochj0k` | [润日求指导](../posts/r_runtoJapan2/251021162510_1ochj0k.md) | Excellent_Contest228 | 0 | 0.5 | 3 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-21 15:11 | `1ocfl5l` | [其实很简单 只是想换一个环境](../posts/r_runtoJapan2/251021151145_1ocfl5l.md) | HonestzPractice | 0 | 0.38 | 1 | 聊天吹水 | false | false | i.redd.it |
+| 2025-10-21 15:09 | `1ocfj79` | [回国了这下，哼，想逃？](../posts/r_runtoJapan2/251021150943_1ocfj79.md) | Odd_Employee1845 | 0 | 0.45 | 4 | 聊天吹水 | false | false | i.redd.it |
+| 2025-10-21 09:09 | `1oc81iz` | [维新自民政权合意书](../posts/r_runtoJapan2/251021090919_1oc81iz.md) | Odd_College_759 | 10 | 0.86 | 17 | 政策新闻 | false | true | self.runtoJapan2 |
+| 2025-10-21 08:11 | `1oc761j` | [这种的是不是好的妹妹~](../posts/r_runtoJapan2/251021081112_1oc761j.md) | HonestzPractice | 5 | 0.61 | 7 | 日常生活 | false | false | i.redd.it |
+| 2025-10-21 06:51 | `1oc5yk8` | [你们想润出去的原因是什么？](../posts/r_runtoJapan2/251021065157_1oc5yk8.md) | oppenheimer_hero | 0 | 0.5 | 51 | 不懂就问 | false | false | i.redd.it |
 | 2025-10-21 00:35 | `1obyr9q` | [以后JLPT等日语合格证书有没有可能增加有效期？](../posts/r_runtoJapan2/251021003509_1obyr9q.md) | ztstillwater | 1 | 0.67 | 2 | 聊天吹水 | false | true | self.runtoJapan2 |
 | 2025-10-20 20:22 | `1obsnih` | [怎麼辦](../posts/r_runtoJapan2/251020202236_1obsnih.md) | this0great | 0 | 0.33 | 3 |  | false | false | i.redd.it |
 | 2025-10-20 16:10 | `1obmmnn` | [穹区们有这么帅吗？](../posts/r_runtoJapan2/251020161019_1obmmnn.md) | HonestzPractice | 0 | 0.33 | 1 | 日常生活 | false | false | i.redd.it |
