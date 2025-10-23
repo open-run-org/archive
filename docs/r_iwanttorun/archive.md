@@ -2,6 +2,10 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-22 22:20 | `1odme2c` | [我希望每天早上8点有人slack发消息给我 让我一个激灵醒了，不然我会睡到早上9点](../posts/r_iwanttorun/251022222054_1odme2c.md) | FreeXiJinpingAss | 5 | 1.0 | 2 | 炒作狗 | false | true | self.iwanttorun |
+| 2025-10-22 17:24 | `1odelb4` | [Fines to be imposed to anyone who illegally crosses into United States](../posts/r_iwanttorun/251022172407_1odelb4.md) | kyk00525 | 2 | 1.0 | 2 | 讨论 | false | false | kyma.com |
+| 2025-10-22 17:11 | `1ode92g` | [感觉自己要废了](../posts/r_iwanttorun/251022171136_1ode92g.md) | Savings-Measurement5 | 8 | 0.83 | 34 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-22 10:42 | `1od4svw` | [润出去的怎么赚钱啊？或者有没有什么省钱小技巧？](../posts/r_iwanttorun/251022104217_1od4svw.md) | Odd_Upstairs8439 | 11 | 0.79 | 33 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-22 00:43 | `1ocu6f1` | [美国/加拿大/墨西哥旅游签好拿吗？我想明年去看世界杯](../posts/r_iwanttorun/251022004344_1ocu6f1.md) | hiroshima_fireworks | 2 | 1.0 | 3 | 不懂就问 | false | false | i.redd.it |
 | 2025-10-21 22:11 | `1ocqq6w` | [为什么本sub从来不讨论工程专业润？是因为基本就没有工科润不了的吗](../posts/r_iwanttorun/251021221152_1ocqq6w.md) | Opposite-Car2809 | 1 | 0.6 | 32 | 讨论 | false | true | self.iwanttorun |
 | 2025-10-21 17:53 | `1ocjv5s` | [加拿大旅游签好过吗](../posts/r_iwanttorun/251021175308_1ocjv5s.md) | ilovechanelcf | 0 | 0.33 | 1 | 不懂就问 | false | true | self.iwanttorun |

@@ -2,6 +2,14 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-22 18:37 | `1odgltd` | [接下來潤日會不會很慘](../posts/r_runtoJapan2/251022183743_1odgltd.md) | this0great | 5 | 0.86 | 5 |  | false | false | i.redd.it |
+| 2025-10-22 17:38 | `1odezex` | [求润日高手指点](../posts/r_runtoJapan2/251022173815_1odezex.md) | Constant-Memory-9912 | 1 | 0.6 | 9 |  | false | true | self.runtoJapan2 |
+| 2025-10-22 15:04 | `1odas7u` | [太哈人了](../posts/r_runtoJapan2/251022150447_1odas7u.md) | Odd_Employee1845 | 3 | 0.59 | 10 | 杂谈 | false | false | i.redd.it |
+| 2025-10-22 12:16 | `1od6mla` | [樱花妹是这样的（昭和回归）](../posts/r_runtoJapan2/251022121634_1od6mla.md) | Odd_Employee1845 | 0 | 0.45 | 6 |  | false | false | i.redd.it |
+| 2025-10-22 12:02 | `1od6bv1` | [洼地211天坑农学润日](../posts/r_runtoJapan2/251022120238_1od6bv1.md) | Ashamed_Dealer5518 | 2 | 0.6 | 19 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-22 08:48 | `1od2yiv` | [问问大家的看法](../posts/r_runtoJapan2/251022084848_1od2yiv.md) | Background_Team871 | 0 | 0.33 | 19 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-22 07:40 | `1od1x0w` | [小野田经济安保相首次会见，有关外国人政策](../posts/r_runtoJapan2/251022074044_1od1x0w.md) | WatanabeTakumi | 14 | 0.85 | 32 | 政策新闻 | false | true | self.runtoJapan2 |
+| 2025-10-22 04:26 | `1ocyqdz` | [迪友们平时日本国内旅游怎么计划的](../posts/r_runtoJapan2/251022042651_1ocyqdz.md) | koyoncya | 4 | 0.75 | 6 |  | false | true | self.runtoJapan2 |
 | 2025-10-22 00:05 | `1octcq9` | [一个在日本生活的tip](../posts/r_runtoJapan2/251022000539_1octcq9.md) | KingSubstantial3046 | 2 | 0.75 | 2 | 经验分享 | false | true | self.runtoJapan2 |
 | 2025-10-21 16:25 | `1ochj0k` | [润日求指导](../posts/r_runtoJapan2/251021162510_1ochj0k.md) | Excellent_Contest228 | 0 | 0.5 | 3 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-21 15:11 | `1ocfl5l` | [其实很简单 只是想换一个环境](../posts/r_runtoJapan2/251021151145_1ocfl5l.md) | HonestzPractice | 0 | 0.38 | 1 | 聊天吹水 | false | false | i.redd.it |

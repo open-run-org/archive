@@ -4,6 +4,10 @@
 
 ## Latest changes
 
+- `251023015312` [润出去的怎么赚钱啊？或者有没有什么省钱小技巧？](../posts/r_iwanttorun/251022104217_1od4svw.md)
+- `251023015312` [Fines to be imposed to anyone who illegally crosses into United States](../posts/r_iwanttorun/251022172407_1odelb4.md)
+- `251023015312` [感觉自己要废了](../posts/r_iwanttorun/251022171136_1ode92g.md)
+- `251023015312` [我希望每天早上8点有人slack发消息给我 让我一个激灵醒了，不然我会睡到早上9点](../posts/r_iwanttorun/251022222054_1odme2c.md)
 - `251022015810` [23岁无业游民想文转码润欧，求大神指导](../posts/r_iwanttorun/251019165850_1oausl7.md)
 - `251022015810` [上周五累了不想工作，但不想工作导致罪恶感，结果纠结到半夜，不仅没干完活，也没休息够，周末两天浑浑噩噩的，今天周一也浑浑噩噩的，一天都没怎么干活。](../posts/r_iwanttorun/251021024118_1oc1g3o.md)
 - `251022015810` [Belize agrees to host migrants seeking asylum in US](../posts/r_iwanttorun/251021123418_1ocbpp5.md)
@@ -64,7 +68,3 @@
 - `251010014929` [今天要說什麼啊](../posts/r_iwanttorun/251009173838_1o2ch7o.md)
 - `251010014929` [兄弟萌，潤墨西哥怎么说？](../posts/r_iwanttorun/251009091326_1o215ve.md)
 - `251010014929` [r/runtojapan怎么没了？](../posts/r_iwanttorun/251009125743_1o2583t.md)
-- `251010014929` [文科靠自己想润想有希望吗](../posts/r_iwanttorun/251009140551_1o26ue9.md)
-- `251009014846` [求问我这种情况怎么润](../posts/r_iwanttorun/251008125829_1o19ry8.md)
-- `251009014846` [限制出境/边控人士可协助出境](../posts/r_iwanttorun/251008215752_1o1ompy.md)
-- `251009014846` [大佬们给点建议，我这情况怎么润？](../posts/r_iwanttorun/251008190328_1o1jpqn.md)
