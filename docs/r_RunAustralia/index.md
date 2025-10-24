@@ -4,6 +4,7 @@
 
 ## Latest changes
 
+- `251024014807` [麻了](../posts/r_RunAustralia/251024001248_1oejgy5.md)
 - `251019205745` [英语美企uber,doordash外卖都给全世界背包客卷爆了](../posts/r_RunAustralia/251019140417_1oaqgnh.md)
 - `251018014523` [大三穷蛆求求建议](../posts/r_RunAustralia/251017122127_1o8zsrl.md)
 - `251011014506` [没有，没有，通过](../posts/r_RunAustralia/251010102713_1o2x75u.md)
@@ -67,4 +68,3 @@
 - `251002170122` [澳洲畜牧专业有搞头吗](../posts/r_RunAustralia/250822150204_1mx8wp3.md)
 - `251002170122` [學歷倒讀不是只有澳洲有](../posts/r_RunAustralia/250830032854_1n3rfmv.md)
 - `251002170122` [上網約友約到12嵗少女 到手PR慘被取消](../posts/r_RunAustralia/250921093756_1nmnoms.md)
-- `251002170122` [十年后，大概一半的留学生离开澳洲，一半的留学生留下上岸](../posts/r_RunAustralia/251001140501_1nv943g.md)

@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-24 00:12 | `1oejgy5` | [麻了](../posts/r_RunAustralia/251024001248_1oejgy5.md) | this0great | 1 | 1.0 | 1 |  | false | false | i.redd.it |
 | 2025-10-19 14:04 | `1oaqgnh` | [英语美企uber,doordash外卖都给全世界背包客卷爆了](../posts/r_RunAustralia/251019140417_1oaqgnh.md) | Electronic-Arm-3960 | 5 | 0.73 | 3 |  | false | true | self.RunAustralia |
 | 2025-10-17 12:21 | `1o8zsrl` | [大三穷蛆求求建议](../posts/r_RunAustralia/251017122127_1o8zsrl.md) | CountryInformal9467 | 0 | 0.5 | 0 |  | false | false |  |
 | 2025-10-10 10:27 | `1o2x75u` | [没有，没有，通过](../posts/r_RunAustralia/251010102713_1o2x75u.md) | Electronic-Arm-3960 | 2 | 0.75 | 1 |  | false | false | i.redd.it |

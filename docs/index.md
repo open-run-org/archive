@@ -10,6 +10,13 @@
 
 ## Latest changes
 
+- `r_runtoJapan2` `251024014811` [我的人生感覺已經結束了](posts/r_runtoJapan2/251024004434_1oek47x.md)
+- `r_runtoJapan2` `251024014811` [辍学的人自学日语可以走特定技能吗](posts/r_runtoJapan2/251023032936_1odsx7c.md)
+- `r_runtoJapan2` `251024014811` [UoaKN″y](posts/r_runtoJapan2/251023160021_1oe75wb.md)
+- `r_runtoJapan2` `251024014811` [在日本不会日语能生活吗？](posts/r_runtoJapan2/251023202152_1oee2au.md)
+- `r_runtoJapan2` `251024014811` [因为FWL计划撤出新加坡WP,求证路线可能性](posts/r_runtoJapan2/251023064442_1odw8q9.md)
+- `r_runEuropaAlliance` `251024014809` [香港物理mphil润欧工作可行吗](posts/r_runEuropaAlliance/251023183933_1oebduq.md)
+- `r_RunAustralia` `251024014807` [麻了](posts/r_RunAustralia/251024001248_1oejgy5.md)
 - `r_runtoJapan2` `251023015318` [迪友们平时日本国内旅游怎么计划的](posts/r_runtoJapan2/251022042651_1ocyqdz.md)
 - `r_runtoJapan2` `251023015318` [接下來潤日會不會很慘](posts/r_runtoJapan2/251022183743_1odgltd.md)
 - `r_runtoJapan2` `251023015318` [樱花妹是这样的（昭和回归）](posts/r_runtoJapan2/251022121634_1od6mla.md)
@@ -67,10 +74,3 @@
 - `r_runtoJapan2` `251019205753` [80000日元一包 谁买？？](posts/r_runtoJapan2/251019065756_1oaizyb.md)
 - `r_runtoJapan2` `251019205753` [求润日路径](posts/r_runtoJapan2/251009023232_1o1ukgj.md)
 - `r_runEuropaAlliance` `251019205749` [港硕教育学向大佬们求读博建议 听劝！](posts/r_runEuropaAlliance/251019114226_1oanipf.md)
-- `r_RunAustralia` `251019205745` [英语美企uber,doordash外卖都给全世界背包客卷爆了](posts/r_RunAustralia/251019140417_1oaqgnh.md)
-- `r_iwanttorun` `251019205723` [加拿大到底最适合什么样的人润过去？难道真的只有官老爷的二奶和大企业家们可以润过去了吗](posts/r_iwanttorun/251004002719_1nxfttu.md)
-- `r_iwanttorun` `251019205723` [中国人移民的鄙视链是怎样的？](posts/r_iwanttorun/251019075429_1oajvr1.md)
-- `r_iwanttorun` `251019205723` [大家好 我是墙内一个高三生 想要润出这个国家 但我有点迷茫 希望大佬们可以给我一些建议](posts/r_iwanttorun/251019201522_1oazv4o.md)
-- `r_iwanttorun` `251019205723` [提供新西兰雇主担保offer](posts/r_iwanttorun/251019164356_1oauezy.md)
-- `r_iwanttorun` `251019205723` [支持no kings运动，川普打击走线客，是压垮我们无产阶级的最后一根稻草，真心希望他下台](posts/r_iwanttorun/251019131328_1oapbxv.md)
-- `r_iwanttorun` `251019205723` [23岁无业游民想文转码润欧，求大神指导](posts/r_iwanttorun/251019165850_1oausl7.md)

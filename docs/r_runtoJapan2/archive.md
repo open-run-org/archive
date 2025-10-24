@@ -2,6 +2,11 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-24 00:44 | `1oek47x` | [我的人生感覺已經結束了](../posts/r_runtoJapan2/251024004434_1oek47x.md) | GammarMong | 2 | 0.75 | 11 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-10-23 20:21 | `1oee2au` | [在日本不会日语能生活吗？](../posts/r_runtoJapan2/251023202152_1oee2au.md) | HeartOfCherub | 1 | 0.57 | 12 |  | false | true | self.runtoJapan2 |
+| 2025-10-23 16:00 | `1oe75wb` | [UoaKN″y](../posts/r_runtoJapan2/251023160021_1oe75wb.md) | FlamingoOutrageous53 | 0 | 0.33 | 1 |  | false | true | self.runtoJapan2 |
+| 2025-10-23 06:44 | `1odw8q9` | [因为FWL计划撤出新加坡WP,求证路线可能性](../posts/r_runtoJapan2/251023064442_1odw8q9.md) | eriyoni_reya2025 | 5 | 0.86 | 10 |  | false | true | self.runtoJapan2 |
+| 2025-10-23 03:29 | `1odsx7c` | [辍学的人自学日语可以走特定技能吗](../posts/r_runtoJapan2/251023032936_1odsx7c.md) | eriyoni_reya2025 | 6 | 0.81 | 17 |  | false | true | self.runtoJapan2 |
 | 2025-10-22 18:37 | `1odgltd` | [接下來潤日會不會很慘](../posts/r_runtoJapan2/251022183743_1odgltd.md) | this0great | 5 | 0.86 | 5 |  | false | false | i.redd.it |
 | 2025-10-22 17:38 | `1odezex` | [求润日高手指点](../posts/r_runtoJapan2/251022173815_1odezex.md) | Constant-Memory-9912 | 1 | 0.6 | 9 |  | false | true | self.runtoJapan2 |
 | 2025-10-22 15:04 | `1odas7u` | [太哈人了](../posts/r_runtoJapan2/251022150447_1odas7u.md) | Odd_Employee1845 | 3 | 0.59 | 10 | 杂谈 | false | false | i.redd.it |
