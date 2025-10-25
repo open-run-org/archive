@@ -4,6 +4,7 @@
 
 ## Latest changes
 
+- `251025014954` [求推荐适合我的欧陆国家/院校](../posts/r_runEuropaAlliance/251024145709_1oezz94.md)
 - `251024014809` [香港物理mphil润欧工作可行吗](../posts/r_runEuropaAlliance/251023183933_1oebduq.md)
 - `251022015814` [大三机械穷蛆如何破局？](../posts/r_runEuropaAlliance/251021065854_1oc62in.md)
 - `251021015321` [罗马一大/博洛尼亚大学/帕多瓦大学  古典学/历史学硕士申请求助](../posts/r_runEuropaAlliance/251020081539_1obeewl.md)
@@ -67,4 +68,3 @@
 - `250927160452` [高中生挂逼润欧：荷兰篇（1 - 背景、项目和申请）](../posts/r_runEuropaAlliance/250802211030_1mg1e72.md)
 - `250927160452` [乌克兰彻底有了](../posts/r_runEuropaAlliance/250304165410_1j3fd4o.md)
 - `250927160452` [提问：国内大专（健康管理）后韩国升本专业选择。目标欧硕移民](../posts/r_runEuropaAlliance/250831122205_1n4tait.md)
-- `250927160452` [意大利真有可能缩短入籍居住年限要求吗？](../posts/r_runEuropaAlliance/250227080459_1izataf.md)

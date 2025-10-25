@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-24 14:57 | `1oezz94` | [求推荐适合我的欧陆国家/院校](../posts/r_runEuropaAlliance/251024145709_1oezz94.md) | hicyu2042 | 3 | 0.67 | 8 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-10-23 18:39 | `1oebduq` | [香港物理mphil润欧工作可行吗](../posts/r_runEuropaAlliance/251023183933_1oebduq.md) | delacey7 | 1 | 0.6 | 6 | 討論 | Discuss | false | true | self.runEuropaAlliance |
 | 2025-10-21 06:58 | `1oc62in` | [大三机械穷蛆如何破局？](../posts/r_runEuropaAlliance/251021065854_1oc62in.md) | That_Pomegranate_718 | 0 | 0.5 | 25 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-10-20 08:15 | `1obeewl` | [罗马一大/博洛尼亚大学/帕多瓦大学  古典学/历史学硕士申请求助](../posts/r_runEuropaAlliance/251020081539_1obeewl.md) | RattieArttie | 0 | 0.5 | 8 | 提問 | Ask | false | true | self.runEuropaAlliance |

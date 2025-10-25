@@ -2,19 +2,27 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-24 14:06 | `1oeyofp` | [B站偷贴吧偷红迪，偷国日常](../posts/r_runtoJapan2/251024140629_1oeyofp.md) | Kezhujie | 11 | 0.74 | 10 | 聊天吹水 | false | false | i.redd.it |
+| 2025-10-24 13:44 | `1oey570` | [怎么提高日语口语呢](../posts/r_runtoJapan2/251024134427_1oey570.md) | Z_xxxxy | 0 | 0.5 | 7 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-24 11:55 | `1oevp3g` | [2025年国公立计算机夏季考，变得更卷了吗？](../posts/r_runtoJapan2/251024115505_1oevp3g.md) | Different_Blood_3382 | 1 | 0.67 | 6 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-24 11:54 | `1oevonr` | [早稻田ips](../posts/r_runtoJapan2/251024115429_1oevonr.md) | Single_Champion6916 | 0 | 0.22 | 3 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-24 08:42 | `1oesgui` | [已将日本各个地区和府县添加至用户标识](../posts/r_runtoJapan2/251024084201_1oesgui.md) | KaikouZzz | 9 | 0.8 | 28 | 聊天吹水 | false | false | i.redd.it |
+| 2025-10-24 07:43 | `1oerla6` | [大家好，我想成为一名职业吉他手，在日本该怎么做呢](../posts/r_runtoJapan2/251024074358_1oerla6.md) | HonestzPractice | 0 | 0.41 | 9 | 不懂就问 | false | false | i.redd.it |
+| 2025-10-24 05:13 | `1oep9mb` | [这种1⃣️隐藏发言记录 2⃣️多个sub发表一模一样耸人听闻的用户，注意别被信息污染了](../posts/r_runtoJapan2/251024051343_1oep9mb.md) | Main-Ad8216 | 30 | 0.88 | 20 | 政策新闻 | false | false | i.redd.it |
+| 2025-10-24 03:13 | `1oen3dd` | [特高课复活](../posts/r_runtoJapan2/251024031331_1oen3dd.md) | Odd_Employee1845 | 0 | 0.4 | 47 | 政策新闻 | false | false | i.redd.it |
 | 2025-10-24 00:44 | `1oek47x` | [我的人生感覺已經結束了](../posts/r_runtoJapan2/251024004434_1oek47x.md) | GammarMong | 2 | 0.75 | 11 | 聊天吹水 | false | true | self.runtoJapan2 |
-| 2025-10-23 20:21 | `1oee2au` | [在日本不会日语能生活吗？](../posts/r_runtoJapan2/251023202152_1oee2au.md) | HeartOfCherub | 1 | 0.57 | 12 |  | false | true | self.runtoJapan2 |
-| 2025-10-23 16:00 | `1oe75wb` | [UoaKN″y](../posts/r_runtoJapan2/251023160021_1oe75wb.md) | FlamingoOutrageous53 | 0 | 0.33 | 1 |  | false | true | self.runtoJapan2 |
-| 2025-10-23 06:44 | `1odw8q9` | [因为FWL计划撤出新加坡WP,求证路线可能性](../posts/r_runtoJapan2/251023064442_1odw8q9.md) | eriyoni_reya2025 | 5 | 0.86 | 10 |  | false | true | self.runtoJapan2 |
-| 2025-10-23 03:29 | `1odsx7c` | [辍学的人自学日语可以走特定技能吗](../posts/r_runtoJapan2/251023032936_1odsx7c.md) | eriyoni_reya2025 | 6 | 0.81 | 17 |  | false | true | self.runtoJapan2 |
-| 2025-10-22 18:37 | `1odgltd` | [接下來潤日會不會很慘](../posts/r_runtoJapan2/251022183743_1odgltd.md) | this0great | 5 | 0.86 | 5 |  | false | false | i.redd.it |
-| 2025-10-22 17:38 | `1odezex` | [求润日高手指点](../posts/r_runtoJapan2/251022173815_1odezex.md) | Constant-Memory-9912 | 1 | 0.6 | 9 |  | false | true | self.runtoJapan2 |
+| 2025-10-23 20:21 | `1oee2au` | [在日本不会日语能生活吗？](../posts/r_runtoJapan2/251023202152_1oee2au.md) | HeartOfCherub | 3 | 0.62 | 43 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-23 16:00 | `1oe75wb` | [UoaKN″y](../posts/r_runtoJapan2/251023160021_1oe75wb.md) | FlamingoOutrageous53 | 0 | 0.33 | 1 | 政策新闻 | false | true | self.runtoJapan2 |
+| 2025-10-23 06:44 | `1odw8q9` | [因为FWL计划撤出新加坡WP,求证路线可能性](../posts/r_runtoJapan2/251023064442_1odw8q9.md) | eriyoni_reya2025 | 5 | 0.78 | 11 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-23 03:29 | `1odsx7c` | [辍学的人自学日语可以走特定技能吗](../posts/r_runtoJapan2/251023032936_1odsx7c.md) | eriyoni_reya2025 | 7 | 0.89 | 24 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-22 18:37 | `1odgltd` | [接下來潤日會不會很慘](../posts/r_runtoJapan2/251022183743_1odgltd.md) | this0great | 0 | 0.48 | 26 | 政策新闻 | false | false | i.redd.it |
+| 2025-10-22 17:38 | `1odezex` | [求润日高手指点](../posts/r_runtoJapan2/251022173815_1odezex.md) | Constant-Memory-9912 | 3 | 0.71 | 10 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-22 15:04 | `1odas7u` | [太哈人了](../posts/r_runtoJapan2/251022150447_1odas7u.md) | Odd_Employee1845 | 3 | 0.59 | 10 | 杂谈 | false | false | i.redd.it |
-| 2025-10-22 12:16 | `1od6mla` | [樱花妹是这样的（昭和回归）](../posts/r_runtoJapan2/251022121634_1od6mla.md) | Odd_Employee1845 | 0 | 0.45 | 6 |  | false | false | i.redd.it |
+| 2025-10-22 12:16 | `1od6mla` | [樱花妹是这样的（昭和回归）](../posts/r_runtoJapan2/251022121634_1od6mla.md) | Odd_Employee1845 | 1 | 0.54 | 7 | 聊天吹水 | false | false | i.redd.it |
 | 2025-10-22 12:02 | `1od6bv1` | [洼地211天坑农学润日](../posts/r_runtoJapan2/251022120238_1od6bv1.md) | Ashamed_Dealer5518 | 2 | 0.6 | 19 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-22 08:48 | `1od2yiv` | [问问大家的看法](../posts/r_runtoJapan2/251022084848_1od2yiv.md) | Background_Team871 | 0 | 0.33 | 19 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-22 07:40 | `1od1x0w` | [小野田经济安保相首次会见，有关外国人政策](../posts/r_runtoJapan2/251022074044_1od1x0w.md) | WatanabeTakumi | 14 | 0.85 | 32 | 政策新闻 | false | true | self.runtoJapan2 |
-| 2025-10-22 04:26 | `1ocyqdz` | [迪友们平时日本国内旅游怎么计划的](../posts/r_runtoJapan2/251022042651_1ocyqdz.md) | koyoncya | 4 | 0.75 | 6 |  | false | true | self.runtoJapan2 |
+| 2025-10-22 04:26 | `1ocyqdz` | [迪友们平时日本国内旅游怎么计划的](../posts/r_runtoJapan2/251022042651_1ocyqdz.md) | koyoncya | 7 | 0.82 | 8 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-22 00:05 | `1octcq9` | [一个在日本生活的tip](../posts/r_runtoJapan2/251022000539_1octcq9.md) | KingSubstantial3046 | 2 | 0.75 | 2 | 经验分享 | false | true | self.runtoJapan2 |
 | 2025-10-21 16:25 | `1ochj0k` | [润日求指导](../posts/r_runtoJapan2/251021162510_1ochj0k.md) | Excellent_Contest228 | 0 | 0.5 | 3 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-21 15:11 | `1ocfl5l` | [其实很简单 只是想换一个环境](../posts/r_runtoJapan2/251021151145_1ocfl5l.md) | HonestzPractice | 0 | 0.38 | 1 | 聊天吹水 | false | false | i.redd.it |
@@ -23,9 +31,9 @@
 | 2025-10-21 08:11 | `1oc761j` | [这种的是不是好的妹妹~](../posts/r_runtoJapan2/251021081112_1oc761j.md) | HonestzPractice | 5 | 0.61 | 7 | 日常生活 | false | false | i.redd.it |
 | 2025-10-21 06:51 | `1oc5yk8` | [你们想润出去的原因是什么？](../posts/r_runtoJapan2/251021065157_1oc5yk8.md) | oppenheimer_hero | 0 | 0.5 | 51 | 不懂就问 | false | false | i.redd.it |
 | 2025-10-21 00:35 | `1obyr9q` | [以后JLPT等日语合格证书有没有可能增加有效期？](../posts/r_runtoJapan2/251021003509_1obyr9q.md) | ztstillwater | 1 | 0.67 | 2 | 聊天吹水 | false | true | self.runtoJapan2 |
-| 2025-10-20 20:22 | `1obsnih` | [怎麼辦](../posts/r_runtoJapan2/251020202236_1obsnih.md) | this0great | 0 | 0.33 | 3 |  | false | false | i.redd.it |
+| 2025-10-20 20:22 | `1obsnih` | [怎麼辦](../posts/r_runtoJapan2/251020202236_1obsnih.md) | this0great | 0 | 0.5 | 12 | 聊天吹水 | false | false | i.redd.it |
 | 2025-10-20 16:10 | `1obmmnn` | [穹区们有这么帅吗？](../posts/r_runtoJapan2/251020161019_1obmmnn.md) | HonestzPractice | 0 | 0.33 | 1 | 日常生活 | false | false | i.redd.it |
-| 2025-10-20 14:44 | `1obkrjj` | [观b站中日夫妇类的视频有感](../posts/r_runtoJapan2/251020144416_1obkrjj.md) | Cold_Com1248 | 8 | 0.68 | 9 |  | false | true | self.runtoJapan2 |
+| 2025-10-20 14:44 | `1obkrjj` | [观b站中日夫妇类的视频有感](../posts/r_runtoJapan2/251020144416_1obkrjj.md) | Cold_Com1248 | 43 | 0.75 | 70 | 杂谈 | false | true | self.runtoJapan2 |
 | 2025-10-20 11:05 | `1obg3ei` | [很多年没碰英语早忘光了，学个新概念2来突击考托业650分左右是否可行？](../posts/r_runtoJapan2/251020110537_1obg3ei.md) | Acceptable-Fox-8161 | 0 | 0.5 | 5 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-20 09:08 | `1obf7ro` | [对自己很不满意的一点是生活很多细节还是不能做好](../posts/r_runtoJapan2/251020090855_1obf7ro.md) | whatanywayever | 3 | 0.72 | 8 | 聊天吹水 | false | true | self.runtoJapan2 |
 | 2025-10-20 09:03 | `1obf4qd` | [有没有人知道有哪些地方可以练口语](../posts/r_runtoJapan2/251020090303_1obf4qd.md) | Dense-Lion2842 | 2 | 0.75 | 9 | 不懂就问 | false | true | self.runtoJapan2 |

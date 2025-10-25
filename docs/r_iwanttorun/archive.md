@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-24 13:25 | `1oexoul` | [最近应该有个机会能合法离开中共国，但是担心家里老人有急病没直系亲属签字。](../posts/r_iwanttorun/251024132512_1oexoul.md) | Particular-Ferret820 | 4 | 0.62 | 9 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-22 22:20 | `1odme2c` | [我希望每天早上8点有人slack发消息给我 让我一个激灵醒了，不然我会睡到早上9点](../posts/r_iwanttorun/251022222054_1odme2c.md) | FreeXiJinpingAss | 5 | 1.0 | 2 | 炒作狗 | false | true | self.iwanttorun |
 | 2025-10-22 17:24 | `1odelb4` | [Fines to be imposed to anyone who illegally crosses into United States](../posts/r_iwanttorun/251022172407_1odelb4.md) | kyk00525 | 2 | 1.0 | 2 | 讨论 | false | false | kyma.com |
 | 2025-10-22 17:11 | `1ode92g` | [感觉自己要废了](../posts/r_iwanttorun/251022171136_1ode92g.md) | Savings-Measurement5 | 8 | 0.83 | 34 | 不懂就问 | false | true | self.iwanttorun |

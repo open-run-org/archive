@@ -4,6 +4,7 @@
 
 ## Latest changes
 
+- `251025014950` [最近应该有个机会能合法离开中共国，但是担心家里老人有急病没直系亲属签字。](../posts/r_iwanttorun/251024132512_1oexoul.md)
 - `251023015312` [润出去的怎么赚钱啊？或者有没有什么省钱小技巧？](../posts/r_iwanttorun/251022104217_1od4svw.md)
 - `251023015312` [Fines to be imposed to anyone who illegally crosses into United States](../posts/r_iwanttorun/251022172407_1odelb4.md)
 - `251023015312` [感觉自己要废了](../posts/r_iwanttorun/251022171136_1ode92g.md)
@@ -67,4 +68,3 @@
 - `251010014929` [美國有maga，台灣有青鳥，大陸有粉紅，日本有什麼](../posts/r_iwanttorun/251009174009_1o2cimn.md)
 - `251010014929` [今天要說什麼啊](../posts/r_iwanttorun/251009173838_1o2ch7o.md)
 - `251010014929` [兄弟萌，潤墨西哥怎么说？](../posts/r_iwanttorun/251009091326_1o215ve.md)
-- `251010014929` [r/runtojapan怎么没了？](../posts/r_iwanttorun/251009125743_1o2583t.md)
