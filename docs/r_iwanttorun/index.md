@@ -4,6 +4,9 @@
 
 ## Latest changes
 
+- `251026015843` [求助 润捷克有戏吗](../posts/r_iwanttorun/251025145859_1oftnkj.md)
+- `251026015843` [中年大龄无语言无技能无做题无it无体力的性别男性的出路](../posts/r_iwanttorun/251025020157_1offrqc.md)
+- `251026015843` [国内本科 英硕怎么样在国外找到工作？](../posts/r_iwanttorun/251025195533_1og0znq.md)
 - `251025014950` [最近应该有个机会能合法离开中共国，但是担心家里老人有急病没直系亲属签字。](../posts/r_iwanttorun/251024132512_1oexoul.md)
 - `251023015312` [润出去的怎么赚钱啊？或者有没有什么省钱小技巧？](../posts/r_iwanttorun/251022104217_1od4svw.md)
 - `251023015312` [Fines to be imposed to anyone who illegally crosses into United States](../posts/r_iwanttorun/251022172407_1odelb4.md)
@@ -65,6 +68,3 @@
 - `251011014505` [瑞士多座机场将启用申根区新出入境系统](../posts/r_iwanttorun/251010080006_1o2uvs5.md)
 - `251011014505` [在川主席的领导下，印度学签发放量暴跌44%](../posts/r_iwanttorun/251011000757_1o3h9ne.md)
 - `251010014929` [中国移动CMLINK意大利卡可以买吗？](../posts/r_iwanttorun/251009033820_1o1vudi.md)
-- `251010014929` [美國有maga，台灣有青鳥，大陸有粉紅，日本有什麼](../posts/r_iwanttorun/251009174009_1o2cimn.md)
-- `251010014929` [今天要說什麼啊](../posts/r_iwanttorun/251009173838_1o2ch7o.md)
-- `251010014929` [兄弟萌，潤墨西哥怎么说？](../posts/r_iwanttorun/251009091326_1o215ve.md)

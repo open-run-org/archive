@@ -2,6 +2,13 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-26 01:05 | `1og7rt1` | [大家注意避雷一下JCLI这个语校](../posts/r_runtoJapan2/251026010520_1og7rt1.md) | BugElectrical6838 | 4 | 1.0 | 2 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-10-26 00:38 | `1og797n` | [日本地雷小妹妹](../posts/r_runtoJapan2/251026003842_1og797n.md) | zhizhuzhizhutu | 0 | 0.25 | 1 | 聊天吹水 | false | false | i.redd.it |
+| 2025-10-25 22:40 | `1og4s8f` | [唉，如何不做牛马社畜也能一直留在家乡](../posts/r_runtoJapan2/251025224013_1og4s8f.md) | zhizhuzhizhutu | 5 | 0.78 | 8 | 日常生活 | false | true | self.runtoJapan2 |
+| 2025-10-25 16:00 | `1ofv5px` | [穹区们羡慕吗？右边那个是我](../posts/r_runtoJapan2/251025160004_1ofv5px.md) | HonestzPractice | 0 | 0.43 | 10 | 日常生活 | false | false | i.redd.it |
+| 2025-10-25 15:46 | `1ofutly` | [这些人是变态吧 怎么对一个偶像这样说话...](../posts/r_runtoJapan2/251025154616_1ofutly.md) | HonestzPractice | 0 | 0.27 | 6 | 聊天吹水 | false | false | reddit.com |
+| 2025-10-25 13:37 | `1ofrr4o` | [为什么在中国大多数年纪在20岁以上的基本上看不到美女和帅哥的情侣、但在日本却那么多美女和帅哥情侣](../posts/r_runtoJapan2/251025133719_1ofrr4o.md) | monnsann | 5 | 0.65 | 16 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-10-24 18:49 | `1of60t9` | [如何学习英语](../posts/r_runtoJapan2/251024184925_1of60t9.md) | PhotoLast1478 | 0 | 0.45 | 6 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-24 14:06 | `1oeyofp` | [B站偷贴吧偷红迪，偷国日常](../posts/r_runtoJapan2/251024140629_1oeyofp.md) | Kezhujie | 11 | 0.74 | 10 | 聊天吹水 | false | false | i.redd.it |
 | 2025-10-24 13:44 | `1oey570` | [怎么提高日语口语呢](../posts/r_runtoJapan2/251024134427_1oey570.md) | Z_xxxxy | 0 | 0.5 | 7 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-24 11:55 | `1oevp3g` | [2025年国公立计算机夏季考，变得更卷了吗？](../posts/r_runtoJapan2/251024115505_1oevp3g.md) | Different_Blood_3382 | 1 | 0.67 | 6 | 不懂就问 | false | true | self.runtoJapan2 |

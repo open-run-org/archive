@@ -2,6 +2,9 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-25 19:55 | `1og0znq` | [国内本科 英硕怎么样在国外找到工作？](../posts/r_iwanttorun/251025195533_1og0znq.md) | realemo1979 | 0 | 0.5 | 9 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-25 14:58 | `1oftnkj` | [求助 润捷克有戏吗](../posts/r_iwanttorun/251025145859_1oftnkj.md) | SafaligaboDorian | 0 | 0.5 | 6 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-25 02:01 | `1offrqc` | [中年大龄无语言无技能无做题无it无体力的性别男性的出路](../posts/r_iwanttorun/251025020157_1offrqc.md) | Electronic-Arm-3960 | 0 | 0.22 | 12 | 讨论 | false | true | self.iwanttorun |
 | 2025-10-24 13:25 | `1oexoul` | [最近应该有个机会能合法离开中共国，但是担心家里老人有急病没直系亲属签字。](../posts/r_iwanttorun/251024132512_1oexoul.md) | Particular-Ferret820 | 4 | 0.62 | 9 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-22 22:20 | `1odme2c` | [我希望每天早上8点有人slack发消息给我 让我一个激灵醒了，不然我会睡到早上9点](../posts/r_iwanttorun/251022222054_1odme2c.md) | FreeXiJinpingAss | 5 | 1.0 | 2 | 炒作狗 | false | true | self.iwanttorun |
 | 2025-10-22 17:24 | `1odelb4` | [Fines to be imposed to anyone who illegally crosses into United States](../posts/r_iwanttorun/251022172407_1odelb4.md) | kyk00525 | 2 | 1.0 | 2 | 讨论 | false | false | kyma.com |
