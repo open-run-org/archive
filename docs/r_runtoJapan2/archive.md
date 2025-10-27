@@ -2,7 +2,12 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
-| 2025-10-26 01:05 | `1og7rt1` | [大家注意避雷一下JCLI这个语校](../posts/r_runtoJapan2/251026010520_1og7rt1.md) | BugElectrical6838 | 4 | 1.0 | 2 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-10-26 22:18 | `1ogxp1y` | [到底是經歷什麼](../posts/r_runtoJapan2/251026221848_1ogxp1y.md) | this0great | 0 | 0.11 | 6 |  | false | false | reddit.com |
+| 2025-10-26 17:31 | `1ogqjx2` | [关于自行车被盗 完结篇](../posts/r_runtoJapan2/251026173122_1ogqjx2.md) | Easy_Flan7871 | 4 | 0.67 | 5 | 日常生活 | false | true | self.runtoJapan2 |
+| 2025-10-26 12:16 | `1ogj5c5` | [部分因为在日孤独和压力，导致反复清空硬盘。请问应该如何改善这种状况？](../posts/r_runtoJapan2/251026121611_1ogj5c5.md) | Main-Ad8216 | 7 | 0.77 | 23 | 日常生活 | false | true | self.runtoJapan2 |
+| 2025-10-26 06:02 | `1ogd3c6` | [樱花妹为什么那么爱韩男？油管上特别多，还有中国女生嫁日韩男的比例也很高啊](../posts/r_runtoJapan2/251026060208_1ogd3c6.md) | SuccessfulOwl5168 | 9 | 0.68 | 47 | 不懂就问 | false | false | reddit.com |
+| 2025-10-26 05:25 | `1ogcibg` | [现就读美术公立高中，润日求助帖](../posts/r_runtoJapan2/251026052546_1ogcibg.md) | Azuma_kun | 3 | 0.6 | 14 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-26 01:05 | `1og7rt1` | [大家注意避雷一下JCLI这个语校](../posts/r_runtoJapan2/251026010520_1og7rt1.md) | BugElectrical6838 | 29 | 0.97 | 13 | 聊天吹水 | false | true | self.runtoJapan2 |
 | 2025-10-26 00:38 | `1og797n` | [日本地雷小妹妹](../posts/r_runtoJapan2/251026003842_1og797n.md) | zhizhuzhizhutu | 0 | 0.25 | 1 | 聊天吹水 | false | false | i.redd.it |
 | 2025-10-25 22:40 | `1og4s8f` | [唉，如何不做牛马社畜也能一直留在家乡](../posts/r_runtoJapan2/251025224013_1og4s8f.md) | zhizhuzhizhutu | 5 | 0.78 | 8 | 日常生活 | false | true | self.runtoJapan2 |
 | 2025-10-25 16:00 | `1ofv5px` | [穹区们羡慕吗？右边那个是我](../posts/r_runtoJapan2/251025160004_1ofv5px.md) | HonestzPractice | 0 | 0.43 | 10 | 日常生活 | false | false | i.redd.it |

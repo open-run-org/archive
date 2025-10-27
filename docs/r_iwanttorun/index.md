@@ -4,6 +4,8 @@
 
 ## Latest changes
 
+- `251027020442` [为什么没有去美国学法律、护工的](../posts/r_iwanttorun/251026054245_1ogcsa1.md)
+- `251027020442` [港澳海关查不查](../posts/r_iwanttorun/251026165312_1ogplax.md)
 - `251026015843` [求助 润捷克有戏吗](../posts/r_iwanttorun/251025145859_1oftnkj.md)
 - `251026015843` [中年大龄无语言无技能无做题无it无体力的性别男性的出路](../posts/r_iwanttorun/251025020157_1offrqc.md)
 - `251026015843` [国内本科 英硕怎么样在国外找到工作？](../posts/r_iwanttorun/251025195533_1og0znq.md)
@@ -66,5 +68,3 @@
 - `251011014505` [那些来中国留学的外国人一般学什么专业？](../posts/r_iwanttorun/251011012937_1o3ixvq.md)
 - `251011014505` [An efficient job tool for automated resumes and task tracking, helping users track jobs, companies, and contacts smoothly  Luckykoi](../posts/r_iwanttorun/251010120523_1o2z1he.md)
 - `251011014505` [瑞士多座机场将启用申根区新出入境系统](../posts/r_iwanttorun/251010080006_1o2uvs5.md)
-- `251011014505` [在川主席的领导下，印度学签发放量暴跌44%](../posts/r_iwanttorun/251011000757_1o3h9ne.md)
-- `251010014929` [中国移动CMLINK意大利卡可以买吗？](../posts/r_iwanttorun/251009033820_1o1vudi.md)
