@@ -4,6 +4,9 @@
 
 ## Latest changes
 
+- `251028015222` [第一次去杭州,体验超过我去过所有北美 北美城市,为啥大家还要那么费劲去海外发展](../posts/r_iwanttorun/251027162455_1ohj03w.md)
+- `251028015222` [eve_shanghai我操死你的妈](../posts/r_iwanttorun/251028003832_1ohvmld.md)
+- `251028015222` [【已潤】香港已定](../posts/r_iwanttorun/251027125014_1ohdiun.md)
 - `251027020442` [为什么没有去美国学法律、护工的](../posts/r_iwanttorun/251026054245_1ogcsa1.md)
 - `251027020442` [港澳海关查不查](../posts/r_iwanttorun/251026165312_1ogplax.md)
 - `251026015843` [求助 润捷克有戏吗](../posts/r_iwanttorun/251025145859_1oftnkj.md)
@@ -65,6 +68,3 @@
 - `251012015251` [SIJS Fact Sheet](../posts/r_iwanttorun/251011015543_1o3jge8.md)
 - `251011014505` [想向润友请教关于二润](../posts/r_iwanttorun/251010045936_1o2rz6u.md)
 - `251011014505` [你澳猾人开的店有正常的吗](../posts/r_iwanttorun/251010025219_1o2pjb9.md)
-- `251011014505` [那些来中国留学的外国人一般学什么专业？](../posts/r_iwanttorun/251011012937_1o3ixvq.md)
-- `251011014505` [An efficient job tool for automated resumes and task tracking, helping users track jobs, companies, and contacts smoothly  Luckykoi](../posts/r_iwanttorun/251010120523_1o2z1he.md)
-- `251011014505` [瑞士多座机场将启用申根区新出入境系统](../posts/r_iwanttorun/251010080006_1o2uvs5.md)

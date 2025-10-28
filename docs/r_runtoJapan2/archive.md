@@ -2,7 +2,13 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
-| 2025-10-26 22:18 | `1ogxp1y` | [到底是經歷什麼](../posts/r_runtoJapan2/251026221848_1ogxp1y.md) | this0great | 0 | 0.11 | 6 |  | false | false | reddit.com |
+| 2025-10-28 00:04 | `1ohuw1f` | [高市是不是应该叫川普爸爸](../posts/r_runtoJapan2/251028000419_1ohuw1f.md) | Feisty-Implement-429 | 0 | 0.1 | 4 |  | false | true | self.runtoJapan2 |
+| 2025-10-27 17:07 | `1ohk5nx` | [有没有什么反映战后日本或者经济泡沫破裂后比较经典的日本社会发展史方面的书籍？](../posts/r_runtoJapan2/251027170737_1ohk5nx.md) | Massive-Bit3069 | 3 | 0.72 | 6 |  | false | true | self.runtoJapan2 |
+| 2025-10-27 15:31 | `1ohhkqs` | [不夸张了 发张全身照 润友们评价一下 ~](../posts/r_runtoJapan2/251027153152_1ohhkqs.md) | HonestzPractice | 0 | 0.33 | 8 | 日常生活 | false | false | i.redd.it |
+| 2025-10-27 14:11 | `1ohfgq2` | [Nissan Silvia S13](../posts/r_runtoJapan2/251027141130_1ohfgq2.md) | Arrows_Ice | 9 | 1.0 | 6 | 日常生活 | false | false | reddit.com |
+| 2025-10-27 11:09 | `1ohbijj` | [我大概长这样 穹区们有这么帅吗？](../posts/r_runtoJapan2/251027110913_1ohbijj.md) | HonestzPractice | 0 | 0.24 | 8 | 聊天吹水 | false | false | i.redd.it |
+| 2025-10-27 06:12 | `1oh701b` | [有没有朋友一起来玩](../posts/r_runtoJapan2/251027061237_1oh701b.md) | shiyue99 | 4 | 1.0 | 2 | 聊天吹水 | false | false | i.redd.it |
+| 2025-10-26 22:18 | `1ogxp1y` | [到底是經歷什麼](../posts/r_runtoJapan2/251026221848_1ogxp1y.md) | this0great | 0 | 0.18 | 9 | 聊天吹水 | true | false | reddit.com |
 | 2025-10-26 17:31 | `1ogqjx2` | [关于自行车被盗 完结篇](../posts/r_runtoJapan2/251026173122_1ogqjx2.md) | Easy_Flan7871 | 4 | 0.67 | 5 | 日常生活 | false | true | self.runtoJapan2 |
 | 2025-10-26 12:16 | `1ogj5c5` | [部分因为在日孤独和压力，导致反复清空硬盘。请问应该如何改善这种状况？](../posts/r_runtoJapan2/251026121611_1ogj5c5.md) | Main-Ad8216 | 7 | 0.77 | 23 | 日常生活 | false | true | self.runtoJapan2 |
 | 2025-10-26 06:02 | `1ogd3c6` | [樱花妹为什么那么爱韩男？油管上特别多，还有中国女生嫁日韩男的比例也很高啊](../posts/r_runtoJapan2/251026060208_1ogd3c6.md) | SuccessfulOwl5168 | 9 | 0.68 | 47 | 不懂就问 | false | false | reddit.com |

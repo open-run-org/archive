@@ -2,6 +2,9 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-28 00:38 | `1ohvmld` | [eve_shanghai我操死你的妈](../posts/r_iwanttorun/251028003832_1ohvmld.md) | Impossible-Bit-8426 | 1 | 0.55 | 5 | 讨论 | false | true | self.iwanttorun |
+| 2025-10-27 16:24 | `1ohj03w` | [第一次去杭州,体验超过我去过所有北美 北美城市,为啥大家还要那么费劲去海外发展](../posts/r_iwanttorun/251027162455_1ohj03w.md) | eve_shanghai | 0 | 0.19 | 11 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-27 12:50 | `1ohdiun` | [【已潤】香港已定](../posts/r_iwanttorun/251027125014_1ohdiun.md) | Miserable-Avocado150 | 13 | 0.93 | 1 | 讨论 | false | true | self.iwanttorun |
 | 2025-10-26 16:53 | `1ogplax` | [港澳海关查不查](../posts/r_iwanttorun/251026165312_1ogplax.md) | Temporary_Bus1378 | 1 | 1.0 | 4 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-26 05:42 | `1ogcsa1` | [为什么没有去美国学法律、护工的](../posts/r_iwanttorun/251026054245_1ogcsa1.md) | Away-Eye-9155 | 1 | 0.67 | 14 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-25 19:55 | `1og0znq` | [国内本科 英硕怎么样在国外找到工作？](../posts/r_iwanttorun/251025195533_1og0znq.md) | realemo1979 | 0 | 0.5 | 9 | 不懂就问 | false | true | self.iwanttorun |

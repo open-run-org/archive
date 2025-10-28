@@ -2,6 +2,8 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-27 03:48 | `1oh4l8p` | [瑞典 申请隆德数据分析与商业经济/斯大 转码专业](../posts/r_runEuropaAlliance/251027034831_1oh4l8p.md) | Budget-Stretch95 | 0 | 0.4 | 22 | 提問 | Ask | false | true | self.runEuropaAlliance |
+| 2025-10-26 06:46 | `1ogdsie` | [职业选择问题](../posts/r_runEuropaAlliance/251026064622_1ogdsie.md) | Careful-Rip-8592 | 8 | 0.83 | 10 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-10-24 14:57 | `1oezz94` | [求推荐适合我的欧陆国家/院校](../posts/r_runEuropaAlliance/251024145709_1oezz94.md) | hicyu2042 | 3 | 0.67 | 8 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-10-23 18:39 | `1oebduq` | [香港物理mphil润欧工作可行吗](../posts/r_runEuropaAlliance/251023183933_1oebduq.md) | delacey7 | 1 | 0.6 | 6 | 討論 | Discuss | false | true | self.runEuropaAlliance |
 | 2025-10-21 06:58 | `1oc62in` | [大三机械穷蛆如何破局？](../posts/r_runEuropaAlliance/251021065854_1oc62in.md) | That_Pomegranate_718 | 0 | 0.5 | 25 | 提問 | Ask | false | true | self.runEuropaAlliance |

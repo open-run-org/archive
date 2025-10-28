@@ -4,6 +4,8 @@
 
 ## Latest changes
 
+- `251028015226` [职业选择问题](../posts/r_runEuropaAlliance/251026064622_1ogdsie.md)
+- `251028015226` [瑞典 申请隆德数据分析与商业经济/斯大 转码专业](../posts/r_runEuropaAlliance/251027034831_1oh4l8p.md)
 - `251025014954` [求推荐适合我的欧陆国家/院校](../posts/r_runEuropaAlliance/251024145709_1oezz94.md)
 - `251024014809` [香港物理mphil润欧工作可行吗](../posts/r_runEuropaAlliance/251023183933_1oebduq.md)
 - `251022015814` [大三机械穷蛆如何破局？](../posts/r_runEuropaAlliance/251021065854_1oc62in.md)
@@ -66,5 +68,3 @@
 - `250927160453` [简单讲讲爱尔兰, 一个魔幻的国家](../posts/r_runEuropaAlliance/250202192513_1ig5936.md)
 - `250927160453` [润欧无bg求指导](../posts/r_runEuropaAlliance/250125080217_1i9i98f.md)
 - `250927160452` [高中生挂逼润欧：荷兰篇（1 - 背景、项目和申请）](../posts/r_runEuropaAlliance/250802211030_1mg1e72.md)
-- `250927160452` [乌克兰彻底有了](../posts/r_runEuropaAlliance/250304165410_1j3fd4o.md)
-- `250927160452` [提问：国内大专（健康管理）后韩国升本专业选择。目标欧硕移民](../posts/r_runEuropaAlliance/250831122205_1n4tait.md)
