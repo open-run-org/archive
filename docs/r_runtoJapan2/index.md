@@ -4,6 +4,12 @@
 
 ## Latest changes
 
+- `251029015938` [老哥们怎么应对专门的面接和小论文？](../posts/r_runtoJapan2/251028235614_1oipnxa.md)
+- `251029015938` [在日小支人的煩惱。](../posts/r_runtoJapan2/251028113337_1oi6vxb.md)
+- `251029015938` [J.I.B.A](../posts/r_runtoJapan2/251028233649_1oip7kw.md)
+- `251029015938` [润日组毁了我的弟弟](../posts/r_runtoJapan2/251028155137_1oid2gs.md)
+- `251029015938` [枪杀日本前首相安倍晋三的嫌犯认罪](../posts/r_runtoJapan2/251028115920_1oi7dvz.md)
+- `251029015938` [有没有什么反映战后日本或者经济泡沫破裂后比较经典的日本社会发展史方面的书籍？](../posts/r_runtoJapan2/251027170737_1ohk5nx.md)
 - `251028015228` [到底是經歷什麼](../posts/r_runtoJapan2/251026221848_1ogxp1y.md)
 - `251028015228` [Nissan Silvia S13](../posts/r_runtoJapan2/251027141130_1ohfgq2.md)
 - `251028015228` [高市是不是应该叫川普爸爸](../posts/r_runtoJapan2/251028000419_1ohuw1f.md)
@@ -62,9 +68,3 @@
 - `251022015816` [这种的是不是好的妹妹~](../posts/r_runtoJapan2/251021081112_1oc761j.md)
 - `251022015816` [一个在日本生活的tip](../posts/r_runtoJapan2/251022000539_1octcq9.md)
 - `251022015816` [回国了这下，哼，想逃？](../posts/r_runtoJapan2/251021150943_1ocfj79.md)
-- `251021015324` [有没有人知道有哪些地方可以练口语](../posts/r_runtoJapan2/251020090303_1obf4qd.md)
-- `251021015324` [穹区们有这么帅吗？](../posts/r_runtoJapan2/251020161019_1obmmnn.md)
-- `251021015324` [很多年没碰英语早忘光了，学个新概念2来突击考托业650分左右是否可行？](../posts/r_runtoJapan2/251020110537_1obg3ei.md)
-- `251021015324` [对自己很不满意的一点是生活很多细节还是不能做好](../posts/r_runtoJapan2/251020090855_1obf7ro.md)
-- `251021015324` [怎麼辦](../posts/r_runtoJapan2/251020202236_1obsnih.md)
-- `251021015324` [观b站中日夫妇类的视频有感](../posts/r_runtoJapan2/251020144416_1obkrjj.md)

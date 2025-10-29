@@ -4,6 +4,7 @@
 
 ## Latest changes
 
+- `251029015934` [whv多久入境合适呢](../posts/r_RunAustralia/251028133606_1oi9jsp.md)
 - `251024014807` [麻了](../posts/r_RunAustralia/251024001248_1oejgy5.md)
 - `251019205745` [英语美企uber,doordash外卖都给全世界背包客卷爆了](../posts/r_RunAustralia/251019140417_1oaqgnh.md)
 - `251018014523` [大三穷蛆求求建议](../posts/r_RunAustralia/251017122127_1o8zsrl.md)
@@ -67,4 +68,3 @@
 - `251002170122` [请教一下大佬们文科生怎么润](../posts/r_RunAustralia/250904091333_1n858un.md)
 - `251002170122` [澳洲畜牧专业有搞头吗](../posts/r_RunAustralia/250822150204_1mx8wp3.md)
 - `251002170122` [學歷倒讀不是只有澳洲有](../posts/r_RunAustralia/250830032854_1n3rfmv.md)
-- `251002170122` [上網約友約到12嵗少女 到手PR慘被取消](../posts/r_RunAustralia/250921093756_1nmnoms.md)

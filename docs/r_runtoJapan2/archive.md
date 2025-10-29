@@ -2,8 +2,13 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-28 23:56 | `1oipnxa` | [老哥们怎么应对专门的面接和小论文？](../posts/r_runtoJapan2/251028235614_1oipnxa.md) | Particular-Ferret820 | 2 | 1.0 | 4 |  | false | true | self.runtoJapan2 |
+| 2025-10-28 23:36 | `1oip7kw` | [J.I.B.A](../posts/r_runtoJapan2/251028233649_1oip7kw.md) | this0great | 3 | 0.71 | 3 |  | false | false | i.redd.it |
+| 2025-10-28 15:51 | `1oid2gs` | [润日组毁了我的弟弟](../posts/r_runtoJapan2/251028155137_1oid2gs.md) | HonestzPractice | 26 | 0.86 | 9 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-10-28 11:59 | `1oi7dvz` | [枪杀日本前首相安倍晋三的嫌犯认罪](../posts/r_runtoJapan2/251028115920_1oi7dvz.md) | lansqwq | 14 | 0.82 | 16 | 政策新闻 | false | false | i.redd.it |
+| 2025-10-28 11:33 | `1oi6vxb` | [在日小支人的煩惱。](../posts/r_runtoJapan2/251028113337_1oi6vxb.md) | Longjumping-Air-1278 | 12 | 0.72 | 38 | 日常生活 | false | true | self.runtoJapan2 |
 | 2025-10-28 00:04 | `1ohuw1f` | [高市是不是应该叫川普爸爸](../posts/r_runtoJapan2/251028000419_1ohuw1f.md) | Feisty-Implement-429 | 0 | 0.1 | 4 |  | false | true | self.runtoJapan2 |
-| 2025-10-27 17:07 | `1ohk5nx` | [有没有什么反映战后日本或者经济泡沫破裂后比较经典的日本社会发展史方面的书籍？](../posts/r_runtoJapan2/251027170737_1ohk5nx.md) | Massive-Bit3069 | 3 | 0.72 | 6 |  | false | true | self.runtoJapan2 |
+| 2025-10-27 17:07 | `1ohk5nx` | [有没有什么反映战后日本或者经济泡沫破裂后比较经典的日本社会发展史方面的书籍？](../posts/r_runtoJapan2/251027170737_1ohk5nx.md) | Massive-Bit3069 | 10 | 0.86 | 16 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-27 15:31 | `1ohhkqs` | [不夸张了 发张全身照 润友们评价一下 ~](../posts/r_runtoJapan2/251027153152_1ohhkqs.md) | HonestzPractice | 0 | 0.33 | 8 | 日常生活 | false | false | i.redd.it |
 | 2025-10-27 14:11 | `1ohfgq2` | [Nissan Silvia S13](../posts/r_runtoJapan2/251027141130_1ohfgq2.md) | Arrows_Ice | 9 | 1.0 | 6 | 日常生活 | false | false | reddit.com |
 | 2025-10-27 11:09 | `1ohbijj` | [我大概长这样 穹区们有这么帅吗？](../posts/r_runtoJapan2/251027110913_1ohbijj.md) | HonestzPractice | 0 | 0.24 | 8 | 聊天吹水 | false | false | i.redd.it |

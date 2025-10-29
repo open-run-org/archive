@@ -4,6 +4,8 @@
 
 ## Latest changes
 
+- `251029015936` [求推荐一个欧陆国家](../posts/r_runEuropaAlliance/251028190005_1oii5m5.md)
+- `251029015936` [请问从日本润欧建议我本科在日本选什么专业，求各位润友指点（18岁刚成年）](../posts/r_runEuropaAlliance/251028072212_1oi2yj5.md)
 - `251028015226` [职业选择问题](../posts/r_runEuropaAlliance/251026064622_1ogdsie.md)
 - `251028015226` [瑞典 申请隆德数据分析与商业经济/斯大 转码专业](../posts/r_runEuropaAlliance/251027034831_1oh4l8p.md)
 - `251025014954` [求推荐适合我的欧陆国家/院校](../posts/r_runEuropaAlliance/251024145709_1oezz94.md)
@@ -66,5 +68,3 @@
 - `250927160453` [斯洛伐克本硕博各专业就业概况](../posts/r_runEuropaAlliance/250206142222_1ij3n97.md)
 - `250927160453` [继卡车献忠事件后又一个引爆德国痛点的事件 —— 巴勒斯坦人在新年夜向小孩房间内发射烟花](../posts/r_runEuropaAlliance/250106033325_1hupqy7.md)
 - `250927160453` [简单讲讲爱尔兰, 一个魔幻的国家](../posts/r_runEuropaAlliance/250202192513_1ig5936.md)
-- `250927160453` [润欧无bg求指导](../posts/r_runEuropaAlliance/250125080217_1i9i98f.md)
-- `250927160452` [高中生挂逼润欧：荷兰篇（1 - 背景、项目和申请）](../posts/r_runEuropaAlliance/250802211030_1mg1e72.md)
