@@ -2,6 +2,9 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-29 21:53 | `1ojhtlq` | [被网友判定为低学历人文社科专业了](../posts/r_iwanttorun/251029215324_1ojhtlq.md) | ihateheresomuch | 5 | 0.69 | 4 | 讨论 | false | false | i.redd.it |
+| 2025-10-29 18:54 | `1ojd6dm` | [欧洲有什么好去处？](../posts/r_iwanttorun/251029185448_1ojd6dm.md) | Shuaiouke | 1 | 0.67 | 5 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-29 12:30 | `1oj37sd` | [会一些打印机方面的技术能不能往外润](../posts/r_iwanttorun/251029123029_1oj37sd.md) | Navie-woker | 0 | 0.33 | 15 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-28 17:26 | `1oifn63` | [Amazon to announce largest layoffs in company history, source says](../posts/r_iwanttorun/251028172609_1oifn63.md) | kyk00525 | 1 | 0.67 | 1 | 分享帖 | false | false | cnbc.com |
 | 2025-10-28 13:06 | `1oi8v33` | [在美国庇护的初期阶段工卡还没到手的生活大概是什么样子?](../posts/r_iwanttorun/251028130645_1oi8v33.md) | G0O0ONER | 2 | 0.6 | 9 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-28 13:05 | `1oi8u3f` | [去上海感觉老外确实变多了，应该是恢复到疫情之前了](../posts/r_iwanttorun/251028130528_1oi8u3f.md) | hiroshima_fireworks | 0 | 0.2 | 8 | 不懂就问 | false | true | self.iwanttorun |

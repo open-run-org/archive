@@ -2,7 +2,17 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
-| 2025-10-28 23:56 | `1oipnxa` | [老哥们怎么应对专门的面接和小论文？](../posts/r_runtoJapan2/251028235614_1oipnxa.md) | Particular-Ferret820 | 2 | 1.0 | 4 |  | false | true | self.runtoJapan2 |
+| 2025-10-29 23:57 | `1ojktbq` | [真诚求教，33岁已婚男run日路径。](../posts/r_runtoJapan2/251029235722_1ojktbq.md) | Fast-Bodybuilder-320 | 2 | 1.0 | 10 |  | false | true | self.runtoJapan2 |
+| 2025-10-29 23:44 | `1ojkibl` | [手指点点，都来举报一下歧视用词的小太监](../posts/r_runtoJapan2/251029234412_1ojkibl.md) | yakiyaki887 | 0 | 0.2 | 23 |  | false | false | i.redd.it |
+| 2025-10-29 19:16 | `1ojdrf7` | [加個黑白，就很有格局](../posts/r_runtoJapan2/251029191628_1ojdrf7.md) | this0great | 0 | 0.5 | 1 |  | false | false | i.redd.it |
+| 2025-10-29 17:38 | `1ojb3n3` | [這交易好嗎](../posts/r_runtoJapan2/251029173825_1ojb3n3.md) | this0great | 3 | 0.72 | 16 |  | false | false | i.redd.it |
+| 2025-10-29 13:57 | `1oj58bz` | [修士性价比是不是拉爆大支研究生](../posts/r_runtoJapan2/251029135703_1oj58bz.md) | Significant_Try_1988 | 6 | 0.67 | 54 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-10-29 09:35 | `1oj007s` | [谁还记得喜欢用伪中国语发大字报的家乡人的ID](../posts/r_runtoJapan2/251029093521_1oj007s.md) | Acceptable-Fox-8161 | 9 | 0.74 | 21 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-10-29 07:48 | `1oiyew6` | [run友们一般让女生A酒店房费吗](../posts/r_runtoJapan2/251029074818_1oiyew6.md) | Laffei | 0 | 0.44 | 22 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-29 07:15 | `1oixxub` | [还请请列位亲自指导](../posts/r_runtoJapan2/251029071530_1oixxub.md) | Otherwise_Rich6402 | 2 | 0.75 | 7 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-29 03:50 | `1oiulvg` | [真挚请教，老鼠人该怎么润日。](../posts/r_runtoJapan2/251029035058_1oiulvg.md) | glshouldfreetolove | 14 | 0.82 | 103 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-29 02:21 | `1oisu75` | [关于高才加分的问题](../posts/r_runtoJapan2/251029022157_1oisu75.md) | hty110 | 2 | 0.75 | 3 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-28 23:56 | `1oipnxa` | [老哥们怎么应对专门的面接和小论文？](../posts/r_runtoJapan2/251028235614_1oipnxa.md) | Particular-Ferret820 | 3 | 0.81 | 6 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-28 23:36 | `1oip7kw` | [J.I.B.A](../posts/r_runtoJapan2/251028233649_1oip7kw.md) | this0great | 3 | 0.71 | 3 |  | false | false | i.redd.it |
 | 2025-10-28 15:51 | `1oid2gs` | [润日组毁了我的弟弟](../posts/r_runtoJapan2/251028155137_1oid2gs.md) | HonestzPractice | 26 | 0.86 | 9 | 聊天吹水 | false | true | self.runtoJapan2 |
 | 2025-10-28 11:59 | `1oi7dvz` | [枪杀日本前首相安倍晋三的嫌犯认罪](../posts/r_runtoJapan2/251028115920_1oi7dvz.md) | lansqwq | 14 | 0.82 | 16 | 政策新闻 | false | false | i.redd.it |
