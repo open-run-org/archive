@@ -2,6 +2,8 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-30 03:31 | `1ojpd0o` | [日本驾照和欧洲驾照的切换问题](../posts/r_runEuropaAlliance/251030033127_1ojpd0o.md) | iamkiki6767 | 2 | 0.75 | 14 | 提問 | Ask | false | true | self.runEuropaAlliance |
+| 2025-10-30 02:41 | `1ojoddk` | [应该开始学法语吗？](../posts/r_runEuropaAlliance/251030024151_1ojoddk.md) | puch1to | 27 | 0.86 | 82 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-10-28 19:00 | `1oii5m5` | [求推荐一个欧陆国家](../posts/r_runEuropaAlliance/251028190005_1oii5m5.md) | CatingGriffin | 2 | 1.0 | 5 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-10-28 07:22 | `1oi2yj5` | [请问从日本润欧建议我本科在日本选什么专业，求各位润友指点（18岁刚成年）](../posts/r_runEuropaAlliance/251028072212_1oi2yj5.md) | ytytku | 2 | 0.75 | 3 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-10-27 03:48 | `1oh4l8p` | [瑞典 申请隆德数据分析与商业经济/斯大 转码专业](../posts/r_runEuropaAlliance/251027034831_1oh4l8p.md) | Budget-Stretch95 | 0 | 0.4 | 22 | 提問 | Ask | false | true | self.runEuropaAlliance |

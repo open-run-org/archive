@@ -2,10 +2,18 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-31 01:30 | `1okht40` | [被越南超過了，各位再接再力](../posts/r_runtoJapan2/251031013058_1okht40.md) | this0great | 4 | 1.0 | 7 |  | false | false | i.redd.it |
+| 2025-10-30 11:15 | `1ojwvcn` | [最近看到了很多人觉得通过特定技能移民比较困难](../posts/r_runtoJapan2/251030111534_1ojwvcn.md) | SIparotaNain | 3 | 1.0 | 6 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-30 10:47 | `1ojwd6j` | [求赐教](../posts/r_runtoJapan2/251030104741_1ojwd6j.md) | Optimal-Flounder854 | 2 | 0.75 | 3 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-30 07:12 | `1ojt1x2` | [请问在中国确诊了ADHD，我去了日本之后还需要重新确诊一次才能拿药吗？](../posts/r_runtoJapan2/251030071217_1ojt1x2.md) | glshouldfreetolove | 0 | 0.25 | 15 | 不懂就问 | false | false | reddit.com |
+| 2025-10-30 06:51 | `1ojsq9z` | [一开始就奔着送中去的话，Fラン好像也就那回事吧？](../posts/r_runtoJapan2/251030065116_1ojsq9z.md) | AkabaJeanne | 4 | 0.75 | 9 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-10-30 05:23 | `1ojrdbx` | [无辣不食🍜](../posts/r_runtoJapan2/251030052352_1ojrdbx.md) | monnsann | 4 | 0.63 | 13 | 日常生活 | false | false | i.redd.it |
+| 2025-10-30 04:31 | `1ojqh7h` | [需要BAN或者禁言的用户可以发在这里](../posts/r_runtoJapan2/251030043114_1ojqh7h.md) | KaikouZzz | 16 | 0.86 | 20 | 杂谈 | false | true | self.runtoJapan2 |
+| 2025-10-30 04:02 | `1ojpyd0` | [请求各位帮我确认一下我向家里人要学费的事宜当中是否有遗漏或者错误的地方](../posts/r_runtoJapan2/251030040217_1ojpyd0.md) | glshouldfreetolove | 0 | 0.5 | 49 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-29 23:57 | `1ojktbq` | [真诚求教，33岁已婚男run日路径。](../posts/r_runtoJapan2/251029235722_1ojktbq.md) | Fast-Bodybuilder-320 | 2 | 1.0 | 10 |  | false | true | self.runtoJapan2 |
 | 2025-10-29 23:44 | `1ojkibl` | [手指点点，都来举报一下歧视用词的小太监](../posts/r_runtoJapan2/251029234412_1ojkibl.md) | yakiyaki887 | 0 | 0.2 | 23 |  | false | false | i.redd.it |
-| 2025-10-29 19:16 | `1ojdrf7` | [加個黑白，就很有格局](../posts/r_runtoJapan2/251029191628_1ojdrf7.md) | this0great | 0 | 0.5 | 1 |  | false | false | i.redd.it |
-| 2025-10-29 17:38 | `1ojb3n3` | [這交易好嗎](../posts/r_runtoJapan2/251029173825_1ojb3n3.md) | this0great | 3 | 0.72 | 16 |  | false | false | i.redd.it |
+| 2025-10-29 19:16 | `1ojdrf7` | [加個黑白，就很有格局](../posts/r_runtoJapan2/251029191628_1ojdrf7.md) | this0great | 0 | 0.33 | 1 | 政策新闻 | false | false | i.redd.it |
+| 2025-10-29 17:38 | `1ojb3n3` | [這交易好嗎](../posts/r_runtoJapan2/251029173825_1ojb3n3.md) | this0great | 6 | 0.75 | 26 | 政策新闻 | false | false | i.redd.it |
 | 2025-10-29 13:57 | `1oj58bz` | [修士性价比是不是拉爆大支研究生](../posts/r_runtoJapan2/251029135703_1oj58bz.md) | Significant_Try_1988 | 6 | 0.67 | 54 | 聊天吹水 | false | true | self.runtoJapan2 |
 | 2025-10-29 09:35 | `1oj007s` | [谁还记得喜欢用伪中国语发大字报的家乡人的ID](../posts/r_runtoJapan2/251029093521_1oj007s.md) | Acceptable-Fox-8161 | 9 | 0.74 | 21 | 聊天吹水 | false | true | self.runtoJapan2 |
 | 2025-10-29 07:48 | `1oiyew6` | [run友们一般让女生A酒店房费吗](../posts/r_runtoJapan2/251029074818_1oiyew6.md) | Laffei | 0 | 0.44 | 22 | 不懂就问 | false | true | self.runtoJapan2 |

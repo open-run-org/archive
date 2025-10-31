@@ -2,6 +2,13 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-31 01:02 | `1okh7te` | [东欧也是欧 拉美也是美](../posts/r_iwanttorun/251031010255_1okh7te.md) | AmbitiousBee533 | 3 | 1.0 | 2 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-30 14:25 | `1ok155k` | [美国可能又要加大遣返力度了](../posts/r_iwanttorun/251030142502_1ok155k.md) | editiontom | 5 | 0.78 | 0 | 讨论 | false | true | self.iwanttorun |
+| 2025-10-30 14:18 | `1ok0yt7` | [最近怎么都开始说新西兰移民简单了？是真的吗？](../posts/r_iwanttorun/251030141811_1ok0yt7.md) | Individual_Cry9780 | 0 | 0.5 | 5 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-30 13:06 | `1ojz6ru` | [加拿大工签](../posts/r_iwanttorun/251030130623_1ojz6ru.md) | SelectEnvironment548 | 1 | 0.57 | 26 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-30 06:53 | `1ojsroj` | [朋友在安大略有一个小公司 自己是CEO 能否通过LMIA过去工作呢](../posts/r_iwanttorun/251030065350_1ojsroj.md) | Ok-Zookeepergame7994 | 0 | 0.25 | 3 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-30 04:48 | `1ojqrz3` | [为什么这么多码蛆喜欢用vim？](../posts/r_iwanttorun/251030044842_1ojqrz3.md) | FreeXiJinpingAss | 0 | 0.47 | 23 | 炒作狗 | false | true | self.iwanttorun |
+| 2025-10-30 02:55 | `1ojon4o` | [关于在塞浦路斯/马德里工作签证与绿卡的咨询](../posts/r_iwanttorun/251030025520_1ojon4o.md) | xidabaozi | 1 | 0.6 | 7 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-29 21:53 | `1ojhtlq` | [被网友判定为低学历人文社科专业了](../posts/r_iwanttorun/251029215324_1ojhtlq.md) | ihateheresomuch | 5 | 0.69 | 4 | 讨论 | false | false | i.redd.it |
 | 2025-10-29 18:54 | `1ojd6dm` | [欧洲有什么好去处？](../posts/r_iwanttorun/251029185448_1ojd6dm.md) | Shuaiouke | 1 | 0.67 | 5 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-29 12:30 | `1oj37sd` | [会一些打印机方面的技术能不能往外润](../posts/r_iwanttorun/251029123029_1oj37sd.md) | Navie-woker | 0 | 0.33 | 15 | 不懂就问 | false | true | self.iwanttorun |

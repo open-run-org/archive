@@ -4,6 +4,8 @@
 
 ## Latest changes
 
+- `251031015532` [日本驾照和欧洲驾照的切换问题](../posts/r_runEuropaAlliance/251030033127_1ojpd0o.md)
+- `251031015532` [应该开始学法语吗？](../posts/r_runEuropaAlliance/251030024151_1ojoddk.md)
 - `251029015936` [求推荐一个欧陆国家](../posts/r_runEuropaAlliance/251028190005_1oii5m5.md)
 - `251029015936` [请问从日本润欧建议我本科在日本选什么专业，求各位润友指点（18岁刚成年）](../posts/r_runEuropaAlliance/251028072212_1oi2yj5.md)
 - `251028015226` [职业选择问题](../posts/r_runEuropaAlliance/251026064622_1ogdsie.md)
@@ -66,5 +68,3 @@
 - `250927160453` [【润欧】欧盟各国与其他国家尤其五眼国家的比较（来自权威国际机构统计数据）](../posts/r_runEuropaAlliance/241214212620_1hecxu5.md)
 - `250927160453` [润欧讨论组](../posts/r_runEuropaAlliance/250125132042_1i9msus.md)
 - `250927160453` [斯洛伐克本硕博各专业就业概况](../posts/r_runEuropaAlliance/250206142222_1ij3n97.md)
-- `250927160453` [继卡车献忠事件后又一个引爆德国痛点的事件 —— 巴勒斯坦人在新年夜向小孩房间内发射烟花](../posts/r_runEuropaAlliance/250106033325_1hupqy7.md)
-- `250927160453` [简单讲讲爱尔兰, 一个魔幻的国家](../posts/r_runEuropaAlliance/250202192513_1ig5936.md)
