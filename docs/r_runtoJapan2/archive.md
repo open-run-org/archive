@@ -2,7 +2,16 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
-| 2025-10-31 01:30 | `1okht40` | [被越南超過了，各位再接再力](../posts/r_runtoJapan2/251031013058_1okht40.md) | this0great | 4 | 1.0 | 7 |  | false | false | i.redd.it |
+| 2025-10-31 15:08 | `1okx4p7` | [27毕业双非鼠鼠 对于修士升学的一些问题](../posts/r_runtoJapan2/251031150845_1okx4p7.md) | Turbulent-Spirit-127 | 0 | 0.33 | 2 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-31 14:38 | `1okwcm6` | [涉谷两军会晤](../posts/r_runtoJapan2/251031143828_1okwcm6.md) | blues_submarine | 19 | 0.85 | 6 | 聊天吹水 | false | false | v.redd.it |
+| 2025-10-31 12:53 | `1oktrya` | [日本很漂亮](../posts/r_runtoJapan2/251031125332_1oktrya.md) | Major_Committee8176 | 13 | 0.93 | 10 | 日常生活 | false | false | i.redd.it |
+| 2025-10-31 11:32 | `1oks2me` | [今天在电车上看到这个广告](../posts/r_runtoJapan2/251031113206_1oks2me.md) | matusaka_ryoiti | 20 | 0.96 | 4 | 聊天吹水 | false | false | i.redd.it |
+| 2025-10-31 08:48 | `1okpc1p` | [京都大学惊现蜘蛛侠 !!!](../posts/r_runtoJapan2/251031084804_1okpc1p.md) | HonestzPractice | 14 | 0.89 | 7 | 聊天吹水 | false | false | i.redd.it |
+| 2025-10-31 08:17 | `1okovzf` | [すき家这个太香了](../posts/r_runtoJapan2/251031081723_1okovzf.md) | monnsann | 24 | 0.88 | 22 | 日常生活 | false | false | i.redd.it |
+| 2025-10-31 07:39 | `1okocfx` | [🗾iOS拥有多账户的情况下app更新的最佳使用小贴士](../posts/r_runtoJapan2/251031073957_1okocfx.md) | zhizhuzhizhutu | 10 | 0.92 | 6 | 经验分享 | false | true | self.runtoJapan2 |
+| 2025-10-31 05:45 | `1okmnaj` | [征一征留日意見](../posts/r_runtoJapan2/251031054553_1okmnaj.md) | kuro_tetsu | 3 | 0.64 | 27 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-10-31 03:00 | `1okjncm` | [这素在](../posts/r_runtoJapan2/251031030003_1okjncm.md) | zhizhuzhizhutu | 2 | 0.67 | 3 | 聊天吹水 | false | false | reddit.com |
+| 2025-10-31 01:30 | `1okht40` | [被越南超過了，各位再接再力](../posts/r_runtoJapan2/251031013058_1okht40.md) | this0great | 51 | 0.93 | 83 | 政策新闻 | false | false | i.redd.it |
 | 2025-10-30 11:15 | `1ojwvcn` | [最近看到了很多人觉得通过特定技能移民比较困难](../posts/r_runtoJapan2/251030111534_1ojwvcn.md) | SIparotaNain | 3 | 1.0 | 6 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-30 10:47 | `1ojwd6j` | [求赐教](../posts/r_runtoJapan2/251030104741_1ojwd6j.md) | Optimal-Flounder854 | 2 | 0.75 | 3 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-30 07:12 | `1ojt1x2` | [请问在中国确诊了ADHD，我去了日本之后还需要重新确诊一次才能拿药吗？](../posts/r_runtoJapan2/251030071217_1ojt1x2.md) | glshouldfreetolove | 0 | 0.25 | 15 | 不懂就问 | false | false | reddit.com |

@@ -4,6 +4,10 @@
 
 ## Latest changes
 
+- `251101015857` [Trump administration limits refugee admissions to lowest on record](../posts/r_iwanttorun/251031144907_1okwmk2.md)
+- `251101015857` [没有经验如何做企台，我看华人168上都只招熟手企台](../posts/r_iwanttorun/251031151729_1okxcw2.md)
+- `251101015857` [星期五了，狗都不想干活](../posts/r_iwanttorun/251031180418_1ol1qws.md)
+- `251101015857` [‘I let ChatGPT decide:’ This American woman moved to a French town after asking AI for advice | CNN](../posts/r_iwanttorun/251031140336_1okvh4k.md)
 - `251031015528` [为什么这么多码蛆喜欢用vim？](../posts/r_iwanttorun/251030044842_1ojqrz3.md)
 - `251031015528` [关于在塞浦路斯/马德里工作签证与绿卡的咨询](../posts/r_iwanttorun/251030025520_1ojon4o.md)
 - `251031015528` [朋友在安大略有一个小公司 自己是CEO 能否通过LMIA过去工作呢](../posts/r_iwanttorun/251030065350_1ojsroj.md)
@@ -64,7 +68,3 @@
 - `251019020249` [请问美国B2被拒是否影响澳大利亚whv](../posts/r_iwanttorun/251018020651_1o9js05.md)
 - `251018014522` [各位被边控的润友，你们都是怎么被边控的？](../posts/r_iwanttorun/251017162320_1o95viu.md)
 - `251018014522` [怎么润瑞士](../posts/r_iwanttorun/251017215834_1o9ei97.md)
-- `251018014522` [远离简中论坛保持身心健康](../posts/r_iwanttorun/251017032638_1o8qphx.md)
-- `251018014522` [求助！关于越南激活护照！！](../posts/r_iwanttorun/251017145137_1o93f9a.md)
-- `251018014522` [大三穷蛆求求建议](../posts/r_iwanttorun/251017113643_1o8ywjb.md)
-- `251017015140` [不要怕去医院看病不会用英语描述症状](../posts/r_iwanttorun/251016230452_1o8l5l7.md)

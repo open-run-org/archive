@@ -2,6 +2,10 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-10-31 18:04 | `1ol1qws` | [星期五了，狗都不想干活](../posts/r_iwanttorun/251031180418_1ol1qws.md) | FreeXiJinpingAss | 0 | 0.33 | 2 | 炒作狗 | false | true | self.iwanttorun |
+| 2025-10-31 15:17 | `1okxcw2` | [没有经验如何做企台，我看华人168上都只招熟手企台](../posts/r_iwanttorun/251031151729_1okxcw2.md) | G0O0ONER | 1 | 0.67 | 6 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-10-31 14:49 | `1okwmk2` | [Trump administration limits refugee admissions to lowest on record](../posts/r_iwanttorun/251031144907_1okwmk2.md) | kyk00525 | 1 | 0.67 | 0 | 分享帖 | false | false | nbcnews.com |
+| 2025-10-31 14:03 | `1okvh4k` | [‘I let ChatGPT decide:’ This American woman moved to a French town after asking AI for advice \| CNN](../posts/r_iwanttorun/251031140336_1okvh4k.md) | kyk00525 | 3 | 1.0 | 2 | 讨论 | false | false | edition.cnn.com |
 | 2025-10-31 01:02 | `1okh7te` | [东欧也是欧 拉美也是美](../posts/r_iwanttorun/251031010255_1okh7te.md) | AmbitiousBee533 | 3 | 1.0 | 2 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-30 14:25 | `1ok155k` | [美国可能又要加大遣返力度了](../posts/r_iwanttorun/251030142502_1ok155k.md) | editiontom | 5 | 0.78 | 0 | 讨论 | false | true | self.iwanttorun |
 | 2025-10-30 14:18 | `1ok0yt7` | [最近怎么都开始说新西兰移民简单了？是真的吗？](../posts/r_iwanttorun/251030141811_1ok0yt7.md) | Individual_Cry9780 | 0 | 0.5 | 5 | 不懂就问 | false | true | self.iwanttorun |
