@@ -4,6 +4,7 @@
 
 ## Latest changes
 
+- `251102020148` [拿到枫叶卡（pr）就算“加拿大🇨🇦本地人”了吗？](../posts/r_iwanttorun/251101191859_1olwfnd.md)
 - `251101015857` [Trump administration limits refugee admissions to lowest on record](../posts/r_iwanttorun/251031144907_1okwmk2.md)
 - `251101015857` [没有经验如何做企台，我看华人168上都只招熟手企台](../posts/r_iwanttorun/251031151729_1okxcw2.md)
 - `251101015857` [星期五了，狗都不想干活](../posts/r_iwanttorun/251031180418_1ol1qws.md)
@@ -67,4 +68,3 @@
 - `251019020249` [Poll shows massive majority of Australians want to slash immigration](../posts/r_iwanttorun/251018145601_1o9xyv3.md)
 - `251019020249` [请问美国B2被拒是否影响澳大利亚whv](../posts/r_iwanttorun/251018020651_1o9js05.md)
 - `251018014522` [各位被边控的润友，你们都是怎么被边控的？](../posts/r_iwanttorun/251017162320_1o95viu.md)
-- `251018014522` [怎么润瑞士](../posts/r_iwanttorun/251017215834_1o9ei97.md)

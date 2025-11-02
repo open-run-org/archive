@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-01 19:18 | `1olwfnd` | [拿到枫叶卡（pr）就算“加拿大🇨🇦本地人”了吗？](../posts/r_iwanttorun/251101191859_1olwfnd.md) | realemo1979 | 7 | 0.82 | 6 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-31 18:04 | `1ol1qws` | [星期五了，狗都不想干活](../posts/r_iwanttorun/251031180418_1ol1qws.md) | FreeXiJinpingAss | 0 | 0.33 | 2 | 炒作狗 | false | true | self.iwanttorun |
 | 2025-10-31 15:17 | `1okxcw2` | [没有经验如何做企台，我看华人168上都只招熟手企台](../posts/r_iwanttorun/251031151729_1okxcw2.md) | G0O0ONER | 1 | 0.67 | 6 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-31 14:49 | `1okwmk2` | [Trump administration limits refugee admissions to lowest on record](../posts/r_iwanttorun/251031144907_1okwmk2.md) | kyk00525 | 1 | 0.67 | 0 | 分享帖 | false | false | nbcnews.com |

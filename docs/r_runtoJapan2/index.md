@@ -4,6 +4,9 @@
 
 ## Latest changes
 
+- `251102020153` [润友们如何评价 我感觉是故意的 哈哈哈哈](../posts/r_runtoJapan2/251101150401_1olq2pi.md)
+- `251102020153` [今晚的烟花](../posts/r_runtoJapan2/251101124000_1olmspt.md)
+- `251102020153` [请问“IT专业，先通过特定技能入国，再转职IT转为技人国”这样的路线是可行的吗？](../posts/r_runtoJapan2/251101145836_1olpxqe.md)
 - `251101015902` [征一征留日意見](../posts/r_runtoJapan2/251031054553_1okmnaj.md)
 - `251101015902` [すき家这个太香了](../posts/r_runtoJapan2/251031081723_1okovzf.md)
 - `251101015902` [京都大学惊现蜘蛛侠 !!!](../posts/r_runtoJapan2/251031084804_1okpc1p.md)
@@ -65,6 +68,3 @@
 - `251025014956` [怎么提高日语口语呢](../posts/r_runtoJapan2/251024134427_1oey570.md)
 - `251025014956` [2025年国公立计算机夏季考，变得更卷了吗？](../posts/r_runtoJapan2/251024115505_1oevp3g.md)
 - `251025014956` [因为FWL计划撤出新加坡WP,求证路线可能性](../posts/r_runtoJapan2/251023064442_1odw8q9.md)
-- `251025014956` [UoaKN″y](../posts/r_runtoJapan2/251023160021_1oe75wb.md)
-- `251025014956` [特高课复活](../posts/r_runtoJapan2/251024031331_1oen3dd.md)
-- `251025014956` [樱花妹是这样的（昭和回归）](../posts/r_runtoJapan2/251022121634_1od6mla.md)
