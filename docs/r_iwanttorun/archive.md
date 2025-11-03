@@ -2,6 +2,15 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-02 22:34 | `1omv1n5` | [只会英语和法语 通过法语通道拿到pr在加拿大🇨🇦好找工作吗？](../posts/r_iwanttorun/251102223429_1omv1n5.md) | realemo1979 | 4 | 0.75 | 6 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-02 22:05 | `1omucxk` | [冬令时司马了](../posts/r_iwanttorun/251102220511_1omucxk.md) | FreeXiJinpingAss | 6 | 1.0 | 0 | 炒作狗 | false | true | self.iwanttorun |
+| 2025-11-02 15:43 | `1omkl1q` | [哪里引来的这么多0karma小号上来就发求助贴？](../posts/r_iwanttorun/251102154322_1omkl1q.md) | iiiiiiiiib | 4 | 0.75 | 3 | ??? | false | true | self.iwanttorun |
+| 2025-11-02 14:47 | `1omj57k` | [做什么事情，上什么学，德行、德心、德性特值得培植、持守。](../posts/r_iwanttorun/251102144713_1omj57k.md) | mobco | 0 | 0.33 | 0 | 讨论 | false | true | self.iwanttorun |
+| 2025-11-02 11:09 | `1omelig` | [新家日益壮大 速度进 你想看的这里都有 欢迎分享日常~~~](../posts/r_iwanttorun/251102110927_1omelig.md) | HonestzPractice | 2 | 0.62 | 0 | 分享帖 | false | false | i.redd.it |
+| 2025-11-02 10:17 | `1omdr8z` | [请问 斐济工签有一丝丝含金量吗](../posts/r_iwanttorun/251102101709_1omdr8z.md) | Acceptable_Size_9166 | 4 | 0.83 | 10 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-02 06:00 | `1om9ucn` | [请问我这个情况有什么出路吗](../posts/r_iwanttorun/251102060045_1om9ucn.md) | Zane277 | 1 | 0.57 | 11 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-02 04:47 | `1om8lvn` | [求建议](../posts/r_iwanttorun/251102044758_1om8lvn.md) | NerveMean3532 | 2 | 0.58 | 13 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-02 02:57 | `1om6m3v` | [考研跨考or留学](../posts/r_iwanttorun/251102025742_1om6m3v.md) | JournalistVisual6975 | 0 | 0.38 | 9 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-01 19:18 | `1olwfnd` | [拿到枫叶卡（pr）就算“加拿大🇨🇦本地人”了吗？](../posts/r_iwanttorun/251101191859_1olwfnd.md) | realemo1979 | 7 | 0.82 | 6 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-31 18:04 | `1ol1qws` | [星期五了，狗都不想干活](../posts/r_iwanttorun/251031180418_1ol1qws.md) | FreeXiJinpingAss | 0 | 0.33 | 2 | 炒作狗 | false | true | self.iwanttorun |
 | 2025-10-31 15:17 | `1okxcw2` | [没有经验如何做企台，我看华人168上都只招熟手企台](../posts/r_iwanttorun/251031151729_1okxcw2.md) | G0O0ONER | 1 | 0.67 | 6 | 不懂就问 | false | true | self.iwanttorun |

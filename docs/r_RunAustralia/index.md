@@ -4,6 +4,7 @@
 
 ## Latest changes
 
+- `251103020239` [请问 斐济工签有一丝丝含金量吗](../posts/r_RunAustralia/251102101912_1omdsfx.md)
 - `251029015934` [whv多久入境合适呢](../posts/r_RunAustralia/251028133606_1oi9jsp.md)
 - `251024014807` [麻了](../posts/r_RunAustralia/251024001248_1oejgy5.md)
 - `251019205745` [英语美企uber,doordash外卖都给全世界背包客卷爆了](../posts/r_RunAustralia/251019140417_1oaqgnh.md)
@@ -67,4 +68,3 @@
 - `251002170122` [2025年出國留學新興目的地 更低的預算 更多樣的選擇](../posts/r_RunAustralia/250821235856_1mwrdpc.md)
 - `251002170122` [请教一下大佬们文科生怎么润](../posts/r_RunAustralia/250904091333_1n858un.md)
 - `251002170122` [澳洲畜牧专业有搞头吗](../posts/r_RunAustralia/250822150204_1mx8wp3.md)
-- `251002170122` [學歷倒讀不是只有澳洲有](../posts/r_RunAustralia/250830032854_1n3rfmv.md)

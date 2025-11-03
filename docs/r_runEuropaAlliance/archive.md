@@ -2,6 +2,10 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-02 14:48 | `1omj631` | [上学和生活中，愿我与人们选择自德、自强。](../posts/r_runEuropaAlliance/251102144811_1omj631.md) | mobco | 0 | 0.2 | 12 | 分享 | Share | false | true | self.runEuropaAlliance |
+| 2025-11-02 08:51 | `1omcg2g` | [想在欧洲住一段时间，可行性有多大？](../posts/r_runEuropaAlliance/251102085123_1omcg2g.md) | 20200318 | 0 | 0.2 | 9 | 提問 | Ask | false | true | self.runEuropaAlliance |
+| 2025-11-02 05:52 | `1om9phs` | [我这种情况又啥出路吗](../posts/r_runEuropaAlliance/251102055226_1om9phs.md) | Zane277 | 3 | 0.8 | 4 | 討論 | Discuss | false | true | self.runEuropaAlliance |
+| 2025-10-31 14:15 | `1okvrvq` | [为什么欧洲大学教授华人面孔少？](../posts/r_runEuropaAlliance/251031141531_1okvrvq.md) | ZhuozhenJIANG | 2 | 1.0 | 4 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-10-30 03:31 | `1ojpd0o` | [日本驾照和欧洲驾照的切换问题](../posts/r_runEuropaAlliance/251030033127_1ojpd0o.md) | iamkiki6767 | 2 | 0.75 | 14 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-10-30 02:41 | `1ojoddk` | [应该开始学法语吗？](../posts/r_runEuropaAlliance/251030024151_1ojoddk.md) | puch1to | 27 | 0.86 | 82 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-10-28 19:00 | `1oii5m5` | [求推荐一个欧陆国家](../posts/r_runEuropaAlliance/251028190005_1oii5m5.md) | CatingGriffin | 2 | 1.0 | 5 | 提問 | Ask | false | true | self.runEuropaAlliance |

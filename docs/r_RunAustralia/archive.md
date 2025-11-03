@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-02 10:19 | `1omdsfx` | [请问 斐济工签有一丝丝含金量吗](../posts/r_RunAustralia/251102101912_1omdsfx.md) | Acceptable_Size_9166 | 1 | 1.0 | 0 |  | false | false |  |
 | 2025-10-28 13:36 | `1oi9jsp` | [whv多久入境合适呢](../posts/r_RunAustralia/251028133606_1oi9jsp.md) | Anti-xitler-8964 | 3 | 0.8 | 4 |  | false | true | self.RunAustralia |
 | 2025-10-24 00:12 | `1oejgy5` | [麻了](../posts/r_RunAustralia/251024001248_1oejgy5.md) | this0great | 1 | 1.0 | 1 |  | false | false | i.redd.it |
 | 2025-10-19 14:04 | `1oaqgnh` | [英语美企uber,doordash外卖都给全世界背包客卷爆了](../posts/r_RunAustralia/251019140417_1oaqgnh.md) | Electronic-Arm-3960 | 5 | 0.73 | 3 |  | false | true | self.RunAustralia |

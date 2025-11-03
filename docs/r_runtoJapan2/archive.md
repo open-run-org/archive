@@ -2,6 +2,12 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-02 23:28 | `1omwaps` | [高市内阁支持率飙升至82%，“活泼外交”风格受日本年轻人追捧](../posts/r_runtoJapan2/251102232857_1omwaps.md) | baizuobudehaosi | 2 | 0.67 | 1 |  | false | false | i.redd.it |
+| 2025-11-02 23:16 | `1omw0dq` | [還能上桌吃飯嗎](../posts/r_runtoJapan2/251102231600_1omw0dq.md) | AokoGreen | 2 | 0.6 | 4 |  | false | false | i.redd.it |
+| 2025-11-02 15:42 | `1omkjt9` | [请问读个专门再工作的话最好去什么城市](../posts/r_runtoJapan2/251102154204_1omkjt9.md) | SIparotaNain | 5 | 0.86 | 4 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-02 10:32 | `1omdzw1` | [好久没有走过这条街~](../posts/r_runtoJapan2/251102103233_1omdzw1.md) | HonestzPractice | 29 | 0.97 | 11 | 日常生活 | false | false | i.redd.it |
+| 2025-11-02 10:20 | `1omdtck` | [恥辱外交](../posts/r_runtoJapan2/251102102043_1omdtck.md) | this0great | 0 | 0.39 | 15 | 聊天吹水 | false | false | i.redd.it |
+| 2025-11-02 04:41 | `1om8hh7` | [求建议](../posts/r_runtoJapan2/251102044110_1om8hh7.md) | NerveMean3532 | 0 | 0.23 | 19 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-01 15:04 | `1olq2pi` | [润友们如何评价 我感觉是故意的 哈哈哈哈](../posts/r_runtoJapan2/251101150401_1olq2pi.md) | HonestzPractice | 11 | 0.79 | 3 | 聊天吹水 | false | false | i.redd.it |
 | 2025-11-01 14:58 | `1olpxqe` | [请问“IT专业，先通过特定技能入国，再转职IT转为技人国”这样的路线是可行的吗？](../posts/r_runtoJapan2/251101145836_1olpxqe.md) | Main-Ad8216 | 0 | 0.5 | 3 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-01 12:40 | `1olmspt` | [今晚的烟花](../posts/r_runtoJapan2/251101124000_1olmspt.md) | Major_Committee8176 | 7 | 0.89 | 7 | 日常生活 | false | false | reddit.com |

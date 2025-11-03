@@ -4,6 +4,10 @@
 
 ## Latest changes
 
+- `251103020242` [上学和生活中，愿我与人们选择自德、自强。](../posts/r_runEuropaAlliance/251102144811_1omj631.md)
+- `251103020242` [我这种情况又啥出路吗](../posts/r_runEuropaAlliance/251102055226_1om9phs.md)
+- `251103020242` [为什么欧洲大学教授华人面孔少？](../posts/r_runEuropaAlliance/251031141531_1okvrvq.md)
+- `251103020242` [想在欧洲住一段时间，可行性有多大？](../posts/r_runEuropaAlliance/251102085123_1omcg2g.md)
 - `251031015532` [日本驾照和欧洲驾照的切换问题](../posts/r_runEuropaAlliance/251030033127_1ojpd0o.md)
 - `251031015532` [应该开始学法语吗？](../posts/r_runEuropaAlliance/251030024151_1ojoddk.md)
 - `251029015936` [求推荐一个欧陆国家](../posts/r_runEuropaAlliance/251028190005_1oii5m5.md)
@@ -64,7 +68,3 @@
 - `250927160453` [法国留学申请、费用、实习、毕业找工作、拿身份相关网页整合](../posts/r_runEuropaAlliance/241211061916_1hbn9lk.md)
 - `250927160453` [哈哈，巴勒人放烟花的原帖已经被自愿删除了](../posts/r_runEuropaAlliance/250106153610_1hv1qxo.md)
 - `250927160453` [高中生挂逼润欧：捷克斯洛伐克篇（1 - 项目、成本和申请）](../posts/r_runEuropaAlliance/250131004203_1ie2e9j.md)
-- `250927160453` [權癮大的進](../posts/r_runEuropaAlliance/241214212036_1hecti0.md)
-- `250927160453` [【润欧】欧盟各国与其他国家尤其五眼国家的比较（来自权威国际机构统计数据）](../posts/r_runEuropaAlliance/241214212620_1hecxu5.md)
-- `250927160453` [润欧讨论组](../posts/r_runEuropaAlliance/250125132042_1i9msus.md)
-- `250927160453` [斯洛伐克本硕博各专业就业概况](../posts/r_runEuropaAlliance/250206142222_1ij3n97.md)
