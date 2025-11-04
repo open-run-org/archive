@@ -2,8 +2,11 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
-| 2025-11-02 23:28 | `1omwaps` | [高市内阁支持率飙升至82%，“活泼外交”风格受日本年轻人追捧](../posts/r_runtoJapan2/251102232857_1omwaps.md) | baizuobudehaosi | 2 | 0.67 | 1 |  | false | false | i.redd.it |
-| 2025-11-02 23:16 | `1omw0dq` | [還能上桌吃飯嗎](../posts/r_runtoJapan2/251102231600_1omw0dq.md) | AokoGreen | 2 | 0.6 | 4 |  | false | false | i.redd.it |
+| 2025-11-03 18:47 | `1onk8vi` | [日本語に自信満々なのにN1不安を装い 実は太君に「独学でここまでやった俺すげーだろ、褒めて褒めて」ってアピールする小䗜](../posts/r_runtoJapan2/251103184715_1onk8vi.md) | Electrical_While9299 | 9 | 1.0 | 3 |  | false | false |  |
+| 2025-11-03 10:40 | `1on8ga7` | [每到春秋季节，住在隔壁的智者就喜欢开窗户，问题是它还特别喜欢在家里讲话](../posts/r_runtoJapan2/251103104022_1on8ga7.md) | zhizhuzhizhutu | 8 | 0.7 | 9 | 日常生活 | false | true | self.runtoJapan2 |
+| 2025-11-03 10:14 | `1on8130` | [活动](../posts/r_runtoJapan2/251103101417_1on8130.md) | Major_Committee8176 | 1 | 0.6 | 1 | 日常生活 | false | false | reddit.com |
+| 2025-11-02 23:28 | `1omwaps` | [高市内阁支持率飙升至82%，“活泼外交”风格受日本年轻人追捧](../posts/r_runtoJapan2/251102232857_1omwaps.md) | baizuobudehaosi | 39 | 0.93 | 14 | 政策新闻 | false | false | i.redd.it |
+| 2025-11-02 23:16 | `1omw0dq` | [還能上桌吃飯嗎](../posts/r_runtoJapan2/251102231600_1omw0dq.md) | AokoGreen | 11 | 0.74 | 14 | 聊天吹水 | false | false | i.redd.it |
 | 2025-11-02 15:42 | `1omkjt9` | [请问读个专门再工作的话最好去什么城市](../posts/r_runtoJapan2/251102154204_1omkjt9.md) | SIparotaNain | 5 | 0.86 | 4 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-02 10:32 | `1omdzw1` | [好久没有走过这条街~](../posts/r_runtoJapan2/251102103233_1omdzw1.md) | HonestzPractice | 29 | 0.97 | 11 | 日常生活 | false | false | i.redd.it |
 | 2025-11-02 10:20 | `1omdtck` | [恥辱外交](../posts/r_runtoJapan2/251102102043_1omdtck.md) | this0great | 0 | 0.39 | 15 | 聊天吹水 | false | false | i.redd.it |

@@ -2,6 +2,8 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-03 09:39 | `1on7hbv` | [本科潤選擇求教: 荷蘭德國 VS 新加坡/香港](../posts/r_runEuropaAlliance/251103093925_1on7hbv.md) | InterestingAd7773 | 3 | 0.71 | 34 | 提問 | Ask | false | true | self.runEuropaAlliance |
+| 2025-11-03 01:01 | `1omybx1` | [七子本硕有可能申到欧陆博士吗?](../posts/r_runEuropaAlliance/251103010107_1omybx1.md) | ChaosMaker41 | 0 | 0.43 | 11 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-11-02 14:48 | `1omj631` | [上学和生活中，愿我与人们选择自德、自强。](../posts/r_runEuropaAlliance/251102144811_1omj631.md) | mobco | 0 | 0.2 | 12 | 分享 | Share | false | true | self.runEuropaAlliance |
 | 2025-11-02 08:51 | `1omcg2g` | [想在欧洲住一段时间，可行性有多大？](../posts/r_runEuropaAlliance/251102085123_1omcg2g.md) | 20200318 | 0 | 0.2 | 9 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-11-02 05:52 | `1om9phs` | [我这种情况又啥出路吗](../posts/r_runEuropaAlliance/251102055226_1om9phs.md) | Zane277 | 3 | 0.8 | 4 | 討論 | Discuss | false | true | self.runEuropaAlliance |

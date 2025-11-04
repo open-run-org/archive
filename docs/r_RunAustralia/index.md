@@ -4,6 +4,8 @@
 
 ## Latest changes
 
+- `251104015706` [跑外卖账号被封了，已走投无路，澳洲，终局](../posts/r_RunAustralia/251103044818_1on2wdy.md)
+- `251104015706` [在读牙医博士求建议](../posts/r_RunAustralia/251103044617_1on2v12.md)
 - `251103020239` [请问 斐济工签有一丝丝含金量吗](../posts/r_RunAustralia/251102101912_1omdsfx.md)
 - `251029015934` [whv多久入境合适呢](../posts/r_RunAustralia/251028133606_1oi9jsp.md)
 - `251024014807` [麻了](../posts/r_RunAustralia/251024001248_1oejgy5.md)
@@ -66,5 +68,3 @@
 - `251002170122` [移民趨勢在變化，以後大方向是基於您的收入而不是您的積分](../posts/r_RunAustralia/250829071430_1n30op8.md)
 - `251002170122` [想幫小三辦PR？移民局竟然答復...](../posts/r_RunAustralia/250901111204_1n5lw54.md)
 - `251002170122` [2025年出國留學新興目的地 更低的預算 更多樣的選擇](../posts/r_RunAustralia/250821235856_1mwrdpc.md)
-- `251002170122` [请教一下大佬们文科生怎么润](../posts/r_RunAustralia/250904091333_1n858un.md)
-- `251002170122` [澳洲畜牧专业有搞头吗](../posts/r_RunAustralia/250822150204_1mx8wp3.md)

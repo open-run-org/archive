@@ -4,6 +4,8 @@
 
 ## Latest changes
 
+- `251104015708` [七子本硕有可能申到欧陆博士吗?](../posts/r_runEuropaAlliance/251103010107_1omybx1.md)
+- `251104015708` [本科潤選擇求教: 荷蘭德國 VS 新加坡/香港](../posts/r_runEuropaAlliance/251103093925_1on7hbv.md)
 - `251103020242` [上学和生活中，愿我与人们选择自德、自强。](../posts/r_runEuropaAlliance/251102144811_1omj631.md)
 - `251103020242` [我这种情况又啥出路吗](../posts/r_runEuropaAlliance/251102055226_1om9phs.md)
 - `251103020242` [为什么欧洲大学教授华人面孔少？](../posts/r_runEuropaAlliance/251031141531_1okvrvq.md)
@@ -66,5 +68,3 @@
 - `250927160453` [移民國家與融入問題-須知](../posts/r_runEuropaAlliance/241215064632_1hemz5m.md)
 - `250927160453` [法国雷塔罗通函来了](../posts/r_runEuropaAlliance/250128134432_1ic1uwr.md)
 - `250927160453` [法国留学申请、费用、实习、毕业找工作、拿身份相关网页整合](../posts/r_runEuropaAlliance/241211061916_1hbn9lk.md)
-- `250927160453` [哈哈，巴勒人放烟花的原帖已经被自愿删除了](../posts/r_runEuropaAlliance/250106153610_1hv1qxo.md)
-- `250927160453` [高中生挂逼润欧：捷克斯洛伐克篇（1 - 项目、成本和申请）](../posts/r_runEuropaAlliance/250131004203_1ie2e9j.md)

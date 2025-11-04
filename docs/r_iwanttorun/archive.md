@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-03 10:24 | `1on86xp` | [本科潤選擇求教: 荷蘭德國 VS 新加坡/香港](../posts/r_iwanttorun/251103102418_1on86xp.md) | InterestingAd7773 | 2 | 0.67 | 6 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-02 22:34 | `1omv1n5` | [只会英语和法语 通过法语通道拿到pr在加拿大🇨🇦好找工作吗？](../posts/r_iwanttorun/251102223429_1omv1n5.md) | realemo1979 | 4 | 0.75 | 6 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-02 22:05 | `1omucxk` | [冬令时司马了](../posts/r_iwanttorun/251102220511_1omucxk.md) | FreeXiJinpingAss | 6 | 1.0 | 0 | 炒作狗 | false | true | self.iwanttorun |
 | 2025-11-02 15:43 | `1omkl1q` | [哪里引来的这么多0karma小号上来就发求助贴？](../posts/r_iwanttorun/251102154322_1omkl1q.md) | iiiiiiiiib | 4 | 0.75 | 3 | ??? | false | true | self.iwanttorun |

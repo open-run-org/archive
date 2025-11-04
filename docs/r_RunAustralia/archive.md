@@ -2,6 +2,8 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-03 04:48 | `1on2wdy` | [跑外卖账号被封了，已走投无路，澳洲，终局](../posts/r_RunAustralia/251103044818_1on2wdy.md) | Electronic-Arm-3960 | 2 | 0.75 | 10 |  | false | true | self.RunAustralia |
+| 2025-11-03 04:46 | `1on2v12` | [在读牙医博士求建议](../posts/r_RunAustralia/251103044617_1on2v12.md) | Prize_Cry2939 | 5 | 0.86 | 11 |  | false | true | self.RunAustralia |
 | 2025-11-02 10:19 | `1omdsfx` | [请问 斐济工签有一丝丝含金量吗](../posts/r_RunAustralia/251102101912_1omdsfx.md) | Acceptable_Size_9166 | 1 | 1.0 | 0 |  | false | false |  |
 | 2025-10-28 13:36 | `1oi9jsp` | [whv多久入境合适呢](../posts/r_RunAustralia/251028133606_1oi9jsp.md) | Anti-xitler-8964 | 3 | 0.8 | 4 |  | false | true | self.RunAustralia |
 | 2025-10-24 00:12 | `1oejgy5` | [麻了](../posts/r_RunAustralia/251024001248_1oejgy5.md) | this0great | 1 | 1.0 | 1 |  | false | false | i.redd.it |
