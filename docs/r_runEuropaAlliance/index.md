@@ -4,6 +4,8 @@
 
 ## Latest changes
 
+- `251105015728` [各位都是怎么转生活费的？](../posts/r_runEuropaAlliance/251104120222_1oo5ln0.md)
+- `251105015728` [離岸風電技師去歐洲的可能性大嗎？](../posts/r_runEuropaAlliance/251104194749_1ooh9a6.md)
 - `251104015708` [七子本硕有可能申到欧陆博士吗?](../posts/r_runEuropaAlliance/251103010107_1omybx1.md)
 - `251104015708` [本科潤選擇求教: 荷蘭德國 VS 新加坡/香港](../posts/r_runEuropaAlliance/251103093925_1on7hbv.md)
 - `251103020242` [上学和生活中，愿我与人们选择自德、自强。](../posts/r_runEuropaAlliance/251102144811_1omj631.md)
@@ -66,5 +68,3 @@
 - `250927160453` [小语种国家英授本科决策树](../posts/r_runEuropaAlliance/250209033636_1il5pzk.md)
 - `250927160453` [欧洲版看精华帖捷径及欧洲基础知识科普，潤歐必看](../posts/r_runEuropaAlliance/241217184303_1hghkle.md)
 - `250927160453` [移民國家與融入問題-須知](../posts/r_runEuropaAlliance/241215064632_1hemz5m.md)
-- `250927160453` [法国雷塔罗通函来了](../posts/r_runEuropaAlliance/250128134432_1ic1uwr.md)
-- `250927160453` [法国留学申请、费用、实习、毕业找工作、拿身份相关网页整合](../posts/r_runEuropaAlliance/241211061916_1hbn9lk.md)

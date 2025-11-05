@@ -2,6 +2,8 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-04 20:31 | `1ooifsg` | [我在意大利当难民（直播中）](../posts/r_iwanttorun/251104203149_1ooifsg.md) | BoringAir6628 | 13 | 0.85 | 7 | 分享帖 | false | false | i.redd.it |
+| 2025-11-04 03:02 | `1onwgm3` | [码蛆这辈子有了](../posts/r_iwanttorun/251104030230_1onwgm3.md) | FreeXiJinpingAss | 3 | 0.67 | 1 | 炒作狗 | false | false | i.redd.it |
 | 2025-11-03 10:24 | `1on86xp` | [本科潤選擇求教: 荷蘭德國 VS 新加坡/香港](../posts/r_iwanttorun/251103102418_1on86xp.md) | InterestingAd7773 | 2 | 0.67 | 6 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-02 22:34 | `1omv1n5` | [只会英语和法语 通过法语通道拿到pr在加拿大🇨🇦好找工作吗？](../posts/r_iwanttorun/251102223429_1omv1n5.md) | realemo1979 | 4 | 0.75 | 6 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-02 22:05 | `1omucxk` | [冬令时司马了](../posts/r_iwanttorun/251102220511_1omucxk.md) | FreeXiJinpingAss | 6 | 1.0 | 0 | 炒作狗 | false | true | self.iwanttorun |

@@ -10,6 +10,14 @@
 
 ## Latest changes
 
+- `r_runtoJapan2` `251105015730` [去日本不上学，而是找中介工作是不是个大坑](posts/r_runtoJapan2/251104070646_1oo0w7v.md)
+- `r_runtoJapan2` `251105015730` [日本語に自信満々なのにN1不安を装い 実は太君に「独学でここまでやった俺すげーだろ、褒めて褒めて」ってアピールする小䗜](posts/r_runtoJapan2/251103184715_1onk8vi.md)
+- `r_runtoJapan2` `251105015730` [这样扎头发的是不是好女孩~](posts/r_runtoJapan2/251104113237_1oo51nd.md)
+- `r_runtoJapan2` `251105015730` [滞纳年金和国保的人有福了,感觉周围的人有小一半没交过](posts/r_runtoJapan2/251104033026_1onx19y.md)
+- `r_runEuropaAlliance` `251105015728` [各位都是怎么转生活费的？](posts/r_runEuropaAlliance/251104120222_1oo5ln0.md)
+- `r_runEuropaAlliance` `251105015728` [離岸風電技師去歐洲的可能性大嗎？](posts/r_runEuropaAlliance/251104194749_1ooh9a6.md)
+- `r_iwanttorun` `251105015724` [我在意大利当难民（直播中）](posts/r_iwanttorun/251104203149_1ooifsg.md)
+- `r_iwanttorun` `251105015724` [码蛆这辈子有了](posts/r_iwanttorun/251104030230_1onwgm3.md)
 - `r_runtoJapan2` `251104015710` [日本語に自信満々なのにN1不安を装い 実は太君に「独学でここまでやった俺すげーだろ、褒めて褒めて」ってアピールする小䗜](posts/r_runtoJapan2/251103184715_1onk8vi.md)
 - `r_runtoJapan2` `251104015710` [每到春秋季节，住在隔壁的智者就喜欢开窗户，问题是它还特别喜欢在家里讲话](posts/r_runtoJapan2/251103104022_1on8ga7.md)
 - `r_runtoJapan2` `251104015710` [高市内阁支持率飙升至82%，“活泼外交”风格受日本年轻人追捧](posts/r_runtoJapan2/251102232857_1omwaps.md)
@@ -66,11 +74,3 @@
 - `r_runtoJapan2` `251031015534` [這交易好嗎](posts/r_runtoJapan2/251029173825_1ojb3n3.md)
 - `r_runtoJapan2` `251031015534` [被越南超過了，各位再接再力](posts/r_runtoJapan2/251031013058_1okht40.md)
 - `r_runtoJapan2` `251031015534` [求赐教](posts/r_runtoJapan2/251030104741_1ojwd6j.md)
-- `r_runtoJapan2` `251031015534` [一开始就奔着送中去的话，Fラン好像也就那回事吧？](posts/r_runtoJapan2/251030065116_1ojsq9z.md)
-- `r_runtoJapan2` `251031015534` [加個黑白，就很有格局](posts/r_runtoJapan2/251029191628_1ojdrf7.md)
-- `r_runEuropaAlliance` `251031015532` [日本驾照和欧洲驾照的切换问题](posts/r_runEuropaAlliance/251030033127_1ojpd0o.md)
-- `r_runEuropaAlliance` `251031015532` [应该开始学法语吗？](posts/r_runEuropaAlliance/251030024151_1ojoddk.md)
-- `r_iwanttorun` `251031015528` [为什么这么多码蛆喜欢用vim？](posts/r_iwanttorun/251030044842_1ojqrz3.md)
-- `r_iwanttorun` `251031015528` [关于在塞浦路斯/马德里工作签证与绿卡的咨询](posts/r_iwanttorun/251030025520_1ojon4o.md)
-- `r_iwanttorun` `251031015528` [朋友在安大略有一个小公司 自己是CEO 能否通过LMIA过去工作呢](posts/r_iwanttorun/251030065350_1ojsroj.md)
-- `r_iwanttorun` `251031015528` [东欧也是欧 拉美也是美](posts/r_iwanttorun/251031010255_1okh7te.md)

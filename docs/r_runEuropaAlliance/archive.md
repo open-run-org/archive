@@ -2,6 +2,8 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-04 19:47 | `1ooh9a6` | [離岸風電技師去歐洲的可能性大嗎？](../posts/r_runEuropaAlliance/251104194749_1ooh9a6.md) | Destiny_of_Time | 1 | 0.67 | 2 | 提問 | Ask | false | true | self.runEuropaAlliance |
+| 2025-11-04 12:02 | `1oo5ln0` | [各位都是怎么转生活费的？](../posts/r_runEuropaAlliance/251104120222_1oo5ln0.md) | werrrrrv | 4 | 0.83 | 15 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-11-03 09:39 | `1on7hbv` | [本科潤選擇求教: 荷蘭德國 VS 新加坡/香港](../posts/r_runEuropaAlliance/251103093925_1on7hbv.md) | InterestingAd7773 | 3 | 0.71 | 34 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-11-03 01:01 | `1omybx1` | [七子本硕有可能申到欧陆博士吗?](../posts/r_runEuropaAlliance/251103010107_1omybx1.md) | ChaosMaker41 | 0 | 0.43 | 11 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-11-02 14:48 | `1omj631` | [上学和生活中，愿我与人们选择自德、自强。](../posts/r_runEuropaAlliance/251102144811_1omj631.md) | mobco | 0 | 0.2 | 12 | 分享 | Share | false | true | self.runEuropaAlliance |

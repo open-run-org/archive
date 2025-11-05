@@ -2,7 +2,10 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
-| 2025-11-03 18:47 | `1onk8vi` | [日本語に自信満々なのにN1不安を装い 実は太君に「独学でここまでやった俺すげーだろ、褒めて褒めて」ってアピールする小䗜](../posts/r_runtoJapan2/251103184715_1onk8vi.md) | Electrical_While9299 | 9 | 1.0 | 3 |  | false | false |  |
+| 2025-11-04 11:32 | `1oo51nd` | [这样扎头发的是不是好女孩~](../posts/r_runtoJapan2/251104113237_1oo51nd.md) | HonestzPractice | 3 | 0.59 | 7 | 不懂就问 | false | false | i.redd.it |
+| 2025-11-04 07:06 | `1oo0w7v` | [去日本不上学，而是找中介工作是不是个大坑](../posts/r_runtoJapan2/251104070646_1oo0w7v.md) | HashiruYaju2 | 3 | 1.0 | 11 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-04 03:30 | `1onx19y` | [滞纳年金和国保的人有福了,感觉周围的人有小一半没交过](../posts/r_runtoJapan2/251104033026_1onx19y.md) | iamkiki6767 | 26 | 0.82 | 31 | 政策新闻 | false | false | i.redd.it |
+| 2025-11-03 18:47 | `1onk8vi` | [日本語に自信満々なのにN1不安を装い 実は太君に「独学でここまでやった俺すげーだろ、褒めて褒めて」ってアピールする小䗜](../posts/r_runtoJapan2/251103184715_1onk8vi.md) | Electrical_While9299 | 21 | 0.92 | 16 | 聊天吹水 | false | false |  |
 | 2025-11-03 10:40 | `1on8ga7` | [每到春秋季节，住在隔壁的智者就喜欢开窗户，问题是它还特别喜欢在家里讲话](../posts/r_runtoJapan2/251103104022_1on8ga7.md) | zhizhuzhizhutu | 8 | 0.7 | 9 | 日常生活 | false | true | self.runtoJapan2 |
 | 2025-11-03 10:14 | `1on8130` | [活动](../posts/r_runtoJapan2/251103101417_1on8130.md) | Major_Committee8176 | 1 | 0.6 | 1 | 日常生活 | false | false | reddit.com |
 | 2025-11-02 23:28 | `1omwaps` | [高市内阁支持率飙升至82%，“活泼外交”风格受日本年轻人追捧](../posts/r_runtoJapan2/251102232857_1omwaps.md) | baizuobudehaosi | 39 | 0.93 | 14 | 政策新闻 | false | false | i.redd.it |
