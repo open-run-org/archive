@@ -2,6 +2,13 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-05 13:58 | `1op3kt9` | [11月4日，小野田关于外国人入境政策汇总](../posts/r_runtoJapan2/251105135820_1op3kt9.md) | WatanabeTakumi | 15 | 0.95 | 6 | 政策新闻 | false | true | self.runtoJapan2 |
+| 2025-11-05 12:55 | `1op22u2` | [高市 外国人政策动向 文字总结](../posts/r_runtoJapan2/251105125534_1op22u2.md) | Electrical_While9299 | 6 | 0.88 | 1 | 政策新闻 | false | false | v.redd.it |
+| 2025-11-05 09:21 | `1ooyasu` | [这种的二次元喜欢吗~](../posts/r_runtoJapan2/251105092155_1ooyasu.md) | HonestzPractice | 6 | 0.6 | 13 |  | false | false | i.redd.it |
+| 2025-11-05 08:09 | `1oox7ar` | [一目瞭然 - 年収レンジと該当職業 (2020年)](../posts/r_runtoJapan2/251105080951_1oox7ar.md) | AokoGreen | 4 | 0.84 | 0 | 经验分享 | false | true | self.runtoJapan2 |
+| 2025-11-05 07:47 | `1oowutg` | [不在意设计可以看看刑務所的商品](../posts/r_runtoJapan2/251105074704_1oowutg.md) | Ok_Document_3502 | 3 | 0.72 | 15 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-05 04:04 | `1oot0ve` | [讲一下黑叉有3w粉的某咪的故事](../posts/r_runtoJapan2/251105040440_1oot0ve.md) | zhizhuzhizhutu | 0 | 0.43 | 11 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-11-05 02:23 | `1ooqx0e` | [友友们冬天取暖都用什么](../posts/r_runtoJapan2/251105022315_1ooqx0e.md) | Gullible-Language634 | 11 | 0.91 | 27 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-04 11:32 | `1oo51nd` | [这样扎头发的是不是好女孩~](../posts/r_runtoJapan2/251104113237_1oo51nd.md) | HonestzPractice | 3 | 0.59 | 7 | 不懂就问 | false | false | i.redd.it |
 | 2025-11-04 07:06 | `1oo0w7v` | [去日本不上学，而是找中介工作是不是个大坑](../posts/r_runtoJapan2/251104070646_1oo0w7v.md) | HashiruYaju2 | 3 | 1.0 | 11 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-04 03:30 | `1onx19y` | [滞纳年金和国保的人有福了,感觉周围的人有小一半没交过](../posts/r_runtoJapan2/251104033026_1onx19y.md) | iamkiki6767 | 26 | 0.82 | 31 | 政策新闻 | false | false | i.redd.it |

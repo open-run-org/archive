@@ -10,6 +10,15 @@
 
 ## Latest changes
 
+- `r_runtoJapan2` `251106020009` [一目瞭然 - 年収レンジと該当職業 (2020年)](posts/r_runtoJapan2/251105080951_1oox7ar.md)
+- `r_runtoJapan2` `251106020009` [友友们冬天取暖都用什么](posts/r_runtoJapan2/251105022315_1ooqx0e.md)
+- `r_runtoJapan2` `251106020009` [这种的二次元喜欢吗~](posts/r_runtoJapan2/251105092155_1ooyasu.md)
+- `r_runtoJapan2` `251106020009` [高市 外国人政策动向 文字总结](posts/r_runtoJapan2/251105125534_1op22u2.md)
+- `r_runtoJapan2` `251106020009` [讲一下黑叉有3w粉的某咪的故事](posts/r_runtoJapan2/251105040440_1oot0ve.md)
+- `r_runtoJapan2` `251106020009` [不在意设计可以看看刑務所的商品](posts/r_runtoJapan2/251105074704_1oowutg.md)
+- `r_runtoJapan2` `251106020009` [11月4日，小野田关于外国人入境政策汇总](posts/r_runtoJapan2/251105135820_1op3kt9.md)
+- `r_iwanttorun` `251106020002` [现在如果为了提升生活质量润是不是除了澳洲和美国都不值得去？](posts/r_iwanttorun/251105180910_1opacs2.md)
+- `r_iwanttorun` `251106020002` [New Japanese government puts foreign nationals in focus | NHK WORLD-JAPAN News](posts/r_iwanttorun/251105145706_1op5270.md)
 - `r_runtoJapan2` `251105015730` [去日本不上学，而是找中介工作是不是个大坑](posts/r_runtoJapan2/251104070646_1oo0w7v.md)
 - `r_runtoJapan2` `251105015730` [日本語に自信満々なのにN1不安を装い 実は太君に「独学でここまでやった俺すげーだろ、褒めて褒めて」ってアピールする小䗜](posts/r_runtoJapan2/251103184715_1onk8vi.md)
 - `r_runtoJapan2` `251105015730` [这样扎头发的是不是好女孩~](posts/r_runtoJapan2/251104113237_1oo51nd.md)
@@ -65,12 +74,3 @@
 - `r_iwanttorun` `251101015857` [Trump administration limits refugee admissions to lowest on record](posts/r_iwanttorun/251031144907_1okwmk2.md)
 - `r_iwanttorun` `251101015857` [没有经验如何做企台，我看华人168上都只招熟手企台](posts/r_iwanttorun/251031151729_1okxcw2.md)
 - `r_iwanttorun` `251101015857` [星期五了，狗都不想干活](posts/r_iwanttorun/251031180418_1ol1qws.md)
-- `r_iwanttorun` `251101015857` [‘I let ChatGPT decide:’ This American woman moved to a French town after asking AI for advice | CNN](posts/r_iwanttorun/251031140336_1okvh4k.md)
-- `r_runtoJapan2` `251031015534` [无辣不食🍜](posts/r_runtoJapan2/251030052352_1ojrdbx.md)
-- `r_runtoJapan2` `251031015534` [最近看到了很多人觉得通过特定技能移民比较困难](posts/r_runtoJapan2/251030111534_1ojwvcn.md)
-- `r_runtoJapan2` `251031015534` [请问在中国确诊了ADHD，我去了日本之后还需要重新确诊一次才能拿药吗？](posts/r_runtoJapan2/251030071217_1ojt1x2.md)
-- `r_runtoJapan2` `251031015534` [请求各位帮我确认一下我向家里人要学费的事宜当中是否有遗漏或者错误的地方](posts/r_runtoJapan2/251030040217_1ojpyd0.md)
-- `r_runtoJapan2` `251031015534` [需要BAN或者禁言的用户可以发在这里](posts/r_runtoJapan2/251030043114_1ojqh7h.md)
-- `r_runtoJapan2` `251031015534` [這交易好嗎](posts/r_runtoJapan2/251029173825_1ojb3n3.md)
-- `r_runtoJapan2` `251031015534` [被越南超過了，各位再接再力](posts/r_runtoJapan2/251031013058_1okht40.md)
-- `r_runtoJapan2` `251031015534` [求赐教](posts/r_runtoJapan2/251030104741_1ojwd6j.md)

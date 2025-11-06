@@ -2,6 +2,8 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-05 18:09 | `1opacs2` | [现在如果为了提升生活质量润是不是除了澳洲和美国都不值得去？](../posts/r_iwanttorun/251105180910_1opacs2.md) | YoumoSubei | 0 | 0.29 | 15 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-05 14:57 | `1op5270` | [New Japanese government puts foreign nationals in focus \| NHK WORLD-JAPAN News](../posts/r_iwanttorun/251105145706_1op5270.md) | kyk00525 | 2 | 1.0 | 0 | 分享帖 | false | false | nhk.or.jp |
 | 2025-11-04 20:31 | `1ooifsg` | [我在意大利当难民（直播中）](../posts/r_iwanttorun/251104203149_1ooifsg.md) | BoringAir6628 | 13 | 0.85 | 7 | 分享帖 | false | false | i.redd.it |
 | 2025-11-04 03:02 | `1onwgm3` | [码蛆这辈子有了](../posts/r_iwanttorun/251104030230_1onwgm3.md) | FreeXiJinpingAss | 3 | 0.67 | 1 | 炒作狗 | false | false | i.redd.it |
 | 2025-11-03 10:24 | `1on86xp` | [本科潤選擇求教: 荷蘭德國 VS 新加坡/香港](../posts/r_iwanttorun/251103102418_1on86xp.md) | InterestingAd7773 | 2 | 0.67 | 6 | 不懂就问 | false | true | self.iwanttorun |

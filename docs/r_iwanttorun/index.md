@@ -4,6 +4,8 @@
 
 ## Latest changes
 
+- `251106020002` [现在如果为了提升生活质量润是不是除了澳洲和美国都不值得去？](../posts/r_iwanttorun/251105180910_1opacs2.md)
+- `251106020002` [New Japanese government puts foreign nationals in focus | NHK WORLD-JAPAN News](../posts/r_iwanttorun/251105145706_1op5270.md)
 - `251105015724` [我在意大利当难民（直播中）](../posts/r_iwanttorun/251104203149_1ooifsg.md)
 - `251105015724` [码蛆这辈子有了](../posts/r_iwanttorun/251104030230_1onwgm3.md)
 - `251104015704` [本科潤選擇求教: 荷蘭德國 VS 新加坡/香港](../posts/r_iwanttorun/251103102418_1on86xp.md)
@@ -66,5 +68,3 @@
 - `251021015317` [有run欧盟的sub，有run日本的sub，也有潤澳洲的sub，怎么没看到run北美那边的sub](../posts/r_iwanttorun/251020091633_1obfbxi.md)
 - `251021015317` [Family who spent $40K seeking Canadian residency return to China after immigration nightmare](../posts/r_iwanttorun/251020183402_1obpqgq.md)
 - `251020020109` [看来洋人不愿救哦](../posts/r_iwanttorun/251019230113_1ob3vlb.md)
-- `251019205723` [加拿大到底最适合什么样的人润过去？难道真的只有官老爷的二奶和大企业家们可以润过去了吗](../posts/r_iwanttorun/251004002719_1nxfttu.md)
-- `251019205723` [中国人移民的鄙视链是怎样的？](../posts/r_iwanttorun/251019075429_1oajvr1.md)
