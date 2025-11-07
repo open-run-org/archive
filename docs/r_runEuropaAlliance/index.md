@@ -4,6 +4,7 @@
 
 ## Latest changes
 
+- `251107015618` [終於拿到德國護照了](../posts/r_runEuropaAlliance/251106153051_1oq1z0h.md)
 - `251105015728` [各位都是怎么转生活费的？](../posts/r_runEuropaAlliance/251104120222_1oo5ln0.md)
 - `251105015728` [離岸風電技師去歐洲的可能性大嗎？](../posts/r_runEuropaAlliance/251104194749_1ooh9a6.md)
 - `251104015708` [七子本硕有可能申到欧陆博士吗?](../posts/r_runEuropaAlliance/251103010107_1omybx1.md)
@@ -67,4 +68,3 @@
 - `250927160453` [法国高等教育体制介绍（比较奇葩，单独一个post说）](../posts/r_runEuropaAlliance/241211061745_1hbn8sc.md)
 - `250927160453` [小语种国家英授本科决策树](../posts/r_runEuropaAlliance/250209033636_1il5pzk.md)
 - `250927160453` [欧洲版看精华帖捷径及欧洲基础知识科普，潤歐必看](../posts/r_runEuropaAlliance/241217184303_1hghkle.md)
-- `250927160453` [移民國家與融入問題-須知](../posts/r_runEuropaAlliance/241215064632_1hemz5m.md)

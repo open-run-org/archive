@@ -4,6 +4,14 @@
 
 ## Latest changes
 
+- `251107015619` [分享一种穷逼炊き込みご飯的做法](../posts/r_runtoJapan2/251106123711_1opxrjj.md)
+- `251107015619` [这种的二次元喜欢吗~](../posts/r_runtoJapan2/251105092155_1ooyasu.md)
+- `251107015619` [日本的“怪人文化”的本质是什么？](../posts/r_runtoJapan2/251106131030_1opyi2r.md)
+- `251107015619` [入社限定・生成系AI活用开发项目，高度人才加20分](../posts/r_runtoJapan2/251106044835_1oppu7y.md)
+- `251107015619` [paypay本人審査总说我名字假名不对怎么搞](../posts/r_runtoJapan2/251106091215_1opu717.md)
+- `251107015619` [内向鼠人润日接近失败](../posts/r_runtoJapan2/251106035054_1opopz6.md)
+- `251107015619` [日本司法考試太噁心了](../posts/r_runtoJapan2/251107012923_1oqha9v.md)
+- `251107015619` [太哈人了](../posts/r_runtoJapan2/251022150447_1odas7u.md)
 - `251106020009` [一目瞭然 - 年収レンジと該当職業 (2020年)](../posts/r_runtoJapan2/251105080951_1oox7ar.md)
 - `251106020009` [友友们冬天取暖都用什么](../posts/r_runtoJapan2/251105022315_1ooqx0e.md)
 - `251106020009` [这种的二次元喜欢吗~](../posts/r_runtoJapan2/251105092155_1ooyasu.md)
@@ -60,11 +68,3 @@
 - `251030015937` [还请请列位亲自指导](../posts/r_runtoJapan2/251029071530_1oixxub.md)
 - `251030015937` [真诚求教，33岁已婚男run日路径。](../posts/r_runtoJapan2/251029235722_1ojktbq.md)
 - `251030015937` [真挚请教，老鼠人该怎么润日。](../posts/r_runtoJapan2/251029035058_1oiulvg.md)
-- `251029015938` [老哥们怎么应对专门的面接和小论文？](../posts/r_runtoJapan2/251028235614_1oipnxa.md)
-- `251029015938` [在日小支人的煩惱。](../posts/r_runtoJapan2/251028113337_1oi6vxb.md)
-- `251029015938` [J.I.B.A](../posts/r_runtoJapan2/251028233649_1oip7kw.md)
-- `251029015938` [润日组毁了我的弟弟](../posts/r_runtoJapan2/251028155137_1oid2gs.md)
-- `251029015938` [枪杀日本前首相安倍晋三的嫌犯认罪](../posts/r_runtoJapan2/251028115920_1oi7dvz.md)
-- `251029015938` [有没有什么反映战后日本或者经济泡沫破裂后比较经典的日本社会发展史方面的书籍？](../posts/r_runtoJapan2/251027170737_1ohk5nx.md)
-- `251028015228` [到底是經歷什麼](../posts/r_runtoJapan2/251026221848_1ogxp1y.md)
-- `251028015228` [Nissan Silvia S13](../posts/r_runtoJapan2/251027141130_1ohfgq2.md)

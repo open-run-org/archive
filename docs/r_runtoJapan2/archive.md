@@ -2,9 +2,15 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-07 01:29 | `1oqha9v` | [日本司法考試太噁心了](../posts/r_runtoJapan2/251107012923_1oqha9v.md) | this0great | 7 | 1.0 | 3 |  | false | false | i.redd.it |
+| 2025-11-06 13:10 | `1opyi2r` | [日本的“怪人文化”的本质是什么？](../posts/r_runtoJapan2/251106131030_1opyi2r.md) | Klutzy_Contest_3912 | 4 | 0.67 | 10 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-06 12:37 | `1opxrjj` | [分享一种穷逼炊き込みご飯的做法](../posts/r_runtoJapan2/251106123711_1opxrjj.md) | matusaka_ryoiti | 11 | 1.0 | 11 | 日常生活 | false | false | i.redd.it |
+| 2025-11-06 09:12 | `1opu717` | [paypay本人審査总说我名字假名不对怎么搞](../posts/r_runtoJapan2/251106091215_1opu717.md) | Prize-Quiet-8730 | 1 | 1.0 | 5 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-06 04:48 | `1oppu7y` | [入社限定・生成系AI活用开发项目，高度人才加20分](../posts/r_runtoJapan2/251106044835_1oppu7y.md) | dantaikai | 4 | 0.84 | 10 | 中介招聘 | false | true | self.runtoJapan2 |
+| 2025-11-06 03:50 | `1opopz6` | [内向鼠人润日接近失败](../posts/r_runtoJapan2/251106035054_1opopz6.md) | zhizhuzhizhutu | 12 | 0.73 | 33 | 聊天吹水 | false | true | self.runtoJapan2 |
 | 2025-11-05 13:58 | `1op3kt9` | [11月4日，小野田关于外国人入境政策汇总](../posts/r_runtoJapan2/251105135820_1op3kt9.md) | WatanabeTakumi | 15 | 0.95 | 6 | 政策新闻 | false | true | self.runtoJapan2 |
 | 2025-11-05 12:55 | `1op22u2` | [高市 外国人政策动向 文字总结](../posts/r_runtoJapan2/251105125534_1op22u2.md) | Electrical_While9299 | 6 | 0.88 | 1 | 政策新闻 | false | false | v.redd.it |
-| 2025-11-05 09:21 | `1ooyasu` | [这种的二次元喜欢吗~](../posts/r_runtoJapan2/251105092155_1ooyasu.md) | HonestzPractice | 6 | 0.6 | 13 |  | false | false | i.redd.it |
+| 2025-11-05 09:21 | `1ooyasu` | [这种的二次元喜欢吗~](../posts/r_runtoJapan2/251105092155_1ooyasu.md) | HonestzPractice | 17 | 0.68 | 16 | 聊天吹水 | false | false | i.redd.it |
 | 2025-11-05 08:09 | `1oox7ar` | [一目瞭然 - 年収レンジと該当職業 (2020年)](../posts/r_runtoJapan2/251105080951_1oox7ar.md) | AokoGreen | 4 | 0.84 | 0 | 经验分享 | false | true | self.runtoJapan2 |
 | 2025-11-05 07:47 | `1oowutg` | [不在意设计可以看看刑務所的商品](../posts/r_runtoJapan2/251105074704_1oowutg.md) | Ok_Document_3502 | 3 | 0.72 | 15 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-05 04:04 | `1oot0ve` | [讲一下黑叉有3w粉的某咪的故事](../posts/r_runtoJapan2/251105040440_1oot0ve.md) | zhizhuzhizhutu | 0 | 0.43 | 11 | 聊天吹水 | false | true | self.runtoJapan2 |
@@ -89,7 +95,7 @@
 | 2025-10-23 03:29 | `1odsx7c` | [辍学的人自学日语可以走特定技能吗](../posts/r_runtoJapan2/251023032936_1odsx7c.md) | eriyoni_reya2025 | 7 | 0.89 | 24 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-22 18:37 | `1odgltd` | [接下來潤日會不會很慘](../posts/r_runtoJapan2/251022183743_1odgltd.md) | this0great | 0 | 0.48 | 26 | 政策新闻 | false | false | i.redd.it |
 | 2025-10-22 17:38 | `1odezex` | [求润日高手指点](../posts/r_runtoJapan2/251022173815_1odezex.md) | Constant-Memory-9912 | 3 | 0.71 | 10 | 不懂就问 | false | true | self.runtoJapan2 |
-| 2025-10-22 15:04 | `1odas7u` | [太哈人了](../posts/r_runtoJapan2/251022150447_1odas7u.md) | Odd_Employee1845 | 3 | 0.59 | 10 | 杂谈 | false | false | i.redd.it |
+| 2025-10-22 15:04 | `1odas7u` | [太哈人了](../posts/r_runtoJapan2/251022150447_1odas7u.md) | Odd_Employee1845 | 29 | 0.79 | 19 | 聊天吹水 | false | false | i.redd.it |
 | 2025-10-22 12:16 | `1od6mla` | [樱花妹是这样的（昭和回归）](../posts/r_runtoJapan2/251022121634_1od6mla.md) | Odd_Employee1845 | 1 | 0.54 | 7 | 聊天吹水 | false | false | i.redd.it |
 | 2025-10-22 12:02 | `1od6bv1` | [洼地211天坑农学润日](../posts/r_runtoJapan2/251022120238_1od6bv1.md) | Ashamed_Dealer5518 | 2 | 0.6 | 19 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-10-22 08:48 | `1od2yiv` | [问问大家的看法](../posts/r_runtoJapan2/251022084848_1od2yiv.md) | Background_Team871 | 0 | 0.33 | 19 | 不懂就问 | false | true | self.runtoJapan2 |

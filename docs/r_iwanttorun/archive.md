@@ -2,6 +2,10 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-06 20:48 | `1oqahcs` | [现在想想美国的出生地移民配额制度真是太伟大太正确了，看看加拿大英国澳洲就知道，不搞移民配额的下场就是打个最低工资labour工还要找印度人refer你](../posts/r_iwanttorun/251106204852_1oqahcs.md) | YoumoSubei | 10 | 0.81 | 3 | 分享帖 | false | true | self.iwanttorun |
+| 2025-11-06 20:48 | `1oqagqd` | [信報即時新聞 - 時事脈搏 - 立法會選舉丨江旻憓出戰旅遊界議席 稱已申請放棄加拿大護照 - 信報網站 hkej.com](../posts/r_iwanttorun/251106204810_1oqagqd.md) | kyk00525 | 1 | 1.0 | 0 | ??? | false | false | m.hkej.com |
+| 2025-11-06 08:30 | `1optkdt` | [润不出去的话，在哪躺平比较舒适呢？](../posts/r_iwanttorun/251106083033_1optkdt.md) | hiroshima_fireworks | 15 | 0.83 | 23 | 不懂就问 | false | false | i.redd.it |
+| 2025-11-06 07:49 | `1opsxko` | [我肯定更愿意住在中国，而不是其他任何地方，除了美国和日本。我非常喜欢我们的等级制度，它带来了高效的管理，还有“盖世太保”一样的力量保护我们免受那些令人厌恶的农民和底层社会垃圾的侵扰。法律偏向强者，这本应如此。我喜欢奖励强者、惩罚弱者的社会。西方社会偏袒弱者，因此每一代人变得越来越懒惰，能力越来越差。我在那种环境中会感到窒息。我相信，只要你不是那种不能忍受任何“非正义”的过度同情的人，你会发现中国是一个舒适的居住地。](../posts/r_iwanttorun/251106074928_1opsxko.md) | YoumoSubei | 0 | 0.37 | 5 | 分享帖 | false | true | self.iwanttorun |
 | 2025-11-05 18:09 | `1opacs2` | [现在如果为了提升生活质量润是不是除了澳洲和美国都不值得去？](../posts/r_iwanttorun/251105180910_1opacs2.md) | YoumoSubei | 0 | 0.29 | 15 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-05 14:57 | `1op5270` | [New Japanese government puts foreign nationals in focus \| NHK WORLD-JAPAN News](../posts/r_iwanttorun/251105145706_1op5270.md) | kyk00525 | 2 | 1.0 | 0 | 分享帖 | false | false | nhk.or.jp |
 | 2025-11-04 20:31 | `1ooifsg` | [我在意大利当难民（直播中）](../posts/r_iwanttorun/251104203149_1ooifsg.md) | BoringAir6628 | 13 | 0.85 | 7 | 分享帖 | false | false | i.redd.it |
