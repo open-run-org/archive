@@ -4,6 +4,10 @@
 
 ## Latest changes
 
+- `251108015040` [Zlibrary](../posts/r_iwanttorun/251107110104_1oqrfxw.md)
+- `251108015040` [一年多次入台证下 有问题询问大家](../posts/r_iwanttorun/251107211509_1or6irt.md)
+- `251108015040` [amigo》黑人〉》〉中国人》印度人](../posts/r_iwanttorun/251107064709_1oqnfcd.md)
+- `251108015040` [211本科大四，我的润日计划](../posts/r_iwanttorun/251107085035_1oqpcdr.md)
 - `251107015614` [我肯定更愿意住在中国，而不是其他任何地方，除了美国和日本。我非常喜欢我们的等级制度，它带来了高效的管理，还有“盖世太保”一样的力量保护我们免受那些令人厌恶的农民和底层社会垃圾的侵扰。法律偏向强者，这本应如此。我喜欢奖励强者、惩罚弱者的社会。西方社会偏袒弱者，因此每一代人变得越来越懒惰，能力越来越差。我在那种环境中会感到窒息。我相信，只要你不是那种不能忍受任何“非正义”的过度同情的人，你会发现中国是一个舒适的居住地。](../posts/r_iwanttorun/251106074928_1opsxko.md)
 - `251107015614` [信報即時新聞 - 時事脈搏 - 立法會選舉丨江旻憓出戰旅遊界議席 稱已申請放棄加拿大護照 - 信報網站 hkej.com](../posts/r_iwanttorun/251106204810_1oqagqd.md)
 - `251107015614` [现在想想美国的出生地移民配额制度真是太伟大太正确了，看看加拿大英国澳洲就知道，不搞移民配额的下场就是打个最低工资labour工还要找印度人refer你](../posts/r_iwanttorun/251106204852_1oqahcs.md)
@@ -64,7 +68,3 @@
 - `251022015810` [失业狗如何翻身](../posts/r_iwanttorun/251021113920_1ocalb5.md)
 - `251022015810` [美国政治庇护提交后21天还没安排面谈是不是就是要等几年才能安排上了？](../posts/r_iwanttorun/251021052404_1oc4iot.md)
 - `251022015810` [加拿大旅游签好过吗](../posts/r_iwanttorun/251021175308_1ocjv5s.md)
-- `251022015810` [为什么本sub从来不讨论工程专业润？是因为基本就没有工科润不了的吗](../posts/r_iwanttorun/251021221152_1ocqq6w.md)
-- `251021015317` [No more Schengen visa free travel? EU approves mechanism to reinstate visas over golden passports - BusinessToday](../posts/r_iwanttorun/251020151028_1oblc36.md)
-- `251021015317` [Hii someone can help me with this file?](../posts/r_iwanttorun/251020064043_1obcuf7.md)
-- `251021015317` [台海大战结束之后，发达国家会收留中国难民吗？🙏🏻](../posts/r_iwanttorun/251020080200_1obe6es.md)

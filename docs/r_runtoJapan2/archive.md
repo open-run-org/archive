@@ -2,6 +2,12 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-07 20:42 | `1or5p3k` | [就算每个女人只生1个孩子，其实也是可以维持人口不下降的](../posts/r_runtoJapan2/251107204255_1or5p3k.md) | qweruio123 | 0 | 0.22 | 1 |  | false | true | self.runtoJapan2 |
+| 2025-11-07 20:42 | `1or5oc1` | [在这种龙傲天网文设定中，是不是真正意义上的整个世界都是君主的个人财产？](../posts/r_runtoJapan2/251107204202_1or5oc1.md) | qweruio123 | 1 | 0.6 | 1 |  | false | true | self.runtoJapan2 |
+| 2025-11-07 18:11 | `1or1qbf` | [sub里的在日的小刘](../posts/r_runtoJapan2/251107181123_1or1qbf.md) | kamajiyabuy9x | 3 | 0.72 | 2 |  | false | true | self.runtoJapan2 |
+| 2025-11-07 08:23 | `1oqoxkr` | [这种的是？？](../posts/r_runtoJapan2/251107082330_1oqoxkr.md) | HonestzPractice | 0 | 0.5 | 2 |  | false | false | i.redd.it |
+| 2025-11-07 08:22 | `1oqox58` | [大家好 这是我的全身照 我可以在日本当演员吗？](../posts/r_runtoJapan2/251107082239_1oqox58.md) | HonestzPractice | 0 | 0.22 | 3 |  | false | false | i.redd.it |
+| 2025-11-07 02:48 | `1oqiyrm` | [谁来了](../posts/r_runtoJapan2/251107024814_1oqiyrm.md) | Creepy-Relation-9132 | 40 | 0.91 | 13 |  | false | false | i.redd.it |
 | 2025-11-07 01:29 | `1oqha9v` | [日本司法考試太噁心了](../posts/r_runtoJapan2/251107012923_1oqha9v.md) | this0great | 7 | 1.0 | 3 |  | false | false | i.redd.it |
 | 2025-11-06 13:10 | `1opyi2r` | [日本的“怪人文化”的本质是什么？](../posts/r_runtoJapan2/251106131030_1opyi2r.md) | Klutzy_Contest_3912 | 4 | 0.67 | 10 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-06 12:37 | `1opxrjj` | [分享一种穷逼炊き込みご飯的做法](../posts/r_runtoJapan2/251106123711_1opxrjj.md) | matusaka_ryoiti | 11 | 1.0 | 11 | 日常生活 | false | false | i.redd.it |

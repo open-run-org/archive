@@ -2,6 +2,10 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-07 21:15 | `1or6irt` | [一年多次入台证下 有问题询问大家](../posts/r_iwanttorun/251107211509_1or6irt.md) | Honest-Reception4674 | 2 | 1.0 | 0 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-07 11:01 | `1oqrfxw` | [Zlibrary](../posts/r_iwanttorun/251107110104_1oqrfxw.md) | ManufacturerFree5337 | 0 | 0.25 | 2 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-07 08:50 | `1oqpcdr` | [211本科大四，我的润日计划](../posts/r_iwanttorun/251107085035_1oqpcdr.md) | Old-Instruction-9476 | 3 | 0.67 | 4 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-07 06:47 | `1oqnfcd` | [amigo》黑人〉》〉中国人》印度人](../posts/r_iwanttorun/251107064709_1oqnfcd.md) | YoumoSubei | 4 | 0.64 | 9 | 分享帖 | false | true | self.iwanttorun |
 | 2025-11-06 20:48 | `1oqahcs` | [现在想想美国的出生地移民配额制度真是太伟大太正确了，看看加拿大英国澳洲就知道，不搞移民配额的下场就是打个最低工资labour工还要找印度人refer你](../posts/r_iwanttorun/251106204852_1oqahcs.md) | YoumoSubei | 10 | 0.81 | 3 | 分享帖 | false | true | self.iwanttorun |
 | 2025-11-06 20:48 | `1oqagqd` | [信報即時新聞 - 時事脈搏 - 立法會選舉丨江旻憓出戰旅遊界議席 稱已申請放棄加拿大護照 - 信報網站 hkej.com](../posts/r_iwanttorun/251106204810_1oqagqd.md) | kyk00525 | 1 | 1.0 | 0 | ??? | false | false | m.hkej.com |
 | 2025-11-06 08:30 | `1optkdt` | [润不出去的话，在哪躺平比较舒适呢？](../posts/r_iwanttorun/251106083033_1optkdt.md) | hiroshima_fireworks | 15 | 0.83 | 23 | 不懂就问 | false | false | i.redd.it |
