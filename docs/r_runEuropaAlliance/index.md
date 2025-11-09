@@ -4,6 +4,8 @@
 
 ## Latest changes
 
+- `251109020129` [法国高商宣传的高就业率](../posts/r_runEuropaAlliance/251108091839_1orl0uf.md)
+- `251109020129` [日本考介护福祉士润德能行吗](../posts/r_runEuropaAlliance/251108143706_1orqyp5.md)
 - `251107015618` [終於拿到德國護照了](../posts/r_runEuropaAlliance/251106153051_1oq1z0h.md)
 - `251105015728` [各位都是怎么转生活费的？](../posts/r_runEuropaAlliance/251104120222_1oo5ln0.md)
 - `251105015728` [離岸風電技師去歐洲的可能性大嗎？](../posts/r_runEuropaAlliance/251104194749_1ooh9a6.md)
@@ -66,5 +68,3 @@
 - `250927160453` [高中生挂逼润欧：意大利篇（1 - 背景、项目和申请）](../posts/r_runEuropaAlliance/241211061843_1hbn9at.md)
 - `250927160453` [日记 - 星际穿越篇 - 第1篇章](../posts/r_runEuropaAlliance/241211062119_1hbnaom.md)
 - `250927160453` [法国高等教育体制介绍（比较奇葩，单独一个post说）](../posts/r_runEuropaAlliance/241211061745_1hbn8sc.md)
-- `250927160453` [小语种国家英授本科决策树](../posts/r_runEuropaAlliance/250209033636_1il5pzk.md)
-- `250927160453` [欧洲版看精华帖捷径及欧洲基础知识科普，潤歐必看](../posts/r_runEuropaAlliance/241217184303_1hghkle.md)

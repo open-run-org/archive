@@ -2,6 +2,9 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-09 00:47 | `1os5jko` | [另一个龙傲天网文设定，在这种龙傲天网文设定中，是不是真正意义上的整个世界都是君主的个人财产？](../posts/r_runtoJapan2/251109004700_1os5jko.md) | qweruio123 | 0 | 0.5 | 1 |  | false | true | self.runtoJapan2 |
+| 2025-11-08 20:10 | `1orz7no` | [人类确实很难拥有全局意识](../posts/r_runtoJapan2/251108201055_1orz7no.md) | zhizhuzhizhutu | 5 | 0.86 | 4 |  | false | false | i.redd.it |
+| 2025-11-08 13:17 | `1orp642` | [唉 ~ 这种女生怎么追](../posts/r_runtoJapan2/251108131705_1orp642.md) | HonestzPractice | 8 | 0.67 | 17 |  | false | false | i.redd.it |
 | 2025-11-07 20:42 | `1or5p3k` | [就算每个女人只生1个孩子，其实也是可以维持人口不下降的](../posts/r_runtoJapan2/251107204255_1or5p3k.md) | qweruio123 | 0 | 0.22 | 1 |  | false | true | self.runtoJapan2 |
 | 2025-11-07 20:42 | `1or5oc1` | [在这种龙傲天网文设定中，是不是真正意义上的整个世界都是君主的个人财产？](../posts/r_runtoJapan2/251107204202_1or5oc1.md) | qweruio123 | 1 | 0.6 | 1 |  | false | true | self.runtoJapan2 |
 | 2025-11-07 18:11 | `1or1qbf` | [sub里的在日的小刘](../posts/r_runtoJapan2/251107181123_1or1qbf.md) | kamajiyabuy9x | 3 | 0.72 | 2 |  | false | true | self.runtoJapan2 |

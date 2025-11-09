@@ -4,6 +4,11 @@
 
 ## Latest changes
 
+- `251109020124` [润蛆们羡慕吗？](../posts/r_iwanttorun/251108154449_1orsluj.md)
+- `251109020124` [Foreigners living in Canada will get permanent residence priority, Immigration Minister says](../posts/r_iwanttorun/251108175543_1orvuec.md)
+- `251109020124` [985本科在读，想润澳，求助](../posts/r_iwanttorun/251108145457_1orrdtp.md)
+- `251109020124` [加拿大移民是不是必须得找中介咨询？](../posts/r_iwanttorun/251108041812_1orfxeu.md)
+- `251109020124` [找不到出路](../posts/r_iwanttorun/251108172247_1orv1a7.md)
 - `251108015040` [Zlibrary](../posts/r_iwanttorun/251107110104_1oqrfxw.md)
 - `251108015040` [一年多次入台证下 有问题询问大家](../posts/r_iwanttorun/251107211509_1or6irt.md)
 - `251108015040` [amigo》黑人〉》〉中国人》印度人](../posts/r_iwanttorun/251107064709_1oqnfcd.md)
@@ -63,8 +68,3 @@
 - `251023015312` [我希望每天早上8点有人slack发消息给我 让我一个激灵醒了，不然我会睡到早上9点](../posts/r_iwanttorun/251022222054_1odme2c.md)
 - `251022015810` [23岁无业游民想文转码润欧，求大神指导](../posts/r_iwanttorun/251019165850_1oausl7.md)
 - `251022015810` [上周五累了不想工作，但不想工作导致罪恶感，结果纠结到半夜，不仅没干完活，也没休息够，周末两天浑浑噩噩的，今天周一也浑浑噩噩的，一天都没怎么干活。](../posts/r_iwanttorun/251021024118_1oc1g3o.md)
-- `251022015810` [Belize agrees to host migrants seeking asylum in US](../posts/r_iwanttorun/251021123418_1ocbpp5.md)
-- `251022015810` [美国/加拿大/墨西哥旅游签好拿吗？我想明年去看世界杯](../posts/r_iwanttorun/251022004344_1ocu6f1.md)
-- `251022015810` [失业狗如何翻身](../posts/r_iwanttorun/251021113920_1ocalb5.md)
-- `251022015810` [美国政治庇护提交后21天还没安排面谈是不是就是要等几年才能安排上了？](../posts/r_iwanttorun/251021052404_1oc4iot.md)
-- `251022015810` [加拿大旅游签好过吗](../posts/r_iwanttorun/251021175308_1ocjv5s.md)

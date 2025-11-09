@@ -2,6 +2,8 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-08 14:37 | `1orqyp5` | [日本考介护福祉士润德能行吗](../posts/r_runEuropaAlliance/251108143706_1orqyp5.md) | asayanene | 0 | 0.5 | 25 | 提問 | Ask | false | true | self.runEuropaAlliance |
+| 2025-11-08 09:18 | `1orl0uf` | [法国高商宣传的高就业率](../posts/r_runEuropaAlliance/251108091839_1orl0uf.md) | Safe-Permission-9314 | 4 | 1.0 | 3 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-11-06 15:30 | `1oq1z0h` | [終於拿到德國護照了](../posts/r_runEuropaAlliance/251106153051_1oq1z0h.md) | shut-your-eyes | 9 | 0.81 | 6 | 分享 | Share | false | false | i.redd.it |
 | 2025-11-04 19:47 | `1ooh9a6` | [離岸風電技師去歐洲的可能性大嗎？](../posts/r_runEuropaAlliance/251104194749_1ooh9a6.md) | Destiny_of_Time | 1 | 0.67 | 2 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-11-04 12:02 | `1oo5ln0` | [各位都是怎么转生活费的？](../posts/r_runEuropaAlliance/251104120222_1oo5ln0.md) | werrrrrv | 4 | 0.83 | 15 | 提問 | Ask | false | true | self.runEuropaAlliance |

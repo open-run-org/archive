@@ -2,6 +2,11 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-08 17:55 | `1orvuec` | [Foreigners living in Canada will get permanent residence priority, Immigration Minister says](../posts/r_iwanttorun/251108175543_1orvuec.md) | kyk00525 | 3 | 1.0 | 0 | 分享帖 | false | false | theglobeandmail.com |
+| 2025-11-08 17:22 | `1orv1a7` | [找不到出路](../posts/r_iwanttorun/251108172247_1orv1a7.md) | No-Signature-2042 | 9 | 1.0 | 22 | 讨论 | false | true | self.iwanttorun |
+| 2025-11-08 15:44 | `1orsluj` | [润蛆们羡慕吗？](../posts/r_iwanttorun/251108154449_1orsluj.md) | Separate_Box_3127 | 12 | 0.93 | 7 | 分享帖 | false | false | reddit.com |
+| 2025-11-08 14:54 | `1orrdtp` | [985本科在读，想润澳，求助](../posts/r_iwanttorun/251108145457_1orrdtp.md) | MysteriousPainter786 | 4 | 0.7 | 20 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-08 04:18 | `1orfxeu` | [加拿大移民是不是必须得找中介咨询？](../posts/r_iwanttorun/251108041812_1orfxeu.md) | Savings-Regret-1525 | 0 | 0.27 | 26 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-07 21:15 | `1or6irt` | [一年多次入台证下 有问题询问大家](../posts/r_iwanttorun/251107211509_1or6irt.md) | Honest-Reception4674 | 2 | 1.0 | 0 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-07 11:01 | `1oqrfxw` | [Zlibrary](../posts/r_iwanttorun/251107110104_1oqrfxw.md) | ManufacturerFree5337 | 0 | 0.25 | 2 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-07 08:50 | `1oqpcdr` | [211本科大四，我的润日计划](../posts/r_iwanttorun/251107085035_1oqpcdr.md) | Old-Instruction-9476 | 3 | 0.67 | 4 | 不懂就问 | false | true | self.iwanttorun |
