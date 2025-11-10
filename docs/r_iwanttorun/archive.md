@@ -2,6 +2,14 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-10 00:12 | `1osz8v1` | [我确实在中国遭受过政治迫害，有机会申请庇护吗？](../posts/r_iwanttorun/251110001243_1osz8v1.md) | Seven_Yi | 6 | 1.0 | 19 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-09 22:05 | `1osw9hg` | [有在北美得口角炎的吗，这辈子有了](../posts/r_iwanttorun/251109220521_1osw9hg.md) | FreeXiJinpingAss | 2 | 0.75 | 4 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-09 14:26 | `1oskpdt` | [Immigrants with health conditions may be denied visas under new Trump administration guidance](../posts/r_iwanttorun/251109142654_1oskpdt.md) | kyk00525 | 2 | 1.0 | 0 | 分享帖 | false | false | abcnews.go.com |
+| 2025-11-09 13:05 | `1osivl8` | [唉，织女](../posts/r_iwanttorun/251109130516_1osivl8.md) | Unlikely-Ad-8174 | 5 | 0.67 | 4 | 讨论 | false | false | reddit.com |
+| 2025-11-09 10:08 | `1osfqnu` | [签署涉密协议还是辞职？](../posts/r_iwanttorun/251109100828_1osfqnu.md) | darkkksnowww | 0 | 0.5 | 7 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-09 09:29 | `1osf4im` | [润德当难民靠谱嘛？](../posts/r_iwanttorun/251109092958_1osf4im.md) | Famous_Strategy4912 | 12 | 0.87 | 20 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-09 09:04 | `1oseqfr` | [23岁大专毕业县城蛆想润澳加 正文说明情况](../posts/r_iwanttorun/251109090435_1oseqfr.md) | Mobile_Exit1177 | 0 | 0.5 | 9 | 分享帖 | false | true | self.iwanttorun |
+| 2025-11-09 05:52 | `1osbjdq` | [加拿大和美国的差距.](../posts/r_iwanttorun/251109055203_1osbjdq.md) | YoumoSubei | 10 | 0.78 | 16 | 分享帖 | false | true | self.iwanttorun |
 | 2025-11-08 17:55 | `1orvuec` | [Foreigners living in Canada will get permanent residence priority, Immigration Minister says](../posts/r_iwanttorun/251108175543_1orvuec.md) | kyk00525 | 3 | 1.0 | 0 | 分享帖 | false | false | theglobeandmail.com |
 | 2025-11-08 17:22 | `1orv1a7` | [找不到出路](../posts/r_iwanttorun/251108172247_1orv1a7.md) | No-Signature-2042 | 9 | 1.0 | 22 | 讨论 | false | true | self.iwanttorun |
 | 2025-11-08 15:44 | `1orsluj` | [润蛆们羡慕吗？](../posts/r_iwanttorun/251108154449_1orsluj.md) | Separate_Box_3127 | 12 | 0.93 | 7 | 分享帖 | false | false | reddit.com |

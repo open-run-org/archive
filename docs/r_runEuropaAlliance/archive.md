@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-09 10:31 | `1osg3wu` | [22岁大专毕业县城蛆 这样的情况有什么职业规划建议吗](../posts/r_runEuropaAlliance/251109103101_1osg3wu.md) | Mobile_Exit1177 | 11 | 0.87 | 15 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-11-08 14:37 | `1orqyp5` | [日本考介护福祉士润德能行吗](../posts/r_runEuropaAlliance/251108143706_1orqyp5.md) | asayanene | 0 | 0.5 | 25 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-11-08 09:18 | `1orl0uf` | [法国高商宣传的高就业率](../posts/r_runEuropaAlliance/251108091839_1orl0uf.md) | Safe-Permission-9314 | 4 | 1.0 | 3 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-11-06 15:30 | `1oq1z0h` | [終於拿到德國護照了](../posts/r_runEuropaAlliance/251106153051_1oq1z0h.md) | shut-your-eyes | 9 | 0.81 | 6 | 分享 | Share | false | false | i.redd.it |

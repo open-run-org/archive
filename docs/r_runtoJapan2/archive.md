@@ -2,6 +2,14 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-10 00:40 | `1oszu9y` | [贵国外交官的发言](../posts/r_runtoJapan2/251110004034_1oszu9y.md) | WatanabeTakumi | 12 | 0.93 | 5 |  | false | false | i.redd.it |
+| 2025-11-09 18:29 | `1osqqzl` | [日语的高语境](../posts/r_runtoJapan2/251109182901_1osqqzl.md) | zhizhuzhizhutu | 4 | 1.0 | 1 |  | false | false | zhihu.com |
+| 2025-11-09 14:57 | `1oslepc` | [服务期内的事业单位编制工可以直接开润家乡吗](../posts/r_runtoJapan2/251109145731_1oslepc.md) | ylg748 | 0 | 0.43 | 12 |  | false | true | self.runtoJapan2 |
+| 2025-11-09 14:31 | `1osktfj` | [我愛台積](../posts/r_runtoJapan2/251109143142_1osktfj.md) | this0great | 6 | 1.0 | 1 |  | false | false | i.redd.it |
+| 2025-11-09 08:29 | `1ose5wu` | [我佛，刚认识一天的日本人今天就带我入教](../posts/r_runtoJapan2/251109082918_1ose5wu.md) | 7kam1 | 7 | 0.63 | 33 |  | false | true | self.runtoJapan2 |
+| 2025-11-09 08:05 | `1osds8m` | [唱卡拉OK~穹区们聚的起吗？](../posts/r_runtoJapan2/251109080556_1osds8m.md) | HonestzPractice | 2 | 0.57 | 1 |  | false | false | i.redd.it |
+| 2025-11-09 06:06 | `1osbsn9` | [直播带货](../posts/r_runtoJapan2/251109060614_1osbsn9.md) | zhizhuzhizhutu | 38 | 0.92 | 7 |  | false | false | i.redd.it |
+| 2025-11-09 02:03 | `1os75mq` | [我到日本后，父母的转变](../posts/r_runtoJapan2/251109020338_1os75mq.md) | PerspectiveTop8443 | 65 | 0.95 | 26 |  | false | false | i.redd.it |
 | 2025-11-09 00:47 | `1os5jko` | [另一个龙傲天网文设定，在这种龙傲天网文设定中，是不是真正意义上的整个世界都是君主的个人财产？](../posts/r_runtoJapan2/251109004700_1os5jko.md) | qweruio123 | 0 | 0.5 | 1 |  | false | true | self.runtoJapan2 |
 | 2025-11-08 20:10 | `1orz7no` | [人类确实很难拥有全局意识](../posts/r_runtoJapan2/251108201055_1orz7no.md) | zhizhuzhizhutu | 5 | 0.86 | 4 |  | false | false | i.redd.it |
 | 2025-11-08 13:17 | `1orp642` | [唉 ~ 这种女生怎么追](../posts/r_runtoJapan2/251108131705_1orp642.md) | HonestzPractice | 8 | 0.67 | 17 |  | false | false | i.redd.it |

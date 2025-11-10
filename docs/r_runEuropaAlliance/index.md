@@ -4,6 +4,7 @@
 
 ## Latest changes
 
+- `251110020151` [22岁大专毕业县城蛆 这样的情况有什么职业规划建议吗](../posts/r_runEuropaAlliance/251109103101_1osg3wu.md)
 - `251109020129` [法国高商宣传的高就业率](../posts/r_runEuropaAlliance/251108091839_1orl0uf.md)
 - `251109020129` [日本考介护福祉士润德能行吗](../posts/r_runEuropaAlliance/251108143706_1orqyp5.md)
 - `251107015618` [終於拿到德國護照了](../posts/r_runEuropaAlliance/251106153051_1oq1z0h.md)
@@ -67,4 +68,3 @@
 - `250927160453` [祝潤友們新的一年潤歐順利](../posts/r_runEuropaAlliance/241231234227_1hqqy2s.md)
 - `250927160453` [高中生挂逼润欧：意大利篇（1 - 背景、项目和申请）](../posts/r_runEuropaAlliance/241211061843_1hbn9at.md)
 - `250927160453` [日记 - 星际穿越篇 - 第1篇章](../posts/r_runEuropaAlliance/241211062119_1hbnaom.md)
-- `250927160453` [法国高等教育体制介绍（比较奇葩，单独一个post说）](../posts/r_runEuropaAlliance/241211061745_1hbn8sc.md)
