@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-10 16:43 | `1otirz5` | [德国面试通过✅](../posts/r_runEuropaAlliance/251110164341_1otirz5.md) | Admirable_Review2110 | 21 | 0.96 | 10 | 分享 | Share | false | true | self.runEuropaAlliance |
 | 2025-11-09 10:31 | `1osg3wu` | [22岁大专毕业县城蛆 这样的情况有什么职业规划建议吗](../posts/r_runEuropaAlliance/251109103101_1osg3wu.md) | Mobile_Exit1177 | 11 | 0.87 | 15 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-11-08 14:37 | `1orqyp5` | [日本考介护福祉士润德能行吗](../posts/r_runEuropaAlliance/251108143706_1orqyp5.md) | asayanene | 0 | 0.5 | 25 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-11-08 09:18 | `1orl0uf` | [法国高商宣传的高就业率](../posts/r_runEuropaAlliance/251108091839_1orl0uf.md) | Safe-Permission-9314 | 4 | 1.0 | 3 | 提問 | Ask | false | true | self.runEuropaAlliance |

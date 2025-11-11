@@ -4,6 +4,9 @@
 
 ## Latest changes
 
+- `251111015802` [China rolls out its version of the H-1B visa to attract foreign tech workers](../posts/r_iwanttorun/251110202619_1otoxvo.md)
+- `251111015802` [eve_shanghai我操死你的妈](../posts/r_iwanttorun/251028003832_1ohvmld.md)
+- `251111015802` [创建了润加同盟，欢迎大家加入](../posts/r_iwanttorun/251110201839_1otoqd5.md)
 - `251110020147` [签署涉密协议还是辞职？](../posts/r_iwanttorun/251109100828_1osfqnu.md)
 - `251110020147` [我确实在中国遭受过政治迫害，有机会申请庇护吗？](../posts/r_iwanttorun/251110001243_1osz8v1.md)
 - `251110020147` [唉，织女](../posts/r_iwanttorun/251109130516_1osivl8.md)
@@ -65,6 +68,3 @@
 - `251028015222` [eve_shanghai我操死你的妈](../posts/r_iwanttorun/251028003832_1ohvmld.md)
 - `251028015222` [【已潤】香港已定](../posts/r_iwanttorun/251027125014_1ohdiun.md)
 - `251027020442` [为什么没有去美国学法律、护工的](../posts/r_iwanttorun/251026054245_1ogcsa1.md)
-- `251027020442` [港澳海关查不查](../posts/r_iwanttorun/251026165312_1ogplax.md)
-- `251026015843` [求助 润捷克有戏吗](../posts/r_iwanttorun/251025145859_1oftnkj.md)
-- `251026015843` [中年大龄无语言无技能无做题无it无体力的性别男性的出路](../posts/r_iwanttorun/251025020157_1offrqc.md)

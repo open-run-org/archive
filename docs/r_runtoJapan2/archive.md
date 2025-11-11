@@ -2,24 +2,31 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-10 13:45 | `1ote55d` | [友友们，家乡的二手空调可以买么，之前被汁产二手空调搞怕了](../posts/r_runtoJapan2/251110134502_1ote55d.md) | Gullible-Language634 | 3 | 0.8 | 7 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-10 12:39 | `1otco69` | [来日本旅游就像嫖娼 来日本工作生活就像恋爱](../posts/r_runtoJapan2/251110123946_1otco69.md) | Top_Bike_7126 | 5 | 0.86 | 3 | 聊天吹水 | true | true | self.runtoJapan2 |
+| 2025-11-10 11:26 | `1otba3t` | [有这样的女仆你几点回家...❤](../posts/r_runtoJapan2/251110112622_1otba3t.md) | HonestzPractice | 0 | 0.47 | 16 | 不懂就问 | false | false | i.redd.it |
+| 2025-11-10 10:00 | `1ot9wa4` | [奋 斗 者](../posts/r_runtoJapan2/251110100048_1ot9wa4.md) | Afraid_Occasion_8811 | 3 | 1.0 | 1 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-11-10 09:50 | `1ot9qee` | [EJU后 对自身来日后的学习状态评点](../posts/r_runtoJapan2/251110095032_1ot9qee.md) | Mountain-Band-1980 | 9 | 0.85 | 13 | 聊天吹水 | false | false | i.redd.it |
+| 2025-11-10 09:42 | `1ot9lhd` | [现双非本科大三计科专业求助](../posts/r_runtoJapan2/251110094201_1ot9lhd.md) | SSRinnn | 2 | 0.67 | 12 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-10 07:51 | `1ot7wr8` | [之前sub因为炸了帖子没了，我再发一下吧](../posts/r_runtoJapan2/251110075142_1ot7wr8.md) | Frequent_Low757 | 10 | 0.86 | 22 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-10 00:40 | `1oszu9y` | [贵国外交官的发言](../posts/r_runtoJapan2/251110004034_1oszu9y.md) | WatanabeTakumi | 12 | 0.93 | 5 |  | false | false | i.redd.it |
-| 2025-11-09 18:29 | `1osqqzl` | [日语的高语境](../posts/r_runtoJapan2/251109182901_1osqqzl.md) | zhizhuzhizhutu | 4 | 1.0 | 1 |  | false | false | zhihu.com |
-| 2025-11-09 14:57 | `1oslepc` | [服务期内的事业单位编制工可以直接开润家乡吗](../posts/r_runtoJapan2/251109145731_1oslepc.md) | ylg748 | 0 | 0.43 | 12 |  | false | true | self.runtoJapan2 |
+| 2025-11-09 18:29 | `1osqqzl` | [日语的高语境](../posts/r_runtoJapan2/251109182901_1osqqzl.md) | zhizhuzhizhutu | 8 | 1.0 | 1 | 语言学习 | false | false | zhihu.com |
+| 2025-11-09 14:57 | `1oslepc` | [服务期内的事业单位编制工可以直接开润家乡吗](../posts/r_runtoJapan2/251109145731_1oslepc.md) | ylg748 | 0 | 0.44 | 22 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-09 14:31 | `1osktfj` | [我愛台積](../posts/r_runtoJapan2/251109143142_1osktfj.md) | this0great | 6 | 1.0 | 1 |  | false | false | i.redd.it |
-| 2025-11-09 08:29 | `1ose5wu` | [我佛，刚认识一天的日本人今天就带我入教](../posts/r_runtoJapan2/251109082918_1ose5wu.md) | 7kam1 | 7 | 0.63 | 33 |  | false | true | self.runtoJapan2 |
-| 2025-11-09 08:05 | `1osds8m` | [唱卡拉OK~穹区们聚的起吗？](../posts/r_runtoJapan2/251109080556_1osds8m.md) | HonestzPractice | 2 | 0.57 | 1 |  | false | false | i.redd.it |
-| 2025-11-09 06:06 | `1osbsn9` | [直播带货](../posts/r_runtoJapan2/251109060614_1osbsn9.md) | zhizhuzhizhutu | 38 | 0.92 | 7 |  | false | false | i.redd.it |
-| 2025-11-09 02:03 | `1os75mq` | [我到日本后，父母的转变](../posts/r_runtoJapan2/251109020338_1os75mq.md) | PerspectiveTop8443 | 65 | 0.95 | 26 |  | false | false | i.redd.it |
+| 2025-11-09 08:29 | `1ose5wu` | [我佛，刚认识一天的日本人今天就带我入教](../posts/r_runtoJapan2/251109082918_1ose5wu.md) | 7kam1 | 5 | 0.58 | 42 | 日常生活 | false | true | self.runtoJapan2 |
+| 2025-11-09 08:05 | `1osds8m` | [唱卡拉OK~穹区们聚的起吗？](../posts/r_runtoJapan2/251109080556_1osds8m.md) | HonestzPractice | 1 | 0.54 | 1 | 日常生活 | false | false | i.redd.it |
+| 2025-11-09 06:06 | `1osbsn9` | [直播带货](../posts/r_runtoJapan2/251109060614_1osbsn9.md) | zhizhuzhizhutu | 62 | 0.92 | 14 | 聊天吹水 | false | false | i.redd.it |
+| 2025-11-09 02:03 | `1os75mq` | [我到日本后，父母的转变](../posts/r_runtoJapan2/251109020338_1os75mq.md) | PerspectiveTop8443 | 81 | 0.95 | 31 | 日常生活 | false | false | i.redd.it |
 | 2025-11-09 00:47 | `1os5jko` | [另一个龙傲天网文设定，在这种龙傲天网文设定中，是不是真正意义上的整个世界都是君主的个人财产？](../posts/r_runtoJapan2/251109004700_1os5jko.md) | qweruio123 | 0 | 0.5 | 1 |  | false | true | self.runtoJapan2 |
 | 2025-11-08 20:10 | `1orz7no` | [人类确实很难拥有全局意识](../posts/r_runtoJapan2/251108201055_1orz7no.md) | zhizhuzhizhutu | 5 | 0.86 | 4 |  | false | false | i.redd.it |
-| 2025-11-08 13:17 | `1orp642` | [唉 ~ 这种女生怎么追](../posts/r_runtoJapan2/251108131705_1orp642.md) | HonestzPractice | 8 | 0.67 | 17 |  | false | false | i.redd.it |
+| 2025-11-08 13:17 | `1orp642` | [唉 ~ 这种女生怎么追](../posts/r_runtoJapan2/251108131705_1orp642.md) | HonestzPractice | 2 | 0.53 | 25 | 不懂就问 | false | false | i.redd.it |
 | 2025-11-07 20:42 | `1or5p3k` | [就算每个女人只生1个孩子，其实也是可以维持人口不下降的](../posts/r_runtoJapan2/251107204255_1or5p3k.md) | qweruio123 | 0 | 0.22 | 1 |  | false | true | self.runtoJapan2 |
 | 2025-11-07 20:42 | `1or5oc1` | [在这种龙傲天网文设定中，是不是真正意义上的整个世界都是君主的个人财产？](../posts/r_runtoJapan2/251107204202_1or5oc1.md) | qweruio123 | 1 | 0.6 | 1 |  | false | true | self.runtoJapan2 |
-| 2025-11-07 18:11 | `1or1qbf` | [sub里的在日的小刘](../posts/r_runtoJapan2/251107181123_1or1qbf.md) | kamajiyabuy9x | 3 | 0.72 | 2 |  | false | true | self.runtoJapan2 |
+| 2025-11-07 18:11 | `1or1qbf` | [sub里的在日的小刘](../posts/r_runtoJapan2/251107181123_1or1qbf.md) | kamajiyabuy9x | 12 | 0.88 | 64 | 聊天吹水 | false | true | self.runtoJapan2 |
 | 2025-11-07 08:23 | `1oqoxkr` | [这种的是？？](../posts/r_runtoJapan2/251107082330_1oqoxkr.md) | HonestzPractice | 0 | 0.5 | 2 |  | false | false | i.redd.it |
 | 2025-11-07 08:22 | `1oqox58` | [大家好 这是我的全身照 我可以在日本当演员吗？](../posts/r_runtoJapan2/251107082239_1oqox58.md) | HonestzPractice | 0 | 0.22 | 3 |  | false | false | i.redd.it |
-| 2025-11-07 02:48 | `1oqiyrm` | [谁来了](../posts/r_runtoJapan2/251107024814_1oqiyrm.md) | Creepy-Relation-9132 | 40 | 0.91 | 13 |  | false | false | i.redd.it |
-| 2025-11-07 01:29 | `1oqha9v` | [日本司法考試太噁心了](../posts/r_runtoJapan2/251107012923_1oqha9v.md) | this0great | 7 | 1.0 | 3 |  | false | false | i.redd.it |
+| 2025-11-07 02:48 | `1oqiyrm` | [谁来了](../posts/r_runtoJapan2/251107024814_1oqiyrm.md) | Creepy-Relation-9132 | 57 | 0.93 | 18 | 聊天吹水 | false | false | i.redd.it |
+| 2025-11-07 01:29 | `1oqha9v` | [日本司法考試太噁心了](../posts/r_runtoJapan2/251107012923_1oqha9v.md) | this0great | 121 | 0.94 | 60 | 日常生活 | false | false | i.redd.it |
 | 2025-11-06 13:10 | `1opyi2r` | [日本的“怪人文化”的本质是什么？](../posts/r_runtoJapan2/251106131030_1opyi2r.md) | Klutzy_Contest_3912 | 4 | 0.67 | 10 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-06 12:37 | `1opxrjj` | [分享一种穷逼炊き込みご飯的做法](../posts/r_runtoJapan2/251106123711_1opxrjj.md) | matusaka_ryoiti | 11 | 1.0 | 11 | 日常生活 | false | false | i.redd.it |
 | 2025-11-06 09:12 | `1opu717` | [paypay本人審査总说我名字假名不对怎么搞](../posts/r_runtoJapan2/251106091215_1opu717.md) | Prize-Quiet-8730 | 1 | 1.0 | 5 | 不懂就问 | false | true | self.runtoJapan2 |

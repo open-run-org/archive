@@ -2,6 +2,8 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-10 20:26 | `1otoxvo` | [China rolls out its version of the H-1B visa to attract foreign tech workers](../posts/r_iwanttorun/251110202619_1otoxvo.md) | kyk00525 | 3 | 1.0 | 0 | 讨论 | false | false | apnews.com |
+| 2025-11-10 20:18 | `1otoqd5` | [创建了润加同盟，欢迎大家加入](../posts/r_iwanttorun/251110201839_1otoqd5.md) | Muted_Highway_3876 | 2 | 1.0 | 0 | 分享帖 | false | false |  |
 | 2025-11-10 00:12 | `1osz8v1` | [我确实在中国遭受过政治迫害，有机会申请庇护吗？](../posts/r_iwanttorun/251110001243_1osz8v1.md) | Seven_Yi | 6 | 1.0 | 19 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-09 22:05 | `1osw9hg` | [有在北美得口角炎的吗，这辈子有了](../posts/r_iwanttorun/251109220521_1osw9hg.md) | FreeXiJinpingAss | 2 | 0.75 | 4 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-09 14:26 | `1oskpdt` | [Immigrants with health conditions may be denied visas under new Trump administration guidance](../posts/r_iwanttorun/251109142654_1oskpdt.md) | kyk00525 | 2 | 1.0 | 0 | 分享帖 | false | false | abcnews.go.com |
@@ -58,7 +60,7 @@
 | 2025-10-28 11:43 | `1oi72zc` | [壁虎求助](../posts/r_iwanttorun/251028114358_1oi72zc.md) | Commercial-Job2740 | 2 | 0.6 | 8 | ??? | false | true | self.iwanttorun |
 | 2025-10-28 10:21 | `1oi5lg5` | [老印也玩上车关门这一套](../posts/r_iwanttorun/251028102129_1oi5lg5.md) | ikillFernando | 5 | 1.0 | 5 | 讨论 | false | false | v.redd.it |
 | 2025-10-28 02:29 | `1ohxzzo` | [是这样的，有哪些发达国家的旅游签是有存款就能顺利过的？](../posts/r_iwanttorun/251028022934_1ohxzzo.md) | hiroshima_fireworks | 0 | 0.18 | 8 | 不懂就问 | false | true | self.iwanttorun |
-| 2025-10-28 00:38 | `1ohvmld` | [eve_shanghai我操死你的妈](../posts/r_iwanttorun/251028003832_1ohvmld.md) | Impossible-Bit-8426 | 40 | 0.77 | 14 | 讨论 | false | true | self.iwanttorun |
+| 2025-10-28 00:38 | `1ohvmld` | [eve_shanghai我操死你的妈](../posts/r_iwanttorun/251028003832_1ohvmld.md) | [deleted] | 70 | 0.84 | 15 | 讨论 | false | true | self.iwanttorun |
 | 2025-10-27 16:24 | `1ohj03w` | [第一次去杭州,体验超过我去过所有北美 北美城市,为啥大家还要那么费劲去海外发展](../posts/r_iwanttorun/251027162455_1ohj03w.md) | eve_shanghai | 0 | 0.19 | 11 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-10-27 12:50 | `1ohdiun` | [【已潤】香港已定](../posts/r_iwanttorun/251027125014_1ohdiun.md) | Miserable-Avocado150 | 13 | 0.93 | 1 | 讨论 | false | true | self.iwanttorun |
 | 2025-10-26 16:53 | `1ogplax` | [港澳海关查不查](../posts/r_iwanttorun/251026165312_1ogplax.md) | Temporary_Bus1378 | 1 | 1.0 | 4 | 不懂就问 | false | true | self.iwanttorun |
