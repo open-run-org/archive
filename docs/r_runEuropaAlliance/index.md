@@ -4,6 +4,8 @@
 
 ## Latest changes
 
+- `251112015728` [有没有在德国延签过的人，这里有一些问题想请教。（如果是慕尼黑的学签证就更好了...）](../posts/r_runEuropaAlliance/251111175911_1ougg3o.md)
+- `251112015728` [友友们，这是grok给我推荐的机会最大的移民路径，有懂行的说说靠谱吗？](../posts/r_runEuropaAlliance/251111080234_1ou3ro7.md)
 - `251111015805` [德国面试通过✅](../posts/r_runEuropaAlliance/251110164341_1otirz5.md)
 - `251110020151` [22岁大专毕业县城蛆 这样的情况有什么职业规划建议吗](../posts/r_runEuropaAlliance/251109103101_1osg3wu.md)
 - `251109020129` [法国高商宣传的高就业率](../posts/r_runEuropaAlliance/251108091839_1orl0uf.md)
@@ -66,5 +68,3 @@
 - `250927160453` [高中生请问当前版本润日和润欧哪个好](../posts/r_runEuropaAlliance/250131141249_1iefo6q.md)
 - `250927160453` [学工签比 —— 平均每个岗位的毕业生竞争人数](../posts/r_runEuropaAlliance/250113200942_1i0na1g.md)
 - `250927160453` [【润法系列之二】法国的包容与普世价值，以及一些个人感受](../posts/r_runEuropaAlliance/241214212457_1hecwqs.md)
-- `250927160453` [祝潤友們新的一年潤歐順利](../posts/r_runEuropaAlliance/241231234227_1hqqy2s.md)
-- `250927160453` [高中生挂逼润欧：意大利篇（1 - 背景、项目和申请）](../posts/r_runEuropaAlliance/241211061843_1hbn9at.md)

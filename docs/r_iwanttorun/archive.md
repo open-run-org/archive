@@ -2,6 +2,10 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-12 00:51 | `1our2ow` | [澳洲189绿卡25-26赛季明天正式开捞了，润蛆🚪都入池了吗](../posts/r_iwanttorun/251112005144_1our2ow.md) | Electronic-Arm-3960 | 0 | 0.5 | 0 | 讨论 | false | true | self.iwanttorun |
+| 2025-11-11 09:25 | `1ou51bi` | [求吧友们指条路](../posts/r_iwanttorun/251111092530_1ou51bi.md) | AEUS_ | 3 | 0.71 | 30 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-11 07:12 | `1ou2zds` | [发现很多人对美国政治庇护一无所知，就讲讲我了解的美国政治庇护情况吧。](../posts/r_iwanttorun/251111071226_1ou2zds.md) | YoumoSubei | 24 | 0.81 | 24 | 分享帖 | false | true | self.iwanttorun |
+| 2025-11-11 04:30 | `1ou06ke` | [润错了，应该润美国拿庇护工卡爆金币的](../posts/r_iwanttorun/251111043040_1ou06ke.md) | Electronic-Arm-3960 | 1 | 0.53 | 14 | 讨论 | false | true | self.iwanttorun |
 | 2025-11-10 20:26 | `1otoxvo` | [China rolls out its version of the H-1B visa to attract foreign tech workers](../posts/r_iwanttorun/251110202619_1otoxvo.md) | kyk00525 | 3 | 1.0 | 0 | 讨论 | false | false | apnews.com |
 | 2025-11-10 20:18 | `1otoqd5` | [创建了润加同盟，欢迎大家加入](../posts/r_iwanttorun/251110201839_1otoqd5.md) | Muted_Highway_3876 | 2 | 1.0 | 0 | 分享帖 | false | false |  |
 | 2025-11-10 00:12 | `1osz8v1` | [我确实在中国遭受过政治迫害，有机会申请庇护吗？](../posts/r_iwanttorun/251110001243_1osz8v1.md) | Seven_Yi | 6 | 1.0 | 19 | 不懂就问 | false | true | self.iwanttorun |

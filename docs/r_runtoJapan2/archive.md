@@ -2,6 +2,12 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-11 19:20 | `1ouipr6` | [国内大专生润日](../posts/r_runtoJapan2/251111192025_1ouipr6.md) | Constant-Memory-9912 | 0 | 0.33 | 3 |  | false | true | self.runtoJapan2 |
+| 2025-11-11 17:39 | `1oufwbx` | [请各位润老嗨指导下](../posts/r_runtoJapan2/251111173903_1oufwbx.md) | RunForDream112 | 2 | 0.76 | 4 |  | false | true | self.runtoJapan2 |
+| 2025-11-11 13:03 | `1ou8w4p` | [这个人是谁？有友友知道吗 和我好像](../posts/r_runtoJapan2/251111130334_1ou8w4p.md) | HonestzPractice | 0 | 0.4 | 5 | 不懂就问 | false | false | i.redd.it |
+| 2025-11-11 12:18 | `1ou7yup` | [日元跌到154了](../posts/r_runtoJapan2/251111121838_1ou7yup.md) | General-Discussion67 | 28 | 0.85 | 33 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-11-11 10:35 | `1ou65zs` | [穷曲厨房 读后感](../posts/r_runtoJapan2/251111103557_1ou65zs.md) | Different_Blood_3382 | 10 | 0.92 | 18 | 经验分享 | false | true | self.runtoJapan2 |
+| 2025-11-11 04:53 | `1ou0lt3` | [穷曲厨房：分享一下关于穷曲润日后如何从0开始学做饭的一点教程](../posts/r_runtoJapan2/251111045343_1ou0lt3.md) | AkabaJeanne | 41 | 0.96 | 25 | 经验分享 | false | true | self.runtoJapan2 |
 | 2025-11-10 13:45 | `1ote55d` | [友友们，家乡的二手空调可以买么，之前被汁产二手空调搞怕了](../posts/r_runtoJapan2/251110134502_1ote55d.md) | Gullible-Language634 | 3 | 0.8 | 7 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-10 12:39 | `1otco69` | [来日本旅游就像嫖娼 来日本工作生活就像恋爱](../posts/r_runtoJapan2/251110123946_1otco69.md) | Top_Bike_7126 | 5 | 0.86 | 3 | 聊天吹水 | true | true | self.runtoJapan2 |
 | 2025-11-10 11:26 | `1otba3t` | [有这样的女仆你几点回家...❤](../posts/r_runtoJapan2/251110112622_1otba3t.md) | HonestzPractice | 0 | 0.47 | 16 | 不懂就问 | false | false | i.redd.it |
@@ -13,6 +19,7 @@
 | 2025-11-09 18:29 | `1osqqzl` | [日语的高语境](../posts/r_runtoJapan2/251109182901_1osqqzl.md) | zhizhuzhizhutu | 8 | 1.0 | 1 | 语言学习 | false | false | zhihu.com |
 | 2025-11-09 14:57 | `1oslepc` | [服务期内的事业单位编制工可以直接开润家乡吗](../posts/r_runtoJapan2/251109145731_1oslepc.md) | ylg748 | 0 | 0.44 | 22 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-09 14:31 | `1osktfj` | [我愛台積](../posts/r_runtoJapan2/251109143142_1osktfj.md) | this0great | 6 | 1.0 | 1 |  | false | false | i.redd.it |
+| 2025-11-09 11:36 | `1osh7bu` | [run日求助](../posts/r_runtoJapan2/251109113651_1osh7bu.md) | Strict_Bill_4222 | 2 | 1.0 | 1 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-09 08:29 | `1ose5wu` | [我佛，刚认识一天的日本人今天就带我入教](../posts/r_runtoJapan2/251109082918_1ose5wu.md) | 7kam1 | 5 | 0.58 | 42 | 日常生活 | false | true | self.runtoJapan2 |
 | 2025-11-09 08:05 | `1osds8m` | [唱卡拉OK~穹区们聚的起吗？](../posts/r_runtoJapan2/251109080556_1osds8m.md) | HonestzPractice | 1 | 0.54 | 1 | 日常生活 | false | false | i.redd.it |
 | 2025-11-09 06:06 | `1osbsn9` | [直播带货](../posts/r_runtoJapan2/251109060614_1osbsn9.md) | zhizhuzhizhutu | 62 | 0.92 | 14 | 聊天吹水 | false | false | i.redd.it |
@@ -32,7 +39,7 @@
 | 2025-11-06 09:12 | `1opu717` | [paypay本人審査总说我名字假名不对怎么搞](../posts/r_runtoJapan2/251106091215_1opu717.md) | Prize-Quiet-8730 | 1 | 1.0 | 5 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-06 04:48 | `1oppu7y` | [入社限定・生成系AI活用开发项目，高度人才加20分](../posts/r_runtoJapan2/251106044835_1oppu7y.md) | dantaikai | 4 | 0.84 | 10 | 中介招聘 | false | true | self.runtoJapan2 |
 | 2025-11-06 03:50 | `1opopz6` | [内向鼠人润日接近失败](../posts/r_runtoJapan2/251106035054_1opopz6.md) | zhizhuzhizhutu | 12 | 0.73 | 33 | 聊天吹水 | false | true | self.runtoJapan2 |
-| 2025-11-05 13:58 | `1op3kt9` | [11月4日，小野田关于外国人入境政策汇总](../posts/r_runtoJapan2/251105135820_1op3kt9.md) | WatanabeTakumi | 15 | 0.95 | 6 | 政策新闻 | false | true | self.runtoJapan2 |
+| 2025-11-05 13:58 | `1op3kt9` | [11月4日，小野田关于外国人入境政策汇总](../posts/r_runtoJapan2/251105135820_1op3kt9.md) | [deleted] | 21 | 1.0 | 17 | 政策新闻 | false | true | self.runtoJapan2 |
 | 2025-11-05 12:55 | `1op22u2` | [高市 外国人政策动向 文字总结](../posts/r_runtoJapan2/251105125534_1op22u2.md) | Electrical_While9299 | 6 | 0.88 | 1 | 政策新闻 | false | false | v.redd.it |
 | 2025-11-05 09:21 | `1ooyasu` | [这种的二次元喜欢吗~](../posts/r_runtoJapan2/251105092155_1ooyasu.md) | HonestzPractice | 17 | 0.68 | 16 | 聊天吹水 | false | false | i.redd.it |
 | 2025-11-05 08:09 | `1oox7ar` | [一目瞭然 - 年収レンジと該当職業 (2020年)](../posts/r_runtoJapan2/251105080951_1oox7ar.md) | AokoGreen | 4 | 0.84 | 0 | 经验分享 | false | true | self.runtoJapan2 |
