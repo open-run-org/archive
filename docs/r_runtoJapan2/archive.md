@@ -2,8 +2,15 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-12 14:11 | `1ov6620` | [人文签怎么偷跑外卖](../posts/r_runtoJapan2/251112141125_1ov6620.md) | yrsn509 | 0 | 0.45 | 11 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-12 09:07 | `1ov0e4w` | [还好一切如愿以偿](../posts/r_runtoJapan2/251112090718_1ov0e4w.md) | HonestzPractice | 93 | 0.94 | 27 | 日常生活 | false | false | i.redd.it |
+| 2025-11-12 08:12 | `1ouzjlw` | [不要想着用加密货币搞人民币换日元，我已经尝试过了](../posts/r_runtoJapan2/251112081248_1ouzjlw.md) | zhizhuzhizhutu | 30 | 0.86 | 24 | 经验分享 | false | true | self.runtoJapan2 |
+| 2025-11-12 07:36 | `1ouyyyl` | [工作签证的问题](../posts/r_runtoJapan2/251112073653_1ouyyyl.md) | wohrzjz | 5 | 1.0 | 7 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-12 05:22 | `1ouwppe` | [S級国立大女子枠不減反增, 日男做題蛆還能説話嗎](../posts/r_runtoJapan2/251112052239_1ouwppe.md) | AokoGreen | 3 | 0.71 | 8 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-11-12 04:25 | `1ouvmej` | [润友们有接种九价hpv吗？打算去风俗店体验下，有无必要？](../posts/r_runtoJapan2/251112042502_1ouvmej.md) | AyanaLee9 | 0 | 0.5 | 4 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-12 03:34 | `1ouum4d` | [求问在日生活开销主要去向？以及极限低消费的方法？](../posts/r_runtoJapan2/251112033446_1ouum4d.md) | LarryMarionic | 7 | 0.89 | 10 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-11 19:20 | `1ouipr6` | [国内大专生润日](../posts/r_runtoJapan2/251111192025_1ouipr6.md) | Constant-Memory-9912 | 0 | 0.33 | 3 |  | false | true | self.runtoJapan2 |
-| 2025-11-11 17:39 | `1oufwbx` | [请各位润老嗨指导下](../posts/r_runtoJapan2/251111173903_1oufwbx.md) | RunForDream112 | 2 | 0.76 | 4 |  | false | true | self.runtoJapan2 |
+| 2025-11-11 17:39 | `1oufwbx` | [请各位润老嗨指导下](../posts/r_runtoJapan2/251111173903_1oufwbx.md) | RunForDream112 | 3 | 0.81 | 10 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-11 13:03 | `1ou8w4p` | [这个人是谁？有友友知道吗 和我好像](../posts/r_runtoJapan2/251111130334_1ou8w4p.md) | HonestzPractice | 0 | 0.4 | 5 | 不懂就问 | false | false | i.redd.it |
 | 2025-11-11 12:18 | `1ou7yup` | [日元跌到154了](../posts/r_runtoJapan2/251111121838_1ou7yup.md) | General-Discussion67 | 28 | 0.85 | 33 | 聊天吹水 | false | true | self.runtoJapan2 |
 | 2025-11-11 10:35 | `1ou65zs` | [穷曲厨房 读后感](../posts/r_runtoJapan2/251111103557_1ou65zs.md) | Different_Blood_3382 | 10 | 0.92 | 18 | 经验分享 | false | true | self.runtoJapan2 |

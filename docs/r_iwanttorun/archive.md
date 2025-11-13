@@ -2,6 +2,12 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-13 01:15 | `1ovnnzi` | [支共官方下架男同社交软件利好庇护](../posts/r_iwanttorun/251113011504_1ovnnzi.md) | Undocumented_1649 | 0 | 0.5 | 3 | 讨论 | false | true | self.iwanttorun |
+| 2025-11-13 00:19 | `1ovmec8` | [日本完爆除美国之外的所有欧美发达国家。](../posts/r_iwanttorun/251113001921_1ovmec8.md) | YoumoSubei | 0 | 0.4 | 14 | 分享帖 | false | true | self.iwanttorun |
+| 2025-11-12 16:27 | `1ov9spd` | [想问问北美现在本科小留最好润最吃香有前景的专业是不是工科大类下的机械和电子以及商科大类下的会计，我们CS是不是真的路边一条了？](../posts/r_iwanttorun/251112162751_1ov9spd.md) | Opposite-Car2809 | 7 | 0.82 | 27 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-12 11:47 | `1ov30x4` | [假设不考虑难度，五眼联盟，你们最想润去哪里？](../posts/r_iwanttorun/251112114757_1ov30x4.md) | hiroshima_fireworks | 0 | 0.29 | 2 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-12 10:03 | `1ov19gb` | [985本科在读，想润澳，求助的回帖](../posts/r_iwanttorun/251112100332_1ov19gb.md) | thanksgiving24 | 2 | 0.63 | 11 | 讨论 | false | true | self.iwanttorun |
+| 2025-11-12 07:43 | `1ouz2k5` | [日本工作签证](../posts/r_iwanttorun/251112074320_1ouz2k5.md) | wohrzjz | 1 | 1.0 | 0 | 不懂就问 | false | false |  |
 | 2025-11-12 00:51 | `1our2ow` | [澳洲189绿卡25-26赛季明天正式开捞了，润蛆🚪都入池了吗](../posts/r_iwanttorun/251112005144_1our2ow.md) | Electronic-Arm-3960 | 0 | 0.5 | 0 | 讨论 | false | true | self.iwanttorun |
 | 2025-11-11 09:25 | `1ou51bi` | [求吧友们指条路](../posts/r_iwanttorun/251111092530_1ou51bi.md) | AEUS_ | 3 | 0.71 | 30 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-11 07:12 | `1ou2zds` | [发现很多人对美国政治庇护一无所知，就讲讲我了解的美国政治庇护情况吧。](../posts/r_iwanttorun/251111071226_1ou2zds.md) | YoumoSubei | 24 | 0.81 | 24 | 分享帖 | false | true | self.iwanttorun |
