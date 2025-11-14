@@ -2,6 +2,12 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-14 01:22 | `1owj3ku` | [下班后好无聊，买了xbox也不想玩](../posts/r_iwanttorun/251114012208_1owj3ku.md) | YoumoSubei | 1 | 1.0 | 3 | 分享帖 | false | false | i.redd.it |
+| 2025-11-13 19:00 | `1ow9pcr` | [Germany inches closer to bringing back mandatory military service](../posts/r_iwanttorun/251113190033_1ow9pcr.md) | kyk00525 | 3 | 1.0 | 1 | 讨论 | false | false | euronews.com |
+| 2025-11-13 07:41 | `1ovv3i5` | [国内末9天坑专业大三求润路](../posts/r_iwanttorun/251113074120_1ovv3i5.md) | Jason_awang | 1 | 0.6 | 35 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-13 06:20 | `1ovtsg1` | [大家好，想求助一下留学的事宜](../posts/r_iwanttorun/251113062004_1ovtsg1.md) | metalphon | 1 | 0.67 | 50 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-13 03:09 | `1ovq5v9` | [私聊我的一位请求我帮代发了一个帖子，请求大家的帮助](../posts/r_iwanttorun/251113030934_1ovq5v9.md) | Zilojqiao | 6 | 0.8 | 22 | 讨论 | false | true | self.iwanttorun |
+| 2025-11-13 02:05 | `1ovorr6` | [还有人说it码农润不了澳洲吗，engineering manager万金油70分就能绿卡上岸](../posts/r_iwanttorun/251113020558_1ovorr6.md) | Electronic-Arm-3960 | 0 | 0.47 | 16 | 分享帖 | false | false | i.redd.it |
 | 2025-11-13 01:15 | `1ovnnzi` | [支共官方下架男同社交软件利好庇护](../posts/r_iwanttorun/251113011504_1ovnnzi.md) | Undocumented_1649 | 0 | 0.5 | 3 | 讨论 | false | true | self.iwanttorun |
 | 2025-11-13 00:19 | `1ovmec8` | [日本完爆除美国之外的所有欧美发达国家。](../posts/r_iwanttorun/251113001921_1ovmec8.md) | YoumoSubei | 0 | 0.4 | 14 | 分享帖 | false | true | self.iwanttorun |
 | 2025-11-12 16:27 | `1ov9spd` | [想问问北美现在本科小留最好润最吃香有前景的专业是不是工科大类下的机械和电子以及商科大类下的会计，我们CS是不是真的路边一条了？](../posts/r_iwanttorun/251112162751_1ov9spd.md) | Opposite-Car2809 | 7 | 0.82 | 27 | 不懂就问 | false | true | self.iwanttorun |

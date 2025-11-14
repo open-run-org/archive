@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-13 22:08 | `1owelqn` | [日赚5000-10000不是梦](../posts/r_RunAustralia/251113220836_1owelqn.md) | usdt6 | 0 | 0.25 | 1 |  | false | true | self.RunAustralia |
 | 2025-11-03 04:48 | `1on2wdy` | [跑外卖账号被封了，已走投无路，澳洲，终局](../posts/r_RunAustralia/251103044818_1on2wdy.md) | Electronic-Arm-3960 | 2 | 0.75 | 10 |  | false | true | self.RunAustralia |
 | 2025-11-03 04:46 | `1on2v12` | [在读牙医博士求建议](../posts/r_RunAustralia/251103044617_1on2v12.md) | Prize_Cry2939 | 5 | 0.86 | 11 |  | false | true | self.RunAustralia |
 | 2025-11-02 10:19 | `1omdsfx` | [请问 斐济工签有一丝丝含金量吗](../posts/r_RunAustralia/251102101912_1omdsfx.md) | Acceptable_Size_9166 | 1 | 1.0 | 0 |  | false | false |  |

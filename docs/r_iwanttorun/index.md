@@ -4,6 +4,12 @@
 
 ## Latest changes
 
+- `251114015752` [Germany inches closer to bringing back mandatory military service](../posts/r_iwanttorun/251113190033_1ow9pcr.md)
+- `251114015752` [还有人说it码农润不了澳洲吗，engineering manager万金油70分就能绿卡上岸](../posts/r_iwanttorun/251113020558_1ovorr6.md)
+- `251114015752` [国内末9天坑专业大三求润路](../posts/r_iwanttorun/251113074120_1ovv3i5.md)
+- `251114015752` [下班后好无聊，买了xbox也不想玩](../posts/r_iwanttorun/251114012208_1owj3ku.md)
+- `251114015752` [大家好，想求助一下留学的事宜](../posts/r_iwanttorun/251113062004_1ovtsg1.md)
+- `251114015752` [私聊我的一位请求我帮代发了一个帖子，请求大家的帮助](../posts/r_iwanttorun/251113030934_1ovq5v9.md)
 - `251113015914` [日本完爆除美国之外的所有欧美发达国家。](../posts/r_iwanttorun/251113001921_1ovmec8.md)
 - `251113015914` [支共官方下架男同社交软件利好庇护](../posts/r_iwanttorun/251113011504_1ovnnzi.md)
 - `251113015914` [985本科在读，想润澳，求助的回帖](../posts/r_iwanttorun/251112100332_1ov19gb.md)
@@ -62,9 +68,3 @@
 - `251031015528` [朋友在安大略有一个小公司 自己是CEO 能否通过LMIA过去工作呢](../posts/r_iwanttorun/251030065350_1ojsroj.md)
 - `251031015528` [东欧也是欧 拉美也是美](../posts/r_iwanttorun/251031010255_1okh7te.md)
 - `251031015528` [最近怎么都开始说新西兰移民简单了？是真的吗？](../posts/r_iwanttorun/251030141811_1ok0yt7.md)
-- `251031015528` [美国可能又要加大遣返力度了](../posts/r_iwanttorun/251030142502_1ok155k.md)
-- `251031015528` [加拿大工签](../posts/r_iwanttorun/251030130623_1ojz6ru.md)
-- `251030015932` [会一些打印机方面的技术能不能往外润](../posts/r_iwanttorun/251029123029_1oj37sd.md)
-- `251030015932` [欧洲有什么好去处？](../posts/r_iwanttorun/251029185448_1ojd6dm.md)
-- `251030015932` [被网友判定为低学历人文社科专业了](../posts/r_iwanttorun/251029215324_1ojhtlq.md)
-- `251029015932` [Amazon to announce largest layoffs in company history, source says](../posts/r_iwanttorun/251028172609_1oifn63.md)

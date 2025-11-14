@@ -2,6 +2,12 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-14 01:25 | `1owj5yc` | [2年经验游戏测试怎么润日本](../posts/r_runtoJapan2/251114012521_1owj5yc.md) | FitKaleidoscope3261 | 0 | 0.5 | 5 |  | false | true | self.runtoJapan2 |
+| 2025-11-13 16:20 | `1ow5dcl` | [前几天抱怨了下汇率一堆人急了](../posts/r_runtoJapan2/251113162003_1ow5dcl.md) | General-Discussion67 | 5 | 0.57 | 30 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-11-13 13:59 | `1ow1s6l` | [新人求教，关于注册 Yahoo JAPAN 受阻问题](../posts/r_runtoJapan2/251113135909_1ow1s6l.md) | rdctupi | 1 | 1.0 | 3 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-13 13:08 | `1ow0m27` | [我的悲惨生活](../posts/r_runtoJapan2/251113130818_1ow0m27.md) | monnsann | 0 | 0.45 | 5 | 日常生活 | false | false | reddit.com |
+| 2025-11-13 09:38 | `1ovwvto` | [有润友来打拳击吗~？](../posts/r_runtoJapan2/251113093849_1ovwvto.md) | HonestzPractice | 4 | 0.7 | 13 | 不懂就问 | false | false | i.redd.it |
+| 2025-11-13 08:35 | `1ovvxjz` | [有没有在日本玩美股期权的？](../posts/r_runtoJapan2/251113083513_1ovvxjz.md) | nightfalllily1900 | 5 | 0.86 | 20 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-12 14:11 | `1ov6620` | [人文签怎么偷跑外卖](../posts/r_runtoJapan2/251112141125_1ov6620.md) | yrsn509 | 0 | 0.45 | 11 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-12 09:07 | `1ov0e4w` | [还好一切如愿以偿](../posts/r_runtoJapan2/251112090718_1ov0e4w.md) | HonestzPractice | 93 | 0.94 | 27 | 日常生活 | false | false | i.redd.it |
 | 2025-11-12 08:12 | `1ouzjlw` | [不要想着用加密货币搞人民币换日元，我已经尝试过了](../posts/r_runtoJapan2/251112081248_1ouzjlw.md) | zhizhuzhizhutu | 30 | 0.86 | 24 | 经验分享 | false | true | self.runtoJapan2 |
