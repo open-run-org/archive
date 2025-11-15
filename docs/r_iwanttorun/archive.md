@@ -2,6 +2,18 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-15 00:31 | `1oxdisy` | [为什么你们父母不努力？塞班岛免签大支，在塞班岛生孩子不就是美国国籍老鹰护照了吗？](../posts/r_iwanttorun/251115003138_1oxdisy.md) | YoumoSubei | 0 | 0.5 | 3 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-14 20:55 | `1ox8abg` | [想帮我女朋友寻找愿意分享经历的“走线”来美的华人朋友(完全匿名，只做学术研究) - $100报酬 1小时左右](../posts/r_iwanttorun/251114205536_1ox8abg.md) | Amocz | 2 | 0.67 | 8 | 讨论 | false | true | self.iwanttorun |
+| 2025-11-14 17:44 | `1ox38gy` | [找走线朋友做匿名访谈～有 $60 酬谢](../posts/r_iwanttorun/251114174416_1ox38gy.md) | Hefty_Attitude_2696 | 0 | 0.25 | 6 | 分享帖 | false | true | self.iwanttorun |
+| 2025-11-14 15:55 | `1ox09dg` | [為了你好啊](../posts/r_iwanttorun/251114155536_1ox09dg.md) | kyk00525 | 0 | 0.5 | 1 | ??? | false | false | i.redd.it |
+| 2025-11-14 14:10 | `1owxho8` | [老哥们，我想通过读护工学校逃出去，但是还是心里有点怕。](../posts/r_iwanttorun/251114141016_1owxho8.md) | Particular-Ferret820 | 10 | 0.86 | 19 | 讨论 | false | true | self.iwanttorun |
+| 2025-11-14 14:06 | `1owxe38` | [German consulates in China trigger lengthy security reviews, stalling work and study visas](../posts/r_iwanttorun/251114140608_1owxe38.md) | kyk00525 | 2 | 1.0 | 0 | 分享帖 | false | false | visahq.com |
+| 2025-11-14 11:11 | `1owtpbm` | [[Paid Research] UN Women项目找AI方向的博士做访谈 ($100)](../posts/r_iwanttorun/251114111150_1owtpbm.md) | Viviqi | 0 | 0.25 | 2 | 分享帖 | false | true | self.iwanttorun |
+| 2025-11-14 11:05 | `1owtl1f` | [如果我旅游签到美国后，每周在大使馆前举牌子骂共产党](../posts/r_iwanttorun/251114110505_1owtl1f.md) | G0O0ONER | 0 | 0.4 | 5 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-14 07:54 | `1owqjh8` | [三本文科，无业，20个金币，还能润去哪里？](../posts/r_iwanttorun/251114075424_1owqjh8.md) | hiroshima_fireworks | 0 | 0.42 | 13 | 不懂就问 | false | false | i.redd.it |
+| 2025-11-14 07:17 | `1owpynx` | [一点感想：润确实不适合很多人](../posts/r_iwanttorun/251114071726_1owpynx.md) | Cold-Survey-9725 | 33 | 0.92 | 14 | 分享帖 | false | true | self.iwanttorun |
+| 2025-11-14 05:17 | `1ownx3s` | [国内医学硕士，想润，有无成功的朋友指个路](../posts/r_iwanttorun/251114051741_1ownx3s.md) | dreaming_all_day | 17 | 0.9 | 16 | 不懂就问 | false | false | i.redd.it |
+| 2025-11-14 05:16 | `1ownwi6` | [汉族 落泪](../posts/r_iwanttorun/251114051645_1ownwi6.md) | YoumoSubei | 20 | 0.88 | 29 | 分享帖 | false | true | self.iwanttorun |
 | 2025-11-14 01:22 | `1owj3ku` | [下班后好无聊，买了xbox也不想玩](../posts/r_iwanttorun/251114012208_1owj3ku.md) | YoumoSubei | 1 | 1.0 | 3 | 分享帖 | false | false | i.redd.it |
 | 2025-11-13 19:00 | `1ow9pcr` | [Germany inches closer to bringing back mandatory military service](../posts/r_iwanttorun/251113190033_1ow9pcr.md) | kyk00525 | 3 | 1.0 | 1 | 讨论 | false | false | euronews.com |
 | 2025-11-13 07:41 | `1ovv3i5` | [国内末9天坑专业大三求润路](../posts/r_iwanttorun/251113074120_1ovv3i5.md) | Jason_awang | 1 | 0.6 | 35 | 不懂就问 | false | true | self.iwanttorun |

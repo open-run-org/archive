@@ -2,7 +2,15 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
-| 2025-11-14 01:25 | `1owj5yc` | [2年经验游戏测试怎么润日本](../posts/r_runtoJapan2/251114012521_1owj5yc.md) | FitKaleidoscope3261 | 0 | 0.5 | 5 |  | false | true | self.runtoJapan2 |
+| 2025-11-15 00:07 | `1oxcyzu` | [桥下彻锐评高市早苗和中国](../posts/r_runtoJapan2/251115000755_1oxcyzu.md) | Standard_Resort_6443 | 0 | 0.5 | 13 |  | false | true | self.runtoJapan2 |
+| 2025-11-14 21:41 | `1ox9fx7` | [把沈逸，薛剑这些芝娜猪法西斯的头砍下来挂在F35上，那可真是一道美丽的风景线。对待那群法西斯，就该用法西斯的方式。](../posts/r_runtoJapan2/251114214105_1ox9fx7.md) | FrancisUpbeat5676 | 9 | 0.76 | 1 |  | false | true | self.runtoJapan2 |
+| 2025-11-14 20:29 | `1ox7mxz` | [芝娜猪冷静点，总有一天，自由民主的三叉戟2D5，民兵3，B61，M51会教你们这群法西斯畜生做人](../posts/r_runtoJapan2/251114202940_1ox7mxz.md) | FrancisUpbeat5676 | 19 | 0.77 | 12 |  | false | false | i.redd.it |
+| 2025-11-14 14:19 | `1owxphw` | [老哥们，我想通过读护工学校逃出去，但是还是心里有点怕。](../posts/r_runtoJapan2/251114141902_1owxphw.md) | Particular-Ferret820 | 3 | 1.0 | 5 | 日常生活 | false | false |  |
+| 2025-11-14 12:40 | `1owvf23` | [问下日本猎头去哪找](../posts/r_runtoJapan2/251114124002_1owvf23.md) | HashiruYaju2 | 1 | 0.99 | 1 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-14 11:26 | `1owtyyp` | [这两个sub都有美好的未来](../posts/r_runtoJapan2/251114112621_1owtyyp.md) | HonestzPractice | 6 | 0.75 | 3 | 聊天吹水 | false | false | i.redd.it |
+| 2025-11-14 10:26 | `1owsxe5` | [中國駐日大使館官員因「反中情緒」不敢出門，同時繼續在社交媒體大放厥詞](../posts/r_runtoJapan2/251114102627_1owsxe5.md) | ExcellentFox6 | 56 | 0.89 | 58 | 聊天吹水 | false | false | reddit.com |
+| 2025-11-14 07:24 | `1owq2d3` | [细看这篇漫画 , 你看出了什么道理 ???](../posts/r_runtoJapan2/251114072400_1owq2d3.md) | HonestzPractice | 0 | 0.17 | 2 | 聊天吹水 | false | false | reddit.com |
+| 2025-11-14 01:25 | `1owj5yc` | [2年经验游戏测试怎么润日本](../posts/r_runtoJapan2/251114012521_1owj5yc.md) | FitKaleidoscope3261 | 0 | 0.25 | 13 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-13 16:20 | `1ow5dcl` | [前几天抱怨了下汇率一堆人急了](../posts/r_runtoJapan2/251113162003_1ow5dcl.md) | General-Discussion67 | 5 | 0.57 | 30 | 聊天吹水 | false | true | self.runtoJapan2 |
 | 2025-11-13 13:59 | `1ow1s6l` | [新人求教，关于注册 Yahoo JAPAN 受阻问题](../posts/r_runtoJapan2/251113135909_1ow1s6l.md) | rdctupi | 1 | 1.0 | 3 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-13 13:08 | `1ow0m27` | [我的悲惨生活](../posts/r_runtoJapan2/251113130818_1ow0m27.md) | monnsann | 0 | 0.45 | 5 | 日常生活 | false | false | reddit.com |

@@ -4,6 +4,8 @@
 
 ## Latest changes
 
+- `251115015342` [国内末9天坑专业求润路](../posts/r_runEuropaAlliance/251113073922_1ovv2ge.md)
+- `251115015342` [请教一下关于托福雅思在欧洲的认可度](../posts/r_runEuropaAlliance/251114024211_1owktir.md)
 - `251112015728` [有没有在德国延签过的人，这里有一些问题想请教。（如果是慕尼黑的学签证就更好了...）](../posts/r_runEuropaAlliance/251111175911_1ougg3o.md)
 - `251112015728` [友友们，这是grok给我推荐的机会最大的移民路径，有懂行的说说靠谱吗？](../posts/r_runEuropaAlliance/251111080234_1ou3ro7.md)
 - `251111015805` [德国面试通过✅](../posts/r_runEuropaAlliance/251110164341_1otirz5.md)
@@ -66,5 +68,3 @@
 - `250927160453` [已润欧的进，请问欧洲医疗实际体验如何](../posts/r_runEuropaAlliance/250201140547_1if70aa.md)
 - `250927160453` [意大利本硕各专业就业概况](../posts/r_runEuropaAlliance/241211061849_1hbn9ck.md)
 - `250927160453` [高中生请问当前版本润日和润欧哪个好](../posts/r_runEuropaAlliance/250131141249_1iefo6q.md)
-- `250927160453` [学工签比 —— 平均每个岗位的毕业生竞争人数](../posts/r_runEuropaAlliance/250113200942_1i0na1g.md)
-- `250927160453` [【润法系列之二】法国的包容与普世价值，以及一些个人感受](../posts/r_runEuropaAlliance/241214212457_1hecwqs.md)
