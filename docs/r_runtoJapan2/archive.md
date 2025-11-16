@@ -2,7 +2,15 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
-| 2025-11-15 00:07 | `1oxcyzu` | [桥下彻锐评高市早苗和中国](../posts/r_runtoJapan2/251115000755_1oxcyzu.md) | Standard_Resort_6443 | 0 | 0.5 | 13 |  | false | true | self.runtoJapan2 |
+| 2025-11-15 14:55 | `1oxtpcm` | [有没有大佬考完特定技能的](../posts/r_runtoJapan2/251115145548_1oxtpcm.md) | VisibleBoot5124 | 1 | 1.0 | 1 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-15 14:45 | `1oxtgsd` | [求解答](../posts/r_runtoJapan2/251115144545_1oxtgsd.md) | Mstrwarn747 | 0 | 0.35 | 25 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-15 14:11 | `1oxsorv` | [本sub优质润日内容奖励制度正式上线](../posts/r_runtoJapan2/251115141145_1oxsorv.md) | Sakura_0627 | 1 | 0.6 | 2 | ⭐版务公告⭐ | false | true | self.runtoJapan2 |
+| 2025-11-15 11:24 | `1oxpc6i` | [今天是来日本一周年（内涵炫耀内容 慎入](../posts/r_runtoJapan2/251115112411_1oxpc6i.md) | Top_Bike_7126 | 18 | 0.8 | 14 | 日常生活 | false | false | i.redd.it |
+| 2025-11-15 11:17 | `1oxp7v5` | [🗾runtoJapan2｜移民日本资料整合帖【持续更新】](../posts/r_runtoJapan2/251115111703_1oxp7v5.md) | Sakura_0627 | 16 | 0.9 | 4 | ⭐版务公告⭐ | false | true | self.runtoJapan2 |
+| 2025-11-15 09:46 | `1oxnqii` | [外交部：重要提醒！中国公民近期避免前往日本](../posts/r_runtoJapan2/251115094627_1oxnqii.md) | go_smash_them_tengxp | 20 | 0.8 | 52 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-11-15 08:45 | `1oxmss6` | [经济不景气，为何红灯区价格不降反升？](../posts/r_runtoJapan2/251115084552_1oxmss6.md) | Odd-Association-2857 | 0 | 0.33 | 3 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-15 07:52 | `1oxlycy` | [一个好玩的网站 一键生成模板](../posts/r_runtoJapan2/251115075253_1oxlycy.md) | HonestzPractice | 9 | 0.84 | 4 | 聊天吹水 | false | false | i.redd.it |
+| 2025-11-15 00:07 | `1oxcyzu` | [桥下彻锐评高市早苗和中国](../posts/r_runtoJapan2/251115000755_1oxcyzu.md) | Standard_Resort_6443 | 26 | 0.66 | 127 | 政策新闻 | false | true | self.runtoJapan2 |
 | 2025-11-14 21:41 | `1ox9fx7` | [把沈逸，薛剑这些芝娜猪法西斯的头砍下来挂在F35上，那可真是一道美丽的风景线。对待那群法西斯，就该用法西斯的方式。](../posts/r_runtoJapan2/251114214105_1ox9fx7.md) | FrancisUpbeat5676 | 9 | 0.76 | 1 |  | false | true | self.runtoJapan2 |
 | 2025-11-14 20:29 | `1ox7mxz` | [芝娜猪冷静点，总有一天，自由民主的三叉戟2D5，民兵3，B61，M51会教你们这群法西斯畜生做人](../posts/r_runtoJapan2/251114202940_1ox7mxz.md) | FrancisUpbeat5676 | 19 | 0.77 | 12 |  | false | false | i.redd.it |
 | 2025-11-14 14:19 | `1owxphw` | [老哥们，我想通过读护工学校逃出去，但是还是心里有点怕。](../posts/r_runtoJapan2/251114141902_1owxphw.md) | Particular-Ferret820 | 3 | 1.0 | 5 | 日常生活 | false | false |  |

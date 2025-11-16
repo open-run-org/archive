@@ -2,6 +2,11 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-16 01:22 | `1oy8pb7` | [穷逼大三生想润](../posts/r_iwanttorun/251116012227_1oy8pb7.md) | Otherwise_Version513 | 1 | 1.0 | 1 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-15 18:04 | `1oxyg3v` | [Japan urges China to scale back response in Taiwan row](../posts/r_iwanttorun/251115180459_1oxyg3v.md) | kyk00525 | 1 | 1.0 | 0 | 讨论 | false | false | dw.com |
+| 2025-11-15 17:22 | `1oxxdqy` | [中日这次会闹到撤侨吗？😁](../posts/r_iwanttorun/251115172246_1oxxdqy.md) | hiroshima_fireworks | 2 | 0.75 | 1 | 不懂就问 | false | false | i.redd.it |
+| 2025-11-15 06:26 | `1oxkj16` | [这种一片日需求量二三十倍的维生素真的不会吃死人吗](../posts/r_iwanttorun/251115062609_1oxkj16.md) | FreeXiJinpingAss | 7 | 0.77 | 6 | 不懂就问 | false | false | i.redd.it |
+| 2025-11-15 02:52 | `1oxgiod` | [双非土木、GPA 垫底、工地一年：想润但条件很差，我还有什么可能的出路？](../posts/r_iwanttorun/251115025251_1oxgiod.md) | MachineHo1iday | 7 | 1.0 | 15 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-15 00:31 | `1oxdisy` | [为什么你们父母不努力？塞班岛免签大支，在塞班岛生孩子不就是美国国籍老鹰护照了吗？](../posts/r_iwanttorun/251115003138_1oxdisy.md) | YoumoSubei | 0 | 0.5 | 3 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-14 20:55 | `1ox8abg` | [想帮我女朋友寻找愿意分享经历的“走线”来美的华人朋友(完全匿名，只做学术研究) - $100报酬 1小时左右](../posts/r_iwanttorun/251114205536_1ox8abg.md) | Amocz | 2 | 0.67 | 8 | 讨论 | false | true | self.iwanttorun |
 | 2025-11-14 17:44 | `1ox38gy` | [找走线朋友做匿名访谈～有 $60 酬谢](../posts/r_iwanttorun/251114174416_1ox38gy.md) | Hefty_Attitude_2696 | 0 | 0.25 | 6 | 分享帖 | false | true | self.iwanttorun |
