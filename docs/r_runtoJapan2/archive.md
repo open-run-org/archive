@@ -2,11 +2,26 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-17 00:13 | `1oz1mm2` | [問一下玩同人活動的潤友多嗎？有專門的Reddit嗎？](../posts/r_runtoJapan2/251117001337_1oz1mm2.md) | ClimateBusiness3909 | 2 | 1.0 | 3 |  | false | true | self.runtoJapan2 |
+| 2025-11-16 18:26 | `1oyt3ec` | [社会適応](../posts/r_runtoJapan2/251116182628_1oyt3ec.md) | Blackshtorm15 | 0 | 0.5 | 2 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-16 13:18 | `1oylj2g` | [日本女生這麼說是不想見我嗎](../posts/r_runtoJapan2/251116131846_1oylj2g.md) | trump2024win_8964 | 7 | 0.82 | 13 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-16 13:13 | `1oylfa0` | [想让男朋友當日本人](../posts/r_runtoJapan2/251116131346_1oylfa0.md) | doku_444 | 1 | 0.54 | 13 | 不懂就问 | false | false | i.redd.it |
+| 2025-11-16 11:37 | `1oyjkgo` | [這圖保真？](../posts/r_runtoJapan2/251116113726_1oyjkgo.md) | this0great | 3 | 0.72 | 8 | 不懂就问 | false | false | i.redd.it |
+| 2025-11-16 11:16 | `1oyj7vy` | [鼠鼠润日（下）：落地日本第一天生存指南](../posts/r_runtoJapan2/251116111643_1oyj7vy.md) | Sakura_0627 | 5 | 0.86 | 1 | 经典回顾 | false | true | self.runtoJapan2 |
+| 2025-11-16 11:16 | `1oyj7go` | [来讨论下东京都内的廉价超市吧](../posts/r_runtoJapan2/251116111600_1oyj7go.md) | Sakura_0627 | 7 | 0.82 | 6 | 经典回顾 | false | true | self.runtoJapan2 |
+| 2025-11-16 11:06 | `1oyj1gy` | [鼠鼠润日（上）：出发前需要做的准备](../posts/r_runtoJapan2/251116110616_1oyj1gy.md) | Sakura_0627 | 9 | 0.92 | 1 | 经典回顾 | false | true | self.runtoJapan2 |
+| 2025-11-16 11:04 | `1oyj04y` | [聊聊本鼠鼠在东京九个月的share house心得](../posts/r_runtoJapan2/251116110408_1oyj04y.md) | Sakura_0627 | 9 | 1.0 | 2 | 经典回顾 | false | true | self.runtoJapan2 |
+| 2025-11-16 10:43 | `1oyin09` | [鉴于最近疯狂喷粪的粉红、极民和中共外交部，是时候回顾一下经典了](../posts/r_runtoJapan2/251116104300_1oyin09.md) | nagarythechild | 37 | 0.89 | 7 | 经典回顾 | false | false | v.redd.it |
+| 2025-11-16 09:08 | `1oyh41s` | [希望大家多谈润日相关内容 少谈政治](../posts/r_runtoJapan2/251116090820_1oyh41s.md) | Sakura_0627 | 46 | 0.74 | 44 | ⭐版务公告⭐ | false | false | i.redd.it |
+| 2025-11-16 08:20 | `1oygcki` | [以前和偶像互动的视频~](../posts/r_runtoJapan2/251116082046_1oygcki.md) | HonestzPractice | 11 | 0.87 | 9 | 日常生活 | false | false | v.redd.it |
+| 2025-11-16 05:17 | `1oydaem` | [关于宗教](../posts/r_runtoJapan2/251116051707_1oydaem.md) | Aoesun | 3 | 1.0 | 21 | 日常生活 | false | true | self.runtoJapan2 |
+| 2025-11-16 02:50 | `1oyahcx` | [你们觉得这次中日会闹到撤侨吗？](../posts/r_runtoJapan2/251116025007_1oyahcx.md) | hiroshima_fireworks | 16 | 0.69 | 49 | 聊天吹水 | false | false | i.redd.it |
+| 2025-11-16 02:36 | `1oya7h7` | [你sub也是出息了，怎么换家了还有人尾行视奸+渗透失败还无能狂怒的](../posts/r_runtoJapan2/251116023628_1oya7h7.md) | Strict_Treat2884 | 57 | 0.87 | 17 | 聊天吹水 | false | false | i.redd.it |
 | 2025-11-15 14:55 | `1oxtpcm` | [有没有大佬考完特定技能的](../posts/r_runtoJapan2/251115145548_1oxtpcm.md) | VisibleBoot5124 | 1 | 1.0 | 1 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-15 14:45 | `1oxtgsd` | [求解答](../posts/r_runtoJapan2/251115144545_1oxtgsd.md) | Mstrwarn747 | 0 | 0.35 | 25 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-15 14:11 | `1oxsorv` | [本sub优质润日内容奖励制度正式上线](../posts/r_runtoJapan2/251115141145_1oxsorv.md) | Sakura_0627 | 1 | 0.6 | 2 | ⭐版务公告⭐ | false | true | self.runtoJapan2 |
 | 2025-11-15 11:24 | `1oxpc6i` | [今天是来日本一周年（内涵炫耀内容 慎入](../posts/r_runtoJapan2/251115112411_1oxpc6i.md) | Top_Bike_7126 | 18 | 0.8 | 14 | 日常生活 | false | false | i.redd.it |
-| 2025-11-15 11:17 | `1oxp7v5` | [🗾runtoJapan2｜移民日本资料整合帖【持续更新】](../posts/r_runtoJapan2/251115111703_1oxp7v5.md) | Sakura_0627 | 16 | 0.9 | 4 | ⭐版务公告⭐ | false | true | self.runtoJapan2 |
+| 2025-11-15 11:17 | `1oxp7v5` | [🗾runtoJapan2｜移民日本资料整合帖【持续更新】](../posts/r_runtoJapan2/251115111703_1oxp7v5.md) | Sakura_0627 | 25 | 0.93 | 5 | ⭐版务公告⭐ | false | true | self.runtoJapan2 |
 | 2025-11-15 09:46 | `1oxnqii` | [外交部：重要提醒！中国公民近期避免前往日本](../posts/r_runtoJapan2/251115094627_1oxnqii.md) | go_smash_them_tengxp | 20 | 0.8 | 52 | 聊天吹水 | false | true | self.runtoJapan2 |
 | 2025-11-15 08:45 | `1oxmss6` | [经济不景气，为何红灯区价格不降反升？](../posts/r_runtoJapan2/251115084552_1oxmss6.md) | Odd-Association-2857 | 0 | 0.33 | 3 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-15 07:52 | `1oxlycy` | [一个好玩的网站 一键生成模板](../posts/r_runtoJapan2/251115075253_1oxlycy.md) | HonestzPractice | 9 | 0.84 | 4 | 聊天吹水 | false | false | i.redd.it |

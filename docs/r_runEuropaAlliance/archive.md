@@ -2,6 +2,8 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-16 11:39 | `1oyjly3` | [请问什么专业比较好](../posts/r_runEuropaAlliance/251116113949_1oyjly3.md) | Tiny_Rub1570 | 0 | 0.5 | 9 | 提問 | Ask | false | true | self.runEuropaAlliance |
+| 2025-11-14 13:59 | `1owx801` | [请问这样的德国CS phd推荐度有多少？](../posts/r_runEuropaAlliance/251114135933_1owx801.md) | Able_Click1746 | 6 | 1.0 | 1 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-11-14 02:42 | `1owktir` | [请教一下关于托福雅思在欧洲的认可度](../posts/r_runEuropaAlliance/251114024211_1owktir.md) | Frequent_Low757 | 0 | 0.5 | 13 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-11-13 07:39 | `1ovv2ge` | [国内末9天坑专业求润路](../posts/r_runEuropaAlliance/251113073922_1ovv2ge.md) | Jason_awang | 3 | 1.0 | 5 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-11-11 17:59 | `1ougg3o` | [有没有在德国延签过的人，这里有一些问题想请教。（如果是慕尼黑的学签证就更好了...）](../posts/r_runEuropaAlliance/251111175911_1ougg3o.md) | Grouchy-Natural7221 | 1 | 0.67 | 6 | 提問 | Ask | false | true | self.runEuropaAlliance |

@@ -4,6 +4,10 @@
 
 ## Latest changes
 
+- `251117015844` [TRT World - EU to halt multi-entry visas for most Russians — report](../posts/r_iwanttorun/251116171958_1oyrdmc.md)
+- `251117015844` [加拿大和美国=燕郊和北京](../posts/r_iwanttorun/251116182638_1oyt3jz.md)
+- `251117015844` [大专光伏十万润发达国家（A college degree in photovoltaic power with a profit of 100,000 yuan can reach the whole country）](../posts/r_iwanttorun/251116145240_1oyno0c.md)
+- `251117015844` [我给中国政府出个主意，关于中日矛盾的](../posts/r_iwanttorun/251116032745_1oyb83y.md)
 - `251116020320` [中日这次会闹到撤侨吗？😁](../posts/r_iwanttorun/251115172246_1oxxdqy.md)
 - `251116020320` [Japan urges China to scale back response in Taiwan row](../posts/r_iwanttorun/251115180459_1oxyg3v.md)
 - `251116020320` [这种一片日需求量二三十倍的维生素真的不会吃死人吗](../posts/r_iwanttorun/251115062609_1oxkj16.md)
@@ -64,7 +68,3 @@
 - `251106020002` [现在如果为了提升生活质量润是不是除了澳洲和美国都不值得去？](../posts/r_iwanttorun/251105180910_1opacs2.md)
 - `251106020002` [New Japanese government puts foreign nationals in focus | NHK WORLD-JAPAN News](../posts/r_iwanttorun/251105145706_1op5270.md)
 - `251105015724` [我在意大利当难民（直播中）](../posts/r_iwanttorun/251104203149_1ooifsg.md)
-- `251105015724` [码蛆这辈子有了](../posts/r_iwanttorun/251104030230_1onwgm3.md)
-- `251104015704` [本科潤選擇求教: 荷蘭德國 VS 新加坡/香港](../posts/r_iwanttorun/251103102418_1on86xp.md)
-- `251103020237` [只会英语和法语 通过法语通道拿到pr在加拿大🇨🇦好找工作吗？](../posts/r_iwanttorun/251102223429_1omv1n5.md)
-- `251103020237` [考研跨考or留学](../posts/r_iwanttorun/251102025742_1om6m3v.md)

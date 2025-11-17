@@ -4,6 +4,8 @@
 
 ## Latest changes
 
+- `251117015848` [请问这样的德国CS phd推荐度有多少？](../posts/r_runEuropaAlliance/251114135933_1owx801.md)
+- `251117015848` [请问什么专业比较好](../posts/r_runEuropaAlliance/251116113949_1oyjly3.md)
 - `251115015342` [国内末9天坑专业求润路](../posts/r_runEuropaAlliance/251113073922_1ovv2ge.md)
 - `251115015342` [请教一下关于托福雅思在欧洲的认可度](../posts/r_runEuropaAlliance/251114024211_1owktir.md)
 - `251112015728` [有没有在德国延签过的人，这里有一些问题想请教。（如果是慕尼黑的学签证就更好了...）](../posts/r_runEuropaAlliance/251111175911_1ougg3o.md)
@@ -66,5 +68,3 @@
 - `250927160453` [红迪对账后欧洲人天塌了](../posts/r_runEuropaAlliance/250118153514_1i4a15x.md)
 - `250927160453` [是新家吗](../posts/r_runEuropaAlliance/241212072621_1hcfub9.md)
 - `250927160453` [已润欧的进，请问欧洲医疗实际体验如何](../posts/r_runEuropaAlliance/250201140547_1if70aa.md)
-- `250927160453` [意大利本硕各专业就业概况](../posts/r_runEuropaAlliance/241211061849_1hbn9ck.md)
-- `250927160453` [高中生请问当前版本润日和润欧哪个好](../posts/r_runEuropaAlliance/250131141249_1iefo6q.md)
