@@ -5,6 +5,7 @@
 - [r_RunAustralia](r_RunAustralia/index.md)
 - [r_iwanttorun](r_iwanttorun/index.md)
 - [r_runEuropaAlliance](r_runEuropaAlliance/index.md)
+- [r_runtoJapan](r_runtoJapan/index.md)
 - [r_runtoJapan2](r_runtoJapan2/index.md)
 - [r_runtonihon](r_runtonihon/index.md)
 
