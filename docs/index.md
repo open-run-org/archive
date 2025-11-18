@@ -11,6 +11,7 @@
 
 ## Latest changes
 
+- `r_runtoJapan2` `251118171042` [留胡子好看还是刮干净胡子好看？](posts/r_runtoJapan2/251118164102_1p0gsz9.md)
 - `r_runtoJapan2` `251118150032` [高度人才加20分，赶紧的](posts/r_runtoJapan2/251118081910_1p06hsp.md)
 - `r_runtoJapan2` `251118150032` [喜欢特摄的人都是纯粹之人，心里没有那么多弯弯绕绕。所以该说的会直接说出来。](posts/r_runtoJapan2/251118054007_1p03wlr.md)
 - `r_runtoJapan2` `251118150032` [给没受过民主国家教育的人科普几点来日本前的政治常识和一些小tips](posts/r_runtoJapan2/251117171606_1ozm3ef.md)
@@ -74,4 +75,3 @@
 - `r_runtoJapan2` `251116020325` [今天是来日本一周年（内涵炫耀内容 慎入](posts/r_runtoJapan2/251115112411_1oxpc6i.md)
 - `r_runtoJapan2` `251116020325` [经济不景气，为何红灯区价格不降反升？](posts/r_runtoJapan2/251115084552_1oxmss6.md)
 - `r_runtoJapan2` `251116020325` [求解答](posts/r_runtoJapan2/251115144545_1oxtgsd.md)
-- `r_runtoJapan2` `251116020325` [本sub优质润日内容奖励制度正式上线](posts/r_runtoJapan2/251115141145_1oxsorv.md)

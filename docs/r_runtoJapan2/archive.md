@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-18 16:41 | `1p0gsz9` | [留胡子好看还是刮干净胡子好看？](../posts/r_runtoJapan2/251118164102_1p0gsz9.md) | ClassroomSquare564 | 1 | 1.0 | 4 |  | false | false | reddit.com |
 | 2025-11-18 14:15 | `1p0d1wh` | [麻中麻，学校和日本的实习交流项目被取消了](../posts/r_runtoJapan2/251118141539_1p0d1wh.md) | Lophill | 6 | 1.0 | 8 | 聊天吹水 | false | true | self.runtoJapan2 |
 | 2025-11-18 13:42 | `1p0c9em` | [怎么处理因为中日关系恶化跟家里的矛盾，各种鸡飞狗跳](../posts/r_runtoJapan2/251118134249_1p0c9em.md) | go_smash_them_tengxp | 7 | 0.77 | 22 | 日常生活 | false | true | self.runtoJapan2 |
 | 2025-11-18 08:19 | `1p06hsp` | [高度人才加20分，赶紧的](../posts/r_runtoJapan2/251118081910_1p06hsp.md) | dantaikai | 0 | 0.22 | 11 | 中介招聘 | false | false | i.redd.it |
