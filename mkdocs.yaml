@@ -67,7 +67,4 @@ markdown_extensions:
 
 plugins:
   - awesome-pages
-  - git-revision-date-localized:
-      fallback_to_build_date: true
-  - include-markdown
   - search
