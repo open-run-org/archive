@@ -26,11 +26,6 @@ theme:
   features:
     - content.code.copy
     - content.tabs.link
-    - navigation.indexes
-    - navigation.instant
-    - navigation.tabs
-    - navigation.top
-    - navigation.tracking
     - search.highlight
     - search.share
     - search.suggest
