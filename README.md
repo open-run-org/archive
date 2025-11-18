@@ -27,7 +27,7 @@
 
 网站因为过于无脑所以就不讲怎么用了，不过有一个问题，就是在我加入 r/iwanttorun 自 2021 年以来的全量备份之后 GitHub Pages 网站构建产物超限了，所以无奈之下目前只部署了自 2025 年 4 月以来的贴文，而且不包含 r/runtoJapan。简单来说就是网站是部分备份，而 GitHub 上有全量备份。
 
-全量的备份可以在 [这里](https://github.com/open-run-org/archive/tree/main/docs/posts) 找到，下载的话可以到 [GitHub Repo](https://github.com/open-run-org/archive) 界面然后下载（具体怎么下载 [见此](https://docs.github.com/en/get-started/start-your-journey/downloading-files-from-github)），然后进入 /docs/posts 即可。
+全量的备份可以在 [这里](https://github.com/open-run-org/archive/tree/main/docs/posts) 找到，下载的话可以到 [GitHub Repo](https://github.com/open-run-org/archive) 界面然后下载（具体怎么下载 [见此](https://docs.github.com/en/get-started/start-your-journey/downloading-files-from-github)），然后进入 `/docs/posts` 即可。
 
 每天 UTC 0 点的时候会触发 GitHub Action 然后自动更新最近 16 天的贴文和评论。
 
