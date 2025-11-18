@@ -1,1 +1,71 @@
 [![CI](https://github.com/open-run-org/archive/actions/workflows/ci.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/ci.yaml)
+
+# Reddit Archiver
+
+## 前言
+
+有 r/runtoJapan 被封的前车之鉴，又鉴于润蛆过于费拉以至于私信常有问我这个贴文在哪那个贴文在哪被封的贴文在哪家没了怎么办，甚至还有人肉打字备份到 GitHub 的，整得和 QQ 群传 Galgame 一样，真笑绷了。
+
+不得已我只能下场做个备份工具简单又解决一润蛆世纪难题（Reddit Archiver）。
+
+-- [clareLab](https://clarelab.moe)
+
+## 介绍
+
+链接：
+
+* 网址：[archive.open-run.org](https://archive.open-run.org)
+* GitHub：[open-run-org/archive](https://github.com/open-run-org/archive)
+
+已实现对以下润学 sub 的全量备份：
+
+* r/iwanttorun
+* r/runtoJapan
+* r/runtoJapan2
+* r/runEuropaAlliance
+* r/RunAustralia
+
+网站因为过于无脑所以就不讲怎么用了，不过有一个问题，就是在我加入 r/iwanttorun 自 2021 年以来的全量备份之后 GitHub Pages 网站构建产物超限了，所以无奈之下目前只部署了自 2025 年 4 月以来的贴文，而且不包含 r/runtoJapan。简单来说就是网站是部分备份，而 GitHub 上有全量备份。
+
+全量的备份可以在 [这里](https://github.com/open-run-org/archive/tree/main/docs/posts) 找到，下载的话可以到 [GitHub Repo](https://github.com/open-run-org/archive) 界面然后下载（具体怎么下载 [见此](https://docs.github.com/en/get-started/start-your-journey/downloading-files-from-github)），然后进入 /docs/posts 即可。或者可以更精简的，直接从 [这个链接](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fopen-run-org%2Farchive%2Ftree%2Fmain%2Fdocs%2Fposts) 就能下载到 /docs/posts 的全量备份。
+
+每天 UTC 0 点的时候会触发 GitHub Action 然后自动更新最近 16 天的贴文和评论。
+
+给两个示例吧，比如经常有人在问的，以前 r/iwanttorun 的教未成年走线的贴文（现已被删）：
+
+>[链接见此](https://github.com/open-run-org/archive/blob/main/docs/posts/r_iwanttorun/230413033915_12kal6n.md)
+
+或者我在以前 r/runtoJapan 发的留日就职率（现 sub 已被封）：
+
+>[链接见此](https://github.com/open-run-org/archive/blob/main/docs/posts/r_runtoJapan/240826203938_1f1ynlk.md)
+
+包括评论也是都有保存的。
+
+之后的话考虑会实现以下功能：
+
+* 实现多媒体存档（现只支持文字）
+* 定期打包做种
+* 搬运技术栈至动态网站
+* 部署 bot 可以自动备份、查询、基于 sub 内容问答，类似以前的鸭鸭但是润学专化
+
+如果觉得还不错的话就给我打钱支持我持续维护和开发吧：
+
+* 打钱链接：[ko-fi.com/clarelab](https://ko-fi.com/clarelab)
+
+## 技术栈
+
+首先是数据来源，来源分两部分，一个是 Reddit 的 API，用于抓取最近的贴文和评论以持续更新，另一个我已经在我的其它帖文中提及了，见此（[分享一个访问已被封的 sub 的贴文和评论的方法](https://www.reddit.com/r/runtoJapan2/comments/1oazwgj/%E5%88%86%E4%BA%AB%E4%B8%80%E4%B8%AA%E8%AE%BF%E9%97%AE%E5%B7%B2%E8%A2%AB%E5%B0%81%E7%9A%84_sub_%E7%9A%84%E8%B4%B4%E6%96%87%E5%92%8C%E8%AF%84%E8%AE%BA%E7%9A%84%E6%96%B9%E6%B3%95)），用于下载全量数据。以及必须提及一个非常简便的网站是 [Arctic Shift](https://arctic-shift.photon-reddit.com/)，可以搜索并下载到所有 sub 的所有贴文或评论。
+
+网站框架用的是 Mkdocs Material，然后语言用的是 Shell、Python 和 Go，其中 Go 用来做网站内容获取，而 Shell 和 Python 用于写一些脚本，最后部署用的是 GitHub Actions，以及用于开发用的 Docker + devcontainer。
+
+## 贡献
+
+一个比较核心的问题是网站没法全量构建，这个比较重要，不过解决方法其实很简单，就是转移到动态网站，部署到其它地方去。
+
+但是问题就是本人最近比较忙，所以要做的话估计起码要等到明年。
+
+如果有人想参与这个项目或者帮忙贡献的话可以私信我或者直接对 GitHub 贡献也行。
+
+## 后记
+
+其实理论上来说可以帮所有浪人 sub，包括已经消失的 r/chonglangTV 之类也顺手做一下的，但是因为畏惧浪蛆的多样性所以没做。并不是不想做，而是怕被全家大头，望谅解。相信如果是有心之人的话想做一个浪组版本的 Reddit Archiver 应该不难。
