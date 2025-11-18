@@ -2,7 +2,19 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
-| 2025-11-17 17:16 | `1ozm3ef` | [给没受过民主国家教育的人科普几点来日本前的政治常识和一些小tips](../posts/r_runtoJapan2/251117171606_1ozm3ef.md) | yirongyiburong | 52 | 0.77 | 57 | 经验分享 | false | true | self.runtoJapan2 |
+| 2025-11-18 14:15 | `1p0d1wh` | [麻中麻，学校和日本的实习交流项目被取消了](../posts/r_runtoJapan2/251118141539_1p0d1wh.md) | Lophill | 6 | 1.0 | 8 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-11-18 13:42 | `1p0c9em` | [怎么处理因为中日关系恶化跟家里的矛盾，各种鸡飞狗跳](../posts/r_runtoJapan2/251118134249_1p0c9em.md) | go_smash_them_tengxp | 7 | 0.77 | 22 | 日常生活 | false | true | self.runtoJapan2 |
+| 2025-11-18 08:19 | `1p06hsp` | [高度人才加20分，赶紧的](../posts/r_runtoJapan2/251118081910_1p06hsp.md) | dantaikai | 0 | 0.22 | 11 | 中介招聘 | false | false | i.redd.it |
+| 2025-11-18 08:06 | `1p06azw` | [我妹妹真可爱～](../posts/r_runtoJapan2/251118080655_1p06azw.md) | HonestzPractice | 0 | 0.4 | 1 | 聊天吹水 | false | false | i.redd.it |
+| 2025-11-18 07:20 | `1p05l6p` | [日本是goat国家 我要逃离老墨 黑人  阿三 绿绿的包围前往日本](../posts/r_runtoJapan2/251118072016_1p05l6p.md) | YoumoSubei | 5 | 0.62 | 11 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-11-18 07:02 | `1p05b8m` | [高才打分求助](../posts/r_runtoJapan2/251118070236_1p05b8m.md) | Fun-Prize6710 | 0 | 0.5 | 6 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-18 05:50 | `1p0434a` | [你們覺得哪張圖比較正確](../posts/r_runtoJapan2/251118055021_1p0434a.md) | veggietofu1234 | 11 | 0.87 | 19 | 不懂就问 | false | false | reddit.com |
+| 2025-11-18 05:48 | `1p041qe` | [镰仓这地方整游客的商魂还是在线](../posts/r_runtoJapan2/251118054804_1p041qe.md) | matusaka_ryoiti | 5 | 0.78 | 8 | 聊天吹水 | false | false | i.redd.it |
+| 2025-11-18 05:40 | `1p03wlr` | [喜欢特摄的人都是纯粹之人，心里没有那么多弯弯绕绕。所以该说的会直接说出来。](../posts/r_runtoJapan2/251118054007_1p03wlr.md) | stupidStage12dogis2B | 42 | 0.9 | 18 | 聊天吹水 | false | false | reddit.com |
+| 2025-11-18 04:00 | `1p021gn` | [读研润日/J-find润日可能性](../posts/r_runtoJapan2/251118040045_1p021gn.md) | Fish_UuU | 2 | 1.0 | 16 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-18 03:17 | `1p014yx` | [一图诠释中日文化异同](../posts/r_runtoJapan2/251118031723_1p014yx.md) | Professional_Buy9863 | 36 | 0.89 | 14 | 聊天吹水 | false | false | i.redd.it |
+| 2025-11-18 02:18 | `1ozzur8` | [日本人现在更讨厌中国还是韩国？](../posts/r_runtoJapan2/251118021803_1ozzur8.md) | hiroshima_fireworks | 0 | 0.44 | 46 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-17 17:16 | `1ozm3ef` | [给没受过民主国家教育的人科普几点来日本前的政治常识和一些小tips](../posts/r_runtoJapan2/251117171606_1ozm3ef.md) | yirongyiburong | 95 | 0.79 | 86 | 经验分享 | false | true | self.runtoJapan2 |
 | 2025-11-17 13:36 | `1ozggj0` | [Black Friday 各位都有怎样的购物计划？](../posts/r_runtoJapan2/251117133623_1ozggj0.md) | runnow2022 | 3 | 0.8 | 8 | 日常生活 | false | true | self.runtoJapan2 |
 | 2025-11-17 12:29 | `1ozezt0` | [感觉米价上涨之后外食业愈发兴盛了](../posts/r_runtoJapan2/251117122941_1ozezt0.md) | runnow2022 | 4 | 1.0 | 11 | 日常生活 | false | true | self.runtoJapan2 |
 | 2025-11-17 12:04 | `1ozehyc` | [关于日本租房，分享一下自己的看法](../posts/r_runtoJapan2/251117120418_1ozehyc.md) | Sakura_0627 | 4 | 1.0 | 2 | 经典回顾 | false | true | self.runtoJapan2 |

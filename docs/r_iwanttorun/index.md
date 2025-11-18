@@ -4,6 +4,9 @@
 
 ## Latest changes
 
+- `251118150026` [纯好奇一件事，那些为了tn签南下赴美留学或移民加拿大的为啥不选择去墨西哥留学？一模一样的tn签，比加拿大身份好拿还不用挨冷受冻](../posts/r_iwanttorun/251118060044_1p049ky.md)
+- `251118150026` [现在润日本还安全吗？中共是不是真要攻台了](../posts/r_iwanttorun/251118021254_1ozzqot.md)
+- `251118150026` [文科生要先找工作攒钱还是直接run？](../posts/r_iwanttorun/251118124148_1p0awan.md)
 - `251118015720` [大专光伏十万润发达国家（A college degree in photovoltaic power with a profit of 100,000 yuan can reach the whole country）](../posts/r_iwanttorun/251116145240_1oyno0c.md)
 - `251118015720` [985精算10-15w润日还是加拿大？](../posts/r_iwanttorun/251117145505_1ozidg6.md)
 - `251117015844` [TRT World - EU to halt multi-entry visas for most Russians — report](../posts/r_iwanttorun/251116171958_1oyrdmc.md)
@@ -65,6 +68,3 @@
 - `251108015040` [211本科大四，我的润日计划](../posts/r_iwanttorun/251107085035_1oqpcdr.md)
 - `251107015614` [我肯定更愿意住在中国，而不是其他任何地方，除了美国和日本。我非常喜欢我们的等级制度，它带来了高效的管理，还有“盖世太保”一样的力量保护我们免受那些令人厌恶的农民和底层社会垃圾的侵扰。法律偏向强者，这本应如此。我喜欢奖励强者、惩罚弱者的社会。西方社会偏袒弱者，因此每一代人变得越来越懒惰，能力越来越差。我在那种环境中会感到窒息。我相信，只要你不是那种不能忍受任何“非正义”的过度同情的人，你会发现中国是一个舒适的居住地。](../posts/r_iwanttorun/251106074928_1opsxko.md)
 - `251107015614` [信報即時新聞 - 時事脈搏 - 立法會選舉丨江旻憓出戰旅遊界議席 稱已申請放棄加拿大護照 - 信報網站 hkej.com](../posts/r_iwanttorun/251106204810_1oqagqd.md)
-- `251107015614` [现在想想美国的出生地移民配额制度真是太伟大太正确了，看看加拿大英国澳洲就知道，不搞移民配额的下场就是打个最低工资labour工还要找印度人refer你](../posts/r_iwanttorun/251106204852_1oqahcs.md)
-- `251107015614` [润不出去的话，在哪躺平比较舒适呢？](../posts/r_iwanttorun/251106083033_1optkdt.md)
-- `251106020002` [现在如果为了提升生活质量润是不是除了澳洲和美国都不值得去？](../posts/r_iwanttorun/251105180910_1opacs2.md)

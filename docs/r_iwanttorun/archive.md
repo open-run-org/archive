@@ -2,6 +2,9 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-18 12:41 | `1p0awan` | [文科生要先找工作攒钱还是直接run？](../posts/r_iwanttorun/251118124148_1p0awan.md) | Delicious_Goal_8243 | 3 | 1.0 | 14 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-18 06:00 | `1p049ky` | [纯好奇一件事，那些为了tn签南下赴美留学或移民加拿大的为啥不选择去墨西哥留学？一模一样的tn签，比加拿大身份好拿还不用挨冷受冻](../posts/r_iwanttorun/251118060044_1p049ky.md) | YoumoSubei | 0 | 0.5 | 9 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-18 02:12 | `1ozzqot` | [现在润日本还安全吗？中共是不是真要攻台了](../posts/r_iwanttorun/251118021254_1ozzqot.md) | hiroshima_fireworks | 0 | 0.17 | 14 | 不懂就问 | false | false | i.redd.it |
 | 2025-11-17 14:55 | `1ozidg6` | [985精算10-15w润日还是加拿大？](../posts/r_iwanttorun/251117145505_1ozidg6.md) | NovemberRai | 6 | 0.88 | 20 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-16 18:26 | `1oyt3jz` | [加拿大和美国=燕郊和北京](../posts/r_iwanttorun/251116182638_1oyt3jz.md) | YoumoSubei | 7 | 0.73 | 11 | 分享帖 | false | false | reddit.com |
 | 2025-11-16 17:19 | `1oyrdmc` | [TRT World - EU to halt multi-entry visas for most Russians — report](../posts/r_iwanttorun/251116171958_1oyrdmc.md) | kyk00525 | 1 | 1.0 | 0 | ??? | false | false | trtworld.com |
