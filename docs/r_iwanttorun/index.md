@@ -4,6 +4,8 @@
 
 ## Latest changes
 
+- `251118015720` [大专光伏十万润发达国家（A college degree in photovoltaic power with a profit of 100,000 yuan can reach the whole country）](../posts/r_iwanttorun/251116145240_1oyno0c.md)
+- `251118015720` [985精算10-15w润日还是加拿大？](../posts/r_iwanttorun/251117145505_1ozidg6.md)
 - `251117015844` [TRT World - EU to halt multi-entry visas for most Russians — report](../posts/r_iwanttorun/251116171958_1oyrdmc.md)
 - `251117015844` [加拿大和美国=燕郊和北京](../posts/r_iwanttorun/251116182638_1oyt3jz.md)
 - `251117015844` [大专光伏十万润发达国家（A college degree in photovoltaic power with a profit of 100,000 yuan can reach the whole country）](../posts/r_iwanttorun/251116145240_1oyno0c.md)
@@ -66,5 +68,3 @@
 - `251107015614` [现在想想美国的出生地移民配额制度真是太伟大太正确了，看看加拿大英国澳洲就知道，不搞移民配额的下场就是打个最低工资labour工还要找印度人refer你](../posts/r_iwanttorun/251106204852_1oqahcs.md)
 - `251107015614` [润不出去的话，在哪躺平比较舒适呢？](../posts/r_iwanttorun/251106083033_1optkdt.md)
 - `251106020002` [现在如果为了提升生活质量润是不是除了澳洲和美国都不值得去？](../posts/r_iwanttorun/251105180910_1opacs2.md)
-- `251106020002` [New Japanese government puts foreign nationals in focus | NHK WORLD-JAPAN News](../posts/r_iwanttorun/251105145706_1op5270.md)
-- `251105015724` [我在意大利当难民（直播中）](../posts/r_iwanttorun/251104203149_1ooifsg.md)

@@ -2,9 +2,10 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-17 14:55 | `1ozidg6` | [985精算10-15w润日还是加拿大？](../posts/r_iwanttorun/251117145505_1ozidg6.md) | NovemberRai | 6 | 0.88 | 20 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-16 18:26 | `1oyt3jz` | [加拿大和美国=燕郊和北京](../posts/r_iwanttorun/251116182638_1oyt3jz.md) | YoumoSubei | 7 | 0.73 | 11 | 分享帖 | false | false | reddit.com |
 | 2025-11-16 17:19 | `1oyrdmc` | [TRT World - EU to halt multi-entry visas for most Russians — report](../posts/r_iwanttorun/251116171958_1oyrdmc.md) | kyk00525 | 1 | 1.0 | 0 | ??? | false | false | trtworld.com |
-| 2025-11-16 14:52 | `1oyno0c` | [大专光伏十万润发达国家（A college degree in photovoltaic power with a profit of 100,000 yuan can reach the whole country）](../posts/r_iwanttorun/251116145240_1oyno0c.md) | ChaseLee_7 | 0 | 0.4 | 5 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-16 14:52 | `1oyno0c` | [大专光伏十万润发达国家（A college degree in photovoltaic power with a profit of 100,000 yuan can reach the whole country）](../posts/r_iwanttorun/251116145240_1oyno0c.md) | ChaseLee_7 | 0 | 0.5 | 20 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-16 03:27 | `1oyb83y` | [我给中国政府出个主意，关于中日矛盾的](../posts/r_iwanttorun/251116032745_1oyb83y.md) | thanksgiving24 | 0 | 0.44 | 7 | 分享帖 | false | true | self.iwanttorun |
 | 2025-11-16 01:22 | `1oy8pb7` | [穷逼大三生想润](../posts/r_iwanttorun/251116012227_1oy8pb7.md) | Otherwise_Version513 | 1 | 1.0 | 1 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-15 18:04 | `1oxyg3v` | [Japan urges China to scale back response in Taiwan row](../posts/r_iwanttorun/251115180459_1oxyg3v.md) | kyk00525 | 1 | 1.0 | 0 | 讨论 | false | false | dw.com |
