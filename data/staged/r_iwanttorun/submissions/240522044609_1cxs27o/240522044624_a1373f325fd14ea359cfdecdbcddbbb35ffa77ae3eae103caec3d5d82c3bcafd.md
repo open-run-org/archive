@@ -1,0 +1,23 @@
+---
+title: "今天做美国人了"
+subreddit: "r/iwanttorun"
+id: "1cxs27o"
+name: "t3_1cxs27o"
+author: "UnluckyRaspberry2960"
+created_utc: 1716353169
+created_key: "240522044609"
+capture_ts: "240522044624"
+content_sha256: "a1373f325fd14ea359cfdecdbcddbbb35ffa77ae3eae103caec3d5d82c3bcafd"
+permalink: "https://reddit.com/r/iwanttorun/comments/1cxs27o/今天做美国人了/"
+url: "https://www.reddit.com/r/iwanttorun/comments/1cxs27o/今天做美国人了/"
+domain: "self.iwanttorun"
+ups: 1
+upvote_ratio: 1
+num_comments: 0
+link_flair_text: "分享帖"
+link_flair_css_class: ""
+over_18: false
+is_self: true
+---
+
+[removed]

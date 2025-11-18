@@ -23,7 +23,10 @@ AT_MONTHLY_SUBS_MAGNET ?= magnet:?xt=urn:btih:30dee5f0406da7a353aff6a8caa2d54fd0
 AT_MONTHLY_COMMENTS_MAGNET ?= magnet:?xt=urn:btih:30dee5f0406da7a353aff6a8caa2d54fd01f2ca1
 AT_TRACKERS ?= udp://tracker.opentrackr.org:1337/announce,https://tracker.zhuqiy.com:443/announce
 
-.PHONY: deps fetch-monthly ids hydrate sync-backfill jsonl2md docs serve build sync harvest harvest-comments jsonl2md-comments ci
+ARCTIC_DIR ?= data/arctic
+ARCTIC_FILES ?= $(wildcard $(ARCTIC_DIR)/*.jsonl)
+
+.PHONY: deps fetch-monthly ids hydrate sync-backfill jsonl2md docs serve build sync harvest harvest-comments jsonl2md-comments ci import-arctic
 
 deps:
 	@if [ -z "$$CI" ]; then \
@@ -91,3 +94,6 @@ ci:
 	$(MAKE) jsonl2md-comments
 	$(MAKE) docs
 	@echo "[ci] pipeline done"
+
+import-arctic:
+	$(PY) scripts/import_arctic.py --root $(DATA_ROOT) $(ARCTIC_FILES)
