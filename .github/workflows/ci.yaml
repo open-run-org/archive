@@ -90,6 +90,3 @@ jobs:
           else
             echo "no content changes"
           fi
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
