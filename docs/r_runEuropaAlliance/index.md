@@ -4,6 +4,8 @@
 
 ## Latest changes
 
+- `251120214209` [finding job in Ireland](../posts/r_runEuropaAlliance/251119214835_1p1kz0v.md)
+- `251120214209` [已实现所有润学 sub 的全量贴文和评论备份，包括被删的](../posts/r_runEuropaAlliance/251118212611_1p0ogst.md)
 - `251117015848` [请问这样的德国CS phd推荐度有多少？](../posts/r_runEuropaAlliance/251114135933_1owx801.md)
 - `251117015848` [请问什么专业比较好](../posts/r_runEuropaAlliance/251116113949_1oyjly3.md)
 - `251115015342` [国内末9天坑专业求润路](../posts/r_runEuropaAlliance/251113073922_1ovv2ge.md)
@@ -66,5 +68,3 @@
 - `250927160453` [这里的很多朋友应该都认识我了，我把我之前的post整合放在r/runtoEurope了](../posts/r_runEuropaAlliance/241214145710_1he4l6v.md)
 - `250927160453` [盘点老中老印最好留的硕士项目（附国家与地区层级数据）](../posts/r_runEuropaAlliance/241211061800_1hbn8wz.md)
 - `250927160453` [红迪对账后欧洲人天塌了](../posts/r_runEuropaAlliance/250118153514_1i4a15x.md)
-- `250927160453` [是新家吗](../posts/r_runEuropaAlliance/241212072621_1hcfub9.md)
-- `250927160453` [已润欧的进，请问欧洲医疗实际体验如何](../posts/r_runEuropaAlliance/250201140547_1if70aa.md)

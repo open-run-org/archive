@@ -2,6 +2,21 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-20 16:28 | `1p27n5m` | [我明年要从北美去日本交换，现在这局势还能去吗，咱妈非得跟小日子闹哪样！！！有没有在日的uu说说](../posts/r_iwanttorun/251120162842_1p27n5m.md) | Opposite-Car2809 | 0 | 0.15 | 3 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-20 12:40 | `1p224fi` | [请教一下各位润友关于日本半导体的问题](../posts/r_iwanttorun/251120124014_1p224fi.md) | Frequent_Low757 | 3 | 1.0 | 19 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-20 09:53 | `1p1z84q` | [向歐美看齊](../posts/r_iwanttorun/251120095352_1p1z84q.md) | kyk00525 | 2 | 0.75 | 0 | ??? | false | false | i.redd.it |
+| 2025-11-20 07:56 | `1p1xfz6` | [美国旅游签打算去打现金工随便考驾照](../posts/r_iwanttorun/251120075605_1p1xfz6.md) | CountryInformal9467 | 0 | 0.3 | 16 | 讨论 | false | true | self.iwanttorun |
+| 2025-11-20 06:58 | `1p1wk2b` | [请问各位在澳洲以外申请澳洲工作靠谱吗](../posts/r_iwanttorun/251120065856_1p1wk2b.md) | shuduk | 1 | 0.57 | 7 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-20 02:44 | `1p1rt52` | [大三次九工科求指导](../posts/r_iwanttorun/251120024431_1p1rt52.md) | f1vesat | 4 | 1.0 | 11 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-20 00:15 | `1p1ojrh` | [庇护老嗨来说说那些交了钱，案子失败后火速隐身的律师/中介](../posts/r_iwanttorun/251120001544_1p1ojrh.md) | sugarlogs_ | 2 | 0.75 | 6 | 分享帖 | false | true | self.iwanttorun |
+| 2025-11-19 21:46 | `1p1kx30` | [真诚提问。去发达国家做安装维修有搞头不](../posts/r_iwanttorun/251119214627_1p1kx30.md) | Sweet-Soft4700 | 0 | 0.36 | 44 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-19 17:12 | `1p1dhau` | [3+2大专生有机会润吗](../posts/r_iwanttorun/251119171237_1p1dhau.md) | txdqyg | 0 | 0.4 | 21 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-19 17:09 | `1p1ddz5` | [New Immigration Rule Will End Or Restrict Student Practical Training](../posts/r_iwanttorun/251119170911_1p1ddz5.md) | kyk00525 | 3 | 1.0 | 0 | 讨论 | false | false | forbes.com |
+| 2025-11-19 15:58 | `1p1bgh2` | [现在美本到底是读phd死磕润美好还是走加拿大等tn好呢](../posts/r_iwanttorun/251119155829_1p1bgh2.md) | Forward_Ad_9603 | 13 | 0.88 | 24 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-19 09:50 | `1p13fl7` | [听咱妈的话](../posts/r_iwanttorun/251119095005_1p13fl7.md) | red-mia-tatata | 0 | 0.44 | 12 | 分享帖 | false | false | v.redd.it |
+| 2025-11-19 07:16 | `1p10zq6` | [已经有美国白精灵白妈申请k签证定居大支了，殖人们还能说话吗？说好的印度人呢？](../posts/r_iwanttorun/251119071631_1p10zq6.md) | YoumoSubei | 35 | 0.89 | 30 | 分享帖 | false | false | reddit.com |
+| 2025-11-19 00:35 | `1p0t3t9` | [人生迷茫，求润友开解](../posts/r_iwanttorun/251119003554_1p0t3t9.md) | Ok_Sentence8137 | 0 | 0.47 | 22 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-18 21:11 | `1p0o2um` | [已实现所有润学 sub 的全量贴文和评论备份，包括被删的](../posts/r_iwanttorun/251118211128_1p0o2um.md) | No-Lab4175 | 76 | 1.0 | 10 | 精品 | false | true | self.iwanttorun |
 | 2025-11-18 12:41 | `1p0awan` | [文科生要先找工作攒钱还是直接run？](../posts/r_iwanttorun/251118124148_1p0awan.md) | Delicious_Goal_8243 | 3 | 1.0 | 14 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-18 06:00 | `1p049ky` | [纯好奇一件事，那些为了tn签南下赴美留学或移民加拿大的为啥不选择去墨西哥留学？一模一样的tn签，比加拿大身份好拿还不用挨冷受冻](../posts/r_iwanttorun/251118060044_1p049ky.md) | YoumoSubei | 0 | 0.5 | 9 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-18 02:12 | `1ozzqot` | [现在润日本还安全吗？中共是不是真要攻台了](../posts/r_iwanttorun/251118021254_1ozzqot.md) | hiroshima_fireworks | 0 | 0.17 | 14 | 不懂就问 | false | false | i.redd.it |

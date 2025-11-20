@@ -2,6 +2,8 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-19 21:48 | `1p1kz0v` | [finding job in Ireland](../posts/r_runEuropaAlliance/251119214835_1p1kz0v.md) | Ill_Expression_7064 | 2 | 1.0 | 0 | 提問 | Ask | false | false |  |
+| 2025-11-18 21:26 | `1p0ogst` | [已实现所有润学 sub 的全量贴文和评论备份，包括被删的](../posts/r_runEuropaAlliance/251118212611_1p0ogst.md) | No-Lab4175 | 7 | 1.0 | 0 | 分享 | Share | false | false |  |
 | 2025-11-16 11:39 | `1oyjly3` | [请问什么专业比较好](../posts/r_runEuropaAlliance/251116113949_1oyjly3.md) | Tiny_Rub1570 | 0 | 0.5 | 9 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-11-14 13:59 | `1owx801` | [请问这样的德国CS phd推荐度有多少？](../posts/r_runEuropaAlliance/251114135933_1owx801.md) | Able_Click1746 | 6 | 1.0 | 1 | 提問 | Ask | false | true | self.runEuropaAlliance |
 | 2025-11-14 02:42 | `1owktir` | [请教一下关于托福雅思在欧洲的认可度](../posts/r_runEuropaAlliance/251114024211_1owktir.md) | Frequent_Low757 | 0 | 0.5 | 13 | 提問 | Ask | false | true | self.runEuropaAlliance |
