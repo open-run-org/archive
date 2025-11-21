@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-21 00:37 | `1p2kaqp` | [闹麻了，中国邮轮临时取消停靠日本港口](../posts/r_runtoJapan2/251121003728_1p2kaqp.md) | hiroshima_fireworks | 5 | 1.0 | 5 |  | false | false | reddit.com |
 | 2025-11-20 11:01 | `1p20b8u` | [分享一下在日本生活，如何申请美国信用卡并在日本使用](../posts/r_runtoJapan2/251120110146_1p20b8u.md) | Sakura_0627 | 6 | 1.0 | 5 | 经典回顾 | false | true | self.runtoJapan2 |
 | 2025-11-20 11:01 | `1p20b7f` | [东京都穷蛆食材选购超市指北](../posts/r_runtoJapan2/251120110142_1p20b7f.md) | Sakura_0627 | 9 | 1.0 | 4 | 经典回顾 | false | true | self.runtoJapan2 |
 | 2025-11-20 06:31 | `1p1w3vm` | [发一个跟润友们密切相关的消息：在留资格手续费要涨价了](../posts/r_runtoJapan2/251120063108_1p1w3vm.md) | ztstillwater | 20 | 0.95 | 27 | 政策新闻 | false | true | self.runtoJapan2 |
