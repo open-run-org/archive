@@ -2,6 +2,7 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-21 09:13 | `1p2u0d0` | [澳洲律师修改付款单被发现，吊销律师资格](../posts/r_RunAustralia/251121091331_1p2u0d0.md) | cuter1982 | 5 | 1.0 | 1 |  | false | true | self.RunAustralia |
 | 2025-11-20 06:59 | `1p1wk9p` | [请问各位在澳洲以外申请澳洲工作靠谱吗](../posts/r_RunAustralia/251120065918_1p1wk9p.md) | shuduk | 1 | 1.0 | 0 |  | false | false |  |
 | 2025-11-13 22:08 | `1owelqn` | [日赚5000-10000不是梦](../posts/r_RunAustralia/251113220836_1owelqn.md) | usdt6 | 0 | 0.25 | 1 |  | false | true | self.RunAustralia |
 | 2025-11-03 04:48 | `1on2wdy` | [跑外卖账号被封了，已走投无路，澳洲，终局](../posts/r_RunAustralia/251103044818_1on2wdy.md) | Electronic-Arm-3960 | 2 | 0.75 | 10 |  | false | true | self.RunAustralia |

@@ -2,6 +2,11 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-22 00:51 | `1p3fpgg` | [在欧洲的润友们，你们的tinder账号行情如何？](../posts/r_iwanttorun/251122005112_1p3fpgg.md) | realemo1979 | 1 | 1.0 | 0 | 讨论 | false | true | self.iwanttorun |
+| 2025-11-21 17:52 | `1p35d0j` | [Even dog don’t want to work on the Friday before Thanksgiving](../posts/r_iwanttorun/251121175200_1p35d0j.md) | FreeXiJinpingAss | 2 | 1.0 | 2 | 炒作狗 | false | true | self.iwanttorun |
+| 2025-11-21 13:55 | `1p2z8wr` | [出一出新西兰的pr，有想法的最少我提供一个方法](../posts/r_iwanttorun/251121135546_1p2z8wr.md) | Prize_Calendar_6449 | 0 | 0.4 | 8 | 分享帖 | false | true | self.iwanttorun |
+| 2025-11-21 11:15 | `1p2vzeo` | [你永远不会成为一个外国人](../posts/r_iwanttorun/251121111551_1p2vzeo.md) | YoumoSubei | 0 | 0.49 | 33 | 分享帖 | false | true | self.iwanttorun |
+| 2025-11-21 06:25 | `1p2rdnb` | [纽币怎么跌这么惨？新西兰打工度假赚米还能去吗？](../posts/r_iwanttorun/251121062545_1p2rdnb.md) | YoumoSubei | 7 | 0.89 | 17 | 不懂就问 | false | false | i.redd.it |
 | 2025-11-20 16:28 | `1p27n5m` | [我明年要从北美去日本交换，现在这局势还能去吗，咱妈非得跟小日子闹哪样！！！有没有在日的uu说说](../posts/r_iwanttorun/251120162842_1p27n5m.md) | Opposite-Car2809 | 0 | 0.15 | 3 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-20 12:40 | `1p224fi` | [请教一下各位润友关于日本半导体的问题](../posts/r_iwanttorun/251120124014_1p224fi.md) | Frequent_Low757 | 3 | 1.0 | 19 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-20 09:53 | `1p1z84q` | [向歐美看齊](../posts/r_iwanttorun/251120095352_1p1z84q.md) | kyk00525 | 2 | 0.75 | 0 | ??? | false | false | i.redd.it |

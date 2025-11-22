@@ -2,7 +2,15 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
-| 2025-11-21 00:37 | `1p2kaqp` | [闹麻了，中国邮轮临时取消停靠日本港口](../posts/r_runtoJapan2/251121003728_1p2kaqp.md) | hiroshima_fireworks | 5 | 1.0 | 5 |  | false | false | reddit.com |
+| 2025-11-21 18:28 | `1p36bc0` | [求助](../posts/r_runtoJapan2/251121182805_1p36bc0.md) | Mstrwarn747 | 3 | 0.8 | 4 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-21 14:49 | `1p30ke8` | [在日本去诊所看过焦虑症，会影响以后的归化吗？](../posts/r_runtoJapan2/251121144954_1p30ke8.md) | Much-Development-483 | 3 | 1.0 | 7 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-21 13:13 | `1p2ya32` | [家人们我该如何润日](../posts/r_runtoJapan2/251121131353_1p2ya32.md) | BabyGhoul69 | 0 | 0.38 | 16 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-21 12:35 | `1p2xgva` | [友友们求助，哪里买零食便宜？](../posts/r_runtoJapan2/251121123533_1p2xgva.md) | blues_submarine | 5 | 1.0 | 7 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-21 11:02 | `1p2vqyv` | [分享下“スーパーホワイト“这个知识](../posts/r_runtoJapan2/251121110215_1p2vqyv.md) | Sakura_0627 | 13 | 1.0 | 3 | 经典回顾 | false | true | self.runtoJapan2 |
+| 2025-11-21 06:30 | `1p2rg6s` | [150cm200kg不适应社会的ADHD自救指南之打工篇](../posts/r_runtoJapan2/251121063003_1p2rg6s.md) | Sakura_0627 | 7 | 0.77 | 11 | 经典回顾 | false | true | self.runtoJapan2 |
+| 2025-11-21 06:05 | `1p2r1gn` | [大太监蛆 破防](../posts/r_runtoJapan2/251121060551_1p2r1gn.md) | YoumoSubei | 12 | 0.64 | 21 | 聊天吹水 | false | false |  |
+| 2025-11-21 02:02 | `1p2m6hg` | [高市早苗选集——与藤井等同志谈话纪要](../posts/r_runtoJapan2/251121020236_1p2m6hg.md) | Anxious-Impress8266 | 38 | 0.95 | 8 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-11-21 00:37 | `1p2kaqp` | [闹麻了，中国邮轮临时取消停靠日本港口](../posts/r_runtoJapan2/251121003728_1p2kaqp.md) | hiroshima_fireworks | 37 | 0.88 | 32 | 聊天吹水 | false | false | reddit.com |
 | 2025-11-20 11:01 | `1p20b8u` | [分享一下在日本生活，如何申请美国信用卡并在日本使用](../posts/r_runtoJapan2/251120110146_1p20b8u.md) | Sakura_0627 | 6 | 1.0 | 5 | 经典回顾 | false | true | self.runtoJapan2 |
 | 2025-11-20 11:01 | `1p20b7f` | [东京都穷蛆食材选购超市指北](../posts/r_runtoJapan2/251120110142_1p20b7f.md) | Sakura_0627 | 9 | 1.0 | 4 | 经典回顾 | false | true | self.runtoJapan2 |
 | 2025-11-20 06:31 | `1p1w3vm` | [发一个跟润友们密切相关的消息：在留资格手续费要涨价了](../posts/r_runtoJapan2/251120063108_1p1w3vm.md) | ztstillwater | 20 | 0.95 | 27 | 政策新闻 | false | true | self.runtoJapan2 |

@@ -4,6 +4,11 @@
 
 ## Latest changes
 
+- `251122005535` [Even dog don’t want to work on the Friday before Thanksgiving](../posts/r_iwanttorun/251121175200_1p35d0j.md)
+- `251122005535` [你永远不会成为一个外国人](../posts/r_iwanttorun/251121111551_1p2vzeo.md)
+- `251122005535` [纽币怎么跌这么惨？新西兰打工度假赚米还能去吗？](../posts/r_iwanttorun/251121062545_1p2rdnb.md)
+- `251122005535` [在欧洲的润友们，你们的tinder账号行情如何？](../posts/r_iwanttorun/251122005112_1p3fpgg.md)
+- `251122005535` [出一出新西兰的pr，有想法的最少我提供一个方法](../posts/r_iwanttorun/251121135546_1p2z8wr.md)
 - `251120214205` [庇护老嗨来说说那些交了钱，案子失败后火速隐身的律师/中介](../posts/r_iwanttorun/251120001544_1p1ojrh.md)
 - `251120214205` [3+2大专生有机会润吗](../posts/r_iwanttorun/251119171237_1p1dhau.md)
 - `251120214205` [已经有美国白精灵白妈申请k签证定居大支了，殖人们还能说话吗？说好的印度人呢？](../posts/r_iwanttorun/251119071631_1p10zq6.md)
@@ -63,8 +68,3 @@
 - `251112015724` [润错了，应该润美国拿庇护工卡爆金币的](../posts/r_iwanttorun/251111043040_1ou06ke.md)
 - `251111015802` [China rolls out its version of the H-1B visa to attract foreign tech workers](../posts/r_iwanttorun/251110202619_1otoxvo.md)
 - `251111015802` [eve_shanghai我操死你的妈](../posts/r_iwanttorun/251028003832_1ohvmld.md)
-- `251111015802` [创建了润加同盟，欢迎大家加入](../posts/r_iwanttorun/251110201839_1otoqd5.md)
-- `251110020147` [签署涉密协议还是辞职？](../posts/r_iwanttorun/251109100828_1osfqnu.md)
-- `251110020147` [我确实在中国遭受过政治迫害，有机会申请庇护吗？](../posts/r_iwanttorun/251110001243_1osz8v1.md)
-- `251110020147` [唉，织女](../posts/r_iwanttorun/251109130516_1osivl8.md)
-- `251110020147` [Immigrants with health conditions may be denied visas under new Trump administration guidance](../posts/r_iwanttorun/251109142654_1oskpdt.md)
