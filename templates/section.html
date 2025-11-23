@@ -13,41 +13,36 @@
 </div>
 
 <div style="overflow-x: auto;">
-    <table id="archiveTable">
+    <table id="archiveTable" style="width: 100%; table-layout: fixed; min-width: 600px;">
         <thead>
             <tr style="cursor: pointer; background: #f0f0f0;">
-                <th onclick="sortTable(0, 'date')" style="min-width: 100px;">Date ↕</th>
-                <th onclick="sortTable(1, 'number')" style="width: 60px;">Ups ↕</th>
-                <th onclick="sortTable(2, 'number')" style="width: 60px;">Cmt ↕</th>
-                <th onclick="sortTable(3, 'string')">Title ↕</th>
-                <th onclick="sortTable(4, 'string')">Author ↕</th>
+                <th onclick="sortTable(0, 'date')" style="width: 120px; padding: 8px;">Date ↕</th>
+                <th onclick="sortTable(1, 'number')" style="width: 60px; padding: 8px; text-align: right;">Ups ↕</th>
+                <th onclick="sortTable(2, 'number')" style="width: 60px; padding: 8px; text-align: right;">Cmt ↕</th>
+                <th onclick="sortTable(3, 'string')" style="width: auto; padding: 8px;">Title ↕</th>
+                <th onclick="sortTable(4, 'string')" style="width: 120px; padding: 8px;">Author ↕</th>
             </tr>
         </thead>
         <tbody>
         {% for page in section.pages %}
-            <tr>
-                <td data-value="{{ page.date }}" style="white-space: nowrap; font-size: 0.9em;">
+            <tr style="border-bottom: 1px solid #eee;">
+                <td data-value="{{ page.date }}" style="padding: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.9em;">
                     {{ page.date | date(format="%Y-%m-%d") }}
                 </td>
                 
-                <td data-value="{{ page.extra.ups | default(value=0) }}" style="text-align: right;">
+                <td data-value="{{ page.extra.ups | default(value=0) }}" style="padding: 8px; text-align: right;">
                     {{ page.extra.ups | default(value=0) }}
                 </td>
 
-                <td data-value="{{ page.extra.num_comments | default(value=0) }}" style="text-align: right;">
+                <td data-value="{{ page.extra.num_comments | default(value=0) }}" style="padding: 8px; text-align: right;">
                     {{ page.extra.num_comments | default(value=0) }}
                 </td>
 
-                <td data-value="{{ page.title }}">
-                    <a href="{{ page.permalink }}">{{ page.title }}</a>
-                    {% if page.extra.flair %}
-                        <span style="font-size: 0.8em; background: #eee; padding: 2px 4px; border-radius: 3px;">
-                            {{ page.extra.flair }}
-                        </span>
-                    {% endif %}
+                <td data-value="{{ page.title }}" style="padding: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                    <a href="{{ page.permalink }}" style="display: block; overflow: hidden; text-overflow: ellipsis;">{{ page.title }}</a>
                 </td>
 
-                <td data-value="{{ page.extra.author }}">
+                <td data-value="{{ page.extra.author }}" style="padding: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                     <span style="color: #666; font-size: 0.9em;">{{ page.extra.author }}</span>
                 </td>
             </tr>

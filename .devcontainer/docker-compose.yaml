@@ -1,9 +1,6 @@
 services:
   open-run-archive-dev:
     image: ghcr.io/open-run-org/archive-dev
-    build:
-      context: ..
-      dockerfile: Dockerfile.dev
     container_name: open-run-archive-dev
     working_dir: /workspace
     volumes:
