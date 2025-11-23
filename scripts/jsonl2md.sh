@@ -6,6 +6,9 @@ if ! command -v pandoc >/dev/null 2>&1; then echo "[md] missing pandoc" >&2; exi
 
 IN_ROOT=${1:-data/raw}
 OUT_ROOT=${2:-data/staged}
+DAYS=${GEN_RECENT:-64}
+
+CUTOFF=$(date -d "-$DAYS days" +%y%m%d%H%M%S)
 
 mapfile -t files < <(find "$IN_ROOT" -type f -path "$IN_ROOT/r_*/submissions/*/*.jsonl" | sort)
 TOTAL=${#files[@]}
@@ -14,11 +17,18 @@ if [[ $TOTAL -eq 0 ]]; then echo "[md] no input jsonl under $IN_ROOT"; exit 0; f
 i=0
 for f in "${files[@]}"; do
   i=$((i+1))
+  
+  created_id=$(basename "$(dirname "$f")")
+  ts_prefix=${created_id%%_*}
+  
+  if [[ "$ts_prefix" < "$CUTOFF" ]]; then
+    continue
+  fi
+
   line=$(sed -n '1p' "$f")
   if [[ -z "$line" ]]; then printf "\r[%d/%d] skip empty %s\n" "$i" "$TOTAL" "$f"; continue; fi
 
   subdir=$(basename "$(dirname "$(dirname "$(dirname "$f")")")")
-  created_id=$(basename "$(dirname "$f")")
   cap_hash=$(basename "$f"); cap_hash=${cap_hash%.jsonl}
   capture_ts=${cap_hash%%_*}; content_hash=${cap_hash#*_}
 
@@ -50,7 +60,7 @@ for f in "${files[@]}"; do
   if [[ -n "$html" && "$html" != "null" ]]; then
     body=$(
       printf "%s" "$html" \
-      | sed -E ':a;N;$!ba;s/<!--[[:space:]]*SC_OFF[[:space:]]*-->//g;s/<!--[[:space:]]*SC_ON[[:space:]]*-->//g' \
+      | sed -E ':a;N;$!ba;s///g;s///g' \
       | sed -E ':a;N;$!ba;s/^[[:space:]]*<div class="md">[[:space:]]*//; s:[[:space:]]*</div>[[:space:]]*$::' \
       | pandoc -f html -t gfm
     )

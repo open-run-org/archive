@@ -1,4 +1,4 @@
-[![CI](https://github.com/open-run-org/archive/actions/workflows/ci.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/ci.yaml)
+[![CI](https://github.com/open-run-org/archive/actions/workflows/ci.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/ci.yaml) [![Image](https://github.com/open-run-org/archive/actions/workflows/image.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/image.yaml)
 
 # Reddit Archiver
 
@@ -27,17 +27,17 @@
 
 网站因为过于无脑所以就不讲怎么用了，不过有一个问题，就是在我加入 r/iwanttorun 自 2021 年以来的全量备份之后 GitHub Pages 网站构建产物超限了，所以无奈之下目前只部署了自 2025 年 4 月以来的贴文，而且不包含 r/runtoJapan。简单来说就是网站是部分备份，而 GitHub 上有全量备份。
 
-全量的备份可以在 [这里](https://github.com/open-run-org/archive/tree/main/docs/posts) 找到，下载的话可以到 [GitHub Repo](https://github.com/open-run-org/archive) 界面然后下载（具体怎么下载 [见此](https://docs.github.com/en/get-started/start-your-journey/downloading-files-from-github)），然后进入 `/docs/posts` 即可。
+全量的备份可以在 [这里](https://github.com/open-run-org/archive/tree/main/content) 找到，下载的话可以到 [GitHub Repo](https://github.com/open-run-org/archive) 界面然后下载（具体怎么下载 [见此](https://docs.github.com/en/get-started/start-your-journey/downloading-files-from-github)），然后进入 `/content` 即可。
 
 每天 UTC 0 点的时候会触发 GitHub Action 然后自动更新最近 16 天的贴文和评论。
 
 给两个示例吧，比如经常有人在问的，以前 r/iwanttorun 的教未成年走线的贴文（现已被删）：
 
->[链接见此](https://github.com/open-run-org/archive/blob/main/docs/posts/r_iwanttorun/230413033915_12kal6n.md)
+>[链接见此](https://github.com/open-run-org/archive/blob/main/content/r_iwanttorun/230413033915_12kal6n.md)
 
 或者我在以前 r/runtoJapan 发的留日就职率（现 sub 已被封）：
 
->[链接见此](https://github.com/open-run-org/archive/blob/main/docs/posts/r_runtoJapan/240826203938_1f1ynlk.md)
+>[链接见此](https://github.com/open-run-org/archive/blob/main/content/r_runtoJapan/240826203938_1f1ynlk.md)
 
 包括评论也是都有保存的。
 

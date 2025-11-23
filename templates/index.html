@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ section.title }}</h1>
+{{ section.content | safe }}
+
+<h2>Subreddits</h2>
+<ul>
+{% for path in section.subsections %}
+    {% set sub = get_section(path=path) %}
+    <li><a href="{{ sub.permalink }}">{{ sub.title }}</a></li>
+{% endfor %}
+</ul>
+{% endblock content %}

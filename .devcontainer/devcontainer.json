@@ -1,6 +1,6 @@
 {
-	"dockerComposeFile": "compose.yaml",
-	"service": "archive",
+	"dockerComposeFile": "docker-compose.yaml",
+	"service": "open-run-archive-dev",
 	"workspaceFolder": "/workspace",
 	"shutdownAction": "stopCompose",
 	"customizations": {

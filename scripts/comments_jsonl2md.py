@@ -1,4 +1,4 @@
-import os, sys, json, pathlib, argparse, datetime
+import os, sys, json, pathlib, argparse, datetime, glob
 
 def fmt_iso(ts):
     try:
@@ -145,21 +145,35 @@ def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("in_root")
     ap.add_argument("out_root")
+    ap.add_argument("--days", type=int, default=64)
     args=ap.parse_args()
+    
     in_root=pathlib.Path(args.in_root)
     out_root=pathlib.Path(args.out_root)
+    
+    cutoff_dt = datetime.datetime.now() - datetime.timedelta(days=args.days)
+    cutoff_str = cutoff_dt.strftime("%y%m%d%H%M%S")
+    
     files=sorted(in_root.glob("r_*/comments/*/*.jsonl"))
     total=len(files)
+    
     for i,f in enumerate(files,1):
-        sub=f.parts[-4]
-        created_id=f.parts[-2]
+        created_id = f.parent.name
+        ts_part = created_id.split("_")[0]
+        
+        if ts_part < cutoff_str:
+            continue
+            
         cap=f.stem
+        sub=f.parts[-4]
+        
         rows=load_lines(f)
         flat=flatten_all(rows)
         post_id=created_id.split("_",1)[1]
         link="t3_"+post_id
         roots, by_parent = build_tree(flat, link)
         lines=render_tree(roots, by_parent, 1)
+        
         out_dir=out_root/sub/"comments"/created_id
         out_dir.mkdir(parents=True, exist_ok=True)
         out_file=out_dir/(cap+".md")

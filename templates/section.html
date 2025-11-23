@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="meta">
+    <a href="{{ get_url(path="@/_index.md") }}">← Back to Home</a>
+</div>
+
+<h1>{{ section.title }}</h1>
+{{ section.content | safe }}
+
+<div class="controls" style="margin: 1rem 0; display: flex; gap: 10px;">
+    <input type="text" id="tableFilter" placeholder="Filter title or author..." style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+</div>
+
+<div style="overflow-x: auto;">
+    <table id="archiveTable">
+        <thead>
+            <tr style="cursor: pointer; background: #f0f0f0;">
+                <th onclick="sortTable(0, 'date')" style="min-width: 100px;">Date ↕</th>
+                <th onclick="sortTable(1, 'number')" style="width: 60px;">Ups ↕</th>
+                <th onclick="sortTable(2, 'number')" style="width: 60px;">Cmt ↕</th>
+                <th onclick="sortTable(3, 'string')">Title ↕</th>
+                <th onclick="sortTable(4, 'string')">Author ↕</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for page in section.pages %}
+            <tr>
+                <td data-value="{{ page.date }}" style="white-space: nowrap; font-size: 0.9em;">
+                    {{ page.date | date(format="%Y-%m-%d") }}
+                </td>
+                
+                <td data-value="{{ page.extra.ups | default(value=0) }}" style="text-align: right;">
+                    {{ page.extra.ups | default(value=0) }}
+                </td>
+
+                <td data-value="{{ page.extra.num_comments | default(value=0) }}" style="text-align: right;">
+                    {{ page.extra.num_comments | default(value=0) }}
+                </td>
+
+                <td data-value="{{ page.title }}">
+                    <a href="{{ page.permalink }}">{{ page.title }}</a>
+                    {% if page.extra.flair %}
+                        <span style="font-size: 0.8em; background: #eee; padding: 2px 4px; border-radius: 3px;">
+                            {{ page.extra.flair }}
+                        </span>
+                    {% endif %}
+                </td>
+
+                <td data-value="{{ page.extra.author }}">
+                    <span style="color: #666; font-size: 0.9em;">{{ page.extra.author }}</span>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% if section.paginator %}
+<div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
+    {% if section.paginator.previous %}
+        <a href="{{ section.paginator.previous }}">Previous</a>
+    {% endif %}
+    <span>Page {{ section.paginator.current_index }} / {{ section.paginator.number_pagers }}</span>
+    {% if section.paginator.next %}
+        <a href="{{ section.paginator.next }}">Next</a>
+    {% endif %}
+</div>
+{% endif %}
+
+<script>
+    document.getElementById('tableFilter').addEventListener('keyup', function() {
+        let filter = this.value.toLowerCase();
+        let rows = document.querySelectorAll('#archiveTable tbody tr');
+        rows.forEach(row => {
+            let title = row.cells[3].textContent.toLowerCase();
+            let author = row.cells[4].textContent.toLowerCase();
+            if (title.includes(filter) || author.includes(filter)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
+
+    let sortDir = 1;
+    function sortTable(colIndex, type) {
+        let table = document.getElementById("archiveTable");
+        let tbody = table.querySelector("tbody");
+        let rows = Array.from(tbody.querySelectorAll("tr"));
+
+        sortDir *= -1;
+
+        rows.sort((a, b) => {
+            let valA = a.cells[colIndex].getAttribute('data-value');
+            let valB = b.cells[colIndex].getAttribute('data-value');
+
+            if (type === 'number') {
+                return (parseFloat(valA) - parseFloat(valB)) * sortDir;
+            } else {
+                return valA.localeCompare(valB) * sortDir;
+            }
+        });
+
+        rows.forEach(row => tbody.appendChild(row));
+        
+        let ths = table.querySelectorAll('th');
+        ths.forEach(th => th.innerHTML = th.innerHTML.replace(' ↑', '').replace(' ↓', '').replace(' ↕', ' ↕'));
+        ths[colIndex].innerHTML = ths[colIndex].innerHTML.replace(' ↕', sortDir === 1 ? ' ↑' : ' ↓');
+    }
+</script>
+{% endblock content %}
