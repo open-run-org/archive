@@ -2,6 +2,18 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-22 20:33 | `1p43fwz` | [哎 为什么我不是日本人， 如果我是日本人 我的人生会简单很多。](../posts/r_runtoJapan2/251122203323_1p43fwz.md) | YoumoSubei | 10 | 0.68 | 14 | 聊天吹水 | false | true | self.runtoJapan2 |
+| 2025-11-22 13:33 | `1p3tc9x` | [如果帖子被卡可以发送MOD邮件](../posts/r_runtoJapan2/251122133317_1p3tc9x.md) | Sakura_0627 | 2 | 1.0 | 3 | ⭐版务公告⭐ | false | true | self.runtoJapan2 |
+| 2025-11-22 12:17 | `1p3ruqr` | [我的润日路线可行吗 ，各位前辈。](../posts/r_runtoJapan2/251122121729_1p3ruqr.md) | Dense_Mammoth5737 | 5 | 0.78 | 14 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-22 11:29 | `1p3r093` | [走语言学校润日已拿到工签，一点给还没来的人的必看经验](../posts/r_runtoJapan2/251122112931_1p3r093.md) | Sakura_0627 | 18 | 0.92 | 5 | 经典回顾 | false | true | self.runtoJapan2 |
+| 2025-11-22 11:27 | `1p3qysx` | [给想润的人一些需要注意的信息差](../posts/r_runtoJapan2/251122112704_1p3qysx.md) | Sakura_0627 | 32 | 0.88 | 26 | 经典回顾 | false | true | self.runtoJapan2 |
+| 2025-11-22 10:17 | `1p3pucl` | [关于日本留学的一些问题](../posts/r_runtoJapan2/251122101741_1p3pucl.md) | ChizuruSaori | 5 | 0.86 | 5 | 不懂就问 | false | false | i.redd.it |
+| 2025-11-22 07:53 | `1p3nm4n` | [警察人均保時捷](../posts/r_runtoJapan2/251122075327_1p3nm4n.md) | this0great | 5 | 0.86 | 2 | 聊天吹水 | false | false | i.redd.it |
+| 2025-11-22 04:49 | `1p3kiiv` | [中國把自己的潑婦罵街作為聯合國大會正式文件向全體會員國散發](../posts/r_runtoJapan2/251122044945_1p3kiiv.md) | ExcellentFox6 | 18 | 0.74 | 25 | 聊天吹水 | false | false | reddit.com |
+| 2025-11-22 03:47 | `1p3jc0a` | [在郊区居住，东京上班，单次通勤两小时内是否可行](../posts/r_runtoJapan2/251122034725_1p3jc0a.md) | Fabulous-Water1823 | 6 | 0.8 | 30 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-22 03:27 | `1p3iy4u` | [想问一下，日本在三年疫情是怎么防控的？](../posts/r_runtoJapan2/251122032739_1p3iy4u.md) | hiroshima_fireworks | 11 | 0.74 | 35 | 不懂就问 | false | false | i.redd.it |
+| 2025-11-22 02:16 | `1p3hiw0` | [求助：留学生如何在不提交父母资产证明和银行流水的情况下办理日签](../posts/r_runtoJapan2/251122021634_1p3hiw0.md) | New_Loan3816 | 5 | 0.78 | 18 | 不懂就问 | false | true | self.runtoJapan2 |
+| 2025-11-22 01:54 | `1p3h1or` | [2025年11月22日自学日语记录](../posts/r_runtoJapan2/251122015401_1p3h1or.md) | glshouldfreetolove | 15 | 0.83 | 25 | 语言学习 | false | false | reddit.com |
 | 2025-11-21 18:28 | `1p36bc0` | [求助](../posts/r_runtoJapan2/251121182805_1p36bc0.md) | Mstrwarn747 | 3 | 0.8 | 4 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-21 14:49 | `1p30ke8` | [在日本去诊所看过焦虑症，会影响以后的归化吗？](../posts/r_runtoJapan2/251121144954_1p30ke8.md) | Much-Development-483 | 3 | 1.0 | 7 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-21 13:13 | `1p2ya32` | [家人们我该如何润日](../posts/r_runtoJapan2/251121131353_1p2ya32.md) | BabyGhoul69 | 0 | 0.38 | 16 | 不懂就问 | false | true | self.runtoJapan2 |
@@ -48,6 +60,7 @@
 | 2025-11-17 05:22 | `1oz7zrh` | [何異味? 我先潤了](../posts/r_runtoJapan2/251117052257_1oz7zrh.md) | AokoGreen | 20 | 0.86 | 25 | 聊天吹水 | false | true | self.runtoJapan2 |
 | 2025-11-17 03:42 | `1oz638y` | [看个鬼灭电影就能感受国内男大有多恶心人](../posts/r_runtoJapan2/251117034253_1oz638y.md) | Creepy-Relation-9132 | 59 | 0.89 | 29 | 聊天吹水 | false | true | self.runtoJapan2 |
 | 2025-11-17 02:53 | `1oz520p` | [這個在二戰是什麼職位](../posts/r_runtoJapan2/251117025303_1oz520p.md) | this0great | 0 | 0.38 | 5 | 聊天吹水 | false | false | i.redd.it |
+| 2025-11-17 02:29 | `1oz4kcc` | [如何才能具体知道各专业国内国外的发展方向](../posts/r_runtoJapan2/251117022951_1oz4kcc.md) | Stock_Boysenberry221 | 1 | 1.0 | 2 | 不懂就问 | false | false | i.redd.it |
 | 2025-11-17 02:18 | `1oz4bvn` | [润日相关的信息收集](../posts/r_runtoJapan2/251117021846_1oz4bvn.md) | AffectionateGroup386 | 43 | 0.98 | 15 | 经验分享 | false | true | self.runtoJapan2 |
 | 2025-11-17 00:13 | `1oz1mm2` | [問一下玩同人活動的潤友多嗎？有專門的Reddit嗎？](../posts/r_runtoJapan2/251117001337_1oz1mm2.md) | ClimateBusiness3909 | 4 | 0.84 | 7 | 不懂就问 | false | true | self.runtoJapan2 |
 | 2025-11-16 18:26 | `1oyt3ec` | [社会適応](../posts/r_runtoJapan2/251116182628_1oyt3ec.md) | Blackshtorm15 | 0 | 0.5 | 2 | 不懂就问 | false | true | self.runtoJapan2 |
@@ -61,6 +74,7 @@
 | 2025-11-16 10:43 | `1oyin09` | [鉴于最近疯狂喷粪的粉红、极民和中共外交部，是时候回顾一下经典了](../posts/r_runtoJapan2/251116104300_1oyin09.md) | nagarythechild | 37 | 0.89 | 7 | 经典回顾 | false | false | v.redd.it |
 | 2025-11-16 09:08 | `1oyh41s` | [希望大家多谈润日相关内容 少谈政治](../posts/r_runtoJapan2/251116090820_1oyh41s.md) | Sakura_0627 | 67 | 0.74 | 71 | ⭐版务公告⭐ | false | false | i.redd.it |
 | 2025-11-16 08:20 | `1oygcki` | [以前和偶像互动的视频~](../posts/r_runtoJapan2/251116082046_1oygcki.md) | HonestzPractice | 11 | 0.87 | 9 | 日常生活 | false | false | v.redd.it |
+| 2025-11-16 07:10 | `1oyf8ah` | [墙内嚷嚷着打日本，怎么可能傻子都知道，日本和台湾不同，美日正儿八经有安保条约的，ccp做好三战准备了吗？](../posts/r_runtoJapan2/251116071040_1oyf8ah.md) | SuccessfulOwl5168 | 7 | 0.77 | 31 | 聊天吹水 | false | true | self.runtoJapan2 |
 | 2025-11-16 05:17 | `1oydaem` | [关于宗教](../posts/r_runtoJapan2/251116051707_1oydaem.md) | Aoesun | 3 | 1.0 | 21 | 日常生活 | false | true | self.runtoJapan2 |
 | 2025-11-16 02:50 | `1oyahcx` | [你们觉得这次中日会闹到撤侨吗？](../posts/r_runtoJapan2/251116025007_1oyahcx.md) | hiroshima_fireworks | 16 | 0.69 | 49 | 聊天吹水 | false | false | i.redd.it |
 | 2025-11-16 02:36 | `1oya7h7` | [你sub也是出息了，怎么换家了还有人尾行视奸+渗透失败还无能狂怒的](../posts/r_runtoJapan2/251116023628_1oya7h7.md) | Strict_Treat2884 | 57 | 0.87 | 17 | 聊天吹水 | false | false | i.redd.it |

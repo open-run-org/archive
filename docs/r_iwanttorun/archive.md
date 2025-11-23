@@ -2,6 +2,11 @@
 
 | Created (UTC) | ID | Title | Author | Ups | Ratio | Comments | Flair | NSFW | Self | Domain |
 |---:|---|---|---|---:|---:|---:|---|---|---|---|
+| 2025-11-23 00:52 | `1p498u6` | [有在西班牙的吗？](../posts/r_iwanttorun/251123005205_1p498u6.md) | HamsterGullible9796 | 1 | 1.0 | 2 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-22 16:39 | `1p3xord` | [🏳️‍🌈🏳️‍🌈](../posts/r_iwanttorun/251122163901_1p3xord.md) | kyk00525 | 0 | 0.33 | 3 | ??? | false | false | i.redd.it |
+| 2025-11-22 12:45 | `1p3sduf` | [6年移民路, 我的加拿大梦碎了!](../posts/r_iwanttorun/251122124548_1p3sduf.md) | yirongyiburong | 4 | 0.83 | 5 | 分享帖 | false | false | youtube.com |
+| 2025-11-22 09:53 | `1p3pgij` | [可以讲讲以前容易润的时候是什么样的吗？](../posts/r_iwanttorun/251122095345_1p3pgij.md) | hbc12580 | 9 | 0.91 | 18 | 不懂就问 | false | true | self.iwanttorun |
+| 2025-11-22 04:02 | `1p3jmge` | [亲弟弟美国人，那么帮我申请美国绿卡最快的途径是什么？](../posts/r_iwanttorun/251122040230_1p3jmge.md) | YoumoSubei | 0 | 0.5 | 9 | 不懂就问 | false | true | self.iwanttorun |
 | 2025-11-22 00:51 | `1p3fpgg` | [在欧洲的润友们，你们的tinder账号行情如何？](../posts/r_iwanttorun/251122005112_1p3fpgg.md) | realemo1979 | 1 | 1.0 | 0 | 讨论 | false | true | self.iwanttorun |
 | 2025-11-21 17:52 | `1p35d0j` | [Even dog don’t want to work on the Friday before Thanksgiving](../posts/r_iwanttorun/251121175200_1p35d0j.md) | FreeXiJinpingAss | 2 | 1.0 | 2 | 炒作狗 | false | true | self.iwanttorun |
 | 2025-11-21 13:55 | `1p2z8wr` | [出一出新西兰的pr，有想法的最少我提供一个方法](../posts/r_iwanttorun/251121135546_1p2z8wr.md) | Prize_Calendar_6449 | 0 | 0.4 | 8 | 分享帖 | false | true | self.iwanttorun |
