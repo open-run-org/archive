@@ -12,21 +12,23 @@
         table { border-collapse: collapse; width: 100%; margin: 1rem 0; table-layout: fixed; }
         th, td { border: 1px solid #ddd; padding: 8px; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         th { background-color: #f2f2f2; }
-        .search-container { position: relative; margin-bottom: 1rem; }
-        #search-input { width: 100%; padding: 10px; font-size: 16px; box-sizing: border-box; }
-        #search-results { position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #ddd; max-height: 300px; overflow-y: auto; z-index: 1000; display: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .search-item { padding: 10px; border-bottom: 1px solid #eee; }
-        .search-item:hover { background-color: #f9f9f9; }
+        
+
+        .nav-bar { margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+
+        .search-box { margin-bottom: 2rem; padding: 1rem; background: #f9f9f9; border-radius: 4px; border: 1px solid #eee; }
+        .search-form { display: flex; gap: 10px; }
+        .search-input { flex: 1; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 4px; }
+        .search-btn { padding: 10px 20px; background-color: #0066cc; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        .search-btn:hover { background-color: #0055aa; }
+
         .meta-list { list-style: none; padding: 0; margin: 0 0 1.5rem 0; background: #f9f9f9; border-radius: 4px; border: 1px solid #eee; }
         .meta-list li { padding: 8px 12px; border-bottom: 1px solid #eee; display: flex; }
         .meta-list li:last-child { border-bottom: none; }
         .meta-key { font-weight: bold; width: 120px; flex-shrink: 0; color: #555; }
         .meta-val { word-break: break-all; }
-        .nav-bar { margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
     </style>
-    <script src="/elasticlunr.min.js"></script>
-    <script src="/search_index.en.js"></script>
 </head>
 <body>
     <nav class="nav-bar">
@@ -38,71 +40,19 @@
         </div>
     </nav>
     
-    <div class="search-container">
-        <input type="text" id="search-input" placeholder="Search (Click to load index)...">
-        <div id="search-results"></div>
-        <div id="search-loading" style="display:none; font-size: 0.8em; color: #666;">Loading index...</div>
+    <div class="search-box">
+        <form action="https://duckduckgo.com/" method="get" target="_blank" class="search-form">
+            <input type="hidden" name="sites" value="archive.open-run.org">
+            <input type="hidden" name="k1" value="-1">
+            <input type="hidden" name="kz" value="-1">
+            
+            <input type="text" name="q" class="search-input" placeholder="Search archive via DuckDuckGo..." required>
+            <button type="submit" class="search-btn">Search</button>
+        </form>
     </div>
 
     <main>
         {% block content %}{% endblock content %}
     </main>
-
-    <script>
-        const searchInput = document.getElementById('search-input');
-        const searchResults = document.getElementById('search-results');
-        const searchLoading = document.getElementById('search-loading');
-        let index;
-        let isLoading = false;
-
-        function loadSearchIndex() {
-            if (index || isLoading) return;
-            isLoading = true;
-            searchLoading.style.display = 'block';
-            
-            const script1 = document.createElement('script');
-            script1.src = "/elasticlunr.min.js";
-            document.head.appendChild(script1);
-
-            script1.onload = function() {
-                const script2 = document.createElement('script');
-                script2.src = "/search_index.en.js";
-                document.head.appendChild(script2);
-                
-                script2.onload = function() {
-                    if (window.elasticlunr) {
-                        index = elasticlunr.Index.load(window.searchIndex);
-                        searchLoading.style.display = 'none';
-                        searchInput.placeholder = "Type to search...";
-                        if (searchInput.value) searchInput.dispatchEvent(new Event('input'));
-                    }
-                };
-            };
-        }
-
-        searchInput.addEventListener('focus', loadSearchIndex);
-
-        searchInput.addEventListener('input', function() {
-            const term = this.value.trim();
-            if (!term || !index) {
-                searchResults.style.display = 'none';
-                return;
-            }
-            const results = index.search(term, {
-                fields: { title: {boost: 2}, body: {boost: 1} },
-                bool: "AND",
-                expand: true
-            });
-            if (results.length > 0) {
-                searchResults.innerHTML = results.slice(0, 10).map(r => {
-                    const doc = index.documentStore.getDoc(r.ref);
-                    return `<div class="search-item"><a href="${doc.id}" style="display:block">${doc.title}</a></div>`;
-                }).join('');
-                searchResults.style.display = 'block';
-            } else {
-                searchResults.style.display = 'none';
-            }
-        });
-    </script>
 </body>
 </html>
