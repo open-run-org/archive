@@ -1,42 +1,52 @@
-<div style="min-width: 600px;">
-    <table id="archiveTable">
+<div class="controls" style="margin: 1rem 0;">
+    <input type="text" onkeyup="filterTable(this)" placeholder="Filter by title or author..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; box-sizing: border-box;">
+</div>
+
+<div style="overflow-x: hidden; border: 1px solid #eee; border-radius: 4px;">
+    <table id="archiveTable" style="width: 100%; table-layout: fixed;">
         <thead>
             <tr>
-                <th onclick="sortTable(0, 'date')" style="width: 15%;">Date ↕</th>
-                <th class="hide-on-mobile" onclick="sortTable(1, 'number')" style="width: 8%; text-align: right;">Ups ↕</th>
-                <th class="hide-on-mobile" onclick="sortTable(2, 'number')" style="width: 8%; text-align: right;">Cmt ↕</th>
-                <th onclick="sortTable(3, 'string')" style="width: auto;">Title ↕</th>
-                <th onclick="sortTable(4, 'string')" style="width: 20%;">Author ↕</th>
+                <th onclick="sortTable(0, 'date')" style="width: 90px; padding: 8px;">Date ↕</th>
+                
+                <th class="hide-on-mobile" onclick="sortTable(1, 'number')" style="width: 50px; text-align: right; padding: 8px;">Ups ↕</th>
+                <th class="hide-on-mobile" onclick="sortTable(2, 'number')" style="width: 50px; text-align: right; padding: 8px;">Cmt ↕</th>
+                
+                <th onclick="sortTable(3, 'string')" style="width: auto; padding: 8px;">Title ↕</th>
+                
+                <th class="hide-on-mobile" onclick="sortTable(4, 'string')" style="width: 120px; padding: 8px;">Author ↕</th>
             </tr>
         </thead>
         <tbody>
         {% for p in latest_pages %}
             {% if not p.extra.author %}{% continue %}{% endif %}
-
-            <tr>
-                <td data-value="{{ p.date }}" style="font-size: 0.85em; color: #666; line-height: 1.2;">
+            <tr style="border-bottom: 1px solid #f5f5f5;">
+                <td data-value="{{ p.date }}" style="padding: 8px; font-size: 0.85em; color: #666; line-height: 1.2; vertical-align: top;">
                     {{ p.date | date(format="%Y-%m-%d") }}<br>
                     <span style="font-size: 0.85em; opacity: 0.7;">{{ p.date | date(format="%H:%M") }}</span>
                 </td>
                 
-                <td class="hide-on-mobile" data-value="{{ p.extra.ups | default(value=0) }}" style="text-align: right; font-family: monospace;">
+                <td class="hide-on-mobile" data-value="{{ p.extra.ups | default(value=0) }}" style="padding: 8px; text-align: right; font-family: monospace; vertical-align: top;">
                     {{ p.extra.ups | default(value=0) }}
                 </td>
 
-                <td class="hide-on-mobile" data-value="{{ p.extra.num_comments | default(value=0) }}" style="text-align: right; font-family: monospace;">
+                <td class="hide-on-mobile" data-value="{{ p.extra.num_comments | default(value=0) }}" style="padding: 8px; text-align: right; font-family: monospace; vertical-align: top;">
                     {{ p.extra.num_comments | default(value=0) }}
                 </td>
 
-                <td data-value="{{ p.title }}">
-                    <a href="{{ p.permalink }}" style="font-weight: 500; display: block; margin-bottom: 2px;">{{ p.title }}</a>
+                <td data-value="{{ p.title }}" style="padding: 8px; vertical-align: top; overflow: hidden;">
+                    <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                        <a href="{{ p.permalink }}" style="font-weight: 500; color: #2244cc; text-decoration: none;">{{ p.title }}</a>
+                    </div>
                     {% if p.extra.flair %}
-                        <span style="font-size: 0.75em; background: #f0f0f5; color: #556; padding: 1px 5px; border-radius: 4px; display: inline-block;">
+                    <div style="margin-top: 2px;">
+                        <span style="font-size: 0.75em; background: #f0f0f5; color: #667; padding: 1px 5px; border-radius: 4px;">
                             {{ p.extra.flair }}
                         </span>
+                    </div>
                     {% endif %}
                 </td>
 
-                <td data-value="{{ p.extra.author }}" style="font-size: 0.9em; color: #555; overflow: hidden; text-overflow: ellipsis;">
+                <td class="hide-on-mobile" data-value="{{ p.extra.author }}" style="padding: 8px; font-size: 0.9em; color: #555; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; vertical-align: top;">
                     {{ p.extra.author }}
                 </td>
             </tr>
@@ -48,7 +58,7 @@
 <style>
     @media (max-width: 600px) {
         .hide-on-mobile { display: none; }
-        th:nth-child(4), td:nth-child(4) { width: auto; } 
+        th, td { padding: 6px 4px !important; }
     }
 </style>
 
@@ -58,8 +68,14 @@
         const rows = document.querySelectorAll('#archiveTable tbody tr');
         rows.forEach(row => {
             const title = row.cells[3].textContent.toLowerCase();
-            const author = row.cells[4].textContent.toLowerCase();
-            row.style.display = (title.includes(filter) || author.includes(filter)) ? '' : 'none';
+            const authorCell = row.cells[4];
+            const author = authorCell ? authorCell.textContent.toLowerCase() : "";
+            
+            if (title.includes(filter) || author.includes(filter)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
         });
     }
 
