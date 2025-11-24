@@ -31,12 +31,17 @@ def read_fm_body(p: pathlib.Path):
 
 def iter_captures():
     pattern = str(STAGED / "r_*" / "submissions" / "*" / "*.md")
+    count = 0
     for p in glob.iglob(pattern, recursive=False):
         pth = pathlib.Path(p)
         sub = pth.parts[-4]
         created_id = pth.parts[-2]
         cap = pth.stem
         meta, body = read_fm_body(pth)
+        count += 1
+        if count % 100 == 0:
+            sys.stdout.write(f"\r[Scanning] Found {count} snapshots...")
+            sys.stdout.flush()
         yield {
             "sub": sub,
             "created_id": created_id,
@@ -46,6 +51,7 @@ def iter_captures():
             "body": body,
             "created_utc": meta.get("created_utc", "0")
         }
+    sys.stdout.write(f"\r[Scanning] Found {count} snapshots. Done.\n")
 
 def latest_by_post(items):
     d = {}
@@ -66,39 +72,38 @@ def write(p, s):
 
 def pick_latest_staged_comments_md(staged_root: pathlib.Path, staged_sub: str, created_id: str):
     d = staged_root / staged_sub / "comments" / created_id
-    if not d.exists():
-        return None
+    if not d.exists(): return None
     files = sorted([p for p in d.glob("*.md") if p.is_file()])
     return files[-1] if files else None
 
 def read_text(p: pathlib.Path) -> str:
-    with open(p, "r", encoding="utf-8") as f:
-        return f.read()
+    with open(p, "r", encoding="utf-8") as f: return f.read()
 
 def build():
-    if CONTENT.exists():
-        shutil.rmtree(CONTENT)
+    if CONTENT.exists(): shutil.rmtree(CONTENT)
     CONTENT.mkdir(parents=True)
 
     items = list(iter_captures())
 
-    home_fm = "---\ntitle: \"Reddit Archive\"\nsort_by: \"weight\"\n---\n"
+    home_fm = "---\ntitle: \"Reddit Archive\"\nsort_by: \"date\"\n---\n"
     write(CONTENT / "_index.md", home_fm)
 
-    if not items:
-        return
+    if not items: return
 
     latest_per_post = latest_by_post(items)
     by_sub = {}
     for it in latest_per_post:
         by_sub.setdefault(it["sub"], []).append(it)
 
+    written_count = 0
     total_posts = len(latest_per_post)
-    print(f"Processing {total_posts} posts...")
     
     for s, posts in by_sub.items():
         sub_fm = f"---\ntitle: \"{s}\"\nsort_by: \"date\"\ntransparent: true\n---\n"
         write(CONTENT / s / "_index.md", sub_fm)
+
+        archive_fm = f"---\ntitle: \"{s} Archive\"\ntemplate: \"archive.html\"\nextra:\n  section_path: \"{s}/_index.md\"\n---\n"
+        write(CONTENT / s / "archive.md", archive_fm)
 
         for it in posts:
             m = it["meta"]
@@ -109,18 +114,16 @@ def build():
                  dt = datetime.datetime.fromtimestamp(int(float(it["created_utc"])), datetime.timezone.utc)
                  date_str = dt.isoformat()
             except:
-                 date_str = "1970-01-01T00:00:00+00:00"
+                 date_str = "1970-01-01T00:00:00"
 
             lines = ["---"]
             lines.append(f'title: {title_json}')
             lines.append(f'date: {date_str}')
             lines.append("extra:")
-            
             for k, v in m.items():
                 if k != "title":
                     val_json = json.dumps(v, ensure_ascii=False)
                     lines.append(f'  {k}: {val_json}')
-
             lines.append(f'  subreddit: "{it["sub"]}"')
             lines.append(f'  post_id: "{it["post_id"]}"')
             lines.append("---\n")
@@ -133,6 +136,11 @@ def build():
 
             full_content = "\n".join(lines) + body_text + comments_content
             write(CONTENT / s / f"{it['created_id']}.md", full_content)
+            
+            written_count += 1
+            if written_count % 100 == 0:
+                sys.stdout.write(f"\r[Writing] {written_count}/{total_posts}")
+                sys.stdout.flush()
 
     print(f"\n[Done] Content generated in {CONTENT}")
 
