@@ -48,11 +48,12 @@ def get_sub_stats():
         last_ts = data["latest_ts"]
         
         points = []
-        for i in range(6):
+        for i in range(13):
             weeks_end = 0 if i == 0 else (2 ** (i - 1))
             weeks_start = 2 ** i
             t_end = now - (weeks_end * one_week)
             t_start = now - (weeks_start * one_week)
+            
             count = sum(1 for t in ts_list if t_start <= t < t_end)
             points.append(count)
         
@@ -79,7 +80,7 @@ def get_sub_stats():
             "trend": trend_list
         })
 
-    result_list.sort(key=lambda x: x["last_date"], reverse=True)
+    result_list.sort(key=lambda x: x["name"].lower())
     return result_list
 
 def update_home_index(subs_data):
@@ -98,10 +99,10 @@ def update_home_index(subs_data):
         base_content = "\n"
     
     subs_json = json.dumps(subs_data, ensure_ascii=False)
-    
+
     new_fm = f"""---
 title: "Reddit Archive"
-sort_by: "weight"
+sort_by: "date"
 template: "index.html"
 extra:
   subs: {subs_json}
