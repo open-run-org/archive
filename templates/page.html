@@ -4,9 +4,7 @@
 <div class="meta" style="margin-bottom: 1rem; color: #666;">
     <a href="{{ get_url(path="@/_index.md") }}">Home</a> / 
     {% if page.ancestors %}
-        {% set parent_path = page.ancestors | last %}
-        {% set parent = get_section(path=parent_path) %}
-        <a href="{{ parent.permalink }}">{{ parent.title }}</a>
+        <a href="{{ get_url(path=page.ancestors | last) }}">{{ page.extra.subreddit }}</a>
     {% endif %}
 </div>
 
