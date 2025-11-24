@@ -1,0 +1,24 @@
+<div style="overflow-x: auto;">
+    <table id="archiveTable">
+        <thead>
+            <tr>
+                <th style="width: 110px;">Date</th>
+                <th style="width: 60px; text-align: right;">Ups</th>
+                <th style="width: 60px; text-align: right;">Cmt</th>
+                <th>Title</th>
+                <th style="width: 120px;">Author</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for p in latest_pages %}
+            <tr>
+                <td style="font-size: 0.9em;">{{ p.date }}</td>
+                <td style="text-align: right;">{{ p.extra.ups | default(value=0) }}</td>
+                <td style="text-align: right;">{{ p.extra.num_comments | default(value=0) }}</td>
+                <td><a href="{{ p.permalink }}">{{ p.title }}</a></td>
+                <td style="font-size: 0.9em;">{{ p.extra.author }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
