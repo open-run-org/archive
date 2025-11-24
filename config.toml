@@ -1,5 +1,5 @@
 base_url = "https://archive.open-run.org"
-title = "Reddit Archive"
+title = "Reddit Archive / 红迪档案馆"
 default_language = "en"
 build_search_index = false
 generate_sitemap = true
@@ -15,4 +15,4 @@ external_level = "warn"
 [markdown]
 render_emoji = true
 external_links_target_blank = true
-highlight_code = false
+highlight_code = true
