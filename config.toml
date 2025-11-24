@@ -6,6 +6,7 @@ generate_sitemap = true
 compile_sass = false
 minify_html = true
 generate_feeds = true
+feed_limit = 64
 
 [link_checker]
 internal_level = "warn"
