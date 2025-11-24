@@ -1,4 +1,4 @@
-[![CI](https://github.com/open-run-org/archive/actions/workflows/ci.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/ci.yaml) [![Image](https://github.com/open-run-org/archive/actions/workflows/image.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/image.yaml)
+[![CI](https://github.com/open-run-org/archive/actions/workflows/ci.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/ci.yaml) [![CD](https://github.com/open-run-org/archive/actions/workflows/cd.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/cd.yaml) [![Image](https://github.com/open-run-org/archive/actions/workflows/image.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/image.yaml) [![Release](https://github.com/open-run-org/archive/actions/workflows/release.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/release.yaml)
 
 # Reddit Archiver
 
