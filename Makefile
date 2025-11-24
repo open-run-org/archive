@@ -21,7 +21,7 @@ WINDOW ?= 30
 ARCTIC_DIR ?= data/arctic
 ARCTIC_FILES ?= $(wildcard $(ARCTIC_DIR)/*.jsonl)
 
-.PHONY: deps harvest harvest-comments jsonl2md-comments jsonl2md docs dashboard ci import-arctic zola-serve zola-build zola-clean
+.PHONY: deps harvest harvest-comments jsonl2md-comments jsonl2md docs fix-metadata　dashboard ci import-arctic zola-serve zola-build zola-clean
 
 deps:
 	@if [ -z "$$CI" ]; then \
@@ -47,6 +47,9 @@ jsonl2md-comments:
 docs:
 	GEN_RECENT=$(GEN_RECENT) $(PY) scripts/materialize_docs.py $(STAGED_ROOT) content
 
+fix-metadata:
+	$(PY) scripts/fix_metadata.py
+
 dashboard:
 	$(PY) scripts/dashboard.py
 
@@ -56,6 +59,7 @@ ci:
 	$(MAKE) jsonl2md
 	$(MAKE) jsonl2md-comments
 	$(MAKE) docs
+	$(MAKE) fix-metadata
 	$(MAKE) dashboard
 	@echo "[ci] pipeline done"
 

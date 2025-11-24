@@ -14,6 +14,8 @@ def get_sub_stats():
     now = time.time()
     
     pattern = str(STAGED / "r_*" / "submissions" / "*" / "*.md")
+    print(f"[dashboard] Scanning stats from {pattern}...")
+    
     for p in glob.iglob(pattern, recursive=False):
         parts = pathlib.Path(p).parts
         sub = parts[-4]
@@ -28,7 +30,8 @@ def get_sub_stats():
         try:
             stem = pathlib.Path(p).stem
             ts_str = stem.split("_")[0]
-            ts = datetime.datetime.strptime(ts_str, "%y%m%d%H%M%S").replace(tzinfo=datetime.timezone.utc).timestamp()
+            dt = datetime.datetime.strptime(ts_str, "%y%m%d%H%M%S").replace(tzinfo=datetime.timezone.utc)
+            ts = dt.timestamp()
             
             stats[sub]["count"] += 1
             stats[sub]["timestamps"].append(ts)
@@ -48,10 +51,8 @@ def get_sub_stats():
         for i in range(6):
             weeks_end = 0 if i == 0 else (2 ** (i - 1))
             weeks_start = 2 ** i
-            
             t_end = now - (weeks_end * one_week)
             t_start = now - (weeks_start * one_week)
-            
             count = sum(1 for t in ts_list if t_start <= t < t_end)
             points.append(count)
         
@@ -80,31 +81,36 @@ def get_sub_stats():
     result_list.sort(key=lambda x: x["last_date"], reverse=True)
     return result_list
 
-def update_index(subs_data):
+def update_home_index(subs_data):
     index_file = CONTENT / "_index.md"
-    
     base_content = ""
+    
     if index_file.exists():
-        text = index_file.read_text(encoding="utf-8")
-        parts = text.split("---", 2)
-        if len(parts) >= 3:
-            base_content = parts[2]
+        try:
+            text = index_file.read_text(encoding="utf-8")
+            parts = text.split("---", 2)
+            if len(parts) >= 3:
+                base_content = parts[2]
+        except: pass
+            
+    if not base_content.strip():
+        base_content = "\n"
     
     subs_json = json.dumps(subs_data, ensure_ascii=False)
     
     new_fm = f"""---
 title: "Reddit Archive"
 sort_by: "weight"
+template: "index.html"
 extra:
   subs: {subs_json}
 ---
 """
-    
     with open(index_file, "w", encoding="utf-8") as f:
         f.write(new_fm + base_content)
     
-    print(f"[dashboard] Updated {index_file} with stats for {len(subs_data)} subreddits.")
+    print(f"[dashboard] Updated Homepage for {len(subs_data)} subreddits.")
 
 if __name__ == "__main__":
     data = get_sub_stats()
-    update_index(data)
+    update_home_index(data)
