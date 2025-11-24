@@ -31,17 +31,12 @@ def read_fm_body(p: pathlib.Path):
 
 def iter_captures():
     pattern = str(STAGED / "r_*" / "submissions" / "*" / "*.md")
-    count = 0
     for p in glob.iglob(pattern, recursive=False):
         pth = pathlib.Path(p)
         sub = pth.parts[-4]
         created_id = pth.parts[-2]
         cap = pth.stem
         meta, body = read_fm_body(pth)
-        count += 1
-        if count % 100 == 0:
-            sys.stdout.write(f"\r[Scanning] Found {count} snapshots...")
-            sys.stdout.flush()
         yield {
             "sub": sub,
             "created_id": created_id,
@@ -51,7 +46,6 @@ def iter_captures():
             "body": body,
             "created_utc": meta.get("created_utc", "0")
         }
-    sys.stdout.write(f"\r[Scanning] Found {count} snapshots. Done.\n")
 
 def latest_by_post(items):
     d = {}
@@ -99,8 +93,8 @@ def build():
     for it in latest_per_post:
         by_sub.setdefault(it["sub"], []).append(it)
 
-    written_count = 0
     total_posts = len(latest_per_post)
+    print(f"Processing {total_posts} posts...")
     
     for s, posts in by_sub.items():
         sub_fm = f"---\ntitle: \"{s}\"\nsort_by: \"date\"\ntransparent: true\n---\n"
@@ -115,7 +109,7 @@ def build():
                  dt = datetime.datetime.fromtimestamp(int(float(it["created_utc"])), datetime.timezone.utc)
                  date_str = dt.isoformat()
             except:
-                 date_str = "1970-01-01T00:00:00"
+                 date_str = "1970-01-01T00:00:00+00:00"
 
             lines = ["---"]
             lines.append(f'title: {title_json}')
@@ -139,11 +133,6 @@ def build():
 
             full_content = "\n".join(lines) + body_text + comments_content
             write(CONTENT / s / f"{it['created_id']}.md", full_content)
-            
-            written_count += 1
-            if written_count % 100 == 0:
-                sys.stdout.write(f"\r[Writing] {written_count}/{total_posts}")
-                sys.stdout.flush()
 
     print(f"\n[Done] Content generated in {CONTENT}")
 

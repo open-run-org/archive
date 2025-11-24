@@ -60,7 +60,8 @@ def get_sub_stats():
         
         max_val = max(points) if points else 1
         normalized = [math.ceil((p / max_val) * 20) if max_val > 0 else 0 for p in points]
-        trend_str = ",".join(map(str, normalized))
+        
+        trend_list = normalized 
 
         days_since = (now - last_ts) / 86400
         if days_since < 7: status = "active"
@@ -75,7 +76,7 @@ def get_sub_stats():
             "count": data["count"],
             "last_date": last_date_str,
             "status": status,
-            "trend": trend_str
+            "trend": trend_list
         })
 
     result_list.sort(key=lambda x: x["last_date"], reverse=True)

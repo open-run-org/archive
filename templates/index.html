@@ -4,12 +4,12 @@
 <div class="intro-box">
     <h1 style="margin-top: 0; font-size: 1.8em;">Reddit Archive / 红迪档案馆</h1>
     <p style="color: #666; margin-bottom: 0;">
-        Tracking <strong>{{ section.extra.subs | length }}</strong>. 
+        Tracking <strong>{{ section.extra.subs | length }}</strong>.
         Generated at {{ now() | date(format="%Y-%m-%d %H:%M") }}.
     </p>
 </div>
 
-<h2 class="section-header">Community Status</h2>
+<h2 class="section-header">Community Status / 社区状态</h2>
 <div class="sub-grid">
 {% for sub in section.extra.subs %}
     {% if sub.path %}
@@ -27,12 +27,12 @@
         <div class="sub-graph">
             <svg viewBox="0 0 50 20" preserveAspectRatio="none">
                 <polyline points="
-                    0,{{ 20 - sub.trend | split(pat=",") | nth(n=0) | int }} 
-                    10,{{ 20 - sub.trend | split(pat=",") | nth(n=1) | int }} 
-                    20,{{ 20 - sub.trend | split(pat=",") | nth(n=2) | int }} 
-                    30,{{ 20 - sub.trend | split(pat=",") | nth(n=3) | int }} 
-                    40,{{ 20 - sub.trend | split(pat=",") | nth(n=4) | int }} 
-                    50,{{ 20 - sub.trend | split(pat=",") | nth(n=5) | int }}
+                    0,{{ 20 - sub.trend.0 }} 
+                    10,{{ 20 - sub.trend.1 }} 
+                    20,{{ 20 - sub.trend.2 }} 
+                    30,{{ 20 - sub.trend.3 }} 
+                    40,{{ 20 - sub.trend.4 }} 
+                    50,{{ 20 - sub.trend.5 }}
                 " />
             </svg>
         </div>
@@ -41,7 +41,7 @@
 {% endfor %}
 </div>
 
-<h2 class="section-header">Latest Changes / 最新改动</h2>
+<h2 class="section-header">Latest Global Changes</h2>
 <div class="table-wrapper">
     {% set latest_pages = section.pages | slice(end=64) %}
     {% include "partials/table.html" %}
@@ -71,18 +71,15 @@
     .sub-top { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
     .sub-name { font-weight: 700; font-size: 1.05em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .sub-stats { font-size: 0.85em; color: #888; font-family: monospace; }
-    
     .status-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
     .status-dot.active { background-color: #2eb85c; box-shadow: 0 0 0 2px rgba(46,184,92,0.2); }
     .status-dot.quiet { background-color: #f9b115; }
     .status-dot.archived { background-color: #ced2d8; }
-    
     .sub-graph { width: 60px; height: 24px; flex-shrink: 0; opacity: 0.7; }
     .sub-graph svg { width: 100%; height: 100%; overflow: visible; }
     .sub-graph polyline { 
         fill: none; stroke: #321fdb; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; 
     }
-    
     .table-wrapper {
         width: 100%;
         overflow-x: auto;
