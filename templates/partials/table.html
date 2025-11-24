@@ -1,4 +1,5 @@
-<div style="min-width: 600px;"> <table id="archiveTable">
+<div style="min-width: 600px;">
+    <table id="archiveTable">
         <thead>
             <tr>
                 <th onclick="sortTable(0, 'date')" style="width: 15%;">Date ↕</th>
@@ -10,6 +11,8 @@
         </thead>
         <tbody>
         {% for p in latest_pages %}
+            {% if not p.extra.author %}{% continue %}{% endif %}
+
             <tr>
                 <td data-value="{{ p.date }}" style="font-size: 0.85em; color: #666; line-height: 1.2;">
                     {{ p.date | date(format="%Y-%m-%d") }}<br>

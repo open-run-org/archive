@@ -72,25 +72,30 @@ def write(p, s):
 
 def pick_latest_staged_comments_md(staged_root: pathlib.Path, staged_sub: str, created_id: str):
     d = staged_root / staged_sub / "comments" / created_id
-    if not d.exists(): return None
+    if not d.exists():
+        return None
     files = sorted([p for p in d.glob("*.md") if p.is_file()])
     return files[-1] if files else None
 
 def read_text(p: pathlib.Path) -> str:
-    with open(p, "r", encoding="utf-8") as f: return f.read()
+    with open(p, "r", encoding="utf-8") as f:
+        return f.read()
 
 def build():
-    if CONTENT.exists(): shutil.rmtree(CONTENT)
+    if CONTENT.exists():
+        shutil.rmtree(CONTENT)
     CONTENT.mkdir(parents=True)
 
     items = list(iter_captures())
 
-    home_fm = "---\ntitle: \"Reddit Archive\"\nsort_by: \"date\"\n---\n"
+    home_fm = "---\ntitle: \"Reddit Archive \/ 红迪档案馆\"\nsort_by: \"weight\"\n---\n"
     write(CONTENT / "_index.md", home_fm)
 
-    if not items: return
+    if not items:
+        return
 
     latest_per_post = latest_by_post(items)
+    
     by_sub = {}
     for it in latest_per_post:
         by_sub.setdefault(it["sub"], []).append(it)
@@ -102,9 +107,6 @@ def build():
         sub_fm = f"---\ntitle: \"{s}\"\nsort_by: \"date\"\ntransparent: true\n---\n"
         write(CONTENT / s / "_index.md", sub_fm)
 
-        archive_fm = f"---\ntitle: \"{s} Archive\"\ntemplate: \"archive.html\"\nextra:\n  section_path: \"{s}/_index.md\"\n---\n"
-        write(CONTENT / s / "archive.md", archive_fm)
-
         for it in posts:
             m = it["meta"]
             title_raw = m.get("title") or it["created_id"]
@@ -112,18 +114,20 @@ def build():
             
             try:
                  dt = datetime.datetime.fromtimestamp(int(float(it["created_utc"])), datetime.timezone.utc)
-                 date_str = dt.isoformat()
+                 date_str = dt.strftime("%Y-%m-%d")
             except:
-                 date_str = "1970-01-01T00:00:00"
+                 date_str = "1970-01-01"
 
             lines = ["---"]
             lines.append(f'title: {title_json}')
-            lines.append(f'date: {date_str}')
+            lines.append(f'date: "{date_str}"')
             lines.append("extra:")
+            
             for k, v in m.items():
                 if k != "title":
                     val_json = json.dumps(v, ensure_ascii=False)
                     lines.append(f'  {k}: {val_json}')
+
             lines.append(f'  subreddit: "{it["sub"]}"')
             lines.append(f'  post_id: "{it["post_id"]}"')
             lines.append("---\n")
@@ -146,4 +150,3 @@ def build():
 
 if __name__ == "__main__":
     build()
-    
