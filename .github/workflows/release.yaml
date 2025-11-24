@@ -27,6 +27,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release create "${TAG_NAME}" "${ARCHIVE_NAME}" \
-            --title "Weekly Archive ${TAG_NAME}" \
+            --title "${TAG_NAME}" \
             --notes "Automated content backup for week of $(date +%Y-%m-%d)." \
             --generate-notes
