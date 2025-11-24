@@ -1,24 +1,86 @@
-<div style="overflow-x: auto;">
+<div class="controls" style="margin: 1rem 0;">
+    <input type="text" onkeyup="filterTable(this)" placeholder="Filter by title or author..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;">
+</div>
+
+<div style="overflow-x: auto; border: 1px solid #eee; border-radius: 4px;">
     <table id="archiveTable">
         <thead>
             <tr>
-                <th style="width: 110px;">Date</th>
-                <th style="width: 60px; text-align: right;">Ups</th>
-                <th style="width: 60px; text-align: right;">Cmt</th>
-                <th>Title</th>
-                <th style="width: 120px;">Author</th>
+                <th onclick="sortTable(0, 'date')" style="width: 15%;">Date ↕</th>
+                <th onclick="sortTable(1, 'number')" style="width: 8%; text-align: right;">Ups ↕</th>
+                <th onclick="sortTable(2, 'number')" style="width: 8%; text-align: right;">Cmt ↕</th>
+                <th onclick="sortTable(3, 'string')" style="width: 50%;">Title ↕</th>
+                <th onclick="sortTable(4, 'string')" style="width: 19%;">Author ↕</th>
             </tr>
         </thead>
         <tbody>
         {% for p in latest_pages %}
             <tr>
-                <td style="font-size: 0.9em;">{{ p.date }}</td>
-                <td style="text-align: right;">{{ p.extra.ups | default(value=0) }}</td>
-                <td style="text-align: right;">{{ p.extra.num_comments | default(value=0) }}</td>
-                <td><a href="{{ p.permalink }}">{{ p.title }}</a></td>
-                <td style="font-size: 0.9em;">{{ p.extra.author }}</td>
+                <td data-value="{{ p.date }}" style="font-size: 0.85em; line-height: 1.3; color: #666;">
+                    {{ p.date | date(format="%Y-%m-%d") }}<br>
+                    <span style="font-size: 0.9em; color: #999;">{{ p.date | date(format="%H:%M:%S") }}</span>
+                </td>
+                
+                <td data-value="{{ p.extra.ups | default(value=0) }}" style="text-align: right; font-family: monospace;">
+                    {{ p.extra.ups | default(value=0) }}
+                </td>
+
+                <td data-value="{{ p.extra.num_comments | default(value=0) }}" style="text-align: right; font-family: monospace;">
+                    {{ p.extra.num_comments | default(value=0) }}
+                </td>
+
+                <td data-value="{{ p.title }}">
+                    <a href="{{ p.permalink }}" style="font-weight: 500; display: block; margin-bottom: 2px;">{{ p.title }}</a>
+                    {% if p.extra.flair %}
+                        <span style="font-size: 0.75em; background: #eef; color: #447; padding: 2px 6px; border-radius: 10px; display: inline-block;">
+                            {{ p.extra.flair }}
+                        </span>
+                    {% endif %}
+                </td>
+
+                <td data-value="{{ p.extra.author }}" style="font-size: 0.9em; color: #555; word-break: break-all;">
+                    {{ p.extra.author }}
+                </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 </div>
+
+<script>
+    function filterTable(input) {
+        const filter = input.value.toLowerCase();
+        const rows = document.querySelectorAll('#archiveTable tbody tr');
+        rows.forEach(row => {
+            const title = row.cells[3].textContent.toLowerCase();
+            const author = row.cells[4].textContent.toLowerCase();
+            row.style.display = (title.includes(filter) || author.includes(filter)) ? '' : 'none';
+        });
+    }
+
+    let sortDir = 1;
+    function sortTable(colIndex, type) {
+        const table = document.getElementById("archiveTable");
+        const tbody = table.querySelector("tbody");
+        const rows = Array.from(tbody.querySelectorAll("tr"));
+
+        sortDir *= -1;
+
+        rows.sort((a, b) => {
+            const valA = a.cells[colIndex].getAttribute('data-value');
+            const valB = b.cells[colIndex].getAttribute('data-value');
+
+            if (type === 'number') {
+                return (parseFloat(valA) - parseFloat(valB)) * sortDir;
+            }
+            return valA.localeCompare(valB) * sortDir;
+        });
+
+        rows.forEach(row => tbody.appendChild(row));
+        
+        table.querySelectorAll('th').forEach((th, i) => {
+            let text = th.innerText.replace(/[↑↓↕]/g, '').trim();
+            th.innerText = text + (i === colIndex ? (sortDir === 1 ? ' ↑' : ' ↓') : ' ↕');
+        });
+    }
+</script>

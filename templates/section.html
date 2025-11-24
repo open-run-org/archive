@@ -2,16 +2,16 @@
 
 {% block content %}
 <div class="meta">
-    <a href="{{ get_url(path="@/_index.md") }}">← Back to Home</a>
+    <a href="{{ get_url(path="@/_index.md") }}">← Back to Home / 返回首页</a>
 </div>
 
 <h1>{{ section.title }}</h1>
 
-<div style="margin: 1rem 0;">
-    <a href="archive/" style="font-weight: bold; font-size: 1.1em;">📂 View Full Archive Table</a>
+<div style="margin: 1.5rem 0; padding: 1rem; background: #eef; border-radius: 6px; text-align: center;">
+    <a href="archive/" style="font-weight: bold; font-size: 1.2em; color: #0055aa;">Full Archive / 完整档案</a>
 </div>
 
-<h2>Latest Changes (Top 64)</h2>
+<h2>Latest 64 Changes</h2>
 {% set latest_pages = section.pages | slice(end=64) %}
 {% include "partials/table.html" %}
 

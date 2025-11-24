@@ -1,22 +1,26 @@
 {% extends "base.html" %}
 {% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
 {% block content %}
-<div class="meta" style="margin-bottom: 1rem; color: #666;">
+<div class="meta" style="margin-bottom: 1rem; font-size: 0.95em;">
     <a href="{{ get_url(path="@/_index.md") }}">Home</a> / 
-    {% if page.ancestors %}
-        <a href="{{ get_url(path=page.ancestors | last) }}">{{ page.extra.subreddit }}</a>
-    {% endif %}
+    <a href="{{ get_url(path="@/" ~ page.extra.subreddit ~ "/_index.md") }}">{{ page.extra.subreddit }}</a>
 </div>
 
-<h1 style="margin-bottom: 1rem;">{{ page.title }}</h1>
+<h1 style="margin-bottom: 1.5rem; line-height: 1.3;">{{ page.title }}</h1>
 
 <ul class="meta-list">
     <li><span class="meta-key">Subreddit:</span> <span class="meta-val">{{ page.extra.subreddit }}</span></li>
     <li><span class="meta-key">Author:</span> <span class="meta-val">{{ page.extra.author }}</span></li>
-    <li><span class="meta-key">Created:</span> <span class="meta-val">{{ page.extra.created_utc | int | date(format="%Y-%m-%d %H:%M:%S UTC") }}</span></li>
-    <li><span class="meta-key">Permalink:</span> <span class="meta-val"><a href="{{ page.extra.permalink }}" target="_blank">Reddit Link</a></span></li>
+    <li><span class="meta-key">Created:</span> <span class="meta-val">{{ page.date | date(format="%Y-%m-%d %H:%M:%S UTC") }}</span></li>
+    <li>
+        <span class="meta-key">Permalink:</span> 
+        <span class="meta-val"><a href="{{ page.extra.permalink }}" target="_blank">{{ page.extra.permalink }}</a></span>
+    </li>
     {% if page.extra.url %}
-    <li><span class="meta-key">URL:</span> <span class="meta-val"><a href="{{ page.extra.url }}" target="_blank">{{ page.extra.url }}</a></span></li>
+    <li>
+        <span class="meta-key">URL:</span> 
+        <span class="meta-val"><a href="{{ page.extra.url }}" target="_blank">{{ page.extra.url }}</a></span>
+    </li>
     {% endif %}
     <li><span class="meta-key">Stats:</span> <span class="meta-val">Ups: {{ page.extra.ups }} | Ratio: {{ page.extra.upvote_ratio }} | Comments: {{ page.extra.num_comments }}</span></li>
     {% if page.extra.flair %}
@@ -24,7 +28,9 @@
     {% endif %}
 </ul>
 
-<div class="post-content">
+<hr style="margin: 2rem 0; border: 0; border-top: 1px solid #eee;">
+
+<div class="post-content" style="font-size: 1.05em;">
 {{ page.content | safe }}
 </div>
 {% endblock content %}
