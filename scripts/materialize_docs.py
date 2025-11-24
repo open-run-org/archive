@@ -9,7 +9,6 @@ import json
 STAGED = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else "data/staged")
 CONTENT = pathlib.Path(sys.argv[2] if len(sys.argv) > 2 else "content")
 RECENT_N = int(os.environ.get("GEN_RECENT", "64"))
-RAW = pathlib.Path(os.environ.get("DATA_ROOT", "data/raw"))
 
 def read_fm_body(p: pathlib.Path):
     try:
@@ -86,9 +85,10 @@ def read_text(p: pathlib.Path) -> str:
 
 def fmt_iso(ts):
     try:
-        return datetime.datetime.fromtimestamp(int(float(ts)), datetime.timezone.utc).isoformat()
+        dt = datetime.datetime.fromtimestamp(int(float(ts)), datetime.timezone.utc)
+        return dt.strftime("%Y-%m-%d")
     except Exception:
-        return "1970-01-01T00:00:00+00:00"
+        return "1970-01-01"
 
 def build():
     if CONTENT.exists():
@@ -104,14 +104,13 @@ def build():
         return
 
     latest_per_post = latest_by_post(items)
-    total_posts = len(latest_per_post)
-    print(f"[Processing] Filtering latest versions... {total_posts} unique posts found.")
-
+    
     by_sub = {}
     for it in latest_per_post:
         by_sub.setdefault(it["sub"], []).append(it)
 
     written_count = 0
+    total_posts = len(latest_per_post)
     
     for s, posts in by_sub.items():
         sub_fm = f"---\ntitle: \"{s}\"\nsort_by: \"date\"\ntransparent: true\n---\n\n# Archive of {s}\n"
@@ -121,11 +120,16 @@ def build():
             m = it["meta"]
             title_raw = m.get("title") or it["created_id"]
             title_json = json.dumps(title_raw, ensure_ascii=False)
-            date_iso = fmt_iso(it["created_utc"])
+            
+            try:
+                 dt = datetime.datetime.fromtimestamp(int(float(it["created_utc"])), datetime.timezone.utc)
+                 date_str = dt.strftime("%Y-%m-%d")
+            except:
+                 date_str = "1970-01-01"
 
             lines = ["---"]
             lines.append(f'title: {title_json}')
-            lines.append(f'date: {date_iso}')
+            lines.append(f'date: {date_str}')
             lines.append("extra:")
             
             for k, v in m.items():
@@ -138,7 +142,6 @@ def build():
             lines.append("---\n")
 
             body_text = it["body"]
-
             cm_md = pick_latest_staged_comments_md(STAGED, it["sub"], it["created_id"])
             comments_content = ""
             if cm_md:
@@ -148,9 +151,8 @@ def build():
             write(CONTENT / s / f"{it['created_id']}.md", full_content)
             
             written_count += 1
-            if written_count % 20 == 0 or written_count == total_posts:
-                percent = int(written_count / total_posts * 100)
-                sys.stdout.write(f"\r[Writing] {percent}% ({written_count}/{total_posts})")
+            if written_count % 100 == 0:
+                sys.stdout.write(f"\r[Writing] {written_count}/{total_posts}")
                 sys.stdout.flush()
 
     print(f"\n[Done] Content generated in {CONTENT}")

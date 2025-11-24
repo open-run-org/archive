@@ -1,11 +1,11 @@
 base_url = "https://archive.open-run.org"
 title = "Reddit Archive"
 default_language = "en"
-build_search_index = false
+build_search_index = true
 generate_sitemap = true
 compile_sass = false
 minify_html = true
-generate_feeds = false
+generate_feeds = true
 
 [link_checker]
 internal_level = "warn"
@@ -14,3 +14,9 @@ external_level = "warn"
 [markdown]
 render_emoji = true
 external_links_target_blank = true
+
+[search]
+include_title = true
+include_description = false
+include_path = false
+include_content = true
