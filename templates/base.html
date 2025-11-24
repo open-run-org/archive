@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <style>
-        body { font-family: system-ui, sans-serif; max-width: 800px; margin: 0 auto; padding: 1rem; line-height: 1.5; }
+        body { font-family: system-ui, sans-serif; max-width: 960px; margin: 0 auto; padding: 1rem; line-height: 1.5; }
         a { color: #0066cc; text-decoration: none; }
         a:hover { text-decoration: underline; }
         h1, h2, h3 { margin-top: 2rem; }
-        table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        table { border-collapse: collapse; width: 100%; margin: 1rem 0; table-layout: fixed; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         th { background-color: #f2f2f2; }
-        .search-container { position: relative; margin-bottom: 2rem; }
+        .search-container { position: relative; margin-bottom: 1rem; }
         #search-input { width: 100%; padding: 10px; font-size: 16px; box-sizing: border-box; }
         #search-results { position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid #ddd; max-height: 300px; overflow-y: auto; z-index: 1000; display: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .search-item { padding: 10px; border-bottom: 1px solid #eee; }
@@ -22,32 +22,61 @@
         .meta-list li:last-child { border-bottom: none; }
         .meta-key { font-weight: bold; width: 120px; flex-shrink: 0; color: #555; }
         .meta-val { word-break: break-all; }
+        .nav-bar { margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
     </style>
-    <script src="/elasticlunr.min.js"></script>
-    <script src="/search_index.en.js"></script>
 </head>
 <body>
-    <nav style="margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #eee;">
+    <nav class="nav-bar">
         <a href="{{ get_url(path="@/_index.md") }}" style="font-weight: bold; font-size: 1.2em;">Reddit Archive / 红迪档案馆</a>
+        <div>
+            <a href="https://github.com/open-run-org/archive" target="_blank">GitHub</a>
+        </div>
     </nav>
     
     <div class="search-container">
-        <input type="text" id="search-input" placeholder="Search archive (titles)...">
+        <input type="text" id="search-input" placeholder="Search (Click to load index)...">
         <div id="search-results"></div>
+        <div id="search-loading" style="display:none; font-size: 0.8em; color: #666;">Loading index...</div>
     </div>
+
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
 
     <script>
         const searchInput = document.getElementById('search-input');
         const searchResults = document.getElementById('search-results');
+        const searchLoading = document.getElementById('search-loading');
         let index;
+        let isLoading = false;
 
-        window.initSearch = function() {
-            if (window.elasticlunr) {
-                index = elasticlunr.Index.load(window.searchIndex);
-            }
-        };
-        
-        if(window.searchIndex) window.initSearch();
+        function loadSearchIndex() {
+            if (index || isLoading) return;
+            isLoading = true;
+            searchLoading.style.display = 'block';
+            
+            const script1 = document.createElement('script');
+            script1.src = "/elasticlunr.min.js";
+            document.head.appendChild(script1);
+
+            script1.onload = function() {
+                const script2 = document.createElement('script');
+                script2.src = "/search_index.en.js";
+                document.head.appendChild(script2);
+                
+                script2.onload = function() {
+                    if (window.elasticlunr) {
+                        index = elasticlunr.Index.load(window.searchIndex);
+                        searchLoading.style.display = 'none';
+                        searchInput.placeholder = "Type to search...";
+                        // Trigger search if user already typed
+                        if (searchInput.value) searchInput.dispatchEvent(new Event('input'));
+                    }
+                };
+            };
+        }
+
+        searchInput.addEventListener('focus', loadSearchIndex);
 
         searchInput.addEventListener('input', function() {
             const term = this.value.trim();
@@ -55,17 +84,15 @@
                 searchResults.style.display = 'none';
                 return;
             }
-            
             const results = index.search(term, {
-                fields: { title: {boost: 2}, body: {boost: 1} },
+                fields: { title: {boost: 2} },
                 bool: "AND",
                 expand: true
             });
-
             if (results.length > 0) {
                 searchResults.innerHTML = results.slice(0, 10).map(r => {
                     const doc = index.documentStore.getDoc(r.ref);
-                    return `<div class="search-item"><a href="${doc.id}">${doc.title}</a></div>`;
+                    return `<div class="search-item"><a href="${doc.id}" style="display:block">${doc.title}</a></div>`;
                 }).join('');
                 searchResults.style.display = 'block';
             } else {
@@ -73,9 +100,5 @@
             }
         });
     </script>
-
-    <main>
-        {% block content %}{% endblock content %}
-    </main>
 </body>
 </html>

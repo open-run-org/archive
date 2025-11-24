@@ -1,14 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>{{ section.title }}</h1>
-{{ section.content | safe }}
+<div style="margin-bottom: 2rem;">
+    {{ section.content | safe }}
+</div>
 
 <h2>Subreddits</h2>
-<ul>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 2rem;">
 {% for path in section.subsections %}
     {% set sub = get_section(path=path) %}
-    <li><a href="{{ sub.permalink }}">{{ sub.title }}</a></li>
+    <a href="{{ sub.permalink }}" style="background: #eee; padding: 5px 10px; border-radius: 4px;">{{ sub.title }}</a>
 {% endfor %}
-</ul>
+</div>
+
+<h2>Latest Changes (Top 64)</h2>
+{% set latest_pages = section.pages | slice(end=64) %}
+{% include "partials/table.html" %}
+
 {% endblock content %}

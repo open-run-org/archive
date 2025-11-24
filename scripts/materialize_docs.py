@@ -38,12 +38,10 @@ def iter_captures():
         created_id = pth.parts[-2]
         cap = pth.stem
         meta, body = read_fm_body(pth)
-        
         count += 1
         if count % 100 == 0:
             sys.stdout.write(f"\r[Scanning] Found {count} snapshots...")
             sys.stdout.flush()
-            
         yield {
             "sub": sub,
             "created_id": created_id,
@@ -74,37 +72,25 @@ def write(p, s):
 
 def pick_latest_staged_comments_md(staged_root: pathlib.Path, staged_sub: str, created_id: str):
     d = staged_root / staged_sub / "comments" / created_id
-    if not d.exists():
-        return None
+    if not d.exists(): return None
     files = sorted([p for p in d.glob("*.md") if p.is_file()])
     return files[-1] if files else None
 
 def read_text(p: pathlib.Path) -> str:
-    with open(p, "r", encoding="utf-8") as f:
-        return f.read()
-
-def fmt_iso(ts):
-    try:
-        dt = datetime.datetime.fromtimestamp(int(float(ts)), datetime.timezone.utc)
-        return dt.strftime("%Y-%m-%d")
-    except Exception:
-        return "1970-01-01"
+    with open(p, "r", encoding="utf-8") as f: return f.read()
 
 def build():
-    if CONTENT.exists():
-        shutil.rmtree(CONTENT)
+    if CONTENT.exists(): shutil.rmtree(CONTENT)
     CONTENT.mkdir(parents=True)
 
     items = list(iter_captures())
 
-    home_fm = "---\ntitle: \"Reddit Archive\"\nsort_by: \"weight\"\n---\n\n# Welcome to the Reddit Archive\n"
+    home_fm = "---\ntitle: \"Reddit Archive\"\nsort_by: \"date\"\n---\n"
     write(CONTENT / "_index.md", home_fm)
 
-    if not items:
-        return
+    if not items: return
 
     latest_per_post = latest_by_post(items)
-    
     by_sub = {}
     for it in latest_per_post:
         by_sub.setdefault(it["sub"], []).append(it)
@@ -113,8 +99,11 @@ def build():
     total_posts = len(latest_per_post)
     
     for s, posts in by_sub.items():
-        sub_fm = f"---\ntitle: \"{s}\"\nsort_by: \"date\"\ntransparent: true\n---\n\n# Archive of {s}\n"
+        sub_fm = f"---\ntitle: \"{s}\"\nsort_by: \"date\"\ntransparent: true\n---\n"
         write(CONTENT / s / "_index.md", sub_fm)
+
+        archive_fm = f"---\ntitle: \"{s} Archive\"\ntemplate: \"archive.html\"\nextra:\n  section_path: \"{s}/_index.md\"\n---\n"
+        write(CONTENT / s / "archive.md", archive_fm)
 
         for it in posts:
             m = it["meta"]
@@ -123,20 +112,18 @@ def build():
             
             try:
                  dt = datetime.datetime.fromtimestamp(int(float(it["created_utc"])), datetime.timezone.utc)
-                 date_str = dt.strftime("%Y-%m-%d")
+                 date_str = dt.isoformat()
             except:
-                 date_str = "1970-01-01"
+                 date_str = "1970-01-01T00:00:00"
 
             lines = ["---"]
             lines.append(f'title: {title_json}')
             lines.append(f'date: {date_str}')
             lines.append("extra:")
-            
             for k, v in m.items():
                 if k != "title":
                     val_json = json.dumps(v, ensure_ascii=False)
                     lines.append(f'  {k}: {val_json}')
-
             lines.append(f'  subreddit: "{it["sub"]}"')
             lines.append(f'  post_id: "{it["post_id"]}"')
             lines.append("---\n")
@@ -159,3 +146,4 @@ def build():
 
 if __name__ == "__main__":
     build()
+    

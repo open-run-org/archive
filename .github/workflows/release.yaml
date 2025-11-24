@@ -1,0 +1,32 @@
+name: Release
+
+on:
+  schedule:
+    - cron: "0 0 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: |
+          DATE=$(date +%Y-%m-%d)
+          ARCHIVE_NAME="archive-${DATE}.tar.gz"
+          echo "ARCHIVE_NAME=${ARCHIVE_NAME}" >> $GITHUB_ENV
+          echo "TAG_NAME=archive-${DATE}" >> $GITHUB_ENV
+          
+          # Pack only the content directory
+          tar -czf "${ARCHIVE_NAME}" content/
+
+      - env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${TAG_NAME}" "${ARCHIVE_NAME}" \
+            --title "Weekly Archive ${TAG_NAME}" \
+            --notes "Automated content backup for week of $(date +%Y-%m-%d)." \
+            --generate-notes

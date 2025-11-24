@@ -1,0 +1,62 @@
+name: CD
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'content/**'
+      - 'templates/**'
+      - 'config.toml'
+      - '.github/workflows/deploy.yaml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Tools
+        run: |
+          curl -sL https://api.github.com/repos/getzola/zola/releases/latest \
+          | jq -r '.assets[] | select(.name | contains("x86_64-unknown-linux-gnu.tar.gz")) | .browser_download_url' \
+          | xargs curl -L -o zola.tar.gz
+          tar -xzf zola.tar.gz
+          sudo mv zola /usr/local/bin/
+          rm zola.tar.gz
+          
+          curl -L https://github.com/CloudCannon/pagefind/releases/download/v1.1.0/pagefind-v1.1.0-x86_64-unknown-linux-musl.tar.gz -o pagefind.tar.gz
+          tar -xzf pagefind.tar.gz
+          chmod +x pagefind
+          sudo mv pagefind /usr/local/bin/
+          rm pagefind.tar.gz
+
+      - name: Build Site
+        run: |
+          zola build --output-dir public
+          pagefind --site public
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

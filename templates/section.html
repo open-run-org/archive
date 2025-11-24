@@ -6,102 +6,13 @@
 </div>
 
 <h1>{{ section.title }}</h1>
-{{ section.content | safe }}
 
-<div class="controls" style="margin: 1rem 0; display: flex; gap: 10px;">
-    <input type="text" id="tableFilter" placeholder="Filter title or author..." style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+<div style="margin: 1rem 0;">
+    <a href="archive/" style="font-weight: bold; font-size: 1.1em;">📂 View Full Archive Table</a>
 </div>
 
-<div style="overflow-x: auto;">
-    <table id="archiveTable" style="width: 100%; table-layout: fixed; min-width: 600px;">
-        <thead>
-            <tr style="cursor: pointer; background: #f0f0f0;">
-                <th onclick="sortTable(0, 'date')" style="width: 120px; padding: 8px;">Date ↕</th>
-                <th onclick="sortTable(1, 'number')" style="width: 60px; padding: 8px; text-align: right;">Ups ↕</th>
-                <th onclick="sortTable(2, 'number')" style="width: 60px; padding: 8px; text-align: right;">Cmt ↕</th>
-                <th onclick="sortTable(3, 'string')" style="width: auto; padding: 8px;">Title ↕</th>
-                <th onclick="sortTable(4, 'string')" style="width: 120px; padding: 8px;">Author ↕</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for page in section.pages %}
-            <tr style="border-bottom: 1px solid #eee;">
-                <td data-value="{{ page.date }}" style="padding: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 0.9em;">
-                    {{ page.date | date(format="%Y-%m-%d") }}
-                </td>
-                
-                <td data-value="{{ page.extra.ups | default(value=0) }}" style="padding: 8px; text-align: right;">
-                    {{ page.extra.ups | default(value=0) }}
-                </td>
+<h2>Latest Changes (Top 64)</h2>
+{% set latest_pages = section.pages | slice(end=64) %}
+{% include "partials/table.html" %}
 
-                <td data-value="{{ page.extra.num_comments | default(value=0) }}" style="padding: 8px; text-align: right;">
-                    {{ page.extra.num_comments | default(value=0) }}
-                </td>
-
-                <td data-value="{{ page.title }}" style="padding: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                    <a href="{{ page.permalink }}" style="display: block; overflow: hidden; text-overflow: ellipsis;">{{ page.title }}</a>
-                </td>
-
-                <td data-value="{{ page.extra.author }}" style="padding: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                    <span style="color: #666; font-size: 0.9em;">{{ page.extra.author }}</span>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-</div>
-
-{% if section.paginator %}
-<div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
-    {% if section.paginator.previous %}
-        <a href="{{ section.paginator.previous }}">Previous</a>
-    {% endif %}
-    <span>Page {{ section.paginator.current_index }} / {{ section.paginator.number_pagers }}</span>
-    {% if section.paginator.next %}
-        <a href="{{ section.paginator.next }}">Next</a>
-    {% endif %}
-</div>
-{% endif %}
-
-<script>
-    document.getElementById('tableFilter').addEventListener('keyup', function() {
-        let filter = this.value.toLowerCase();
-        let rows = document.querySelectorAll('#archiveTable tbody tr');
-        rows.forEach(row => {
-            let title = row.cells[3].textContent.toLowerCase();
-            let author = row.cells[4].textContent.toLowerCase();
-            if (title.includes(filter) || author.includes(filter)) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        });
-    });
-
-    let sortDir = 1;
-    function sortTable(colIndex, type) {
-        let table = document.getElementById("archiveTable");
-        let tbody = table.querySelector("tbody");
-        let rows = Array.from(tbody.querySelectorAll("tr"));
-
-        sortDir *= -1;
-
-        rows.sort((a, b) => {
-            let valA = a.cells[colIndex].getAttribute('data-value');
-            let valB = b.cells[colIndex].getAttribute('data-value');
-
-            if (type === 'number') {
-                return (parseFloat(valA) - parseFloat(valB)) * sortDir;
-            } else {
-                return valA.localeCompare(valB) * sortDir;
-            }
-        });
-
-        rows.forEach(row => tbody.appendChild(row));
-        
-        let ths = table.querySelectorAll('th');
-        ths.forEach(th => th.innerHTML = th.innerHTML.replace(' ↑', '').replace(' ↓', '').replace(' ↕', ' ↕'));
-        ths[colIndex].innerHTML = ths[colIndex].innerHTML.replace(' ↕', sortDir === 1 ? ' ↑' : ' ↓');
-    }
-</script>
 {% endblock content %}
