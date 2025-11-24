@@ -5,7 +5,7 @@ build_search_index = false
 generate_sitemap = true
 compile_sass = false
 minify_html = true
-generate_feeds = true
+generate_feeds = false
 feed_limit = 64
 
 [link_checker]

@@ -25,25 +25,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Tools
-        run: |
+      - run: |
           curl -sL https://api.github.com/repos/getzola/zola/releases/latest \
           | jq -r '.assets[] | select(.name | contains("x86_64-unknown-linux-gnu.tar.gz")) | .browser_download_url' \
           | xargs curl -L -o zola.tar.gz
           tar -xzf zola.tar.gz
           sudo mv zola /usr/local/bin/
           rm zola.tar.gz
-          
-          curl -L https://github.com/CloudCannon/pagefind/releases/download/v1.1.0/pagefind-v1.1.0-x86_64-unknown-linux-musl.tar.gz -o pagefind.tar.gz
-          tar -xzf pagefind.tar.gz
-          chmod +x pagefind
-          sudo mv pagefind /usr/local/bin/
-          rm pagefind.tar.gz
+          zola --version
 
-      - name: Build Site
-        run: |
+      - run: |
           zola build --output-dir public
-          pagefind --site public
 
       - uses: actions/configure-pages@v5
 
