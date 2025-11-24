@@ -88,14 +88,13 @@ def build():
 
     items = list(iter_captures())
 
-    home_fm = "---\ntitle: \"Reddit Archive \/ 红迪档案馆\"\nsort_by: \"weight\"\n---\n"
+    home_fm = "---\ntitle: \"Reddit Archive\"\nsort_by: \"weight\"\n---\n"
     write(CONTENT / "_index.md", home_fm)
 
     if not items:
         return
 
     latest_per_post = latest_by_post(items)
-    
     by_sub = {}
     for it in latest_per_post:
         by_sub.setdefault(it["sub"], []).append(it)
@@ -114,13 +113,13 @@ def build():
             
             try:
                  dt = datetime.datetime.fromtimestamp(int(float(it["created_utc"])), datetime.timezone.utc)
-                 date_str = dt.strftime("%Y-%m-%d")
+                 date_str = dt.isoformat()
             except:
-                 date_str = "1970-01-01"
+                 date_str = "1970-01-01T00:00:00"
 
             lines = ["---"]
             lines.append(f'title: {title_json}')
-            lines.append(f'date: "{date_str}"')
+            lines.append(f'date: {date_str}')
             lines.append("extra:")
             
             for k, v in m.items():
