@@ -5,38 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <style>
-        body { font-family: system-ui, sans-serif; max-width: 960px; margin: 0 auto; padding: 1rem; line-height: 1.5; }
+        body { font-family: system-ui, -apple-system, sans-serif; max-width: 1024px; margin: 0 auto; padding: 1rem; line-height: 1.6; color: #333; }
         a { color: #0066cc; text-decoration: none; }
         a:hover { text-decoration: underline; }
-        h1, h2, h3 { margin-top: 2rem; }
-        table { border-collapse: collapse; width: 100%; margin: 1rem 0; table-layout: fixed; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        th { background-color: #f2f2f2; }
+        h1, h2, h3 { margin-top: 2rem; margin-bottom: 1rem; }
         
-
+        blockquote { border-left: 4px solid #ddd; margin: 1.5rem 0; padding-left: 1rem; color: #555; background: #f9f9f9; padding: 0.5rem 1rem; }
+        
+        table { border-collapse: collapse; width: 100%; margin: 1rem 0; table-layout: auto; }
+        th, td { border-bottom: 1px solid #eee; padding: 10px 8px; text-align: left; vertical-align: middle; }
+        th { background-color: #f4f4f4; font-weight: 600; white-space: nowrap; cursor: pointer; user-select: none; }
+        th:hover { background-color: #e0e0e0; }
+        
         .nav-bar { margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-        .nav-links { display: flex; gap: 1.5rem; align-items: center; }
-
-        .search-box { margin-bottom: 2rem; padding: 1rem; background: #f9f9f9; border-radius: 4px; border: 1px solid #eee; }
+        .nav-links { display: flex; gap: 1rem; align-items: center; font-size: 0.95em; }
+        .nav-links a { font-weight: 500; }
+        
+        .search-box { margin-bottom: 2rem; padding: 0.8rem; background: #f1f1f1; border-radius: 6px; }
         .search-form { display: flex; gap: 10px; }
-        .search-input { flex: 1; padding: 10px; font-size: 16px; border: 1px solid #ccc; border-radius: 4px; }
-        .search-btn { padding: 10px 20px; background-color: #0066cc; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
-        .search-btn:hover { background-color: #0055aa; }
-
-        .meta-list { list-style: none; padding: 0; margin: 0 0 1.5rem 0; background: #f9f9f9; border-radius: 4px; border: 1px solid #eee; }
-        .meta-list li { padding: 8px 12px; border-bottom: 1px solid #eee; display: flex; }
+        .search-input { flex: 1; padding: 8px; font-size: 16px; border: 1px solid #ccc; border-radius: 4px; }
+        .search-btn { padding: 8px 20px; background-color: #0066cc; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        
+        .meta-list { list-style: none; padding: 0; margin: 0 0 1.5rem 0; background: #f8f9fa; border-radius: 6px; border: 1px solid #e9ecef; font-size: 0.9em; }
+        .meta-list li { padding: 8px 12px; border-bottom: 1px solid #e9ecef; display: flex; gap: 10px; }
         .meta-list li:last-child { border-bottom: none; }
-        .meta-key { font-weight: bold; width: 120px; flex-shrink: 0; color: #555; }
-        .meta-val { word-break: break-all; }
+        .meta-key { font-weight: bold; min-width: 100px; color: #555; }
+        .meta-val { word-break: break-all; flex: 1; }
     </style>
 </head>
 <body>
     <nav class="nav-bar">
-        <a href="{{ get_url(path="@/_index.md") }}" style="font-weight: bold; font-size: 1.2em; text-decoration: none; color: inherit;">Reddit Archive / 红迪档案馆</a>
+        <a href="{{ get_url(path="@/_index.md") }}" style="font-weight: bold; font-size: 1.3em; text-decoration: none; color: #222;">Reddit Archive / 红迪档案馆</a>
         <div class="nav-links">
             <a href="{{ get_url(path="atom.xml") }}" target="_blank">Feed</a>
             <a href="https://github.com/open-run-org/archive" target="_blank">GitHub</a>
-            <a href="https://ko-fi.com/clarelab" target="_blank" style="color: #d9534f; font-weight: bold;">Support</a>
+            <a href="https://github.com/open-run-org/archive/releases" id="download-link" target="_blank" title="Download latest archive">Download</a>
+            <a href="https://ko-fi.com/clarelab" target="_blank" style="color: #d9534f; background: #ffebe9; padding: 2px 8px; border-radius: 4px;">Support ❤️</a>
         </div>
     </nav>
     
@@ -45,7 +49,6 @@
             <input type="hidden" name="sites" value="archive.open-run.org">
             <input type="hidden" name="k1" value="-1">
             <input type="hidden" name="kz" value="-1">
-            
             <input type="text" name="q" class="search-input" placeholder="Search archive via DuckDuckGo..." required>
             <button type="submit" class="search-btn">Search</button>
         </form>
@@ -54,5 +57,19 @@
     <main>
         {% block content %}{% endblock content %}
     </main>
+
+    <script>
+        fetch('https://api.github.com/repos/open-run-org/archive/releases/latest')
+            .then(response => response.json())
+            .then(data => {
+                if (data.assets && data.assets.length > 0) {
+                    const asset = data.assets.find(a => a.name.endsWith('.tar.gz')) || data.assets[0];
+                    const link = document.getElementById('download-link');
+                    link.href = asset.browser_download_url;
+                    link.title = "Download " + data.tag_name;
+                }
+            })
+            .catch(err => console.log('Release fetch failed', err));
+    </script>
 </body>
 </html>

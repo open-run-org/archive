@@ -1,27 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% set parent = get_section(path=page.extra.section_path) %}
+
 <div class="meta">
-    <a href="{{ get_url(path=page.extra.section_path) }}">← Back to Subreddit</a>
+    <a href="{{ parent.permalink }}">← Back to {{ parent.title }} / 返回 {{ parent.title }}</a>
 </div>
 
 <h1>{{ page.title }}</h1>
 
-<div class="controls" style="margin: 1rem 0;">
-    <input type="text" id="tableFilter" placeholder="Filter title or author..." style="width: 100%; padding: 8px;">
+<div style="margin-bottom: 1rem; color: #666;">
+    Showing all archived posts. Use the filter below to search.
 </div>
 
-{% set latest_pages = page.ancestors | last | get_section | get(key="pages") %} 
+{% set latest_pages = parent.pages %}
 {% include "partials/table.html" %}
 
-<script>
-    document.getElementById('tableFilter').addEventListener('keyup', function() {
-        let filter = this.value.toLowerCase();
-        let rows = document.querySelectorAll('#archiveTable tbody tr');
-        rows.forEach(row => {
-            let text = row.innerText.toLowerCase();
-            row.style.display = text.includes(filter) ? '' : 'none';
-        });
-    });
-</script>
 {% endblock content %}
