@@ -1,20 +1,98 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div style="margin-bottom: 2rem;">
-    {{ section.content | safe }}
+<div class="intro-box">
+    <h1 style="margin-top: 0; font-size: 1.8em;">Reddit Archive / 红迪档案馆</h1>
+    <p style="color: #666; margin-bottom: 0;">
+        Tracking <strong>{{ section.extra.subs | length }}</strong>. 
+        Generated at {{ now() | date(format="%Y-%m-%d %H:%M") }}.
+    </p>
 </div>
 
-<h2>Subreddits</h2>
-<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 2rem;">
-{% for path in section.subsections %}
-    {% set sub = get_section(path=path) %}
-    <a href="{{ sub.permalink }}" style="background: #eee; padding: 5px 10px; border-radius: 4px;">{{ sub.title }}</a>
+<h2 class="section-header">Community Status / 社区状态</h2>
+<div class="sub-grid">
+{% for sub in section.extra.subs %}
+    <a href="{{ sub.path | replace(from="_index.md", to="") }}" class="sub-card">
+        <div class="sub-main">
+            <div class="sub-top">
+                <span class="status-dot {{ sub.status }}"></span>
+                <span class="sub-name">{{ sub.name }}</span>
+            </div>
+            <div class="sub-stats">
+                {{ sub.count }} posts • {{ sub.last_date }}
+            </div>
+        </div>
+        <div class="sub-graph">
+            <svg viewBox="0 0 50 20" preserveAspectRatio="none">
+                <polyline points="
+                    0,{{ 20 - sub.trend | split(pat=",") | nth(n=0) }} 
+                    10,{{ 20 - sub.trend | split(pat=",") | nth(n=1) }} 
+                    20,{{ 20 - sub.trend | split(pat=",") | nth(n=2) }} 
+                    30,{{ 20 - sub.trend | split(pat=",") | nth(n=3) }} 
+                    40,{{ 20 - sub.trend | split(pat=",") | nth(n=4) }} 
+                    50,{{ 20 - sub.trend | split(pat=",") | nth(n=5) }}
+                " />
+            </svg>
+        </div>
+    </a>
 {% endfor %}
 </div>
 
-<h2>Latest Changes / 最新改动</h2>
-{% set latest_pages = section.pages | slice(end=64) %}
-{% include "partials/table.html" %}
+<h2 class="section-header">Latest Changes / 最新改动</h2>
+<div class="table-wrapper">
+    {% set latest_pages = section.pages | slice(end=64) %}
+    {% include "partials/table.html" %}
+</div>
 
+<style>
+    .intro-box { 
+        padding: 1.5rem; background: linear-gradient(to right, #f8f9fa, #fff); 
+        border-radius: 8px; border: 1px solid #e9ecef; margin-bottom: 2rem; 
+    }
+    
+    .section-header {
+        margin-top: 2.5rem; margin-bottom: 1rem; border-bottom: 2px solid #f0f0f0; padding-bottom: 0.5rem;
+    }
+
+    .sub-grid { 
+        display: grid; 
+        gap: 16px; 
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    }
+    
+    .sub-card { 
+        display: flex; justify-content: space-between; align-items: center; 
+        padding: 16px; border: 1px solid #eaeaea; border-radius: 8px; 
+        background: white; text-decoration: none; color: inherit;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.02); transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .sub-card:hover { 
+        transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-color: #0066cc; 
+    }
+    
+    .sub-main { flex: 1; min-width: 0; margin-right: 12px; }
+    .sub-top { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+    .sub-name { font-weight: 700; font-size: 1.05em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .sub-stats { font-size: 0.85em; color: #888; font-family: monospace; }
+    
+    .status-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .status-dot.active { background-color: #2eb85c; box-shadow: 0 0 0 2px rgba(46,184,92,0.2); }
+    .status-dot.quiet { background-color: #f9b115; }
+    .status-dot.archived { background-color: #ced2d8; }
+    
+    .sub-graph { width: 60px; height: 24px; flex-shrink: 0; opacity: 0.7; }
+    .sub-graph svg { width: 100%; height: 100%; overflow: visible; }
+    .sub-graph polyline { 
+        fill: none; stroke: #321fdb; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; 
+    }
+
+    .table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border: 1px solid #eee;
+        border-radius: 6px;
+        box-shadow: inset -10px 0 10px -10px rgba(0,0,0,0.05);
+    }
+</style>
 {% endblock content %}

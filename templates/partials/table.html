@@ -1,44 +1,39 @@
-<div class="controls" style="margin: 1rem 0;">
-    <input type="text" onkeyup="filterTable(this)" placeholder="Filter by title or author..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px;">
-</div>
-
-<div style="overflow-x: auto; border: 1px solid #eee; border-radius: 4px;">
-    <table id="archiveTable">
+<div style="min-width: 600px;"> <table id="archiveTable">
         <thead>
             <tr>
                 <th onclick="sortTable(0, 'date')" style="width: 15%;">Date ↕</th>
-                <th onclick="sortTable(1, 'number')" style="width: 8%; text-align: right;">Ups ↕</th>
-                <th onclick="sortTable(2, 'number')" style="width: 8%; text-align: right;">Cmt ↕</th>
-                <th onclick="sortTable(3, 'string')" style="width: 50%;">Title ↕</th>
-                <th onclick="sortTable(4, 'string')" style="width: 19%;">Author ↕</th>
+                <th class="hide-on-mobile" onclick="sortTable(1, 'number')" style="width: 8%; text-align: right;">Ups ↕</th>
+                <th class="hide-on-mobile" onclick="sortTable(2, 'number')" style="width: 8%; text-align: right;">Cmt ↕</th>
+                <th onclick="sortTable(3, 'string')" style="width: auto;">Title ↕</th>
+                <th onclick="sortTable(4, 'string')" style="width: 20%;">Author ↕</th>
             </tr>
         </thead>
         <tbody>
         {% for p in latest_pages %}
             <tr>
-                <td data-value="{{ p.date }}" style="font-size: 0.85em; line-height: 1.3; color: #666;">
+                <td data-value="{{ p.date }}" style="font-size: 0.85em; color: #666; line-height: 1.2;">
                     {{ p.date | date(format="%Y-%m-%d") }}<br>
-                    <span style="font-size: 0.9em; color: #999;">{{ p.date | date(format="%H:%M:%S") }}</span>
+                    <span style="font-size: 0.85em; opacity: 0.7;">{{ p.date | date(format="%H:%M") }}</span>
                 </td>
                 
-                <td data-value="{{ p.extra.ups | default(value=0) }}" style="text-align: right; font-family: monospace;">
+                <td class="hide-on-mobile" data-value="{{ p.extra.ups | default(value=0) }}" style="text-align: right; font-family: monospace;">
                     {{ p.extra.ups | default(value=0) }}
                 </td>
 
-                <td data-value="{{ p.extra.num_comments | default(value=0) }}" style="text-align: right; font-family: monospace;">
+                <td class="hide-on-mobile" data-value="{{ p.extra.num_comments | default(value=0) }}" style="text-align: right; font-family: monospace;">
                     {{ p.extra.num_comments | default(value=0) }}
                 </td>
 
                 <td data-value="{{ p.title }}">
                     <a href="{{ p.permalink }}" style="font-weight: 500; display: block; margin-bottom: 2px;">{{ p.title }}</a>
                     {% if p.extra.flair %}
-                        <span style="font-size: 0.75em; background: #eef; color: #447; padding: 2px 6px; border-radius: 10px; display: inline-block;">
+                        <span style="font-size: 0.75em; background: #f0f0f5; color: #556; padding: 1px 5px; border-radius: 4px; display: inline-block;">
                             {{ p.extra.flair }}
                         </span>
                     {% endif %}
                 </td>
 
-                <td data-value="{{ p.extra.author }}" style="font-size: 0.9em; color: #555; word-break: break-all;">
+                <td data-value="{{ p.extra.author }}" style="font-size: 0.9em; color: #555; overflow: hidden; text-overflow: ellipsis;">
                     {{ p.extra.author }}
                 </td>
             </tr>
@@ -46,6 +41,13 @@
         </tbody>
     </table>
 </div>
+
+<style>
+    @media (max-width: 600px) {
+        .hide-on-mobile { display: none; }
+        th:nth-child(4), td:nth-child(4) { width: auto; } 
+    }
+</style>
 
 <script>
     function filterTable(input) {
@@ -63,24 +65,13 @@
         const table = document.getElementById("archiveTable");
         const tbody = table.querySelector("tbody");
         const rows = Array.from(tbody.querySelectorAll("tr"));
-
         sortDir *= -1;
-
         rows.sort((a, b) => {
             const valA = a.cells[colIndex].getAttribute('data-value');
             const valB = b.cells[colIndex].getAttribute('data-value');
-
-            if (type === 'number') {
-                return (parseFloat(valA) - parseFloat(valB)) * sortDir;
-            }
+            if (type === 'number') return (parseFloat(valA) - parseFloat(valB)) * sortDir;
             return valA.localeCompare(valB) * sortDir;
         });
-
         rows.forEach(row => tbody.appendChild(row));
-        
-        table.querySelectorAll('th').forEach((th, i) => {
-            let text = th.innerText.replace(/[↑↓↕]/g, '').trim();
-            th.innerText = text + (i === colIndex ? (sortDir === 1 ? ' ↑' : ' ↓') : ' ↕');
-        });
     }
 </script>
