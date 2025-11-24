@@ -1,6 +1,4 @@
 ---
 title: "Reddit Archive"
-sort_by: "weight"
+sort_by: "date"
 ---
-
-# Welcome to the Reddit Archive
