@@ -1,6 +1,6 @@
 [![CI](https://github.com/open-run-org/archive/actions/workflows/ci.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/ci.yaml) [![CD](https://github.com/open-run-org/archive/actions/workflows/cd.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/cd.yaml) [![Image](https://github.com/open-run-org/archive/actions/workflows/image.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/image.yaml) [![Release](https://github.com/open-run-org/archive/actions/workflows/release.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/release.yaml)
 
-# Reddit Archiver
+# Reddit Archive / 红迪档案馆
 
 ## 前言
 
@@ -25,19 +25,19 @@
 * r/runEuropaAlliance
 * r/RunAustralia
 
-网站因为过于无脑所以就不讲怎么用了，不过有一个问题，就是在我加入 r/iwanttorun 自 2021 年以来的全量备份之后 GitHub Pages 网站构建产物超限了，所以无奈之下目前只部署了自 2025 年 4 月以来的贴文，而且不包含 r/runtoJapan。简单来说就是网站是部分备份，而 GitHub 上有全量备份。
+网站因为过于无脑所以就不讲怎么用了。
 
-全量的备份可以在 [这里](https://github.com/open-run-org/archive/tree/main/content) 找到，下载的话可以到 [GitHub Repo](https://github.com/open-run-org/archive) 界面然后下载（具体怎么下载 [见此](https://docs.github.com/en/get-started/start-your-journey/downloading-files-from-github)），然后进入 `/content` 即可。
+全量的备份可以在 [这里](https://github.com/open-run-org/archive/tree/main/content) 找到，下载的话可以到 [GitHub Repo](https://github.com/open-run-org/archive/releases/latest) 界面然后下载对应的压缩文件（每周日更新），也可以直接在网站右上角点击 `Download`。
 
 每天 UTC 0 点的时候会触发 GitHub Action 然后自动更新最近 16 天的贴文和评论。
 
 给两个示例吧，比如经常有人在问的，以前 r/iwanttorun 的教未成年走线的贴文（现已被删）：
 
->[链接见此](https://github.com/open-run-org/archive/blob/main/content/r_iwanttorun/230413033915_12kal6n.md)
+>[链接见此](https://archive.open-run.org/r_iwanttorun/230413033915-12kal6n)
 
 或者我在以前 r/runtoJapan 发的留日就职率（现 sub 已被封）：
 
->[链接见此](https://github.com/open-run-org/archive/blob/main/content/r_runtoJapan/240826203938_1f1ynlk.md)
+>[链接见此](https://archive.open-run.org/r_runtoJapan/240826203938-1f1ynlk)
 
 包括评论也是都有保存的。
 
@@ -56,11 +56,11 @@
 
 首先是数据来源，来源分两部分，一个是 Reddit 的 API，用于抓取最近的贴文和评论以持续更新，另一个我已经在我的其它帖文中提及了，见此（[分享一个访问已被封的 sub 的贴文和评论的方法](https://www.reddit.com/r/runtoJapan2/comments/1oazwgj/%E5%88%86%E4%BA%AB%E4%B8%80%E4%B8%AA%E8%AE%BF%E9%97%AE%E5%B7%B2%E8%A2%AB%E5%B0%81%E7%9A%84_sub_%E7%9A%84%E8%B4%B4%E6%96%87%E5%92%8C%E8%AF%84%E8%AE%BA%E7%9A%84%E6%96%B9%E6%B3%95)），用于下载全量数据。以及必须提及一个非常简便的网站是 [Arctic Shift](https://arctic-shift.photon-reddit.com/)，可以搜索并下载到所有 sub 的所有贴文或评论。
 
-网站框架用的是 Mkdocs Material，然后语言用的是 Shell、Python 和 Go，其中 Go 用来做网站内容获取，而 Shell 和 Python 用于写一些脚本，最后部署用的是 GitHub Actions，以及用于开发用的 Docker + devcontainer。
+网站框架用的是 Zola，然后语言用的是 Shell、Python 和 Go，其中 Go 用来做网站内容获取，而 Shell 和 Python 用于写一些脚本，最后部署用的是 GitHub Actions，以及用于开发用的 Docker + devcontainer。
 
 ## 贡献
 
-一个比较核心的问题是网站没法全量构建，这个比较重要，不过解决方法其实很简单，就是转移到动态网站，部署到其它地方去。
+一个比较核心的问题是网站静态构建有产物大小上限，所以要转移到动态网站是迟早的事。
 
 但是问题就是本人最近比较忙，所以要做的话估计起码要等到明年。
 

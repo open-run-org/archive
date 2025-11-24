@@ -9,9 +9,10 @@
     </p>
 </div>
 
-<h2 class="section-header">Community Status / 社区状态</h2>
+<h2 class="section-header">Community Status</h2>
 <div class="sub-grid">
 {% for sub in section.extra.subs %}
+    {% if sub.path %}
     <a href="{{ sub.path | replace(from="_index.md", to="") }}" class="sub-card">
         <div class="sub-main">
             <div class="sub-top">
@@ -22,19 +23,21 @@
                 {{ sub.count }} posts • {{ sub.last_date }}
             </div>
         </div>
+        
         <div class="sub-graph">
             <svg viewBox="0 0 50 20" preserveAspectRatio="none">
                 <polyline points="
-                    0,{{ 20 - sub.trend | split(pat=",") | nth(n=0) }} 
-                    10,{{ 20 - sub.trend | split(pat=",") | nth(n=1) }} 
-                    20,{{ 20 - sub.trend | split(pat=",") | nth(n=2) }} 
-                    30,{{ 20 - sub.trend | split(pat=",") | nth(n=3) }} 
-                    40,{{ 20 - sub.trend | split(pat=",") | nth(n=4) }} 
-                    50,{{ 20 - sub.trend | split(pat=",") | nth(n=5) }}
+                    0,{{ 20 - sub.trend | split(pat=",") | nth(n=0) | int }} 
+                    10,{{ 20 - sub.trend | split(pat=",") | nth(n=1) | int }} 
+                    20,{{ 20 - sub.trend | split(pat=",") | nth(n=2) | int }} 
+                    30,{{ 20 - sub.trend | split(pat=",") | nth(n=3) | int }} 
+                    40,{{ 20 - sub.trend | split(pat=",") | nth(n=4) | int }} 
+                    50,{{ 20 - sub.trend | split(pat=",") | nth(n=5) | int }}
                 " />
             </svg>
         </div>
     </a>
+    {% endif %}
 {% endfor %}
 </div>
 
@@ -49,17 +52,12 @@
         padding: 1.5rem; background: linear-gradient(to right, #f8f9fa, #fff); 
         border-radius: 8px; border: 1px solid #e9ecef; margin-bottom: 2rem; 
     }
-    
     .section-header {
         margin-top: 2.5rem; margin-bottom: 1rem; border-bottom: 2px solid #f0f0f0; padding-bottom: 0.5rem;
     }
-
     .sub-grid { 
-        display: grid; 
-        gap: 16px; 
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
     }
-    
     .sub-card { 
         display: flex; justify-content: space-between; align-items: center; 
         padding: 16px; border: 1px solid #eaeaea; border-radius: 8px; 
@@ -69,7 +67,6 @@
     .sub-card:hover { 
         transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-color: #0066cc; 
     }
-    
     .sub-main { flex: 1; min-width: 0; margin-right: 12px; }
     .sub-top { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
     .sub-name { font-weight: 700; font-size: 1.05em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -85,7 +82,7 @@
     .sub-graph polyline { 
         fill: none; stroke: #321fdb; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; 
     }
-
+    
     .table-wrapper {
         width: 100%;
         overflow-x: auto;
