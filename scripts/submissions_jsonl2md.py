@@ -75,7 +75,7 @@ def main():
         if ts_part < cutoff_str:
             continue
             
-        sub_dir = f.parents[3].name 
+        sub_dir = f.parents[2].name
         cap_hash = f.stem
         parts = cap_hash.split("_", 1)
         if len(parts) < 2: 
