@@ -7,7 +7,14 @@ on:
       - 'content/**'
       - 'templates/**'
       - 'config.toml'
-      - '.github/workflows/deploy.yaml'
+      - '.github/workflows/cd.yaml'
+
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
+    branches: [ main ]
+    
   workflow_dispatch:
 
 permissions:
@@ -21,9 +28,12 @@ concurrency:
 
 jobs:
   build:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_branch || github.ref }}
 
       - run: |
           curl -sL https://api.github.com/repos/getzola/zola/releases/latest \
@@ -34,12 +44,11 @@ jobs:
           rm zola.tar.gz
           zola --version
 
-      - run: |
-          zola build --output-dir public
+      - run: zola build --output-dir public
 
       - uses: actions/configure-pages@v5
 
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 

@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: "ci"
+  cancel-in-progress: true
+
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -23,27 +27,21 @@ jobs:
       REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
       REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: true
 
-      - uses: actions/setup-go@v6
-        with:
-          go-version-file: "go.mod"
-
-      - uses: actions/setup-python@v6
-        with:
-          python-version: "3.x"
-
-      - run: |
-          sudo apt-get update
-          sudo apt-get install -y jq pandoc python3-venv curl
+      - uses: actions/setup-go@v5
+        with: { go-version-file: "go.mod" }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.x" }
+      - run: sudo apt-get update && sudo apt-get install -y jq pandoc python3-venv curl
 
       - run: |
           python -m venv .venv
           . .venv/bin/activate
-          pip install -U pip
+          pip install -U pip && pip install -r requirements.txt
 
       - run: |
           test -n "${REDDIT_CLIENT_ID}" || (echo "REDDIT_CLIENT_ID missing" && exit 1)
@@ -52,20 +50,19 @@ jobs:
 
       - run: |
           set -euxo pipefail
+          rm -rf content
           make ci
 
       - run: |
           set -euxo pipefail
-          rm -f zola.tar.gz zola pagefind.tar.gz
-          
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-          git add data content
+          git add -f content data
           
           if ! git diff --cached --quiet; then
-            git commit -m "chore: data sync $(date -u +%F-%T)"
+            git commit -m "chore: data sync $(date -u +%F-%T) [skip ci]"
             git push
           else
-            echo "no content changes"
+            echo "No changes to commit."
           fi
