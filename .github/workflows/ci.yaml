@@ -55,19 +55,10 @@ jobs:
 
       - run: |
           set -euxo pipefail
-          echo "=== git status (including ignored) ==="
-          git status --short --ignored
-          echo "=== tracked files under content ==="
-          git ls-files content | head -n 50
-          echo "=== sample of untracked files under content ==="
-          find content -maxdepth 3 -type f | head -n 50
-
-      - run: |
-          set -euxo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-          git add -f content data
+          git add content data
           
           if ! git diff --cached --quiet; then
             git commit -m "chore: data sync $(date -u +%F-%T) [skip ci]"
