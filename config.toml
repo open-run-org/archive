@@ -15,4 +15,3 @@ external_level = "warn"
 [markdown]
 render_emoji = true
 external_links_target_blank = true
-highlight_code = true
