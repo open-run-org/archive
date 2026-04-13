@@ -69,50 +69,39 @@ def qprefix(depth):
 
 def meta_lines(r, depth):
     p = qprefix(depth)
-    auth = r.get("author","") or ""
-    created = fmt_iso(r.get("created_utc",0))
+    auth = r.get("author", "") or "[deleted]"
+    created = fmt_iso(r.get("created_utc", 0)).replace(":00 UTC", " UTC")
     score = r.get("score", r.get("ups", 0))
-    cid = r.get("id","")
-    ups = r.get("ups", "")
-    downs = r.get("downs", "")
-    is_submitter = r.get("is_submitter", False)
-    distinguished = r.get("distinguished", None)
-    stickied = r.get("stickied", False)
-    archived = r.get("archived", False)
-    locked = r.get("locked", False)
-    controversiality = r.get("controversiality", 0)
-    gilded = r.get("gilded", 0)
-    tawards = r.get("total_awards_received", 0)
-    aflair = r.get("author_flair_text", "")
-    aflair_css = r.get("author_flair_css_class", "")
-    aflair_color = r.get("author_flair_text_color", "")
-    apremium = r.get("author_premium", False)
-    permalink = r.get("permalink","")
-    lines = [
-        f"{p}- Author: {auth}",
-        f"{p}- Created: {created}",
-        f"{p}- Score: {score}",
-        f"{p}- ID: {cid}",
-    ]
-    extra = []
-    if ups != "": extra.append(f"Ups={ups}")
-    if downs != "": extra.append(f"Downs={downs}")
-    if is_submitter: extra.append("Submitter=true")
-    if distinguished: extra.append(f"Distinguished={distinguished}")
-    if stickied: extra.append("Stickied=true")
-    if archived: extra.append("Archived=true")
-    if locked: extra.append("Locked=true")
-    if controversiality: extra.append(f"Controversiality={controversiality}")
-    if gilded: extra.append(f"Gilded={gilded}")
-    if tawards: extra.append(f"Awards={tawards}")
-    if aflair: extra.append(f"Flair={aflair}")
-    if aflair_css: extra.append(f"FlairCSS={aflair_css}")
-    if aflair_color: extra.append(f"FlairColor={aflair_color}")
-    if apremium: extra.append("AuthorPremium=true")
-    if permalink: extra.append(f"Permalink={permalink}")
-    if extra:
-        lines.append(p + "- " + " | ".join(extra))
-    return lines
+    cid = r.get("id", "") or ""
+    permalink = r.get("permalink", "") or ""
+
+    tags = []
+    if r.get("is_submitter", False):
+        tags.append("OP")
+    if r.get("distinguished") == "moderator":
+        tags.append("Mod")
+    elif r.get("distinguished"):
+        tags.append(str(r.get("distinguished")))
+    if r.get("stickied", False):
+        tags.append("Stickied")
+    if r.get("locked", False):
+        tags.append("Locked")
+    if r.get("archived", False):
+        tags.append("Archived")
+
+    flair = r.get("author_flair_text", "") or ""
+    if flair:
+        tags.append(flair)
+
+    head = f"**{auth}** · {created} · +{score}"
+    if cid:
+        head += f" · `{cid}`"
+    if tags:
+        head += " · " + " · ".join(f"`{t}`" for t in tags)
+    if permalink:
+        head += f' · [↗](https://reddit.com{permalink})'
+
+    return [p + head]
 
 def render_one(r, depth):
     lines = []
