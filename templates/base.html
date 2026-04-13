@@ -5,27 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     <style>
-        body { font-family: system-ui, -apple-system, sans-serif; max-width: 1024px; margin: 0 auto; padding: 1rem; line-height: 1.6; color: #333; }
+        body { font-family: system-ui, -apple-system, sans-serif; max-width: 1024px; margin: 0 auto; padding: 1rem; line-height: 1.55; color: #333; }
         a { color: #0066cc; text-decoration: none; }
         a:hover { text-decoration: underline; }
         h1, h2, h3 { margin-top: 2rem; margin-bottom: 1rem; }
-        
-        blockquote { border-left: 4px solid #ddd; margin: 1.5rem 0; padding-left: 1rem; color: #555; background: #f9f9f9; padding: 0.5rem 1rem; }
-        
+
+        blockquote {
+            border-left: 3px solid #ddd;
+            margin: 0.35rem 0 0.35rem 0.75rem;
+            padding: 0.2rem 0 0.2rem 0.75rem;
+            color: #555;
+            background: transparent;
+        }
+
+        blockquote p {
+            margin: 0.2rem 0;
+        }
+
+        blockquote blockquote {
+            margin-top: 0.25rem;
+            margin-bottom: 0.25rem;
+        }
+
         table { border-collapse: collapse; width: 100%; margin: 1rem 0; table-layout: auto; }
         th, td { border-bottom: 1px solid #eee; padding: 10px 8px; text-align: left; vertical-align: middle; }
         th { background-color: #f4f4f4; font-weight: 600; white-space: nowrap; cursor: pointer; user-select: none; }
         th:hover { background-color: #e0e0e0; }
-        
+
         .nav-bar { margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
         .nav-links { display: flex; gap: 1rem; align-items: center; font-size: 0.95em; }
         .nav-links a { font-weight: 500; }
-        
+
         .search-box { margin-bottom: 2rem; padding: 0.8rem; background: #f1f1f1; border-radius: 6px; }
         .search-form { display: flex; gap: 10px; }
         .search-input { flex: 1; padding: 8px; font-size: 16px; border: 1px solid #ccc; border-radius: 4px; }
         .search-btn { padding: 8px 20px; background-color: #0066cc; color: white; border: none; border-radius: 4px; cursor: pointer; }
-        
+
         .meta-list { list-style: none; padding: 0; margin: 0 0 1.5rem 0; background: #f8f9fa; border-radius: 6px; border: 1px solid #e9ecef; font-size: 0.9em; }
         .meta-list li { padding: 8px 12px; border-bottom: 1px solid #e9ecef; display: flex; gap: 10px; }
         .meta-list li:last-child { border-bottom: none; }
