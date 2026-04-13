@@ -1,170 +1,86 @@
-> - Author: Pristine_Jicama_8252
-> - Created: 2023-12-17 14:34:34 UTC
-> - Score: 4
-> - ID: kdr813r
-> - Ups=4 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/kdr813r/
+> **Pristine_Jicama_8252** · 2023-12-17 14:34:34 UTC · +4 · `kdr813r` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/kdr813r/)
 >
 > がんばれね
 
->> - Author: Medical-Simple195
->> - Created: 2023-12-17 17:13:26 UTC
->> - Score: 2
->> - ID: kdruzan
->> - Ups=2 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/kdruzan/
+>> **Medical-Simple195** · 2023-12-17 17:13:26 UTC · +2 · `kdruzan` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/kdruzan/)
 >>
 >> 虽然我不怎么懂日语，但我看到第一个假名就猜出了你整句话😂
 
->>> - Author: zhinarchist
->>> - Created: 2023-12-18 06:17:59 UTC
->>> - Score: 1
->>> - ID: kduzc4y
->>> - Ups=1 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/kduzc4y/
+>>> **zhinarchist** · 2023-12-18 06:17:59 UTC · +1 · `kduzc4y` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/kduzc4y/)
 >>>
 >>> がんりんにあんれ
 
->>>> - Author: Medical-Simple195
->>>> - Created: 2023-12-18 07:19:00 UTC
->>>> - Score: 1
->>>> - ID: kdv4in9
->>>> - Ups=1 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/kdv4in9/
+>>>> **Medical-Simple195** · 2023-12-18 07:19 UTC · +1 · `kdv4in9` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/kdv4in9/)
 >>>>
 >>>> mo zheng xia ma cha bu duo de lei
 
->>>>> - Author: zhinarchist
->>>>> - Created: 2023-12-18 08:30:28 UTC
->>>>> - Score: 1
->>>>> - ID: kdva4l5
->>>>> - Ups=1 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/kdva4l5/
+>>>>> **zhinarchist** · 2023-12-18 08:30:28 UTC · +1 · `kdva4l5` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/kdva4l5/)
 >>>>>
 >>>>> 冗談です🙏ごめんなさい
 
->>>>>> - Author: Medical-Simple195
->>>>>> - Created: 2023-12-18 08:57:15 UTC
->>>>>> - Score: 1
->>>>>> - ID: kdvc3ud
->>>>>> - Ups=1 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/kdvc3ud/
+>>>>>> **Medical-Simple195** · 2023-12-18 08:57:15 UTC · +1 · `kdvc3ud` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/kdvc3ud/)
 >>>>>>
 >>>>>> 大丈夫，我知道这是玩笑
 
-> - Author: IFoundMyCatIsAPussy
-> - Created: 2023-12-17 16:28:29 UTC
-> - Score: 7
-> - ID: kdrnx52
-> - Ups=7 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/kdrnx52/
+> **IFoundMyCatIsAPussy** · 2023-12-17 16:28:29 UTC · +7 · `kdrnx52` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/kdrnx52/)
 >
 > 一起努力！我也在学！箱の中にねこがいますね
 
->> - Author: Single_Talk2745
->> - Created: 2023-12-17 18:16:18 UTC
->> - Score: 1
->> - ID: kds54qi
->> - Ups=1 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/kds54qi/
+>> **Single_Talk2745** · 2023-12-17 18:16:18 UTC · +1 · `kds54qi` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/kds54qi/)
 >>
 >> ねこは箱の中にいます🤣为什么是箱子里啊
 
->>> - Author: IFoundMyCatIsAPussy
->>> - Created: 2023-12-17 18:33:11 UTC
->>> - Score: 2
->>> - ID: kds816n
->>> - Ups=2 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/kds816n/
+>>> **IFoundMyCatIsAPussy** · 2023-12-17 18:33:11 UTC · +2 · `kds816n` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/kds816n/)
 >>>
 >>> idk，就是标日初级第四课的课文里的例句。😂 其他的还不会说。
 >>> 
 >>> 不过有一次我参加了一个喜欢的日本品牌yamamoto guchi的直播间，问了一句'ここわ　いくらですか'　felt so good。😂
 
->>>> - Author: Nanking_festival106
->>>> - Created: 2023-12-20 02:21:44 UTC
->>>> - Score: 1
->>>> - ID: ke4jrqw
->>>> - Ups=1 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/ke4jrqw/
+>>>> **Nanking_festival106** · 2023-12-20 02:21:44 UTC · +1 · `ke4jrqw` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/ke4jrqw/)
 >>>>
 >>>> これ更正确一点
 
->>>>> - Author: IFoundMyCatIsAPussy
->>>>> - Created: 2023-12-20 02:48:58 UTC
->>>>> - Score: 1
->>>>> - ID: ke4nl0p
->>>>> - Ups=1 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/ke4nl0p/
+>>>>> **IFoundMyCatIsAPussy** · 2023-12-20 02:48:58 UTC · +1 · `ke4nl0p` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/ke4nl0p/)
 >>>>>
 >>>>> 对对，当时说的是これは。
 
->>>>>> - Author: Nanking_festival106
->>>>>> - Created: 2023-12-20 03:15:36 UTC
->>>>>> - Score: 2
->>>>>> - ID: ke4r7ua
->>>>>> - Ups=2 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/ke4r7ua/
+>>>>>> **Nanking_festival106** · 2023-12-20 03:15:36 UTC · +2 · `ke4r7ua` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/ke4r7ua/)
 >>>>>>
 >>>>>> 加油↖(^ω^)↗
 
-> - Author: kanagawa-6324
-> - Created: 2023-12-17 18:36:47 UTC
-> - Score: 3
-> - ID: kds8nj1
-> - Ups=3 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/kds8nj1/
+> **kanagawa-6324** · 2023-12-17 18:36:47 UTC · +3 · `kds8nj1` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/kds8nj1/)
 >
 > 来，aiueo sasisuseso
 
->> - Author: Weng-Jun-Ming
->> - Created: 2023-12-18 05:28:36 UTC
->> - Score: 2
->> - ID: kduung4
->> - Ups=2 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/kduung4/
+>> **Weng-Jun-Ming** · 2023-12-18 05:28:36 UTC · +2 · `kduung4` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/kduung4/)
 >>
 >> akasatana
 >> hamayarawa
 
-> - Author: 4pao
-> - Created: 2023-12-18 02:52:15 UTC
-> - Score: 1
-> - ID: kdubrj9
-> - Ups=1 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/kdubrj9/
+> **4pao** · 2023-12-18 02:52:15 UTC · +1 · `kdubrj9` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/kdubrj9/)
 >
 > 在日本。忘记买一册大家的日语原版了。请问哪有卖
 
->> - Author: mlikever
->> - Created: 2023-12-18 06:42:40 UTC
->> - Score: 2
->> - ID: kdv1hzr
->> - Ups=2 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/kdv1hzr/
+>> **mlikever** · 2023-12-18 06:42:40 UTC · +2 · `kdv1hzr` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/kdv1hzr/)
 >>
 >> 有钱亚马逊，或者book off里有便宜二手
 
-> - Author: Expert_Potential_815
-> - Created: 2023-12-18 04:37:10 UTC
-> - Score: 5
-> - ID: kdup4vt
-> - Ups=5 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/kdup4vt/
+> **Expert_Potential_815** · 2023-12-18 04:37:10 UTC · +5 · `kdup4vt` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/kdup4vt/)
 >
 > ちんちん見せて
 
->> - Author: zhinarchist
->> - Created: 2023-12-18 06:20:44 UTC
->> - Score: 1
->> - ID: kduzl3v
->> - Ups=1 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/kduzl3v/
+>> **zhinarchist** · 2023-12-18 06:20:44 UTC · +1 · `kduzl3v` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/kduzl3v/)
 >>
 >> ちんこなめて まんこはめて
 
->> - Author: Standard-Brush-9697
->> - Created: 2023-12-22 14:49:55 UTC
->> - Score: 1
->> - ID: kegx0k5
->> - Ups=1 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/kegx0k5/
+>> **Standard-Brush-9697** · 2023-12-22 14:49:55 UTC · +1 · `kegx0k5` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/kegx0k5/)
 >>
 >> ちんこ見せろ
 
-> - Author: shilloya
-> - Created: 2023-12-18 08:20:33 UTC
-> - Score: 3
-> - ID: kdv9dq0
-> - Ups=3 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/kdv9dq0/
+> **shilloya** · 2023-12-18 08:20:33 UTC · +3 · `kdv9dq0` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/kdv9dq0/)
 >
 > 大日本帝国万歳　八紘一宇七生報国
 
->> - Author: GullibleReflection14
->> - Created: 2023-12-18 10:09:21 UTC
->> - Score: 2
->> - ID: kdvhggm
->> - Ups=2 | Downs=0 | Permalink=/r/runtoJapan/comments/18ki113/开始学日语喵/kdvhggm/
+>> **GullibleReflection14** · 2023-12-18 10:09:21 UTC · +2 · `kdvhggm` · [↗](https://reddit.com/r/runtoJapan/comments/18ki113/开始学日语喵/kdvhggm/)
 >>
 >> 七生報国　忠君愛国　滅私奉公　やっと成功😇
