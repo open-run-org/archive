@@ -1,19 +1,19 @@
 <div class="controls" style="margin: 1rem 0;">
-    <input type="text" onkeyup="filterTable(this)" placeholder="Filter by title or author..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; box-sizing: border-box;">
+    <input type="text" id="archiveFilter" placeholder="Filter by title or author..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; box-sizing: border-box;">
 </div>
 
 <div style="overflow-x: hidden; border: 1px solid #eee; border-radius: 4px;">
     <table id="archiveTable" style="width: 100%; table-layout: fixed;">
         <thead>
             <tr>
-                <th onclick="sortTable(0, 'date')" style="width: 90px; padding: 8px;">Date ↕</th>
+                <th data-sort="date" style="width: 90px; padding: 8px;">Date ↕</th>
                 
-                <th class="hide-on-mobile" onclick="sortTable(1, 'number')" style="width: 50px; text-align: right; padding: 8px;">Ups ↕</th>
-                <th class="hide-on-mobile" onclick="sortTable(2, 'number')" style="width: 50px; text-align: right; padding: 8px;">Cmt ↕</th>
+                <th class="hide-on-mobile" data-sort="number" style="width: 50px; text-align: right; padding: 8px;">Ups ↕</th>
+                <th class="hide-on-mobile" data-sort="number" style="width: 50px; text-align: right; padding: 8px;">Cmt ↕</th>
                 
-                <th onclick="sortTable(3, 'string')" style="width: auto; padding: 8px;">Title ↕</th>
+                <th data-sort="string" style="width: auto; padding: 8px;">Title ↕</th>
                 
-                <th class="hide-on-mobile" onclick="sortTable(4, 'string')" style="width: 120px; padding: 8px;">Author ↕</th>
+                <th class="hide-on-mobile" data-sort="string" style="width: 120px; padding: 8px;">Author ↕</th>
             </tr>
         </thead>
         <tbody>
@@ -37,10 +37,10 @@
                     <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                         <a href="{{ p.permalink }}" style="font-weight: 500; color: #2244cc; text-decoration: none;">{{ p.title }}</a>
                     </div>
-                    {% if p.extra.flair %}
+                    {% if p.extra.link_flair_text %}
                     <div style="margin-top: 2px;">
                         <span style="font-size: 0.75em; background: #f0f0f5; color: #667; padding: 1px 5px; border-radius: 4px;">
-                            {{ p.extra.flair }}
+                            {{ p.extra.link_flair_text }}
                         </span>
                     </div>
                     {% endif %}
@@ -62,35 +62,3 @@
     }
 </style>
 
-<script>
-    function filterTable(input) {
-        const filter = input.value.toLowerCase();
-        const rows = document.querySelectorAll('#archiveTable tbody tr');
-        rows.forEach(row => {
-            const title = row.cells[3].textContent.toLowerCase();
-            const authorCell = row.cells[4];
-            const author = authorCell ? authorCell.textContent.toLowerCase() : "";
-            
-            if (title.includes(filter) || author.includes(filter)) {
-                row.style.display = '';
-            } else {
-                row.style.display = 'none';
-            }
-        });
-    }
-
-    let sortDir = 1;
-    function sortTable(colIndex, type) {
-        const table = document.getElementById("archiveTable");
-        const tbody = table.querySelector("tbody");
-        const rows = Array.from(tbody.querySelectorAll("tr"));
-        sortDir *= -1;
-        rows.sort((a, b) => {
-            const valA = a.cells[colIndex].getAttribute('data-value');
-            const valB = b.cells[colIndex].getAttribute('data-value');
-            if (type === 'number') return (parseFloat(valA) - parseFloat(valB)) * sortDir;
-            return valA.localeCompare(valB) * sortDir;
-        });
-        rows.forEach(row => tbody.appendChild(row));
-    }
-</script>

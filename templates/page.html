@@ -12,6 +12,12 @@
     <li><span class="meta-key">Subreddit:</span> <span class="meta-val">{{ page.extra.subreddit }}</span></li>
     <li><span class="meta-key">Author:</span> <span class="meta-val">{{ page.extra.author }}</span></li>
     <li><span class="meta-key">Created:</span> <span class="meta-val">{{ page.date | date(format="%Y-%m-%d %H:%M:%S UTC") }}</span></li>
+    {% if page.extra.edited %}
+    <li><span class="meta-key">Edited:</span> <span class="meta-val">{{ page.extra.edited }}</span></li>
+    {% endif %}
+    {% if page.extra.state %}
+    <li><span class="meta-key">Status:</span> <span class="meta-val">{{ page.extra.state }} on Reddit</span></li>
+    {% endif %}
     <li>
         <span class="meta-key">Permalink:</span> 
         <span class="meta-val"><a href="{{ page.extra.permalink }}" target="_blank">{{ page.extra.permalink }}</a></span>
@@ -23,9 +29,14 @@
     </li>
     {% endif %}
     <li><span class="meta-key">Stats:</span> <span class="meta-val">Ups: {{ page.extra.ups }} | Ratio: {{ page.extra.upvote_ratio }} | Comments: {{ page.extra.num_comments }}</span></li>
-    {% if page.extra.flair %}
-    <li><span class="meta-key">Flair:</span> <span class="meta-val">{{ page.extra.flair }}</span></li>
+    {% if page.extra.link_flair_text %}
+    <li><span class="meta-key">Flair:</span> <span class="meta-val">{{ page.extra.link_flair_text }}</span></li>
     {% endif %}
+    <li><span class="meta-key">Captured:</span> <span class="meta-val">{{ page.extra.captured }} via {{ page.extra.source }} · {{ page.extra.versions }} capture{% if page.extra.versions > 1 %}s{% endif %}</span></li>
+    <li>
+        <span class="meta-key">Raw JSON:</span>
+        <span class="meta-val"><a href="{{ config.extra.repo }}/tree/main/{{ page.extra.raw }}" target="_blank">post</a>{% if page.extra.raw_comments %} · <a href="{{ config.extra.repo }}/tree/main/{{ page.extra.raw_comments }}" target="_blank">comments</a>{% endif %}</span>
+    </li>
 </ul>
 
 <hr style="margin: 2rem 0; border: 0; border-top: 1px solid #eee;">

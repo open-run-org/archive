@@ -16,3 +16,6 @@ external_level = "warn"
 [markdown]
 render_emoji = true
 external_links_target_blank = true
+
+[extra]
+repo = "https://github.com/open-run-org/archive"

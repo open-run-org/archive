@@ -2,8 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    {% if config.mode != "serve" %}
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none'; base-uri 'none'; form-action https://duckduckgo.com">
+    {% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <script src="{{ get_url(path="archive.js") }}" defer></script>
     <style>
         body { font-family: system-ui, -apple-system, sans-serif; max-width: 1024px; margin: 0 auto; padding: 1rem; line-height: 1.55; color: #333; }
         a { color: #0066cc; text-decoration: none; }
@@ -52,9 +56,9 @@
     <nav class="nav-bar">
         <a href="{{ get_url(path="@/_index.md") }}" style="font-weight: bold; font-size: 1.3em; text-decoration: none; color: #222;">Reddit Archive / 红迪档案馆</a>
         <div class="nav-links">
-            <a href="https://github.com/open-run-org/archive/releases" id="download-link" target="_blank" title="Download latest archive">Download</a>
+            <a href="{{ config.extra.repo }}/releases/latest" target="_blank" title="Download latest archive">Download</a>
             <a href="{{ get_url(path="atom.xml") }}" target="_blank">Feed</a>
-            <a href="https://github.com/open-run-org/archive" target="_blank">GitHub</a>
+            <a href="{{ config.extra.repo }}" target="_blank">GitHub</a>
             <a href="https://ko-fi.com/clarelab" target="_blank" style="color: #d9534f; background: #ffebe9; padding: 2px 8px; border-radius: 4px;">Support</a>
         </div>
     </nav>
@@ -73,18 +77,5 @@
         {% block content %}{% endblock content %}
     </main>
 
-    <script>
-        fetch('https://api.github.com/repos/open-run-org/archive/releases/latest')
-            .then(response => response.json())
-            .then(data => {
-                if (data.assets && data.assets.length > 0) {
-                    const asset = data.assets.find(a => a.name.endsWith('.tar.gz')) || data.assets[0];
-                    const link = document.getElementById('download-link');
-                    link.href = asset.browser_download_url;
-                    link.title = "Download " + data.tag_name;
-                }
-            })
-            .catch(err => console.log('Release fetch failed', err));
-    </script>
 </body>
 </html>
