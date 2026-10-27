@@ -27,19 +27,19 @@
         <div class="sub-graph">
             <svg viewBox="0 0 120 20" preserveAspectRatio="none">
                 <polyline points="
-                    0,{{ 20 - sub.trend.0 }} 
-                    10,{{ 20 - sub.trend.1 }} 
-                    20,{{ 20 - sub.trend.2 }} 
-                    30,{{ 20 - sub.trend.3 }} 
-                    40,{{ 20 - sub.trend.4 }} 
-                    50,{{ 20 - sub.trend.5 }}
-                    60,{{ 20 - sub.trend.6 }}
-                    70,{{ 20 - sub.trend.7 }}
-                    80,{{ 20 - sub.trend.8 }}
-                    90,{{ 20 - sub.trend.9 }}
-                    100,{{ 20 - sub.trend.10 }}
-                    110,{{ 20 - sub.trend.11 }}
-                    120,{{ 20 - sub.trend.12 }}
+                    0,{{ 20 - sub.trend[0] }} 
+                    10,{{ 20 - sub.trend[1] }} 
+                    20,{{ 20 - sub.trend[2] }} 
+                    30,{{ 20 - sub.trend[3] }} 
+                    40,{{ 20 - sub.trend[4] }} 
+                    50,{{ 20 - sub.trend[5] }}
+                    60,{{ 20 - sub.trend[6] }}
+                    70,{{ 20 - sub.trend[7] }}
+                    80,{{ 20 - sub.trend[8] }}
+                    90,{{ 20 - sub.trend[9] }}
+                    100,{{ 20 - sub.trend[10] }}
+                    110,{{ 20 - sub.trend[11] }}
+                    120,{{ 20 - sub.trend[12] }}
                 " />
             </svg>
         </div>
@@ -50,7 +50,7 @@
 
 <h2 class="section-header">Latest Changes / 最新改动</h2>
 <div class="table-wrapper">
-    {% set latest_pages = section.pages | slice(end=64) %}
+    {% set latest_pages = section.pages[:64] %}
     {% include "partials/table.html" %}
 </div>
 

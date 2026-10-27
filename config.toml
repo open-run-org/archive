@@ -2,6 +2,7 @@ base_url = "https://archive.open-run.org"
 title = "Reddit Archive / 红迪档案馆"
 default_language = "en"
 build_search_index = false
+skip_content_templating = ["**"]
 generate_sitemap = true
 compile_sass = false
 minify_html = true

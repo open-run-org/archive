@@ -121,7 +121,7 @@ def build():
             lines.append(f'date: {date_str}')
             lines.append("extra:")
             for k, v in m.items():
-                if k != "title":
+                if k not in ("title", "subreddit"):
                     val_json = json.dumps(v, ensure_ascii=False)
                     lines.append(f'  {k}: {val_json}')
             lines.append(f'  subreddit: "{it["sub"]}"')
