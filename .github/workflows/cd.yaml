@@ -6,6 +6,7 @@ on:
     paths:
       - 'content/**'
       - 'templates/**'
+      - 'static/**'
       - 'config.toml'
       - '.github/workflows/cd.yaml'
 
@@ -28,12 +29,16 @@ concurrency:
 
 jobs:
   build:
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' || github.event.workflow_run.conclusion == 'failure' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
         with:
           ref: ${{ github.event.workflow_run.head_branch || github.ref }}
+          sparse-checkout: |
+            content
+            templates
+            static
 
       - env:
           ZOLA_VERSION: "0.23.6"

@@ -10,59 +10,58 @@ permissions:
 
 concurrency:
   group: "ci"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   sync:
     runs-on: ubuntu-latest
-    env:
-      GEN_RECENT: "64"
-      DAYS: "16"
-      DATA_ROOT: "data/raw"
-      STAGED_ROOT: "data/staged"
-      SUBS_FILE: "configs/subreddits.txt"
-      REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
-      REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
-      REDDIT_USER_AGENT: ${{ secrets.REDDIT_USER_AGENT }}
-      REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
-      REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
     steps:
       - uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
-          persist-credentials: true
 
       - uses: actions/setup-go@v6
         with: { go-version-file: "go.mod" }
-      - uses: actions/setup-python@v6
-        with: { python-version: "3.x" }
-      - run: sudo apt-get update && sudo apt-get install -y jq pandoc python3-venv curl
 
-      - run: |
-          python -m venv .venv
-          . .venv/bin/activate
-          pip install -U pip
+      - env:
+          PANDOC_VERSION: "3.1.3"
+          PANDOC_SHA256: "74bc434908e4d858b3edbfd6271d2e9e499477837e5df1d630df4e62f113803d"
+        run: |
+          curl -sfL -o pandoc.tar.gz "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz"
+          echo "${PANDOC_SHA256}  pandoc.tar.gz" | sha256sum -c -
+          sudo tar -xzf pandoc.tar.gz -C /usr/local --strip-components 1
+          rm pandoc.tar.gz
+          pandoc --version | head -1
 
-      - run: |
-          test -n "${REDDIT_CLIENT_ID}" || (echo "REDDIT_CLIENT_ID missing" && exit 1)
-          test -n "${REDDIT_CLIENT_SECRET}" || (echo "REDDIT_CLIENT_SECRET missing" && exit 1)
-          sed -e 's/\r$//' "${SUBS_FILE}" | sed '/^\s*#/d;/^\s*$/d' | nl -ba || true
+      - id: harvest
+        continue-on-error: true
+        env:
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          REDDIT_USER_AGENT: ${{ secrets.REDDIT_USER_AGENT }}
+          REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
+          REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
+        run: make harvest
 
-      - run: |
-          set -euxo pipefail
-          rm -rf content
-          make ci
+      - id: backfill
+        continue-on-error: true
+        run: make backfill
+
+      - run: make build
 
       - run: |
           set -euxo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          
+
           git add data content
-          
+
           if ! git diff --cached --quiet; then
             git commit -m "chore: data sync $(date -u +%F-%T) [skip ci]"
             git push
           else
             echo "No changes to commit."
           fi
+
+      - if: steps.harvest.outcome == 'failure' || steps.backfill.outcome == 'failure'
+        run: |
+          echo "harvest=${{ steps.harvest.outcome }} backfill=${{ steps.backfill.outcome }}"
+          exit 1
