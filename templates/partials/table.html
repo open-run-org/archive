@@ -1,64 +1,30 @@
-<div class="controls" style="margin: 1rem 0;">
-    <input type="text" id="archiveFilter" placeholder="Filter by title or author..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 16px; box-sizing: border-box;">
+<div class="controls">
+    <input type="search" id="archiveFilter" class="filter" placeholder="Filter by title or author / 按标题或作者筛选" aria-label="Filter">
 </div>
 
-<div style="overflow-x: hidden; border: 1px solid #eee; border-radius: 4px;">
-    <table id="archiveTable" style="width: 100%; table-layout: fixed;">
+<div class="table-wrap">
+    <table id="archiveTable">
         <thead>
             <tr>
-                <th data-sort="date" style="width: 90px; padding: 8px;">Date ↕</th>
-                
-                <th class="hide-on-mobile" data-sort="number" style="width: 50px; text-align: right; padding: 8px;">Ups ↕</th>
-                <th class="hide-on-mobile" data-sort="number" style="width: 50px; text-align: right; padding: 8px;">Cmt ↕</th>
-                
-                <th data-sort="string" style="width: auto; padding: 8px;">Title ↕</th>
-                
-                <th class="hide-on-mobile" data-sort="string" style="width: 120px; padding: 8px;">Author ↕</th>
+                <th class="c-date"><button type="button" data-sort="date">Date ↕</button></th>
+                <th class="c-num hide-sm"><button type="button" data-sort="number">Ups ↕</button></th>
+                <th class="c-num hide-sm"><button type="button" data-sort="number">Cmt ↕</button></th>
+                <th><button type="button" data-sort="string">Title ↕</button></th>
+                <th class="c-author hide-sm"><button type="button" data-sort="string">Author ↕</button></th>
             </tr>
         </thead>
         <tbody>
         {% for p in latest_pages %}
             {% if not p.extra.author %}{% continue %}{% endif %}
-            <tr style="border-bottom: 1px solid #f5f5f5;">
-                <td data-value="{{ p.date }}" style="padding: 8px; font-size: 0.85em; color: #666; line-height: 1.2; vertical-align: top;">
-                    {{ p.date | date(format="%Y-%m-%d") }}<br>
-                    <span style="font-size: 0.85em; opacity: 0.7;">{{ p.date | date(format="%H:%M") }}</span>
-                </td>
-                
-                <td class="hide-on-mobile" data-value="{{ p.extra.ups | default(value=0) }}" style="padding: 8px; text-align: right; font-family: monospace; vertical-align: top;">
-                    {{ p.extra.ups | default(value=0) }}
-                </td>
-
-                <td class="hide-on-mobile" data-value="{{ p.extra.num_comments | default(value=0) }}" style="padding: 8px; text-align: right; font-family: monospace; vertical-align: top;">
-                    {{ p.extra.num_comments | default(value=0) }}
-                </td>
-
-                <td data-value="{{ p.title }}" style="padding: 8px; vertical-align: top; overflow: hidden;">
-                    <div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                        <a href="{{ p.permalink }}" style="font-weight: 500; color: #2244cc; text-decoration: none;">{{ p.title }}</a>
-                    </div>
-                    {% if p.extra.link_flair_text %}
-                    <div style="margin-top: 2px;">
-                        <span style="font-size: 0.75em; background: #f0f0f5; color: #667; padding: 1px 5px; border-radius: 4px;">
-                            {{ p.extra.link_flair_text }}
-                        </span>
-                    </div>
-                    {% endif %}
-                </td>
-
-                <td class="hide-on-mobile" data-value="{{ p.extra.author }}" style="padding: 8px; font-size: 0.9em; color: #555; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; vertical-align: top;">
-                    {{ p.extra.author }}
-                </td>
+            {% if year_filter and p.year != year_filter %}{% continue %}{% endif %}
+            <tr>
+                <td data-value="{{ p.date }}">{{ p.date | date(format="%Y-%m-%d") }}<br><small>{{ p.date | date(format="%H:%M") }}</small></td>
+                <td class="num hide-sm" data-value="{{ p.extra.ups }}">{{ p.extra.ups }}</td>
+                <td class="num hide-sm" data-value="{{ p.extra.num_comments }}">{{ p.extra.num_comments }}</td>
+                <td data-value="{{ p.title }}"><a class="t" href="{{ p.permalink }}">{{ p.title }}</a>{% if p.extra.link_flair_text %}<span class="flair">{{ p.extra.link_flair_text }}</span>{% endif %}{% if p.extra.state %}<span class="state">{{ p.extra.state }}</span>{% endif %}</td>
+                <td class="who hide-sm" data-value="{{ p.extra.author }}">{{ p.extra.author }}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 </div>
-
-<style>
-    @media (max-width: 600px) {
-        .hide-on-mobile { display: none; }
-        th, td { padding: 6px 4px !important; }
-    }
-</style>
-

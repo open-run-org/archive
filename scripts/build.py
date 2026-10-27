@@ -25,6 +25,95 @@ def unlink(s):
     s = EMPTY_LINK.sub(lambda m: "]\\" + m.group(0)[1:], s)
     return EMPTY_REF.sub(r"\1\\:", s)
 
+FENCE = re.compile(r"^ {0,3}(`{3,}|~{3,})")
+BARE_URL = re.compile(r"(?<![A-Za-z0-9_/\[<\"'=@&])(?<!\]\()https?://[^\s<>\"'\[\]*，。、！？；：「」『』（）【】《》]+")
+SUB_REF = re.compile(r"(?<![A-Za-z0-9_/.\[])/?(r|u)/([A-Za-z0-9_-]{2,21})(?![A-Za-z0-9_/-])")
+SPOILER = re.compile(r">!(.+?)!(?:<|&lt;)")
+UNESC = re.compile(r"\\([!-/:-@\[-`{-~])")
+PROTECT = re.compile(r"!?\[(?:[^\[\]\\]|\\.|\[(?:[^\[\]\\]|\\.)*\])*\](?:\((?:[^()\s\\]|\\.|\((?:[^()\\]|\\.)*\))*(?:\s+(?:\"[^\"]*\"|'[^']*'))?\s*\)|\[(?:[^\[\]\\]|\\.)*\])|<https?://[^<>\s]*>|^\s*\[[^\]]+\]:.*$")
+SUBS = {}
+
+def sub_link(m):
+    kind, name = m.group(1), m.group(2)
+    if kind == "r" and name.lower() in SUBS:
+        return f"[{m.group(0)}](/{SUBS[name.lower()]}/)"
+    return f"[{m.group(0)}](https://www.reddit.com/{'r' if kind == 'r' else 'user'}/{name})"
+
+def trim_url(u):
+    while u:
+        if u[-1] in ".,;:!?~_\\" and not (u[-1] == ";" and re.search(r"&#?\w+;$", u)):
+            u = u[:-1]
+        elif u[-1] == ")" and u.count(")") > u.count("("):
+            u = u[:-1]
+        else:
+            return u
+    return u
+
+def plain(text):
+    out, last = [], 0
+    for m in BARE_URL.finditer(text):
+        raw = trim_url(m.group(0))
+        if len(raw) <= len("https://"):
+            continue
+        out.append(SUB_REF.sub(sub_link, text[last:m.start()]))
+        url = UNESC.sub(r"\1", raw).replace("&amp;", "&")
+        out.append(raw if re.search(r"[\s<>]", url) else "<" + url + ">")
+        last = m.start() + len(raw)
+    out.append(SUB_REF.sub(sub_link, text[last:]))
+    return SPOILER.sub(r'<span class="spoiler">\1</span>', "".join(out))
+
+def inline(text):
+    out, last = [], 0
+    for m in PROTECT.finditer(text):
+        out.append(plain(text[last:m.start()]))
+        out.append(m.group(0))
+        last = m.end()
+    out.append(plain(text[last:]))
+    return "".join(out)
+
+def code_spans(line):
+    runs = [(m.start(), m.end()) for m in re.finditer(r"`+", line)]
+    spans, i = [], 0
+    while i < len(runs):
+        n = runs[i][1] - runs[i][0]
+        j = next((k for k in range(i + 1, len(runs)) if runs[k][1] - runs[k][0] == n), None)
+        if j is None:
+            i += 1
+            continue
+        spans.append((runs[i][0], runs[j][1]))
+        i = j + 1
+    return spans
+
+def reddit(text):
+    lines, fence = [], None
+    for ln in text.split("\n"):
+        m = FENCE.match(ln)
+        if fence:
+            if m and m.group(1)[0] == fence[0] and len(m.group(1)) >= len(fence) and not ln[m.end():].strip():
+                fence = None
+            lines.append(ln)
+            continue
+        if m and not (m.group(1)[0] == "`" and "`" in ln[m.end():]):
+            fence = m.group(1)
+            lines.append(ln)
+            continue
+        if ln.startswith(("    ", "\t")):
+            lines.append(ln)
+            continue
+        out, last = [], 0
+        for a, b in code_spans(ln):
+            out.append(inline(ln[last:a]))
+            out.append(ln[a:b])
+            last = b
+        out.append(inline(ln[last:]))
+        lines.append("".join(out))
+    if fence:
+        lines.append(fence)
+    return "\n".join(lines)
+
+def user_md(text):
+    return unlink(reddit(esc(text)))
+
 def utc(ts):
     return datetime.datetime.fromtimestamp(int(float(ts or 0)), datetime.timezone.utc)
 
@@ -132,7 +221,7 @@ def build_tree(rows, link_fullname):
 def chip(s):
     return " ".join(str(s).replace("`", "").split())
 
-def meta_line(r, depth):
+def meta_line(r):
     auth = r.get("author", "") or "[deleted]"
     created = fmt_iso(r.get("created_utc", 0)).replace(":00 UTC", " UTC")
     score = r.get("score", r.get("ups", 0))
@@ -157,42 +246,42 @@ def meta_line(r, depth):
     if flair:
         tags.append(flair)
     tags = [t for t in map(chip, tags) if t]
-    head = f"**{auth}** · {created} · +{score}"
+    shown = f"+{score}" if isinstance(score, (int, float)) and score >= 0 else str(score)
+    head = f"**{auth}** · {created} · {shown}"
     if cid:
         head += f" · `{cid}`"
     if tags:
         head += " · " + " · ".join(f"`{t}`" for t in tags)
     if permalink:
         head += f" · [↗](https://reddit.com{permalink})"
-    return ">" * depth + " " + head
+    return head
 
-def render_tree(nodes, by_parent, depth):
+def render_tree(nodes, by_parent):
     out = []
-    for idx, r in enumerate(nodes):
-        out.append(meta_line(r, depth))
-        out.append(">" * depth)
-        body = unlink(esc(r.get("body", "") or "")).splitlines() or ["_(no content)_"]
-        out.extend(">" * depth + " " + ln for ln in body)
-        ch = by_parent.get("t1_" + (r.get("id", "") or ""), [])
-        if ch:
-            out.append("")
-            out.extend(render_tree(ch, by_parent, depth + 1))
-        if idx != len(nodes) - 1:
-            out.append("")
-    while out and out[-1] == "":
-        out.pop()
+    for r in nodes:
+        body = user_md(re.sub(r"(?m)^\t", "  ", r.get("body", "") or "")).strip("\n") or "_(no content)_"
+        out += ['<div class="c">', "", meta_line(r), "", body, ""]
+        out += render_tree(by_parent.get("t1_" + (r.get("id", "") or ""), []), by_parent)
+        out += ["</div>", ""]
     return out
 
 def render_comments(d, post_id):
     caps = sorted(d.glob("*.jsonl")) if d.is_dir() else []
     if not caps:
         return "", 0
+    loaded = [flatten_all(load_lines(f)) for f in caps]
+    live = [i for i, flat in enumerate(loaded) if flat and not any(k in flat[0] for k in ARCTIC_KEYS)]
+    last = live[-1] if live else len(loaded) - 1
     best = {}
-    rows = []
-    for f in caps:
-        rows = merge_capture(best, flatten_all(load_lines(f)))
+    for i, flat in enumerate(loaded):
+        if i != last:
+            merge_capture(best, flat)
+    rows = merge_capture(best, loaded[last])
     roots, by_parent = build_tree(rows, "t3_" + post_id)
-    return "\n".join(render_tree(roots, by_parent, 1)).rstrip(), len(caps)
+    if not roots:
+        return "", len(caps)
+    head = ['<div class="comments" data-pagefind-ignore>', "", f'<h2 class="comments-title">Comments / 评论 · {len(rows)}</h2>', ""]
+    return "\n".join(head + render_tree(roots, by_parent) + ["</div>"]), len(caps)
 
 def clean_html(html):
     s = re.sub(r"<!-- SC_O(?:FF|N) -->", "", html)
@@ -238,7 +327,7 @@ def render_post(sub, d):
     last = caps[-1][1]
     path, best = next((c for c in reversed(caps) if post_text(c[1])), caps[-1])
     html = best.get("selftext_html")
-    body = unlink(pandoc(html) if html else esc(best.get("selftext") or ""))
+    body = unlink(pandoc(html)) if html else user_md(best.get("selftext") or "")
     created = int(float(best.get("created_utc") or last.get("created_utc") or 0))
     permalink = best.get("permalink") or ""
     edited = best.get("edited")
@@ -271,7 +360,7 @@ def render_post(sub, d):
     lines.append("---\n")
     text = "\n".join(lines) + "\n" + (body + "\n" if body else "")
     if comments:
-        text += "\n\n---\n\n" + comments
+        text += "\n" + comments + "\n"
     return created, text
 
 def write(p, s):
@@ -309,6 +398,7 @@ def build():
         shutil.rmtree(CONTENT)
     now = time.time()
     subs = []
+    SUBS.update({p.name[2:].lower(): p.name for p in RAW.glob("r_*") if p.is_dir()})
     for sub_dir in sorted(p for p in RAW.glob("r_*") if p.is_dir()):
         sub = sub_dir.name
         created = []
@@ -321,11 +411,18 @@ def build():
         if not created:
             continue
         write(CONTENT / sub / "_index.md", front({"title": sub, "sort_by": "date", "transparent": True}))
-        write(CONTENT / sub / "archive" / "_index.md", front({"title": f"{sub} Archive", "template": "archive.html"}, {"section_path": f"{sub}/_index.md"}))
+        counts = {}
+        for c in created:
+            counts[utc(c).year] = counts.get(utc(c).year, 0) + 1
+        years = [{"year": y, "count": n, "path": f"{sub}/archive/{y}/_index.md"} for y, n in sorted(counts.items(), reverse=True)]
+        write(CONTENT / sub / "archive" / "_index.md", front({"title": f"{sub} Archive", "template": "archive.html"}, {"section_path": f"{sub}/_index.md", "year": 0, "years": years}))
+        for y in years:
+            write(CONTENT / sub / "archive" / str(y["year"]) / "_index.md", front({"title": f"{sub} {y['year']}", "template": "archive.html"}, {"section_path": f"{sub}/_index.md", "year": y["year"], "years": years}))
         subs.append(stats(sub, created, now))
         print(f"[build] {sub} posts={len(created)}")
     subs.sort(key=lambda x: x["name"].lower())
     write(CONTENT / "_index.md", front({"title": "Reddit Archive", "sort_by": "date", "template": "index.html"}, {"subs": subs}))
+    write(CONTENT / "search" / "_index.md", front({"title": "Search / 搜索", "template": "search.html"}))
 
 if __name__ == "__main__":
     build()

@@ -1,15 +1,25 @@
 {% extends "base.html" %}
 
+{% block title %}{{ section.title | replace(from="r_", to="r/") }} | {{ config.title }}{% endblock title %}
+
 {% block content %}
 {% set parent = get_section(path=section.extra.section_path) %}
 
-<div class="meta">
-    <a href="{{ parent.permalink }}">← Back to {{ parent.title }}</a>
+<div class="crumbs">
+    <a href="{{ parent.permalink }}">← Back to {{ parent.title | replace(from="r_", to="r/") }}</a>
 </div>
 
-<h1>{{ section.title }}</h1>
+<h1>{{ section.title | replace(from="r_", to="r/") }}</h1>
 
+<nav class="years" aria-label="Years">
+{% for y in section.extra.years %}
+    <a href="{{ get_url(path="@/" ~ y.path) }}"{% if section.extra.year == y.year %} class="current"{% endif %}>{{ y.year }} <span class="muted">{{ y.count }}</span></a>
+{% endfor %}
+</nav>
+
+{% if section.extra.year %}
 {% set latest_pages = parent.pages %}
+{% set year_filter = section.extra.year %}
 {% include "partials/table.html" %}
-
+{% endif %}
 {% endblock content %}

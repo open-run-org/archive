@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Search / 搜索 | {{ config.title }}{% endblock title %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ get_url(path="pagefind/pagefind-ui.css") }}">
+    <script src="{{ get_url(path="pagefind/pagefind-ui.js") }}" defer></script>
+{% endblock head %}
+
+{% block content %}
+<h1>Search / 搜索</h1>
+<p class="muted">Searches post titles and bodies. / 搜索范围为贴文标题和正文。</p>
+<div id="search"></div>
+{% endblock content %}

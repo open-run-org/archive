@@ -1,47 +1,51 @@
 {% extends "base.html" %}
+
 {% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
+
 {% block content %}
-<div class="meta" style="margin-bottom: 1rem; font-size: 0.95em;">
-    <a href="{{ get_url(path="@/_index.md") }}">Home</a> / 
-    <a href="{{ get_url(path="@/" ~ page.extra.subreddit ~ "/_index.md") }}">{{ page.extra.subreddit }}</a>
+{% set sub_label = page.extra.subreddit | replace(from="r_", to="r/") %}
+<div class="crumbs">
+    <a href="{{ get_url(path="@/_index.md") }}">Home</a> /
+    <a href="{{ get_url(path="@/" ~ page.extra.subreddit ~ "/_index.md") }}">{{ sub_label }}</a>
 </div>
 
-<h1 style="margin-bottom: 1.5rem; line-height: 1.3;">{{ page.title }}</h1>
+<article data-pagefind-body>
+<h1 class="post-title">{{ page.title }}</h1>
 
-<ul class="meta-list">
-    <li><span class="meta-key">Subreddit:</span> <span class="meta-val">{{ page.extra.subreddit }}</span></li>
-    <li><span class="meta-key">Author:</span> <span class="meta-val">{{ page.extra.author }}</span></li>
-    <li><span class="meta-key">Created:</span> <span class="meta-val">{{ page.date | date(format="%Y-%m-%d %H:%M:%S UTC") }}</span></li>
+<ul class="meta-list" data-pagefind-ignore>
+    <li><span class="meta-key">Subreddit</span><span class="meta-val" data-pagefind-filter="subreddit">{{ sub_label }}</span></li>
+    <li><span class="meta-key">Author</span><span class="meta-val">{{ page.extra.author }}</span></li>
+    <li><span class="meta-key">Created</span><span class="meta-val" data-pagefind-meta="date">{{ page.date | date(format="%Y-%m-%d %H:%M:%S UTC") }}</span></li>
     {% if page.extra.edited %}
-    <li><span class="meta-key">Edited:</span> <span class="meta-val">{{ page.extra.edited }}</span></li>
+    <li><span class="meta-key">Edited</span><span class="meta-val">{{ page.extra.edited }}</span></li>
     {% endif %}
     {% if page.extra.state %}
-    <li><span class="meta-key">Status:</span> <span class="meta-val">{{ page.extra.state }} on Reddit</span></li>
+    <li><span class="meta-key">Status</span><span class="meta-val">{{ page.extra.state }} on Reddit</span></li>
     {% endif %}
-    <li>
-        <span class="meta-key">Permalink:</span> 
-        <span class="meta-val"><a href="{{ page.extra.permalink }}" target="_blank">{{ page.extra.permalink }}</a></span>
-    </li>
-    {% if page.extra.url %}
-    <li>
-        <span class="meta-key">URL:</span> 
-        <span class="meta-val"><a href="{{ page.extra.url }}" target="_blank">{{ page.extra.url }}</a></span>
-    </li>
+    {% if page.extra.permalink %}
+    <li><span class="meta-key">Permalink</span><span class="meta-val"><a href="{{ page.extra.permalink }}" target="_blank">{{ page.extra.permalink }}</a></span></li>
     {% endif %}
-    <li><span class="meta-key">Stats:</span> <span class="meta-val">Ups: {{ page.extra.ups }} | Ratio: {{ page.extra.upvote_ratio }} | Comments: {{ page.extra.num_comments }}</span></li>
+    {% if page.extra.url and not page.extra.is_self %}
+    <li><span class="meta-key">URL</span><span class="meta-val"><a href="{{ page.extra.url }}" target="_blank">{{ page.extra.url }}</a></span></li>
+    {% endif %}
+    <li><span class="meta-key">Stats</span><span class="meta-val">Ups: {{ page.extra.ups }} | Ratio: {{ page.extra.upvote_ratio }} | Comments: {{ page.extra.num_comments }}</span></li>
     {% if page.extra.link_flair_text %}
-    <li><span class="meta-key">Flair:</span> <span class="meta-val">{{ page.extra.link_flair_text }}</span></li>
+    <li><span class="meta-key">Flair</span><span class="meta-val">{{ page.extra.link_flair_text }}</span></li>
     {% endif %}
-    <li><span class="meta-key">Captured:</span> <span class="meta-val">{{ page.extra.captured }} via {{ page.extra.source }} · {{ page.extra.versions }} capture{% if page.extra.versions > 1 %}s{% endif %}</span></li>
+    <li><span class="meta-key">Captured</span><span class="meta-val">{{ page.extra.captured }} via {{ page.extra.source }} · {{ page.extra.versions }} capture{% if page.extra.versions > 1 %}s{% endif %}</span></li>
     <li>
-        <span class="meta-key">Raw JSON:</span>
+        <span class="meta-key">Raw JSON</span>
         <span class="meta-val"><a href="{{ config.extra.repo }}/tree/main/{{ page.extra.raw }}" target="_blank">post</a>{% if page.extra.raw_comments %} · <a href="{{ config.extra.repo }}/tree/main/{{ page.extra.raw_comments }}" target="_blank">comments</a>{% endif %}</span>
     </li>
 </ul>
 
-<hr style="margin: 2rem 0; border: 0; border-top: 1px solid #eee;">
-
-<div class="post-content" style="font-size: 1.05em;">
+<div class="post-content">
 {{ page.content | safe }}
 </div>
+</article>
+
+<nav class="pager" aria-label="Posts">
+    {% if page.higher %}<a class="newer" href="{{ page.higher.permalink }}" title="{{ page.higher.title }}">← {{ page.higher.title }}</a>{% endif %}
+    {% if page.lower %}<a class="older" href="{{ page.lower.permalink }}" title="{{ page.lower.title }}">{{ page.lower.title }} →</a>{% endif %}
+</nav>
 {% endblock content %}

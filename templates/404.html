@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}404 | {{ config.title }}{% endblock title %}
+
+{% block content %}
+<h1>404</h1>
+<p>This page does not exist. / 页面不存在。</p>
+<p><a href="{{ get_url(path="@/_index.md") }}">← Back to Home / 返回首页</a></p>
+{% endblock content %}

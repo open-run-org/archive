@@ -1,18 +1,17 @@
 {% extends "base.html" %}
 
+{% block title %}{{ section.title | replace(from="r_", to="r/") }} | {{ config.title }}{% endblock title %}
+
 {% block content %}
-<div class="meta">
+<div class="crumbs">
     <a href="{{ get_url(path="@/_index.md") }}">← Back to Home / 返回首页</a>
 </div>
 
-<h1>{{ section.title }}</h1>
+<h1>{{ section.title | replace(from="r_", to="r/") }}</h1>
 
-<div style="margin: 1.5rem 0; padding: 1rem; background: #eef; border-radius: 6px; text-align: center;">
-    <a href="archive/" style="font-weight: bold; font-size: 1.2em; color: #0055aa;">Full Archive / 完整档案</a>
-</div>
+<a class="archive-link" href="archive/">Full Archive / 完整档案</a>
 
-<h2>Latest Changes / 最新改动</h2>
+<h2>Latest Posts / 最新贴文</h2>
 {% set latest_pages = section.pages[:64] %}
 {% include "partials/table.html" %}
-
 {% endblock content %}
