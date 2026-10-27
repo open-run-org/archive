@@ -201,15 +201,52 @@ def fetch_sub(root, sub, after):
     print(f"[arctic] {sub} posts={len(posts)} new_posts={new_posts} new_threads={new_threads} failed={failed}", file=sys.stderr)
     return failed
 
+SNAPSHOT_DAYS = (16, 32, 64, 128, 256)
+
+def known_ids(d):
+    ids = set()
+    for f in d.glob("*.jsonl"):
+        with f.open(encoding="utf-8", errors="ignore") as fh:
+            for ln in fh:
+                try:
+                    ids.add(json.loads(ln).get("id"))
+                except Exception:
+                    continue
+    return ids
+
+def snapshot_sub(root, sub):
+    t = now()
+    windows = [(ts_fmt(t - (d + 2) * 86400), ts_fmt(t - d * 86400)) for d in SNAPSHOT_DAYS]
+    base = pathlib.Path(root) / ("r_" + sub)
+    due = sorted(p.name for p in (base / "submissions").glob("*_*") if any(lo <= p.name < hi for lo, hi in windows))
+    wrote = failed = 0
+    for created_id in due:
+        try:
+            rows = comment_rows(created_id.split("_", 1)[1])
+        except Exception as e:
+            print(f"[arctic] {sub} {created_id} snapshot failed: {e}", file=sys.stderr)
+            failed += 1
+            continue
+        cdir = base / "comments" / created_id
+        known = known_ids(cdir)
+        if not any(r.get("id") not in known and (r.get("body") or "").strip() not in ("", "[removed]", "[deleted]", "[ Removed by Reddit ]") for r in rows):
+            continue
+        cap_ts = max((retrieved(r) or 0 for r in rows), default=0) or now()
+        write_capture(cdir, [dump(r) for r in rows], cap_ts, hash_comments(rows))
+        wrote += 1
+    print(f"[arctic] {sub} snapshots due={len(due)} wrote={wrote} failed={failed}", file=sys.stderr)
+    return failed
+
 def fetch(root, subs_file, after):
     subs = [s.strip() for s in pathlib.Path(subs_file).read_text(encoding="utf-8").splitlines()]
     failed = 0
     for sub in (s for s in subs if s and not s.startswith("#")):
-        try:
-            failed += fetch_sub(root, sub, after)
-        except Exception as e:
-            print(f"[arctic] {sub} failed: {e}", file=sys.stderr)
-            failed += 1
+        for step in (lambda: fetch_sub(root, sub, after), lambda: snapshot_sub(root, sub)):
+            try:
+                failed += step()
+            except Exception as e:
+                print(f"[arctic] {sub} failed: {e}", file=sys.stderr)
+                failed += 1
     return failed
 
 def main():
