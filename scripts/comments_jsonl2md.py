@@ -53,10 +53,47 @@ def flatten_all(rows):
         uniq.append(r)
     return uniq
 
+GONE = {"[removed]": "Removed", "[ Removed by Reddit ]": "Removed", "[deleted]": "Deleted"}
+
+def body_of(r):
+    return (r.get("body","") or "").strip()
+
+def has_text(r):
+    b = body_of(r)
+    return bool(b) and b not in GONE
+
+def merge_capture(best, flat):
+    current={}
+    for r in flat:
+        cid = r.get("id","") or ""
+        current[cid] = r
+        if has_text(r) or cid not in best or not has_text(best[cid]):
+            best[cid] = r
+    rows={}
+    for cid, r in current.items():
+        b = best[cid]
+        if has_text(r) or not has_text(b):
+            rows[cid] = r
+        else:
+            rows[cid] = dict(b, archive_state=GONE.get(body_of(r), "Gone"))
+    for cid, b in best.items():
+        if cid not in rows and has_text(b):
+            rows[cid] = dict(b, archive_state="Gone")
+    stack = list(rows.values())
+    while stack:
+        pid = stack.pop().get("parent_id","") or ""
+        if pid.startswith("t1_") and pid[3:] not in rows and pid[3:] in best:
+            rows[pid[3:]] = best[pid[3:]]
+            stack.append(rows[pid[3:]])
+    return list(rows.values())
+
 def build_tree(rows, link_fullname):
+    ids = {"t1_"+(r.get("id","") or "") for r in rows}
     by_parent={}
     for r in rows:
         pid = r.get("parent_id","")
+        if pid != link_fullname and pid not in ids:
+            pid = link_fullname
         by_parent.setdefault(pid,[]).append(r)
     for k in by_parent:
         by_parent[k].sort(key=lambda x: (x.get("created_utc",0), x.get("id","")))
@@ -76,6 +113,8 @@ def meta_lines(r, depth):
     permalink = r.get("permalink", "") or ""
 
     tags = []
+    if r.get("archive_state"):
+        tags.append(r["archive_state"])
     if r.get("is_submitter", False):
         tags.append("OP")
     if r.get("distinguished") == "moderator":
@@ -143,32 +182,32 @@ def main():
     cutoff_dt = datetime.datetime.now() - datetime.timedelta(days=args.days)
     cutoff_str = cutoff_dt.strftime("%y%m%d%H%M%S")
     
-    files=sorted(in_root.glob("r_*/comments/*/*.jsonl"))
-    total=len(files)
-    
-    for i,f in enumerate(files,1):
-        created_id = f.parent.name
+    dirs=sorted(d for d in in_root.glob("r_*/comments/*") if d.is_dir())
+    total=len(dirs)
+
+    for i,d in enumerate(dirs,1):
+        created_id = d.name
         ts_part = created_id.split("_")[0]
-        
+
         if ts_part < cutoff_str:
             continue
-            
-        cap=f.stem
-        sub=f.parts[-4]
-        
-        rows=load_lines(f)
-        flat=flatten_all(rows)
+
+        sub=d.parts[-3]
         post_id=created_id.split("_",1)[1]
         link="t3_"+post_id
-        roots, by_parent = build_tree(flat, link)
-        lines=render_tree(roots, by_parent, 1)
-        
-        out_dir=out_root/sub/"comments"/created_id
-        out_dir.mkdir(parents=True, exist_ok=True)
-        out_file=out_dir/(cap+".md")
-        with open(out_file,"w",encoding="utf-8") as w:
-            w.write("\n".join(lines).rstrip()+"\n")
-        sys.stdout.write(f"[mdc] ({i}/{total}) {f} -> {out_file} roots={len(roots)} total_flat={len(flat)}\n")
+        best={}
+
+        for f in sorted(d.glob("*.jsonl")):
+            rows=merge_capture(best, flatten_all(load_lines(f)))
+            roots, by_parent = build_tree(rows, link)
+            lines=render_tree(roots, by_parent, 1)
+
+            out_dir=out_root/sub/"comments"/created_id
+            out_dir.mkdir(parents=True, exist_ok=True)
+            out_file=out_dir/(f.stem+".md")
+            with open(out_file,"w",encoding="utf-8") as w:
+                w.write("\n".join(lines).rstrip()+"\n")
+            sys.stdout.write(f"[mdc] ({i}/{total}) {f} -> {out_file} roots={len(roots)} total={len(rows)}\n")
 
 if __name__=="__main__":
     main()
