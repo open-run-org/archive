@@ -6,6 +6,7 @@ import (
 	"encoding/base64"
 	"encoding/hex"
 	"encoding/json"
+	"errors"
 	"flag"
 	"fmt"
 	"io"
@@ -36,6 +37,31 @@ func must(k string) string {
 	return v
 }
 
+type statusErr struct {
+	url   string
+	code  int
+	ctype string
+	body  []byte
+}
+
+func (e *statusErr) Error() string {
+	return fmt.Sprintf("%s %d %s %q", e.url, e.code, e.ctype, string(e.body))
+}
+
+func unavailable(err error) string {
+	var se *statusErr
+	if !errors.As(err, &se) || (se.code != http.StatusForbidden && se.code != http.StatusNotFound) {
+		return ""
+	}
+	var r struct {
+		Reason string `json:"reason"`
+	}
+	if json.Unmarshal(se.body, &r) != nil {
+		return ""
+	}
+	return r.Reason
+}
+
 func httpJSON(method, u, ua, auth string, body io.Reader) (*http.Response, error) {
 	req, _ := http.NewRequest(method, u, body)
 	req.Header.Set("User-Agent", ua)
@@ -51,7 +77,7 @@ func httpJSON(method, u, ua, auth string, body io.Reader) (*http.Response, error
 	if !(resp.StatusCode >= 200 && resp.StatusCode < 300) || !strings.Contains(resp.Header.Get("Content-Type"), "application/json") {
 		b, _ := io.ReadAll(io.LimitReader(resp.Body, 512))
 		resp.Body.Close()
-		return nil, fmt.Errorf("%s %d %s %q", u, resp.StatusCode, resp.Header.Get("Content-Type"), string(b))
+		return nil, &statusErr{url: u, code: resp.StatusCode, ctype: resp.Header.Get("Content-Type"), body: b}
 	}
 	return resp, nil
 }
@@ -243,6 +269,10 @@ func main() {
 		}
 		resp, err := httpJSON("GET", u, ua, "Bearer "+tk, nil)
 		if err != nil {
+			if r := unavailable(err); r != "" {
+				fmt.Fprintf(os.Stderr, "[%s] unavailable reason=%s\n", sub, r)
+				return
+			}
 			fmt.Fprintln(os.Stderr, err)
 			os.Exit(1)
 		}

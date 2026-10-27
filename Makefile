@@ -21,7 +21,7 @@ WINDOW ?= 30
 ARCTIC_DIR ?= data/arctic
 ARCTIC_FILES ?= $(wildcard $(ARCTIC_DIR)/*.jsonl)
 
-.PHONY: deps harvest harvest-comments jsonl2md-comments jsonl2md docs fix-metadata　dashboard ci import-arctic zola-serve zola-build zola-clean
+.PHONY: deps harvest harvest-comments jsonl2md-comments jsonl2md docs fix-metadata dashboard ci import-arctic zola-serve zola-build zola-clean
 
 deps:
 	@if [ -z "$$CI" ]; then \

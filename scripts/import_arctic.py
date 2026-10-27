@@ -17,8 +17,10 @@ def ts_fmt(unix_ts):
 
 def norm_sub(s):
     s = (s or "").strip()
-    s = s.lstrip("r/").lstrip("R/").lstrip("r_").lstrip("R_")
-    return s.lower()
+    for p in ("/r/", "r/", "R/", "r_", "R_"):
+        if s.startswith(p):
+            return s[len(p):]
+    return s
 
 def has_hash_file(dir_path, h):
     if not os.path.isdir(dir_path):
