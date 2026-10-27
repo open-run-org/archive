@@ -29,6 +29,21 @@ var (
 
 const expandBudget = 50
 
+var refreshDays = []int{32, 64, 128, 256}
+
+func due(createdID string, now time.Time, days int) bool {
+	ago := func(d int) string { return stamp(now.Add(-time.Duration(d) * 24 * time.Hour).Unix()) }
+	if createdID >= ago(days) {
+		return true
+	}
+	for _, d := range refreshDays {
+		if createdID >= ago(d+2) && createdID < ago(d) {
+			return true
+		}
+	}
+	return false
+}
+
 type statusErr struct {
 	url   string
 	code  int
@@ -494,13 +509,13 @@ func fetchThread(s *session, id string) (json.RawMessage, []map[string]any, int,
 	return raw, rows, left, nil
 }
 
-func harvestComments(s *session, root, sub string, cutoff int64, listed map[string]bool) (int, error) {
+func harvestComments(s *session, root, sub string, now time.Time, days int, listed map[string]bool) (int, error) {
 	dirs, _ := filepath.Glob(filepath.Join(root, "r_"+sub, "submissions", "*_*"))
 	sort.Strings(dirs)
 	wrote, failed, scanned := 0, 0, 0
 	for _, d := range dirs {
 		createdID := filepath.Base(d)
-		if createdID < stamp(cutoff) {
+		if !due(createdID, now, days) {
 			continue
 		}
 		scanned++
@@ -584,7 +599,8 @@ func main() {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
-	cutoff := time.Now().Add(-time.Duration(days) * 24 * time.Hour).Unix()
+	now := time.Now()
+	cutoff := now.Add(-time.Duration(days) * 24 * time.Hour).Unix()
 	failed := 0
 	for i, sub := range subs {
 		fmt.Fprintf(os.Stderr, "[harvest] (%d/%d) sub=%s days=%d\n", i+1, len(subs), sub, days)
@@ -600,7 +616,7 @@ func main() {
 			continue
 		}
 		fmt.Fprintf(os.Stderr, "[%s] posts wrote=%d\n", sub, n)
-		if _, err := harvestComments(s, root, sub, cutoff, listed); err != nil {
+		if _, err := harvestComments(s, root, sub, now, days, listed); err != nil {
 			fmt.Fprintf(os.Stderr, "[%s] comments failed: %v\n", sub, err)
 			failed++
 		}
