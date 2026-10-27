@@ -24,12 +24,13 @@
 * r/runtoJapan2
 * r/runEuropaAlliance
 * r/RunAustralia
+* r/runtonihon
 
 网站因为过于无脑所以就不讲怎么用了。
 
 全量的备份可以在 [这里](https://github.com/open-run-org/archive/tree/main/content) 找到，下载的话可以到 [GitHub Repo](https://github.com/open-run-org/archive/releases/latest) 界面然后下载对应的压缩文件（每周日更新），也可以直接在网站右上角点击 `Download`。
 
-每天 UTC 0 点的时候会触发 GitHub Action 然后自动更新最近 16 天的贴文和评论。
+每天 UTC 0 点的时候会触发 GitHub Action 然后自动更新最近 16 天的贴文和评论，抓到之前就被删掉的贴文会从 Arctic Shift 补上。
 
 给两个示例吧，比如经常有人在问的，以前 r/iwanttorun 的教未成年走线的贴文（现已被删）：
 
@@ -39,7 +40,7 @@
 
 >[链接见此](https://archive.open-run.org/r_runtoJapan/240826203938-1f1ynlk)
 
-包括评论也是都有保存的。
+包括评论也是都有保存的。每个页面都标了抓取时间和来源，并链接到 `data/raw` 里的原始 JSON，可以自己核对。
 
 之后的话考虑会实现以下功能：
 
@@ -56,7 +57,7 @@
 
 首先是数据来源，来源分两部分，一个是 Reddit 的 API，用于抓取最近的贴文和评论以持续更新，另一个我已经在我的其它帖文中提及了，见此（[分享一个访问已被封的 sub 的贴文和评论的方法](https://www.reddit.com/r/runtoJapan2/comments/1oazwgj/%E5%88%86%E4%BA%AB%E4%B8%80%E4%B8%AA%E8%AE%BF%E9%97%AE%E5%B7%B2%E8%A2%AB%E5%B0%81%E7%9A%84_sub_%E7%9A%84%E8%B4%B4%E6%96%87%E5%92%8C%E8%AF%84%E8%AE%BA%E7%9A%84%E6%96%B9%E6%B3%95)），用于下载全量数据。以及必须提及一个非常简便的网站是 [Arctic Shift](https://arctic-shift.photon-reddit.com/)，可以搜索并下载到所有 sub 的所有贴文或评论。
 
-网站框架用的是 Zola，然后语言用的是 Shell、Python 和 Go，其中 Go 用来做网站内容获取，而 Shell 和 Python 用于写一些脚本，最后部署用的是 GitHub Actions，以及用于开发用的 Docker + devcontainer。
+网站框架用的是 Zola，然后语言用的是 Python 和 Go，其中 Go 用来抓取 Reddit，Python 用来从 Arctic Shift 补档和生成网站内容，最后部署用的是 GitHub Actions，以及用于开发用的 Docker + devcontainer。
 
 ## 贡献
 
