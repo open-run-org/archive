@@ -164,26 +164,51 @@ const markup = (text: string, refs: Ref[]) => {
     return out.join("");
 };
 
-const SIGN_TEXT = "I am a bot with sources linking to archive.open-run.org\nContact: clareLab.moe · Support: ko-fi.com/clareLab";
-const SIGN_HTML =
-    '<p style="margin:1.2em 0 0;font-size:.75em;font-style:italic;color:#6b7078">I am a bot with sources linking to <a href="https://archive.open-run.org" style="color:#0b63c4">archive.open-run.org</a><br>• Contact: <a href="https://clarelab.moe" style="color:#0b63c4">clareLab.moe</a><br>• Support: <a href="https://ko-fi.com/clarelab" style="color:#0b63c4">ko-fi.com/clareLab</a></p>';
+const sign = (status: string[]) => ({
+    text: ["I am a bot with sources linking to archive.open-run.org", ...status, "Contact: clareLab.moe · Support: ko-fi.com/clareLab"].join("\n"),
+    html: `<p style="margin:1.2em 0 0;font-size:.75em;font-style:italic;color:#6b7078">I am a bot with sources linking to <a href="https://archive.open-run.org" style="color:#0b63c4">archive.open-run.org</a>${status.map(l => `<br>• ${html(l)}`).join("")}<br>• Contact: <a href="https://clarelab.moe" style="color:#0b63c4">clareLab.moe</a><br>• Support: <a href="https://ko-fi.com/clarelab" style="color:#0b63c4">ko-fi.com/clareLab</a></p>`,
+});
+
+export type Change = { weekly?: boolean; daily?: boolean };
+
+const COMMANDS: { re: RegExp; set: Change }[] = [
+    { re: /^(weekly on|subscribe|订阅周报|开启周报)$/, set: { weekly: true } },
+    { re: /^(weekly off|退订周报|关闭周报)$/, set: { weekly: false } },
+    { re: /^(daily on|订阅日报|开启日报)$/, set: { daily: true } },
+    { re: /^(daily off|退订日报|关闭日报)$/, set: { daily: false } },
+    { re: /^(unsubscribe|退订)$/, set: { weekly: false, daily: false } },
+];
+
+export const commands = (subject: string, body: string): Change | null => {
+    const parse = (s: string) => {
+        const parts = s
+            .toLowerCase()
+            .split(/[\n,，、;；]+/)
+            .map(x => x.replace(/[\s。.!！"“”'‘’]+/g, " ").trim())
+            .filter(Boolean);
+        if (!parts.length) return null;
+        const found = parts.map(x => COMMANDS.find(c => c.re.test(x)));
+        return found.every(Boolean) ? Object.assign({}, ...found.map(c => c?.set)) : null;
+    };
+    return parse(body) ?? (body.trim() ? null : parse(subject.replace(/^\s*(re|回复|答复)\s*[:：]\s*/i, "")));
+};
 
 export type Footer = { text: string; html: string };
 
-export const compose = (text: string, refs: Ref[], footer?: Footer) => {
+export const compose = (text: string, refs: Ref[], footer?: Footer, status: string[] = []) => {
     const about = (r: Ref) => (r.kind === "web" ? "web page" : [`${r.kind} by ${r.author}`, r.date, r.state].filter(Boolean).join(" · "));
     const plain = [
         text,
         refs.length ? `Sources\n${refs.map(r => `[${r.n}] ${r.title} (${about(r)})\n    ${r.link}`).join("\n")}` : "",
         footer?.text ?? "",
-        `-- \n${SIGN_TEXT}`,
+        `-- \n${sign(status).text}`,
     ]
         .filter(Boolean)
         .join("\n\n");
     const list = refs.length
         ? `<ol style="margin:1em 0 0;padding-left:1.4em;font-size:.78em;color:#6b7078">${refs.map(r => `<li><a href="${html(r.link)}" style="color:#0b63c4;text-decoration:none">${html(r.title || r.link)}</a> · ${html(about(r))}</li>`).join("")}</ol>`
         : "";
-    const body = `<div style="font:15px/1.65 -apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;color:#2b2d31;max-width:42em">${markup(text, refs)}${list}${footer?.html ?? ""}${SIGN_HTML}</div>`;
+    const body = `<div style="font:15px/1.65 -apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;color:#2b2d31;max-width:42em">${markup(text, refs)}${list}${footer?.html ?? ""}${sign(status).html}</div>`;
     return { text: plain, html: body };
 };
 
@@ -214,9 +239,11 @@ export class Mailbox {
         const skip = automated(headers, sender, envelope.from, type);
         const waiting = (this.db.query("select count(*) n from mail where sender = ? and status = 'queued'").get(sender) as { n: number }).n;
         const full = waiting >= QUEUE && !(auth.ok && o.unlimited?.(sender));
-        const command = !skip && auth.ok && /^\s*(unsubscribe|退订)\s*$/i.test(parsed.subject ?? "");
-        const status = skip ? "ignored" : !auth.ok ? "unauthenticated" : command ? "unsubscribe" : !text ? "empty" : full ? "dropped" : "queued";
-        const reason = skip ?? (!auth.ok ? "no aligned SPF, DKIM or DMARC pass" : command ? null : !text ? "no text" : full ? `queue full (${waiting})` : null);
+        const change = !skip && auth.ok ? commands(parsed.subject ?? "", fresh(text)) : null;
+        const status = skip ? "ignored" : !auth.ok ? "unauthenticated" : change ? "command" : !text ? "empty" : full ? "dropped" : "queued";
+        const reason =
+            skip ??
+            (!auth.ok ? "no aligned SPF, DKIM or DMARC pass" : change ? JSON.stringify(change) : !text ? "no text" : full ? `queue full (${waiting})` : null);
         const row = this.db
             .query(
                 `insert into mail (at, status, reason, sender, name, envelope_from, envelope_to, message_id, thread, in_reply_to, refs, subject, text, headers, auth, size, raw)
@@ -241,7 +268,11 @@ export class Mailbox {
                 raw.byteLength,
                 raw,
             ) as { id: number };
-        return { id: row.id, status, reason, sender };
+        return { id: row.id, status, reason, sender, change };
+    }
+
+    letter(id: number) {
+        return (this.db.query("select * from mail where id = ?").get(id) as Letter | null) ?? null;
     }
 
     queued(): Letter[] {
@@ -286,7 +317,7 @@ export class Mailbox {
         this.db.query(`update mail set ${keys.map(k => `${k} = ?`).join(", ")} where id = ?`).run(...keys.map(k => fields[k] ?? null), id);
     }
 
-    async send(letter: Letter, text: string, refs: Ref[]) {
+    async send(letter: Letter, text: string, refs: Ref[], status: string[] = []) {
         const subject = /^\s*re:/i.test(letter.subject ?? "") ? (letter.subject ?? "") : `Re: ${letter.subject || "(no subject)"}`;
         const id = `<${crypto.randomUUID()}@${DOMAIN}>`;
         return await this.transmit({
@@ -297,11 +328,11 @@ export class Mailbox {
             ...(letter.message_id ? { inReplyTo: letter.message_id } : {}),
             ...(letter.refs ? { references: letter.refs.split(" ").slice(-20) } : {}),
             headers: { "Auto-Submitted": "auto-replied", "X-Auto-Response-Suppress": "All" },
-            ...compose(text, refs),
+            ...compose(text, refs, undefined, status),
         });
     }
 
-    async post(to: string, o: { kind: string; subject: string; text: string; refs: Ref[]; footer?: Footer; unsubscribe?: string }) {
+    async post(to: string, o: { kind: string; subject: string; text: string; refs: Ref[]; footer?: Footer; unsubscribe?: string; status?: string[] }) {
         const id = `<${crypto.randomUUID()}@${DOMAIN}>`;
         const headers: Record<string, string> = { "Auto-Submitted": "auto-generated", "X-Auto-Response-Suppress": "All" };
         if (o.unsubscribe) {
@@ -319,7 +350,7 @@ export class Mailbox {
                     subject: o.subject,
                     messageId: id,
                     headers,
-                    ...compose(o.text, o.refs, o.footer),
+                    ...compose(o.text, o.refs, o.footer, o.status ?? []),
                 })
             ).via;
         } catch (e) {

@@ -113,6 +113,8 @@ export const client = (req: Request, peer: string) => {
     return (cloudflare(edge) && req.headers.get("cf-connecting-ip")?.trim()) || edge;
 };
 
+export const FREE = 2;
+
 export type LimitState = { day: string; ips: Record<string, number[]> };
 export type Status = { ok: boolean; used: number; until: number; span: number; reset: number };
 
@@ -137,7 +139,7 @@ export class Limiter {
     }
 
     pause(n: number) {
-        return n < 2 ? 0 : this.base * 2 ** (n - 2);
+        return n < FREE ? 0 : this.base * 2 ** (n - FREE);
     }
 
     status(ip: string, now = Date.now()): Status {
@@ -147,6 +149,14 @@ export class Limiter {
         const span = this.pause(t.length);
         const until = last === undefined || !span ? 0 : Math.min(last + span * 1000, reset);
         return { ok: until <= now, used: t.length, until: until > now ? until : 0, span, reset };
+    }
+
+    peek(ip: string, now = Date.now()): Status {
+        const used = this.times(ip, now).length + 1;
+        const reset = midnight(now);
+        const span = this.pause(used);
+        const until = span ? Math.min(now + span * 1000, reset) : 0;
+        return { ok: until <= now, used, until: until > now ? until : 0, span, reset };
     }
 
     take(ip: string, now = Date.now()) {

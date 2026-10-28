@@ -135,6 +135,8 @@ export class Desk {
             post: boolean;
             mail: boolean;
             log: (e: Record<string, unknown>) => void;
+            status: (email: string) => string[];
+            about: () => string | undefined;
         },
     ) {
         this.db = new Database(join(dir, "chats.db"), { create: true });
@@ -349,11 +351,12 @@ export class Desk {
         const names = s.names.map(name).filter(Boolean);
         const hidden = s.hidden ? [`${s.hidden} anonymous ${s.hidden > 1 ? "supporters" : "supporter"}`] : [];
         const thanks = kind === "weekly" && (names.length || s.hidden) ? `Thanks to our sponsors: ${[...names, ...hidden].join(", ")}` : "";
-        const pitch = o.member
-            ? ""
-            : `Write "subscribe" to ${process.env.MAIL_ADDRESS || "bot.mofufu@clarelab.moe"} to get ${NAME.weekly} by email. Members (€4 a month) get a personal edition, an optional daily and more Mofufu by email.`;
-        const lines = [thanks, o.unsubscribe ? (o.member ? "" : pitch.replace(/^Write .*? by email\. /, "")) : pitch].filter(Boolean);
-        const md = lines.map(l => `^(${l.replace(/[()]/g, "")})`).join("  \n");
+        const url = this.o.about();
+        const pitch = o.member || !url ? "" : `Subscribe, membership and commands: ${url}`;
+        const lines = [thanks, pitch].filter(Boolean);
+        const md = [thanks && `^(${thanks.replace(/[()]/g, "")})`, pitch && `^(Subscribe, membership and commands:) ^[u/${this.o.bot}](${url})`]
+            .filter(Boolean)
+            .join("  \n");
         const html = (t: string) => t.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c] ?? c);
         const out = [...lines, ...(o.unsubscribe ? [`You get this because you subscribed. Unsubscribe: ${o.unsubscribe}`] : [])];
         return {
@@ -439,6 +442,7 @@ export class Desk {
                         refs: view.refs,
                         footer: this.footer(kind, { unsubscribe: link, member: Boolean(s) }).mail,
                         unsubscribe: link,
+                        status: this.o.status(p.email),
                     });
                 if (s) this.save({ kind, edition, recipient: p.email, title, text: view.text, refs: view.refs, status: send ? "sent" : "draft" });
                 sent += send ? 1 : 0;

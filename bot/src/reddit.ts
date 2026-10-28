@@ -146,6 +146,10 @@ export const submit = async (sr: string, title: string, text: string) => {
     return { name: r.json?.data?.name ?? "", url: r.json?.data?.url ?? "" };
 };
 
+export const pin = async (name: string) => {
+    errors(await call("/api/set_subreddit_sticky", { method: "POST", form: { api_type: "json", id: name, state: "true", to_profile: "true" } }), "pin");
+};
+
 export const edit = async (thing: string, text: string) => {
     errors(await call("/api/editusertext", { method: "POST", form: { api_type: "json", thing_id: thing, text } }), "edit");
 };

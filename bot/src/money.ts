@@ -12,8 +12,7 @@ const KOFI_FEE = Number(process.env.KOFI_FEE ?? 0.05);
 const PAY_FEE = Number(process.env.PAY_FEE ?? 0.03);
 const PAY_FIXED = Number(process.env.PAY_FIXED ?? 0.3);
 export const MARGIN = Number(process.env.MARGIN ?? 0.5);
-const MEMBER = Number(process.env.TIER_MEMBER ?? 4);
-const SPONSOR = Number(process.env.TIER_SPONSOR ?? 16);
+export const TIERS = { member: Number(process.env.TIER_MEMBER ?? 4), sponsor: Number(process.env.TIER_SPONSOR ?? 16) };
 
 const SCHEMA = `
 create table if not exists payments (
@@ -168,9 +167,9 @@ export class Money {
             .get(e, now - PERIOD - GRACE) as Payment | null;
         if (!p) return null;
         const eur = this.eur(p.amount, p.currency);
-        if (eur < MEMBER - 0.005) return null;
+        if (eur < TIERS.member - 0.005) return null;
         return {
-            tier: eur >= SPONSOR - 0.005 ? "sponsor" : "member",
+            tier: eur >= TIERS.sponsor - 0.005 ? "sponsor" : "member",
             email: e,
             name: p.name,
             since: p.at,

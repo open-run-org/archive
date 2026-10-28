@@ -7,11 +7,11 @@ import { Desk, type Kind } from "./digest";
 import { loadEnv } from "./env";
 import { generate, QuotaError, setMeter } from "./gemini";
 import { charge, Ledger } from "./ledger";
-import { client, Limiter, type LimitState, type Status } from "./limit";
+import { client, FREE, Limiter, type LimitState, type Status } from "./limit";
 import { Log, place } from "./log";
 import { compose, fresh, type Letter, Mailbox } from "./mail";
 import { Memory } from "./memory";
-import { Money, ownerMail, ownerReddit, type Standing } from "./money";
+import { MARGIN, Money, ownerMail, ownerReddit, type Standing, TIERS } from "./money";
 import * as reddit from "./reddit";
 
 for (const f of (process.env.ENV_FILES ?? "").split(",").filter(Boolean)) loadEnv(f);
@@ -55,6 +55,7 @@ type State = {
     reddit?: { limits?: LimitState; queue?: Queued[] };
     random?: { day: string; count: number };
     digest?: Partial<Record<Kind, string>>;
+    about?: { id: string; url: string; hash: string; pinned: boolean };
     fails?: Record<string, number>;
 };
 
@@ -93,7 +94,17 @@ const log = (entry: Record<string, unknown>) => {
     console.log(line);
 };
 
-const desk = new Desk(DIR, { money, mailbox, bot: BOT, api: API, post: process.env.DIGEST_POST === "1", mail: process.env.DIGEST_MAIL === "1", log });
+const desk = new Desk(DIR, {
+    money,
+    mailbox,
+    bot: BOT,
+    api: API,
+    post: process.env.DIGEST_POST === "1",
+    mail: process.env.DIGEST_MAIL === "1",
+    log,
+    status: email => statusLines(email),
+    about: () => state.about?.url,
+});
 
 const MENTION = new RegExp(`(^|[^\\w-])/?u/${BOT.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?![\\w-])`, "i");
 
@@ -375,6 +386,7 @@ const learn = async () => {
         state.checked = Date.now();
         await run(() => memory.refresh(reddit.info));
         await money.refresh();
+        await run(sync);
     }
     if (memory.due() && pick() === MODELS.main) {
         await run(async () => {
@@ -382,6 +394,29 @@ const learn = async () => {
             if (summary) log({ learned: summary });
         });
     }
+};
+
+const when = (ms: number) => `${new Date(ms).toISOString().slice(0, 16).replace("T", " ")} UTC`;
+const wait = (s: number) => (s >= 3600 ? `${s / 3600} h` : `${Math.round(s / 60)} min`);
+
+const statusLines = (email: string, st?: Status) => {
+    const s = money.standing(email);
+    const p = money.person(email);
+    const subs = `Weekly: ${p?.weekly ? "on" : "off"} · Daily: ${s ? (p?.daily ? "on" : "off") : "members only"} · Reply "weekly on/off"${s ? ' or "daily on/off"' : ""} to change`;
+    if (s?.tier === "owner") return [subs, "Quota: unlimited"];
+    const until = s ? when(s.until).slice(0, 10) : "";
+    if (s && money.left(s) > RESERVE) {
+        const share = Math.round(((money.left(s) - RESERVE) / Math.max(0.01, s.cap - RESERVE)) * 100);
+        return [subs, `Quota: ${s.tier} until ${until} · ${Math.min(100, Math.max(0, share))}% left`];
+    }
+    const now = st ?? mailLimiter.status(email);
+    const left = Math.max(0, 2 - now.used);
+    const quota = now.until
+        ? `next answer after ${when(now.until)}, mail waits in a queue of ${QUEUE}`
+        : left
+          ? `${left}/2 free today, then waits from ${wait(mailLimiter.pause(2))}`
+          : `next answer now, then a ${wait(mailLimiter.pause(now.used + 1))} wait`;
+    return [subs, `Quota: ${s ? `${s.tier} allowance used until ${until} · ` : ""}${quota} · resets 00:00 UTC`];
 };
 
 const describe = (email: string, s: Standing | null) => {
@@ -463,7 +498,7 @@ const answerMail = async (letter: Letter, model: string) => {
         headers: JSON.parse(letter.headers),
     };
     try {
-        const sent = await mailbox.send(letter, shown.text, shown.refs);
+        const sent = await mailbox.send(letter, shown.text, shown.refs, statusLines(letter.sender, unlimited ? undefined : mailLimiter.peek(letter.sender)));
         const st = unlimited ? mailLimiter.status(letter.sender) : mailLimiter.take(letter.sender);
         mailbox.mark(letter.id, { status: "answered", answered_at: Date.now(), reply_id: sent.id, reply: shown.text, error: null });
         if (issue) desk.feedback({ at: Date.now(), source: "mail", issue: issue.subject ?? issue.kind, author: letter.sender, text: fresh(letter.text) });
@@ -508,21 +543,74 @@ const drain = async () => {
 
 const WELCOME = (s: Standing) =>
     [
-        "你好，我是 Mofufu。谢谢你成为红迪档案馆的会员！",
-        "",
-        "会员可以：",
-        "- 每周一收到按你的情况调整过的润学周报；",
-        "- 开启润学日报：回复这封信说“开启日报”就好，随时可以关；",
-        "- 直接给我写信提问，不用排队，我会先查档案，再上网核对。",
-        ...(s.tier === "sponsor" ? ["", "你是赞助者。如果你在 Ko-fi 上选择了公开，公开版周报的致谢里会写上你的名字。"] : []),
-        "",
-        "想让我多关注什么，直接回这封信告诉我。",
+        `${s.tier === "sponsor" ? "赞助" : "会员"}已开通：€${s.amount.toFixed(2)}/月，有效至 ${when(s.until).slice(0, 10)}。`,
+        `权益与指令：${state.about?.url ?? `https://www.reddit.com/user/${BOT}/`}`,
     ].join("\n");
+
+const zh = (s: number) => (s >= 3600 ? `${s / 3600} 小时` : `${Math.round(s / 60)} 分钟`);
+const DAYS = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+
+const about = () => {
+    const local = (WEEKDAY * 24 + HOUR_UTC + 8) % 168;
+    const cap = (eur: number) => MARGIN * eur - money.fee(eur);
+    const values: Record<string, string> = {
+        free: String(FREE),
+        p1: zh(mailLimiter.pause(FREE)),
+        p2: zh(mailLimiter.pause(FREE + 1)),
+        p3: zh(mailLimiter.pause(FREE + 2)),
+        queue: String(QUEUE),
+        weekly: `每${DAYS[Math.floor(local / 24)]} ${String(local % 24).padStart(2, "0")}:00（北京时间）`,
+        address: process.env.MAIL_ADDRESS || "bot.mofufu@clarelab.moe",
+        member: `€${TIERS.member}`,
+        sponsor: `€${TIERS.sponsor}`,
+        ratio: (cap(TIERS.sponsor) / cap(TIERS.member)).toFixed(1),
+    };
+    return readFileSync(join(SRC, "..", "about.md"), "utf8")
+        .trim()
+        .replace(/\{\{(\w+)\}\}/g, (m, k: string) => values[k] ?? m);
+};
+
+const sync = async () => {
+    if (DRY) return false;
+    const body = about();
+    const hash = createHash("sha1").update(body).digest("hex");
+    if (state.about?.hash === hash) return false;
+    const old = state.about;
+    if (old) {
+        try {
+            await reddit.edit(old.id, body);
+            state.about = { ...old, hash };
+            log({ about: "edited", id: old.id });
+            return false;
+        } catch (e) {
+            const [x] = await reddit.info([old.id]);
+            log({ about: "edit failed", error: e instanceof Error ? e.message : String(e), gone: !x || x.author === "[deleted]" });
+            if (x && x.author !== "[deleted]") return false;
+        }
+    }
+    const p = await reddit.submit(PROFILE, "Mofufu 使用说明", body);
+    const pinned = await reddit.pin(p.name).then(
+        () => true,
+        e => {
+            log({ about: "pin failed", error: e instanceof Error ? e.message : String(e) });
+            return false;
+        },
+    );
+    state.about = { id: p.name, url: p.url, hash, pinned };
+    log({ about: "posted", ...state.about });
+    return false;
+};
 
 const welcome = async (s: Standing) => {
     if (!mailbox) return;
     try {
-        await mailbox.post(s.email, { kind: "welcome", subject: "Mofufu：谢谢你成为会员", text: WELCOME(s), refs: [] });
+        await mailbox.post(s.email, {
+            kind: "welcome",
+            subject: `Mofufu：${s.tier === "sponsor" ? "赞助" : "会员"}已开通`,
+            text: WELCOME(s),
+            refs: [],
+            status: statusLines(s.email),
+        });
         log({ welcome: s.email, tier: s.tier });
     } catch (e) {
         log({ welcome: s.email, error: e instanceof Error ? e.message : String(e) });
@@ -634,7 +722,17 @@ const serve = (port: number) => {
                     { unlimited: ownerMail },
                 );
                 log({ mail: got.status, sender: got.sender, reason: got.reason });
-                if (got.status === "unsubscribe") money.subscribe(got.sender, { weekly: false, daily: false });
+                if (got.status === "command" && got.change) {
+                    const s = money.standing(got.sender);
+                    const change = { ...got.change };
+                    const refused = change.daily === true && !s;
+                    if (refused) change.daily = undefined;
+                    money.subscribe(got.sender, change);
+                    const letter = got.change.weekly === false && got.change.daily === false ? null : mailbox.letter(got.id);
+                    const p = money.person(got.sender);
+                    const text = [`周报：${p?.weekly ? "开" : "关"}`, `日报：${p?.daily ? "开" : "关"}${refused ? "（仅限会员）" : ""}`].join("\n");
+                    if (letter) void mailbox.send(letter, text, [], statusLines(got.sender)).catch(e => log({ mail: "command", error: String(e) }));
+                }
                 if (got.status !== "queued")
                     chats.write({ source: "mail", status: got.status, visitor: got.sender, error: got.reason, link: `mail:${got.id}` });
                 setTimeout(() => void run(drain), 0);
@@ -762,6 +860,8 @@ if (preview) {
     writeFileSync(join(out, `${preview}.html`), `<!doctype html><meta charset="utf-8"><title>${p.title}</title><h2>${p.title}</h2>${mail.html}`);
     writeFileSync(join(out, `${preview}.txt`), `${p.title}\n\n${mail.text}\n`);
     console.log(JSON.stringify({ title: p.title, posts: p.posts, chars: p.text.length, refs: p.refs.length, spend: ledger.report(Date.now() - HOUR) }));
+} else if (flag("--about")) {
+    console.log(about());
 } else if (flag("--spend")) {
     await money.refresh();
     console.log(JSON.stringify({ budget: money.budget(), last30: ledger.report(Date.now() - 30 * DAY) }, null, 2));
@@ -775,6 +875,7 @@ if (preview) {
 } else if (!flag("--serve")) {
     console.log(`archive bot as u/${BOT} in ${SUBS.join(", ")}${DRY ? " (dry run)" : ""}`);
     await money.refresh();
+    await run(sync);
     for (;;) {
         if (version() !== VERSION) {
             log({ restart: "code changed" });
