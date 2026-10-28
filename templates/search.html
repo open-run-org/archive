@@ -5,7 +5,7 @@
 {% block content %}
 <h1 class="sr-only">Search</h1>
 {% set home = get_section(path="_index.md") %}
-<div id="search" data-pagefind="{{ get_url(path="pagefind/pagefind.js") }}" data-users="{{ get_url(path="search/users.json") }}" data-subs="{% for s in home.extra.subs %}{{ s.label }}{% if not loop.last %},{% endif %}{% endfor %}"{% if config.extra.ask %} data-mofufu="{{ get_url(path="@/mofufu/_index.md") }}"{% endif %}>
+<div id="search" data-pagefind="{{ get_url(path="pagefind/pagefind.js") }}" data-users="{{ get_url(path="search/users.json") }}" data-subs="{% for s in home.extra.subs %}{{ s.label }}{% if not loop.last %},{% endif %}{% endfor %}">
     <div class="page-head" hidden></div>
     <div class="people" hidden></div>
     <div class="controls">

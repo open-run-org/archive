@@ -729,7 +729,6 @@ def build():
         front({"title": "Reddit Archive", "sort_by": "date", "template": "index.html"}, {"subs": subs}),
     )
     write(CONTENT / "search" / "_index.md", front({"title": "Search", "template": "search.html"}))
-    write(CONTENT / "mofufu" / "_index.md", front({"title": "Mofufu", "template": "mofufu.html"}))
     write(
         CONTENT / "search" / "users.json",
         json.dumps(

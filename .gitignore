@@ -1,5 +1,3 @@
 public
 *.tmp
 .venv
-bot/state
-node_modules

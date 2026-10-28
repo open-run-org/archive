@@ -20,4 +20,3 @@ external_links_external = false
 
 [extra]
 repo = "https://github.com/open-run-org/archive"
-ask = "https://archive-bot.open-run.org"
