@@ -1,7 +1,9 @@
+import { lookup } from "node:dns/promises";
 import { mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { decode } from "./archive";
+import { reserved } from "./limit";
 import type { Ref } from "./mail";
 
 const TECTONIC = process.env.TECTONIC || "tectonic";
@@ -99,14 +101,38 @@ const host = (u: string) => {
     }
 };
 
+const safe = async (u: string) => {
+    let url: URL;
+    try {
+        url = new URL(u);
+    } catch {
+        return false;
+    }
+    if (url.protocol !== "https:" || url.username || url.password || (url.port && url.port !== "443")) return false;
+    const found = await lookup(url.hostname, { all: true }).catch(() => []);
+    return found.length > 0 && found.every(a => !reserved(a.address));
+};
+
+const get = async (u: string, hops = 3): Promise<Response | null> => {
+    if (!(await safe(u))) return null;
+    const r = await fetch(u, {
+        redirect: "manual",
+        signal: AbortSignal.timeout(6000),
+        headers: { "user-agent": "Mozilla/5.0 (compatible; Mofufu)", accept: "text/html" },
+    });
+    if (r.status < 300 || r.status >= 400) return r;
+    const next = r.headers.get("location");
+    return next && hops > 0 ? get(new URL(next, u).toString(), hops - 1) : null;
+};
+
 const pages = new Map<string, Promise<{ title?: string; site?: string }>>();
 
 const page = (u: string) => {
     let p = pages.get(u);
     if (!p) {
-        p = fetch(u, { signal: AbortSignal.timeout(6000), headers: { "user-agent": "Mozilla/5.0 (compatible; Mofufu)", accept: "text/html" } })
+        p = get(u)
             .then(async r => {
-                if (!r.ok || !/html/.test(r.headers.get("content-type") ?? "")) return {};
+                if (!r?.ok || !/html/.test(r.headers.get("content-type") ?? "")) return {};
                 const html = (await r.text()).slice(0, 300_000);
                 const meta = (k: string) =>
                     html.match(new RegExp(`<meta[^>]+(?:property|name)=["']${k}["'][^>]+content=["']([^"']+)`, "i"))?.[1] ??
