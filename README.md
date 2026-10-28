@@ -1,4 +1,4 @@
-[![CI](https://github.com/open-run-org/archive/actions/workflows/ci.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/ci.yaml) [![CD](https://github.com/open-run-org/archive/actions/workflows/cd.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/cd.yaml) [![Image](https://github.com/open-run-org/archive/actions/workflows/image.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/image.yaml) [![Release](https://github.com/open-run-org/archive/actions/workflows/release.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/release.yaml)
+[![CI](https://github.com/open-run-org/archive/actions/workflows/ci.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/ci.yaml) [![CD](https://github.com/open-run-org/archive/actions/workflows/cd.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/cd.yaml) [![Release](https://github.com/open-run-org/archive/actions/workflows/release.yaml/badge.svg)](https://github.com/open-run-org/archive/actions/workflows/release.yaml)
 
 # Reddit Archive / 红迪档案馆
 
@@ -58,7 +58,7 @@
 
 首先是数据来源，来源分两部分，一个是 Reddit 的 API，用于抓取最近的贴文和评论以持续更新，另一个我已经在我的其它帖文中提及了，见此（[分享一个访问已被封的 sub 的贴文和评论的方法](https://www.reddit.com/r/runtoJapan2/comments/1oazwgj/%E5%88%86%E4%BA%AB%E4%B8%80%E4%B8%AA%E8%AE%BF%E9%97%AE%E5%B7%B2%E8%A2%AB%E5%B0%81%E7%9A%84_sub_%E7%9A%84%E8%B4%B4%E6%96%87%E5%92%8C%E8%AF%84%E8%AE%BA%E7%9A%84%E6%96%B9%E6%B3%95)），用于下载全量数据。以及必须提及一个非常简便的网站是 [Arctic Shift](https://arctic-shift.photon-reddit.com/)，可以搜索并下载到所有 sub 的所有贴文或评论。
 
-网站框架用的是 Zola，然后语言用的是 Python 和 Go，其中 Go 用来抓取 Reddit，Python 用来从 Arctic Shift 补档和生成网站内容，最后部署用的是 GitHub Actions，以及用于开发用的 Docker + devcontainer。
+网站框架用的是 Zola，然后语言用的是 Python 和 Go，其中 Go 用来抓取 Reddit，Python 用来从 Arctic Shift 补档和生成网站内容，最后部署用的是 GitHub Actions，本地开发用 just 编排（`just --list` 可以看到所有命令）。
 
 ## 贡献
 
