@@ -45,6 +45,7 @@ IMG_AUTO = re.compile(r"<(https?://(?:i|preview)\.redd\.it/([a-z0-9]+)\.(?:jpe?g
 IMG_LINK = re.compile(r"(!?)\[((?:[^\[\]\n\\]|\\.)*)\]\((https?://(?:i|preview)\.redd\.it/([a-z0-9]+)\.(?:jpe?g|png|gif|webp)(?:[?#][^()\s]*)?)\)", re.I)
 PLAYER = re.compile(r"<https?://(?:www\.)?reddit\.com/link/[a-z0-9]+/video/([a-z0-9]+)/player/?>", re.I)
 MEDIA_REF = re.compile(r"!\[([^\[\]\n]*)\]\((giphy\|)?([A-Za-z0-9]+)(?:\|[A-Za-z0-9_]+)?\)")
+IMAGE_MD = re.compile(r"(?<!\\)!\[([^\[\]\n]*)\]\(([^()\s]*)\)")
 
 def sub_link(m):
     kind, name = m.group(1), m.group(2)
@@ -182,7 +183,8 @@ def embed(md, used, meta=None):
     def text(s):
         s = PLAYER.sub(lambda m: swap(m.group(1), m.group(0)), s)
         s = IMG_AUTO.sub(lambda m: swap(m.group(2), m.group(0)), s)
-        return MEDIA_REF.sub(ref, IMG_LINK.sub(link, s))
+        s = MEDIA_REF.sub(ref, IMG_LINK.sub(link, s))
+        return IMAGE_MD.sub(lambda m: f"[{m.group(1) or 'image'}]({m.group(2)})" if re.match(r"https?://", m.group(2)) else f"_({m.group(1) or 'image'})_", s)
     def line(ln):
         out, last = [], 0
         for a, b in code_spans(ln):
