@@ -11,7 +11,7 @@ if (!file) {
 loadEnv(file);
 const redirect = "http://127.0.0.1:8977/callback";
 const state = randomBytes(16).toString("hex");
-const scope = "identity read submit privatemessages history";
+const scope = "identity read submit privatemessages history edit";
 const auth = `Basic ${Buffer.from(`${process.env.REDDIT_CLIENT_ID}:${process.env.REDDIT_CLIENT_SECRET}`).toString("base64")}`;
 
 console.log(
