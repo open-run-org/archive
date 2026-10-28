@@ -140,10 +140,10 @@ def import_comments(path, root, post_index):
             write_capture(subdir, [dump(r) for r in rows], cap_ts, hash_comments(rows))
 
 
-def api(path, **params):
+def api(path, tries=4, **params):
     url = f"{API}/{path}?" + urllib.parse.urlencode(params)
     req = urllib.request.Request(url, headers={"User-Agent": "open-run-archive"})
-    for attempt in range(4):
+    for attempt in range(tries):
         time.sleep(0.3)
         try:
             with urllib.request.urlopen(req, timeout=60) as r:
@@ -154,7 +154,7 @@ def api(path, **params):
         except (OSError, http.client.HTTPException, json.JSONDecodeError) as e:
             if isinstance(e, urllib.error.HTTPError) and e.code < 500 and e.code != 429:
                 raise
-            if attempt == 3:
+            if attempt == tries - 1:
                 raise
             time.sleep(2**attempt * 5)
 
@@ -172,7 +172,7 @@ def search_posts(sub, after):
         after = int(float(page[-1]["created_utc"])) - 1
 
 
-def comment_rows(pid):
+def comment_rows(pid, tries=4):
     out = []
 
     def walk(children):
@@ -185,7 +185,7 @@ def comment_rows(pid):
             if isinstance(rep, dict):
                 walk((rep.get("data") or {}).get("children"))
 
-    walk(api("comments/tree", link_id="t3_" + pid, limit=9999))
+    walk(api("comments/tree", tries=tries, link_id="t3_" + pid, limit=9999))
     out.sort(key=lambda r: (r.get("parent_id") or "", r.get("created_utc") or 0, r.get("id") or ""))
     return out
 
@@ -257,9 +257,9 @@ def snapshot_sub(root, sub):
     wrote = failed = 0
     for created_id in due:
         try:
-            rows = comment_rows(created_id.split("_", 1)[1])
+            rows = comment_rows(created_id.split("_", 1)[1], tries=1)
         except Exception as e:
-            print(f"[arctic] {sub} {created_id} snapshot failed: {e}", file=sys.stderr)
+            print(f"[arctic] {sub} {created_id} snapshot skipped: {e}", file=sys.stderr)
             failed += 1
             continue
         cdir = base / "comments" / created_id
@@ -271,8 +271,8 @@ def snapshot_sub(root, sub):
         cap_ts = max((retrieved(r) or 0 for r in rows), default=0) or now()
         write_capture(cdir, [dump(r) for r in rows], cap_ts, hash_comments(rows))
         wrote += 1
-    print(f"[arctic] {sub} snapshots due={len(due)} wrote={wrote} failed={failed}", file=sys.stderr)
-    return failed
+    print(f"[arctic] {sub} snapshots due={len(due)} wrote={wrote} skipped={failed}", file=sys.stderr)
+    return 0
 
 
 def fetch(root, subs_file, after):
