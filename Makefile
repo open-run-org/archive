@@ -11,7 +11,7 @@ ZOLA ?= zola
 ARCTIC_DIR ?= data/arctic
 ARCTIC_FILES ?= $(wildcard $(ARCTIC_DIR)/*.jsonl)
 
-.PHONY: harvest backfill build ci import-arctic zola-serve zola-build zola-clean
+.PHONY: harvest backfill media build ci import-arctic zola-serve zola-build zola-clean
 
 harvest:
 	go run ./cmd/harvest -root $(DATA_ROOT) -subs $(SUBS_FILE) -days $(DAYS)
@@ -19,10 +19,13 @@ harvest:
 backfill:
 	python3 scripts/import_arctic.py --root $(DATA_ROOT) --fetch $(SUBS_FILE) --days $(DAYS)
 
+media:
+	python3 scripts/media.py --root $(DATA_ROOT)
+
 build:
 	python3 scripts/build.py $(DATA_ROOT) content
 
-ci: harvest backfill build
+ci: harvest backfill media build
 
 import-arctic:
 	python3 scripts/import_arctic.py --root $(DATA_ROOT) $(ARCTIC_FILES)

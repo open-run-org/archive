@@ -45,6 +45,20 @@ jobs:
         continue-on-error: true
         run: make backfill
 
+      - id: media
+        continue-on-error: true
+        env:
+          R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET: assets-open-run-org
+        run: |
+          if [ -n "$R2_ACCESS_KEY_ID" ]; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq --no-install-recommends ffmpeg
+          fi
+          make media
+
       - run: make build
 
       - run: |
@@ -61,7 +75,7 @@ jobs:
             echo "No changes to commit."
           fi
 
-      - if: steps.harvest.outcome == 'failure' || steps.backfill.outcome == 'failure'
+      - if: steps.harvest.outcome == 'failure' || steps.backfill.outcome == 'failure' || steps.media.outcome == 'failure'
         run: |
-          echo "harvest=${{ steps.harvest.outcome }} backfill=${{ steps.backfill.outcome }}"
+          echo "harvest=${{ steps.harvest.outcome }} backfill=${{ steps.backfill.outcome }} media=${{ steps.media.outcome }}"
           exit 1
