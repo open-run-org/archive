@@ -39,11 +39,14 @@ class Fail(Exception):
 class UploadFail(Fail):
     pass
 
+class Broken(Fail):
+    pass
+
 def image(mid, ext, w=None, h=None, caption="", link=""):
     return {"id": mid, "kind": "image", "src": f"https://i.redd.it/{mid}.{ext.lower()}", "w": w, "h": h, "caption": caption, "link": link}
 
-def video(mid, mpd, w=None, h=None):
-    return {"id": mid, "kind": "video", "src": mpd, "w": w, "h": h, "caption": "", "link": ""}
+def video(mid, mpd, w=None, h=None, fallback=""):
+    return {"id": mid, "kind": "video", "src": mpd, "w": w, "h": h, "caption": "", "link": "", "fallback": fallback}
 
 def dig(d, *keys):
     for k in keys:
@@ -75,10 +78,12 @@ def reddit_video(p):
     rv = dig(p, "secure_media", "reddit_video") or dig(p, "media", "reddit_video")
     if not isinstance(rv, dict) or rv.get("transcoding_status", "completed") != "completed":
         return None
+    fallback = (rv.get("fallback_url") or "").split("?")[0]
     for k in ("fallback_url", "dash_url", "hls_url", "scrubber_media_url"):
         m = VIDEO.match(rv.get(k) or "")
         if m:
-            return video(m.group(1), f"https://v.redd.it/{m.group(1)}/DASHPlaylist.mpd", rv.get("width"), rv.get("height"))
+            fallback = fallback if fallback.startswith(f"https://v.redd.it/{m.group(1)}/") else ""
+            return video(m.group(1), f"https://v.redd.it/{m.group(1)}/DASHPlaylist.mpd", rv.get("width"), rv.get("height"), fallback)
     return None
 
 def capture_media(p, nested=False):
@@ -232,14 +237,14 @@ def get(url, limit, dest=None):
                 if dest is None:
                     data = r.read(limit + 1)
                     if len(data) > limit:
-                        raise Fail("too large")
+                        raise Broken("too large")
                     return 200, data, r.geturl()
                 size = 0
                 with open(dest, "wb") as w:
                     while chunk := r.read(2**20):
                         size += len(chunk)
                         if size > limit:
-                            raise Fail("too large")
+                            raise Broken("too large")
                         w.write(chunk)
                 return 200, b"", r.geturl()
         except urllib.error.HTTPError as e:
@@ -298,7 +303,7 @@ def put(env, key, body, ctype):
 
 def tracks(text, base):
     if "<!DOCTYPE" in text or "<!ENTITY" in text:
-        raise Fail("mpd: unexpected doctype")
+        raise Broken("mpd: unexpected doctype")
     best = {}
     for aset in ET.fromstring(text).iter():
         if not aset.tag.endswith("AdaptationSet"):
@@ -328,7 +333,7 @@ def archive(env, sub, created_id, it, tmp):
             return dict(row, status="redirect")
         ext = sniff(data)
         if not ext:
-            raise Fail("not an image")
+            raise (Broken if data[:4] and b"<" not in data[:64] else Fail)("not an image")
         w, h = (it["w"], it["h"]) if it["w"] and it["h"] else dims(data, ext) or (None, None)
         digest, size = put(env, f"{base}.{ext}", data, MIME[ext])
         return dict(row, key=f"{base}.{ext}", type=MIME[ext], bytes=size, sha256=digest, w=w, h=h)
@@ -340,13 +345,19 @@ def archive(env, sub, created_id, it, tmp):
     try:
         found = tracks(data.decode("utf-8", "replace"), it["src"])
     except (ET.ParseError, ValueError) as e:
-        raise Fail(f"mpd: {e}")
+        raise Broken(f"mpd: {e}")
     if "video" not in found:
-        raise Fail("mpd: no video track")
+        raise Broken("mpd: no video track")
+    picks = [(found["video"]["url"], found["video"]["w"] or it["w"], found["video"]["h"] or it["h"])]
+    if it.get("fallback") and (it["h"] or 0) > (picks[0][2] or 0):
+        picks.insert(0, (it["fallback"], it["w"], it["h"]))
     work = pathlib.Path(tempfile.mkdtemp(dir=tmp))
     try:
-        code, data, _ = get(found["video"]["url"], VIDEO_MAX, work / "v.mp4")
-        if code != 200:
+        for url, w, h in picks:
+            code, data, _ = get(url, VIDEO_MAX, work / "v.mp4")
+            if code == 200:
+                break
+        else:
             if gone(code, data):
                 return dict(row, status=code)
             raise Fail(f"video http {code}")
@@ -362,9 +373,9 @@ def archive(env, sub, created_id, it, tmp):
         out = work / "out.mp4"
         r = subprocess.run(cmd + maps + ["-c", "copy", "-movflags", "+faststart", str(out)], capture_output=True, text=True, timeout=900)
         if r.returncode != 0 or not out.exists():
-            raise Fail(f"ffmpeg: {r.stderr.strip()[-300:]}")
+            raise Broken(f"ffmpeg: {r.stderr.strip()[-300:]}")
         digest, size = put(env, f"{base}.mp4", out, "video/mp4")
-        return dict(row, key=f"{base}.mp4", type="video/mp4", bytes=size, sha256=digest, w=found["video"]["w"] or it["w"], h=found["video"]["h"] or it["h"])
+        return dict(row, key=f"{base}.mp4", type="video/mp4", bytes=size, sha256=digest, w=w, h=h)
     finally:
         shutil.rmtree(work, ignore_errors=True)
 
@@ -391,35 +402,45 @@ def main():
     batch = pending[:args.limit]
     print(f"[media] known={len(found)} recorded={len(done)} pending={len(pending)} batch={len(batch)}", file=sys.stderr)
     mdir.mkdir(parents=True, exist_ok=True)
+    for f in mdir.glob("*.jsonl"):
+        if f.stat().st_size and not f.read_bytes().endswith(b"\n"):
+            with f.open("a", encoding="utf-8") as w:
+                w.write("\n")
     n = collections.Counter()
     streak, stopped = 0, False
     with tempfile.TemporaryDirectory() as tmp, concurrent.futures.ThreadPoolExecutor(args.workers) as pool:
-        jobs = {pool.submit(archive, env, sub, cid, it, tmp): (sub, it) for sub, cid, it in batch}
-        for fut in concurrent.futures.as_completed(jobs):
-            sub, it = jobs[fut]
-            if fut.cancelled():
-                continue
-            try:
-                row = fut.result()
-            except Exception as e:
-                n["failed"] += 1
-                n["upload_failed"] += isinstance(e, UploadFail)
-                print(f"[media] {it['src']}: {e}", file=sys.stderr)
-                streak += 1
-                if streak >= 25 and not stopped:
-                    stopped = True
-                    print("[media] 25 failures in a row, stopping", file=sys.stderr)
-                    for f in jobs:
-                        f.cancel()
-                continue
-            streak = 0
-            row["at"] = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-            with (mdir / f"{sub}.jsonl").open("a", encoding="utf-8") as w:
-                w.write(json.dumps(row, ensure_ascii=False) + "\n")
-            n["stored" if "key" in row else "gone"] += 1
-            n["bytes"] += row.get("bytes", 0)
-    print(f"[media] stored={n['stored']} gone={n['gone']} failed={n['failed']} uploaded={n['bytes'] / 2**20:.1f} MiB", file=sys.stderr)
-    return 1 if n["upload_failed"] or stopped or (n["failed"] and not n["stored"] and not n["gone"]) else 0
+        jobs = {pool.submit(archive, env, sub, cid, it, tmp): (sub, cid, it) for sub, cid, it in batch}
+        try:
+            for fut in concurrent.futures.as_completed(jobs):
+                sub, cid, it = jobs[fut]
+                if fut.cancelled():
+                    continue
+                try:
+                    row = fut.result()
+                except Broken as e:
+                    row = {"id": it["id"], "post": cid, "src": it["src"], "status": "failed", "reason": str(e)[:200]}
+                except Exception as e:
+                    n["failed"] += 1
+                    n["upload_failed"] += isinstance(e, UploadFail)
+                    print(f"[media] {it['src']}: {e}", file=sys.stderr)
+                    streak += 1
+                    if streak >= 25 and not stopped:
+                        stopped = True
+                        print("[media] 25 failures in a row, stopping", file=sys.stderr)
+                        for f in jobs:
+                            f.cancel()
+                    continue
+                streak = 0
+                row["at"] = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+                with (mdir / f"{sub}.jsonl").open("a", encoding="utf-8") as w:
+                    w.write(json.dumps(row, ensure_ascii=False) + "\n")
+                n["stored" if "key" in row else "broken" if row["status"] == "failed" else "gone"] += 1
+                n["bytes"] += row.get("bytes", 0)
+        except BaseException:
+            pool.shutdown(wait=False, cancel_futures=True)
+            raise
+    print(f"[media] stored={n['stored']} gone={n['gone']} broken={n['broken']} failed={n['failed']} uploaded={n['bytes'] / 2**20:.1f} MiB", file=sys.stderr)
+    return 1 if n["upload_failed"] or stopped else 0
 
 if __name__ == "__main__":
     sys.exit(main())

@@ -27,30 +27,29 @@ def esc(s):
 
 def unlink(s):
     s = EMPTY_LINK.sub(lambda m: "]\\" + m.group(0)[1:], s)
-    return EMPTY_REF.sub(r"\1\\:", s).replace("<>", "&lt;>")
+    return EMPTY_DEST.sub(r"\1&lt;>", EMPTY_REF.sub(r"\1\\:", s))
 
 OPEN = re.compile(r"^( {0,3}(?:(?:[-*+]|\d{1,9}[.)]) {1,4})?)(`{3,}|~{3,})")
 ITEM = re.compile(r"^ {0,3}(?:[-*+]|\d{1,9}[.)]) {1,4}")
 CLOSE = re.compile(r" {0,3}(`{3,}|~{3,})[ \t]*$")
-ATTRS = re.compile(r"\{([^{}\n]*)\}([ \t#]*)$")
-BANG = re.compile(r"(?<!>)!(?=/?(?:r|u)/[A-Za-z0-9_-]{2,21}(?![A-Za-z0-9_/-]))")
+ATTRS = re.compile(r"\}([ \t#]*)$")
+EMPTY_DEST = re.compile(r"(\]\(\s*|\]:\s*)<>")
 BARE_URL = re.compile(r"(?<![A-Za-z0-9_/\[<\"'=@&])(?<!\]\()https?://[^\s<>\"'\[\]*，。、！？；：「」『』（）【】《》]+")
 SUB_REF = re.compile(r"(?<![A-Za-z0-9_/.\[])/?(r|u)/([A-Za-z0-9_-]{2,21})(?![A-Za-z0-9_/-])")
-SPOILER = re.compile(r">!(.+?)(?<!\\)!(?:<(?!https?://)|&lt;)")
+SPOILER = re.compile(r">!(.+?)(?<!\\)!(?:<|&lt;)")
 UNESC = re.compile(r"\\([!-/:-@\[-`{-~])")
 PROTECT = re.compile(r"!?\[(?:[^\[\]\\]|\\.|\[(?:[^\[\]\\]|\\.)*\])*\](?:\((?:[^()\s\\]|\\.|\((?:[^()\\]|\\.)*\))*(?:\s+(?:\"[^\"]*\"|'[^']*'))?\s*\)|\[(?:[^\[\]\\]|\\.)*\])|<https?://[^<>\s]*>|^\s*\[[^\]]+\]:.*$")
 SUBS = {}
 ASSETS = {}
 IMG_AUTO = re.compile(r"<(https?://(?:i|preview)\.redd\.it/([a-z0-9]+)\.(?:jpe?g|png|gif|webp)(?:[?#][^<>\s]*)?)>", re.I)
-IMG_LINK = re.compile(r"\[((?:[^\[\]\n\\]|\\.)*)\]\((https?://(?:i|preview)\.redd\.it/([a-z0-9]+)\.(?:jpe?g|png|gif|webp)(?:[?#][^()\s]*)?)\)", re.I)
+IMG_LINK = re.compile(r"(!?)\[((?:[^\[\]\n\\]|\\.)*)\]\((https?://(?:i|preview)\.redd\.it/([a-z0-9]+)\.(?:jpe?g|png|gif|webp)(?:[?#][^()\s]*)?)\)", re.I)
 PLAYER = re.compile(r"<https?://(?:www\.)?reddit\.com/link/[a-z0-9]+/video/([a-z0-9]+)/player/?>", re.I)
 MEDIA_REF = re.compile(r"!\[([^\[\]\n]*)\]\((giphy\|)?([A-Za-z0-9]+)(?:\|[A-Za-z0-9_]+)?\)")
 
 def sub_link(m):
     kind, name = m.group(1), m.group(2)
-    if kind == "r" and name.lower() in SUBS:
-        return f"[{m.group(0)}](/{SUBS[name.lower()]}/)"
-    return f"[{m.group(0)}](https://www.reddit.com/{'r' if kind == 'r' else 'user'}/{name})"
+    href = f"/{SUBS[name.lower()]}/" if kind == "r" and name.lower() in SUBS else f"https://www.reddit.com/{'r' if kind == 'r' else 'user'}/{name}"
+    return f'<a href="{href}">{m.group(0)}</a>'
 
 def trim_url(u):
     while u:
@@ -62,21 +61,19 @@ def trim_url(u):
             return u
     return u
 
-def sub_refs(text):
-    return SUB_REF.sub(sub_link, BANG.sub(r"\\!", text))
-
 def plain(text):
+    text = SPOILER.sub(r'<span class="spoiler">\1</span>', text)
     out, last = [], 0
     for m in BARE_URL.finditer(text):
         raw = trim_url(m.group(0))
         if len(raw) <= len("https://"):
             continue
-        out.append(sub_refs(text[last:m.start()]))
+        out.append(SUB_REF.sub(sub_link, text[last:m.start()]))
         url = UNESC.sub(r"\1", raw).replace("&amp;", "&")
         out.append(raw if re.search(r"[\s<>]", url) else "<" + url + ">")
         last = m.start() + len(raw)
-    out.append(sub_refs(text[last:]))
-    return SPOILER.sub(r'<span class="spoiler">\1</span>', "".join(out))
+    out.append(SUB_REF.sub(sub_link, text[last:]))
+    return "".join(out)
 
 def inline(text):
     out, last = [], 0
@@ -101,7 +98,7 @@ def code_spans(line):
     return spans
 
 def no_attrs(ln):
-    return ATTRS.sub(r"&#123;\1}\2", ln)
+    return ATTRS.sub(r"&#125;\1", ln)
 
 def blocks(text, fn):
     lines, fence, col, item = [], None, 0, 0
@@ -128,7 +125,7 @@ def blocks(text, fn):
             col = base + (len(m.group(1)) if ITEM.match(m.group(1)) else 0)
             lines.append(ln)
             continue
-        lines.append(ln if ln.startswith(("    ", "\t")) else fn(ln))
+        lines.append(ln if ln.startswith("\t") or ind - (item if item and ind >= item else 0) >= 4 else fn(ln))
     if fence:
         lines.append(" " * col + fence)
     return "\n".join(lines)
@@ -169,22 +166,30 @@ def embed(md, used, meta=None):
         used.add(mid)
         return media_tag(r)
     def link(m):
-        r = asset(m.group(3))
-        text = UNESC.sub(r"\1", m.group(1)).strip()
+        r = asset(m.group(4))
+        text = UNESC.sub(r"\1", m.group(2)).strip()
         if not r:
             return m.group(0)
-        used.add(m.group(3))
-        return media_tag(r) if not text or text.startswith(("http://", "https://")) else f"[{m.group(1)}]({media.PUBLIC}/{r['key']})"
+        used.add(m.group(4))
+        same = re.match(r"https?://(?:i|preview)\.redd\.it/" + re.escape(m.group(4)) + r"\.", text, re.I)
+        return media_tag(r) if m.group(1) or not text or same else f"[{m.group(2)}]({media.PUBLIC}/{r['key']})"
     def ref(m):
         alt, mid = m.group(1) or "image", m.group(3)
         if m.group(2):
             return f"[{alt}](https://giphy.com/gifs/{mid})"
         it = media.from_meta(mid, (meta or {}).get(mid))
         return swap(mid, f"[{alt}]({it['src']})" if it else f"_({alt})_")
-    md = PLAYER.sub(lambda m: swap(m.group(1), m.group(0)), md)
-    md = IMG_AUTO.sub(lambda m: swap(m.group(2), m.group(0)), md)
-    md = IMG_LINK.sub(link, md)
-    return MEDIA_REF.sub(ref, md)
+    def text(s):
+        s = PLAYER.sub(lambda m: swap(m.group(1), m.group(0)), s)
+        s = IMG_AUTO.sub(lambda m: swap(m.group(2), m.group(0)), s)
+        return MEDIA_REF.sub(ref, IMG_LINK.sub(link, s))
+    def line(ln):
+        out, last = [], 0
+        for a, b in code_spans(ln):
+            out += [text(ln[last:a]), ln[a:b]]
+            last = b
+        return "".join(out) + text(ln[last:])
+    return blocks(md, line)
 
 def media_block(items):
     figs = []
@@ -193,7 +198,7 @@ def media_block(items):
         link = it.get("link") or ""
         if re.fullmatch(r"https?://[^\s\"'<>]+", link):
             a = f'<a href="{html.escape(link)}" rel="nofollow noopener" target="_blank">{html.escape(link)}</a>'
-            cap = f"{cap} · {a}" if cap else a
+            cap = f"{cap} · {a}" if cap and it.get("caption") != link else a
         figs.append(f"<figure>{media_tag(asset(it['id']))}" + (f"<figcaption>{cap}</figcaption>" if cap else "") + "</figure>")
     return f'<div class="media" data-pagefind-ignore>{"".join(figs)}</div>' if figs else ""
 
@@ -305,7 +310,7 @@ def chip(s):
     return " ".join(str(s).replace("`", "").split())
 
 def meta_line(r):
-    auth = (r.get("author", "") or "[deleted]").replace("[", "\\[").replace("]", "\\]")
+    auth = re.sub(r"([\\`*_\[\]])", r"\\\1", r.get("author", "") or "[deleted]")
     created = fmt_iso(r.get("created_utc", 0)).replace(":00 UTC", " UTC")
     score = r.get("score", r.get("ups", 0))
     cid = r.get("id", "") or ""
