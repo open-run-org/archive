@@ -49,7 +49,7 @@ create index if not exists chats_thread on chats (thread, turn);
 
 export type Chat = {
     at?: number;
-    source: "site" | "reddit";
+    source: "site" | "reddit" | "mail";
     status: string;
     visitor?: string | null;
     thread?: string | null;

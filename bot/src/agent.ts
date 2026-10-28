@@ -7,7 +7,7 @@ export const MODELS = {
     main: process.env.MODEL_MAIN || "gemini-3.8-flash",
 };
 
-export type Mode = "reply" | "mention" | "random" | "ask";
+export type Mode = "reply" | "mention" | "random" | "ask" | "mail";
 export type Context = {
     today: string;
     postId?: string;
@@ -34,7 +34,7 @@ export type Source = {
 
 const persona = () => readFileSync(new URL("../persona.md", import.meta.url), "utf8").trim();
 
-const SYSTEM = `You are the bot described under "Who you are". You answer people on Reddit, or visitors of the archive website in mode "ask".
+const SYSTEM = `You are the bot described under "Who you are". You answer people on Reddit, visitors of the archive website in mode "ask", or people who email you in mode "mail".
 
 How to work:
 - Look things up before you answer. search_archive takes one or two short words that people literally write in these communities (such as 技人国, 永住, 法国 留学), never long phrases. Run several searches with different words, in parallel when you can, and sort by new when recency matters.
@@ -178,14 +178,24 @@ const execute = async (call: Call, reg: Registry, ctx: Context, step: (s: Step) 
 
 const prompt = (ctx: Context, mode: Mode, memory: { history: Past[]; similar: Past[]; examples: Past[] }) => {
     const lines = [`Mode: ${mode}`, `Today: ${ctx.today}`];
-    if (mode === "ask") {
+    if (mode === "ask" || mode === "mail") {
+        const who = mode === "mail" ? `${ctx.target.author}, who emails you` : "this visitor";
+        if (mode === "mail" && ctx.title) lines.push(`Email subject: ${ctx.title}`);
         if (ctx.conversation?.length) {
             lines.push(
-                "Your conversation with this visitor so far, oldest first (it continues; stay consistent and do not repeat yourself):",
+                `Your conversation with ${who} so far, oldest first (it continues; stay consistent and do not repeat yourself):`,
                 ...ctx.conversation.map(m => `- ${m.role === "you" ? "You" : "Visitor"}: ${trim(m.text, m.role === "you" ? 1200 : 600)}`),
             );
         }
-        lines.push(`${ctx.conversation?.length ? "The visitor now says" : "A visitor of the archive website asks"}: ${trim(ctx.target.text, 1500)}`);
+        const lead =
+            mode === "mail"
+                ? ctx.conversation?.length
+                    ? "Their new email"
+                    : `An email from ${ctx.target.author}`
+                : ctx.conversation?.length
+                  ? "The visitor now says"
+                  : "A visitor of the archive website asks";
+        lines.push(`${lead}: ${trim(ctx.target.text, 3000)}`);
     } else {
         if (ctx.sub) lines.push(`Subreddit: ${ctx.sub}`);
         if (ctx.title) lines.push(`Post title: ${ctx.title}`);

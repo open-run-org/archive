@@ -50,6 +50,7 @@ lint:
     {{ py }} ruff check scripts
     node --check static/archive.js
     {{ bun }} install --frozen-lockfile
+    cd bot && {{ bun }} install --frozen-lockfile
     {{ bun }} x tsc -p bot
     {{ bun }} x biome check .
     just --fmt --check --unstable

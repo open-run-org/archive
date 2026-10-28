@@ -1,4 +1,4 @@
-import { createHash } from "node:crypto";
+import { createHash, timingSafeEqual } from "node:crypto";
 import { appendFileSync, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { type Answer, answer, type Context, reddit as forReddit, MODELS, type Mode, site } from "./agent";
@@ -8,6 +8,7 @@ import { loadEnv } from "./env";
 import { generate, QuotaError } from "./gemini";
 import { client, Limiter, type LimitState, type Status } from "./limit";
 import { Log, place } from "./log";
+import { fresh, type Letter, Mailbox } from "./mail";
 import { Memory } from "./memory";
 import * as reddit from "./reddit";
 
@@ -32,12 +33,21 @@ const SRC = import.meta.dir;
 const version = () => {
     const h = createHash("sha1");
     for (const f of readdirSync(SRC).sort()) h.update(readFileSync(join(SRC, f)));
-    h.update(readFileSync(join(SRC, "..", "persona.md")));
+    for (const f of ["persona.md", "package.json", "bun.lock"]) if (existsSync(join(SRC, "..", f))) h.update(readFileSync(join(SRC, "..", f)));
     return h.digest("hex");
 };
 const VERSION = version();
 
-type State = { done: string[]; threads: string[]; launch?: number; randomAt?: number; checked?: number; budget?: BudgetState; limits?: LimitState };
+type State = {
+    done: string[];
+    threads: string[];
+    launch?: number;
+    randomAt?: number;
+    checked?: number;
+    budget?: BudgetState;
+    limits?: LimitState;
+    mail?: { limits?: LimitState };
+};
 
 mkdirSync(DIR, { recursive: true });
 const state = (existsSync(FILE) ? JSON.parse(readFileSync(FILE, "utf8")) : {}) as State;
@@ -51,6 +61,9 @@ const budget = new Budget(state, {
 });
 const limiter = new Limiter(state, Number(process.env.ASK_PAUSE) || 900);
 const chats = new Log(DIR);
+const mailbox = process.env.MAIL_SECRET ? new Mailbox(DIR) : null;
+state.mail ??= {};
+const mailLimiter = new Limiter(state.mail, Number(process.env.MAIL_PAUSE) || Number(process.env.ASK_PAUSE) || 900);
 let pausedUntil = 0;
 let lastRandom = 0;
 
@@ -279,6 +292,83 @@ const learn = async () => {
     }
 };
 
+const answerMail = async (letter: Letter, model: string) => {
+    if (!mailbox) return false;
+    const started = Date.now();
+    const conversation = mailbox.history(letter.thread, letter.id);
+    const author = letter.name ? `${letter.name} <${letter.sender}>` : letter.sender;
+    const a = await answer(
+        { today: new Date().toISOString().slice(0, 10), title: letter.subject ?? "", target: { author, text: fresh(letter.text) }, conversation },
+        "mail",
+        { model, style: memory.style(), spend: m => budget.spend(m) },
+    );
+    const shown = site(a);
+    const base = {
+        source: "mail" as const,
+        visitor: letter.sender,
+        thread: letter.thread,
+        turn: conversation.length / 2,
+        author: letter.name,
+        place: letter.subject,
+        question: letter.text,
+        history: conversation,
+        answer: shown.text,
+        refs: shown.refs,
+        steps: a.steps,
+        model: a.model,
+        turns: a.turns,
+        headers: JSON.parse(letter.headers),
+    };
+    try {
+        const sent = await mailbox.send(letter, shown.text, shown.refs);
+        const st = mailLimiter.take(letter.sender);
+        mailbox.mark(letter.id, { status: "answered", answered_at: Date.now(), reply_id: sent.id, reply: shown.text, error: null });
+        chats.write({
+            ...base,
+            status: "ok",
+            ms: Date.now() - started,
+            link: sent.id,
+            client: { message_id: letter.message_id, auth: JSON.parse(letter.auth), via: sent.via },
+            limits: limitInfo(st),
+        });
+        log({ mode: "mail", to: letter.sender, via: sent.via, model: a.model, turns: a.turns, steps: summary(a) });
+        return true;
+    } catch (e) {
+        const message = e instanceof Error ? e.message : String(e);
+        const failed = Boolean((e as { permanent?: boolean }).permanent) || letter.attempts + 1 >= 3;
+        mailbox.mark(letter.id, { status: failed ? "failed" : "queued", attempts: letter.attempts + 1, error: message });
+        chats.write({ ...base, status: failed ? "failed" : "error", error: message, ms: Date.now() - started });
+        log({ mode: "mail", to: letter.sender, error: message, failed });
+        return false;
+    }
+};
+
+let draining = false;
+const drain = async () => {
+    if (!mailbox || draining) return;
+    draining = true;
+    try {
+        const seen = new Set<string>();
+        for (const letter of mailbox.queued()) {
+            if (seen.has(letter.sender)) continue;
+            seen.add(letter.sender);
+            if (!mailLimiter.status(letter.sender).ok) continue;
+            const model = pick("mail");
+            if (!model || Date.now() < pausedUntil) break;
+            budget.interactive();
+            if ((await run(() => answerMail(letter, model))) === "retry") break;
+        }
+    } finally {
+        draining = false;
+    }
+};
+
+const same = (a: string, b: string) => {
+    const x = Buffer.from(a);
+    const y = Buffer.from(b);
+    return x.length === y.length && x.length > 0 && timingSafeEqual(x, y);
+};
+
 const sse = (o: Record<string, unknown>) => new TextEncoder().encode(`data: ${JSON.stringify(o)}\n\n`);
 
 type Turn = { role: "visitor" | "you"; text: string };
@@ -306,6 +396,16 @@ const serve = (port: number) => {
             const peer = server.requestIP(req)?.address ?? "";
             const ip = client(req, peer);
             if (url.pathname === "/health") return new Response("ok", { headers: cors });
+            if (url.pathname === "/mail" && req.method === "POST") {
+                if (!mailbox || !same(req.headers.get("x-mail-secret") ?? "", process.env.MAIL_SECRET ?? "")) return new Response("forbidden", { status: 403 });
+                const raw = new Uint8Array(await req.arrayBuffer());
+                const got = await mailbox.receive(raw, { from: req.headers.get("x-envelope-from") ?? "", to: req.headers.get("x-envelope-to") ?? "" });
+                log({ mail: got.status, sender: got.sender, reason: got.reason });
+                if (got.status !== "queued")
+                    chats.write({ source: "mail", status: got.status, visitor: got.sender, error: got.reason, link: `mail:${got.id}` });
+                setTimeout(() => void run(drain), 0);
+                return Response.json(got, { status: 202 });
+            }
             if (url.pathname === "/limit") return Response.json(limitInfo(limiter.status(ip)), { headers: { ...cors, "cache-control": "no-store" } });
             if (url.pathname !== "/ask") return new Response("not found", { status: 404 });
             if (req.method === "OPTIONS") {
@@ -405,6 +505,7 @@ const serve = (port: number) => {
 };
 
 const tick = async () => {
+    await run(drain);
     await run(inbox);
     if (Date.now() - lastRandom >= 5 * 60000) {
         lastRandom = Date.now();
