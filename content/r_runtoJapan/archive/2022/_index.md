@@ -1,5 +1,5 @@
 ---
-title: "r_runtoJapan 2022"
+title: "r/runtoJapan 2022"
 template: "archive.html"
 extra:
   section_path: "r_runtoJapan/_index.md"

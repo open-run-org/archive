@@ -1,5 +1,5 @@
 ---
-title: "r_runtoJapan2"
+title: "r/runtoJapan2"
 sort_by: "date"
 transparent: true
 ---

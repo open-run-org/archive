@@ -1,5 +1,5 @@
 ---
-title: "r_runEuropaAlliance"
+title: "r/runEuropaAlliance"
 sort_by: "date"
 transparent: true
 ---

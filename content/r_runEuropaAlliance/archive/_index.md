@@ -1,5 +1,5 @@
 ---
-title: "r_runEuropaAlliance Archive"
+title: "r/runEuropaAlliance Archive"
 template: "archive.html"
 extra:
   section_path: "r_runEuropaAlliance/_index.md"

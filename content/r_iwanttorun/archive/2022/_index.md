@@ -1,5 +1,5 @@
 ---
-title: "r_iwanttorun 2022"
+title: "r/iwanttorun 2022"
 template: "archive.html"
 extra:
   section_path: "r_iwanttorun/_index.md"

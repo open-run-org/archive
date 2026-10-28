@@ -1,5 +1,5 @@
 ---
-title: "r_RunAustralia"
+title: "r/RunAustralia"
 sort_by: "date"
 transparent: true
 ---

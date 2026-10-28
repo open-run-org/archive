@@ -1,5 +1,5 @@
 ---
-title: "r_RunAustralia 2026"
+title: "r/RunAustralia 2026"
 template: "archive.html"
 extra:
   section_path: "r_RunAustralia/_index.md"

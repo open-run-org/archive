@@ -1,5 +1,5 @@
 ---
-title: "r_iwanttorun"
+title: "r/iwanttorun"
 sort_by: "date"
 transparent: true
 ---

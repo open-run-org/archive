@@ -1,5 +1,5 @@
 ---
-title: "r_runtonihon 2025"
+title: "r/runtonihon 2025"
 template: "archive.html"
 extra:
   section_path: "r_runtonihon/_index.md"
