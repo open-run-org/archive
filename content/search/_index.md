@@ -1,4 +1,4 @@
 ---
-title: "Search / 搜索"
+title: "Search"
 template: "search.html"
 ---

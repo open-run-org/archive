@@ -1,6 +1,7 @@
 ---
 title: "r/runtoJapan Archive"
 template: "archive.html"
+redirect_to: "r_runtoJapan/archive/2025/"
 extra:
   section_path: "r_runtoJapan/_index.md"
   year: 0

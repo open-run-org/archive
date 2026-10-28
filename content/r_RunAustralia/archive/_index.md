@@ -1,6 +1,7 @@
 ---
 title: "r/RunAustralia Archive"
 template: "archive.html"
+redirect_to: "r_RunAustralia/archive/2026/"
 extra:
   section_path: "r_RunAustralia/_index.md"
   year: 0

@@ -1,6 +1,7 @@
 ---
 title: "r/runEuropaAlliance Archive"
 template: "archive.html"
+redirect_to: "r_runEuropaAlliance/archive/2026/"
 extra:
   section_path: "r_runEuropaAlliance/_index.md"
   year: 0
