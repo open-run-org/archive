@@ -2,13 +2,18 @@ import { Database } from "bun:sqlite";
 import { lookup, resolveMx } from "node:dns/promises";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import nodemailer from "nodemailer";
+import nodemailer, { type SendMailOptions } from "nodemailer";
 import PostalMime from "postal-mime";
 import { reserved } from "./limit";
 
 export const ADDRESS = (process.env.MAIL_ADDRESS || "bot.mofufu@clarelab.moe").toLowerCase();
 const DOMAIN = ADDRESS.split("@")[1] ?? "clarelab.moe";
 const QUEUE = Number(process.env.MAIL_QUEUE) || 4;
+const SIGNED = [
+    "From:Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:Content-ID:Content-Description",
+    "Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References",
+    "List-Id:List-Help:List-Unsubscribe:List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive",
+].join(":");
 const AUTHSERV = (process.env.MAIL_AUTHSERV || "mx.cloudflare.net").toLowerCase();
 
 const SCHEMA = `
@@ -41,6 +46,20 @@ create table if not exists mail (
 create index if not exists mail_status on mail (status, at);
 create index if not exists mail_sender on mail (sender, status);
 create index if not exists mail_thread on mail (thread, at);
+create table if not exists sends (
+    id integer primary key,
+    at integer not null,
+    kind text not null,
+    recipient text not null,
+    message_id text not null,
+    subject text,
+    text text,
+    refs text,
+    via text,
+    error text
+);
+create index if not exists sends_message on sends (message_id);
+create index if not exists sends_recipient on sends (recipient, at);
 `;
 
 export type Letter = {
@@ -126,7 +145,11 @@ const markup = (text: string, refs: Ref[]) => {
     };
     for (const line of text.split("\n")) {
         const item = line.match(/^\s*(?:([-*•])|(\d+)[.)])\s+(.*)$/);
-        if (!line.trim()) flush();
+        const head = line.match(/^\s*#{1,4}\s+(.*)$/);
+        if (head) {
+            flush();
+            out.push(`<h3 style="margin:1.3em 0 .5em;font-size:1.05em">${inline(head[1] ?? "")}</h3>`);
+        } else if (!line.trim()) flush();
         else if (item) {
             const tag = item[1] ? "ul" : "ol";
             if (para.length || (list && list.tag !== tag)) flush();
@@ -145,15 +168,22 @@ const SIGN_TEXT = "I am a bot with sources linking to archive.open-run.org\nCont
 const SIGN_HTML =
     '<p style="margin:1.2em 0 0;font-size:.75em;font-style:italic;color:#6b7078">I am a bot with sources linking to <a href="https://archive.open-run.org" style="color:#0b63c4">archive.open-run.org</a><br>• Contact: <a href="https://clarelab.moe" style="color:#0b63c4">clareLab.moe</a><br>• Support: <a href="https://ko-fi.com/clarelab" style="color:#0b63c4">ko-fi.com/clareLab</a></p>';
 
-export const compose = (text: string, refs: Ref[]) => {
+export type Footer = { text: string; html: string };
+
+export const compose = (text: string, refs: Ref[], footer?: Footer) => {
     const about = (r: Ref) => (r.kind === "web" ? "web page" : [`${r.kind} by ${r.author}`, r.date, r.state].filter(Boolean).join(" · "));
-    const plain = [text, refs.length ? `Sources\n${refs.map(r => `[${r.n}] ${r.title} (${about(r)})\n    ${r.link}`).join("\n")}` : "", `-- \n${SIGN_TEXT}`]
+    const plain = [
+        text,
+        refs.length ? `Sources\n${refs.map(r => `[${r.n}] ${r.title} (${about(r)})\n    ${r.link}`).join("\n")}` : "",
+        footer?.text ?? "",
+        `-- \n${SIGN_TEXT}`,
+    ]
         .filter(Boolean)
         .join("\n\n");
     const list = refs.length
         ? `<ol style="margin:1em 0 0;padding-left:1.4em;font-size:.78em;color:#6b7078">${refs.map(r => `<li><a href="${html(r.link)}" style="color:#0b63c4;text-decoration:none">${html(r.title || r.link)}</a> · ${html(about(r))}</li>`).join("")}</ol>`
         : "";
-    const body = `<div style="font:15px/1.65 -apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;color:#2b2d31;max-width:42em">${markup(text, refs)}${list}${SIGN_HTML}</div>`;
+    const body = `<div style="font:15px/1.65 -apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;color:#2b2d31;max-width:42em">${markup(text, refs)}${list}${footer?.html ?? ""}${SIGN_HTML}</div>`;
     return { text: plain, html: body };
 };
 
@@ -170,7 +200,7 @@ export class Mailbox {
         if (!this.key) console.warn(`mail: no DKIM key at ${path}, replies will be unsigned`);
     }
 
-    async receive(raw: Uint8Array, envelope: { from: string; to: string }) {
+    async receive(raw: Uint8Array, envelope: { from: string; to: string }, o: { unlimited?: (sender: string) => boolean } = {}) {
         const parsed = await PostalMime.parse(raw);
         const sender = (parsed.from?.address || envelope.from || "").toLowerCase();
         const headers = parsed.headers ?? [];
@@ -183,8 +213,10 @@ export class Mailbox {
         const text = (parsed.text || (parsed.html ?? "").replace(/<[^>]+>/g, " ")).replace(/\r\n/g, "\n").trim();
         const skip = automated(headers, sender, envelope.from, type);
         const waiting = (this.db.query("select count(*) n from mail where sender = ? and status = 'queued'").get(sender) as { n: number }).n;
-        const status = skip ? "ignored" : !auth.ok ? "unauthenticated" : !text ? "empty" : waiting >= QUEUE ? "dropped" : "queued";
-        const reason = skip ?? (!auth.ok ? "no aligned SPF, DKIM or DMARC pass" : !text ? "no text" : waiting >= QUEUE ? `queue full (${waiting})` : null);
+        const full = waiting >= QUEUE && !(auth.ok && o.unlimited?.(sender));
+        const command = !skip && auth.ok && /^\s*(unsubscribe|退订)\s*$/i.test(parsed.subject ?? "");
+        const status = skip ? "ignored" : !auth.ok ? "unauthenticated" : command ? "unsubscribe" : !text ? "empty" : full ? "dropped" : "queued";
+        const reason = skip ?? (!auth.ok ? "no aligned SPF, DKIM or DMARC pass" : command ? null : !text ? "no text" : full ? `queue full (${waiting})` : null);
         const row = this.db
             .query(
                 `insert into mail (at, status, reason, sender, name, envelope_from, envelope_to, message_id, thread, in_reply_to, refs, subject, text, headers, auth, size, raw)
@@ -216,6 +248,29 @@ export class Mailbox {
         return this.db.query("select * from mail where status = 'queued' order by at").all() as Letter[];
     }
 
+    recent(sender: string, k = 8) {
+        return (
+            this.db.query("select subject, text, reply, at from mail where sender = ? and status = 'answered' order by at desc limit ?").all(sender, k) as {
+                subject: string | null;
+                text: string;
+                reply: string;
+                at: number;
+            }[]
+        ).reverse();
+    }
+
+    sent(letter: Letter) {
+        const ids = [...new Set([...(letter.refs ?? "").split(" "), letter.thread].filter(Boolean))];
+        if (!ids.length) return null;
+        return (
+            (this.db
+                .query(
+                    `select kind, subject, text, at from sends where message_id in (${ids.map(() => "?").join(", ")}) and recipient = ? order by at desc limit 1`,
+                )
+                .get(...ids, letter.sender) as { kind: string; subject: string; text: string; at: number } | null) ?? null
+        );
+    }
+
     history(letter: Letter) {
         const rows = this.db
             .query("select text, reply from mail where thread = ? and sender = ? and status = 'answered' and id < ? order by at")
@@ -234,7 +289,7 @@ export class Mailbox {
     async send(letter: Letter, text: string, refs: Ref[]) {
         const subject = /^\s*re:/i.test(letter.subject ?? "") ? (letter.subject ?? "") : `Re: ${letter.subject || "(no subject)"}`;
         const id = `<${crypto.randomUUID()}@${DOMAIN}>`;
-        const message = {
+        return await this.transmit({
             from: { name: "Mofufu", address: ADDRESS },
             to: letter.name ? { name: letter.name, address: letter.sender } : letter.sender,
             subject,
@@ -243,12 +298,48 @@ export class Mailbox {
             ...(letter.refs ? { references: letter.refs.split(" ").slice(-20) } : {}),
             headers: { "Auto-Submitted": "auto-replied", "X-Auto-Response-Suppress": "All" },
             ...compose(text, refs),
-        };
+        });
+    }
+
+    async post(to: string, o: { kind: string; subject: string; text: string; refs: Ref[]; footer?: Footer; unsubscribe?: string }) {
+        const id = `<${crypto.randomUUID()}@${DOMAIN}>`;
+        const headers: Record<string, string> = { "Auto-Submitted": "auto-generated", "X-Auto-Response-Suppress": "All" };
+        if (o.unsubscribe) {
+            headers["List-Unsubscribe"] = `<${o.unsubscribe}>, <mailto:${ADDRESS}?subject=unsubscribe>`;
+            headers["List-Unsubscribe-Post"] = "List-Unsubscribe=One-Click";
+            headers.Precedence = "bulk";
+        }
+        let via = "";
+        let error: string | null = null;
+        try {
+            via = (
+                await this.transmit({
+                    from: { name: "Mofufu", address: ADDRESS },
+                    to,
+                    subject: o.subject,
+                    messageId: id,
+                    headers,
+                    ...compose(o.text, o.refs, o.footer),
+                })
+            ).via;
+        } catch (e) {
+            error = e instanceof Error ? e.message : String(e);
+        }
+        this.db
+            .query("insert into sends (at, kind, recipient, message_id, subject, text, refs, via, error) values (?, ?, ?, ?, ?, ?, ?, ?, ?)")
+            .run(Date.now(), o.kind, to.toLowerCase(), id, o.subject, o.text, JSON.stringify(o.refs), via, error);
+        if (error) throw new Error(error);
+        return { id, via };
+    }
+
+    private async transmit(message: SendMailOptions & { messageId: string; to: string | { name: string; address: string } }) {
+        const id = message.messageId;
+        const recipient = typeof message.to === "string" ? message.to : message.to.address;
         if (process.env.MAIL_DRY === "1") {
-            console.log(JSON.stringify({ mail: "dry", to: letter.sender, subject, id }));
+            console.log(JSON.stringify({ mail: "dry", to: recipient, subject: message.subject, id }));
             return { id, via: "dry" };
         }
-        const domain = letter.sender.split("@")[1] ?? "";
+        const domain = recipient.split("@")[1] ?? "";
         const exchanges = (await resolveMx(domain).catch((e: { code?: string }) => (e?.code === "ENODATA" ? [] : Promise.reject(e)))).sort(
             (a, b) => a.priority - b.priority,
         );
@@ -270,7 +361,16 @@ export class Mailbox {
                     greetingTimeout: 15000,
                     socketTimeout: 30000,
                     tls: { servername: exchange },
-                    ...(this.key ? { dkim: { domainName: DOMAIN, keySelector: process.env.MAIL_DKIM_SELECTOR || "mofufu", privateKey: this.key } } : {}),
+                    ...(this.key
+                        ? {
+                              dkim: {
+                                  domainName: DOMAIN,
+                                  keySelector: process.env.MAIL_DKIM_SELECTOR || "mofufu",
+                                  privateKey: this.key,
+                                  headerFieldNames: SIGNED,
+                              },
+                          }
+                        : {}),
                 });
                 try {
                     const info = await transport.sendMail(message);

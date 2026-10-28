@@ -17,6 +17,7 @@ type Result = { score: number; data(): Promise<Fragment> };
 type Pagefind = {
     options(o: Record<string, unknown>): Promise<void>;
     search(q: string | null, o?: Record<string, unknown>): Promise<{ results: Result[] } | null>;
+    filters(): Promise<Record<string, Record<string, number>>>;
 };
 
 let current: { pf: Pagefind; at: number } | null = null;
@@ -35,7 +36,7 @@ const load = async () => {
     }
 };
 
-const find = async (q: string, o: Record<string, unknown>) => {
+const find = async (q: string | null, o: Record<string, unknown>) => {
     if (!current || Date.now() - current.at > 3 * 3600_000) current = await load();
     try {
         return await current.pf.search(q, o);
@@ -43,6 +44,50 @@ const find = async (q: string, o: Record<string, unknown>) => {
         current = await load();
         return await current.pf.search(q, o);
     }
+};
+
+export type Entry = { url: string; title: string; sub: string; author: string; at: number; score: number | null; state: string; flair: string };
+
+export const listing = async (since: number): Promise<Entry[]> => {
+    try {
+        return await list(since);
+    } catch {
+        current = await load();
+        return await list(since);
+    }
+};
+
+const list = async (since: number): Promise<Entry[]> => {
+    if (!current || Date.now() - current.at > 3 * 3600_000) current = await load();
+    const subs = Object.keys((await current.pf.filters()).subreddit ?? {});
+    const res = await find(null, { filters: { subreddit: { any: subs } }, sort: { date: "desc" } });
+    const results = res?.results ?? [];
+    const out: Entry[] = [];
+    for (let i = 0; i < results.length; i += 16) {
+        const batch = await Promise.all(results.slice(i, i + 16).map(r => r.data()));
+        let older = false;
+        for (const d of batch) {
+            const at = Date.parse((d.meta.date ?? "").replace(/ UTC$/, "Z").replace(" ", "T"));
+            if (!at) continue;
+            if (at < since) {
+                older = true;
+                continue;
+            }
+            const n = Number.parseInt(d.meta.score ?? "", 10);
+            out.push({
+                url: d.url,
+                title: decode(d.meta.title ?? ""),
+                sub: d.filters?.subreddit?.[0] ?? "",
+                author: d.meta.author || "[deleted]",
+                at,
+                score: Number.isNaN(n) ? null : n,
+                state: d.meta.state ?? "",
+                flair: decode(d.meta.flair ?? ""),
+            });
+        }
+        if (older) break;
+    }
+    return out;
 };
 
 export const decode = (s: string) =>

@@ -17,12 +17,28 @@ export type Content = { role: "user" | "model"; parts: Part[] };
 export type Declaration = { name: string; description: string; parameters: Record<string, unknown> };
 export type Thinking = "minimal" | "low" | "medium" | "high";
 
+export type Usage = {
+    promptTokenCount?: number;
+    candidatesTokenCount?: number;
+    thoughtsTokenCount?: number;
+    toolUsePromptTokenCount?: number;
+    cachedContentTokenCount?: number;
+};
+
+type Candidate = {
+    content?: { parts?: Part[] };
+    finishReason?: string;
+    urlContextMetadata?: { urlMetadata?: { retrievedUrl: string; urlRetrievalStatus: string }[] };
+    groundingMetadata?: {
+        webSearchQueries?: string[];
+        groundingChunks?: { web?: { uri?: string; title?: string } }[];
+        groundingSupports?: { segment?: { text?: string }; groundingChunkIndices?: number[] }[];
+    };
+};
+
 type Reply = {
-    candidates?: {
-        content?: { parts?: Part[] };
-        finishReason?: string;
-        urlContextMetadata?: { urlMetadata?: { retrievedUrl: string; urlRetrievalStatus: string }[] };
-    }[];
+    candidates?: Candidate[];
+    usageMetadata?: Usage;
     promptFeedback?: { blockReason?: string };
     error?: { message?: string; details?: { violations?: { quotaId?: string; quotaValue?: string }[]; retryDelay?: string }[] };
 };
@@ -37,6 +53,11 @@ export class QuotaError extends Error {
         super(message);
     }
 }
+
+let meter: ((model: string, usage: Usage, searches: number) => void) | null = null;
+export const setMeter = (fn: (model: string, usage: Usage, searches: number) => void) => {
+    meter = fn;
+};
 
 const gap: Record<string, number> = {};
 const next: Record<string, number> = {};
@@ -66,8 +87,22 @@ const post = async (model: string, request: Record<string, unknown>): Promise<Re
     const body = (await r.json().catch(() => ({}))) as Reply;
     if (r.status === 429) throw quota(model, body);
     if (!r.ok) throw new Error(`${model}: HTTP ${r.status} ${body.error?.message ?? ""}`);
+    meter?.(model, body.usageMetadata ?? {}, body.candidates?.[0]?.groundingMetadata?.webSearchQueries?.length ?? 0);
     return body;
 };
+
+const empty = (model: string, body: Reply) =>
+    new Error(`${model}: empty response (${body.candidates?.[0]?.finishReason ?? body.promptFeedback?.blockReason ?? "unknown"})`);
+
+const retrieved = (c: Candidate | undefined) => [
+    ...new Set([
+        ...(c?.content?.parts ?? []).flatMap(p => {
+            const call = p.toolCall as { toolType?: string; args?: { urls?: string[] } } | undefined;
+            return call?.toolType === "URL_CONTEXT" ? (call.args?.urls ?? []) : [];
+        }),
+        ...(c?.urlContextMetadata?.urlMetadata ?? []).filter(u => /SUCCESS/.test(u.urlRetrievalStatus)).map(u => u.retrievedUrl),
+    ]),
+];
 
 const textOf = (parts: Part[]) =>
     parts
@@ -89,40 +124,57 @@ export const generate = async <T>(
             responseSchema: o.schema,
         },
     });
-    const c = body.candidates?.[0];
-    const text = textOf(c?.content?.parts ?? []);
-    if (!text) throw new Error(`${model}: empty response (${c?.finishReason ?? body.promptFeedback?.blockReason ?? "unknown"})`);
+    const text = textOf(body.candidates?.[0]?.content?.parts ?? []);
+    if (!text) throw empty(model, body);
     return JSON.parse(text) as T;
 };
 
-export type Turn = { content: Content; calls: Call[]; text: string; urls: string[] };
+export const write = async (model: string, o: { system: string; prompt: string; thinking?: Thinking; maxTokens?: number }) => {
+    const body = await post(model, {
+        systemInstruction: { parts: [{ text: o.system }] },
+        contents: [{ role: "user", parts: [{ text: o.prompt }] }],
+        generationConfig: { thinkingConfig: { thinkingLevel: o.thinking ?? "low" }, maxOutputTokens: o.maxTokens ?? 16384 },
+    });
+    const text = textOf(body.candidates?.[0]?.content?.parts ?? []);
+    if (!text.trim()) throw empty(model, body);
+    if (body.candidates?.[0]?.finishReason === "MAX_TOKENS") throw new Error(`${model}: cut off at the token limit`);
+    return text.trim();
+};
+
+export type Turn = {
+    content: Content;
+    calls: Call[];
+    text: string;
+    urls: string[];
+    queries: string[];
+    sources: { uri: string; title: string }[];
+    supports: { text: string; sources: number[] }[];
+};
 
 export const turn = async (
     model: string,
-    o: { system: string; contents: Content[]; tools: Declaration[]; thinking?: Thinking; final?: boolean },
+    o: { system: string; contents: Content[]; tools: Declaration[]; thinking?: Thinking; final?: boolean; search?: boolean },
 ): Promise<Turn> => {
     const body = await post(model, {
         systemInstruction: { parts: [{ text: o.system }] },
         contents: o.contents,
-        tools: [{ functionDeclarations: o.tools }, { urlContext: {} }],
+        tools: [{ functionDeclarations: o.tools }, ...(o.search ? [{ googleSearch: {} }] : []), { urlContext: {} }],
         toolConfig: { includeServerSideToolInvocations: true, functionCallingConfig: { mode: o.final ? "NONE" : "AUTO" } },
-        generationConfig: { thinkingConfig: { thinkingLevel: o.thinking ?? "low" }, maxOutputTokens: 8192 },
+        generationConfig: { thinkingConfig: { thinkingLevel: o.thinking ?? "low" }, maxOutputTokens: 16384 },
     });
     const c = body.candidates?.[0];
     const parts = c?.content?.parts ?? [];
-    if (!parts.length) throw new Error(`${model}: empty response (${c?.finishReason ?? body.promptFeedback?.blockReason ?? "unknown"})`);
+    if (!parts.length) throw empty(model, body);
+    const g = c?.groundingMetadata ?? {};
+    const calls = parts.flatMap(p => (p.functionCall ? [p.functionCall] : []));
+    if (c?.finishReason === "MAX_TOKENS" && !calls.length) throw new Error(`${model}: cut off at the token limit`);
     return {
         content: { role: "model", parts },
-        calls: parts.flatMap(p => (p.functionCall ? [p.functionCall] : [])),
+        calls,
         text: textOf(parts),
-        urls: [
-            ...new Set([
-                ...parts.flatMap(p => {
-                    const call = p.toolCall as { toolType?: string; args?: { urls?: string[] } } | undefined;
-                    return call?.toolType === "URL_CONTEXT" ? (call.args?.urls ?? []) : [];
-                }),
-                ...(c?.urlContextMetadata?.urlMetadata ?? []).filter(u => /SUCCESS/.test(u.urlRetrievalStatus)).map(u => u.retrievedUrl),
-            ]),
-        ],
+        urls: retrieved(c),
+        queries: g.webSearchQueries ?? [],
+        sources: (g.groundingChunks ?? []).map(x => ({ uri: x.web?.uri ?? "", title: x.web?.title ?? "" })),
+        supports: (g.groundingSupports ?? []).map(x => ({ text: x.segment?.text ?? "", sources: x.groundingChunkIndices ?? [] })),
     };
 };

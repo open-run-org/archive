@@ -1,13 +1,13 @@
 import { readFileSync } from "node:fs";
 import { type Comment, type Hit, search, thread, trim } from "./archive";
-import { type Call, type Content, type Declaration, turn } from "./gemini";
+import { type Call, type Content, type Declaration, type Part, type Thinking, turn } from "./gemini";
 
 export const MODELS = {
     fast: process.env.MODEL_FAST || "gemini-3.5-flash-lite",
     main: process.env.MODEL_MAIN || "gemini-3.8-flash",
 };
 
-export type Mode = "reply" | "mention" | "random" | "ask" | "mail";
+export type Mode = "reply" | "mention" | "random" | "ask" | "mail" | "digest";
 export type Context = {
     today: string;
     postId?: string;
@@ -17,7 +17,10 @@ export type Context = {
     chain?: { author: string; text: string }[];
     target: { author: string; text: string };
     conversation?: { role: "visitor" | "you"; text: string }[];
+    about?: string;
+    material?: string;
 };
+export type Action = { declaration: Declaration; run: (args: Record<string, unknown>) => Promise<unknown> };
 export type Past = { date: string; title?: string; target: string; reply: string };
 export type Step = { type: "search"; query: string } | { type: "read"; title: string } | { type: "browse"; url: string };
 export type Source = {
@@ -80,7 +83,7 @@ const TOOLS: Declaration[] = [
     },
 ];
 
-class Registry {
+export class Registry {
     readonly list: Source[] = [];
     private readonly links = new Map<string, Source>();
 
@@ -135,8 +138,10 @@ const brief = (s: Source) => ({
     state: s.state || undefined,
 });
 
-const execute = async (call: Call, reg: Registry, ctx: Context, step: (s: Step) => void) => {
+const execute = async (call: Call, reg: Registry, ctx: Context, step: (s: Step) => void, actions: Action[]) => {
     const args = call.args ?? {};
+    const action = actions.find(a => a.declaration.name === call.name);
+    if (action) return await action.run(args);
     if (call.name === "search_archive") {
         const query = String(args.query ?? "").trim();
         if (!query) return { error: "empty query" };
@@ -177,7 +182,9 @@ const execute = async (call: Call, reg: Registry, ctx: Context, step: (s: Step) 
 };
 
 const prompt = (ctx: Context, mode: Mode, memory: { history: Past[]; similar: Past[]; examples: Past[] }) => {
+    if (mode === "digest") return [`Today: ${ctx.today}`, ctx.target.text, ctx.material ?? ""].filter(Boolean).join("\n\n");
     const lines = [`Mode: ${mode}`, `Today: ${ctx.today}`];
+    if (ctx.about) lines.push(`About ${mode === "ask" ? "this visitor" : ctx.target.author}: ${ctx.about}`);
     if (mode === "ask" || mode === "mail") {
         const who = mode === "mail" ? `${ctx.target.author}, who emails you` : "this visitor";
         if (mode === "mail" && ctx.title) lines.push(`Email subject: ${ctx.title}`);
@@ -232,25 +239,29 @@ export const answer = async (
     mode: Mode,
     o: {
         model?: string;
+        system?: string;
         style?: string;
         history?: Past[];
         similar?: Past[];
         examples?: Past[];
-        spend?: (model: string) => void;
+        registry?: Registry;
+        actions?: Action[];
         onStep?: (s: Step) => void;
         maxTurns?: number;
+        thinking?: Thinking;
     } = {},
 ): Promise<Answer> => {
     const model = o.model ?? MODELS.main;
     const style = o.style?.trim();
+    const actions = o.actions ?? [];
     const system = [
-        SYSTEM,
+        o.system ?? SYSTEM,
         `Who you are:\n${persona()}`,
         style && `Style notes learned from how the community received your earlier replies. Follow them unless they conflict with the rules above:\n${style}`,
     ]
         .filter(Boolean)
         .join("\n\n");
-    const reg = new Registry();
+    const reg = o.registry ?? new Registry();
     const steps: Step[] = [];
     const step = (s: Step) => {
         steps.push(s);
@@ -264,19 +275,140 @@ export const answer = async (
     ];
     const max = o.maxTurns ?? 16;
     for (let i = 0; i < max; i++) {
-        o.spend?.(model);
-        const t = await turn(model, { system, contents, tools: TOOLS, final: i === max - 1, thinking: model === MODELS.fast ? "minimal" : "low" });
+        const t = await turn(model, {
+            system,
+            contents,
+            tools: [...TOOLS, ...actions.map(a => a.declaration)],
+            final: i === max - 1,
+            thinking: o.thinking ?? (model === MODELS.fast ? "minimal" : "low"),
+        });
         contents.push(t.content);
         for (const url of t.urls) step({ type: "browse", url });
         if (!t.calls.length) {
             if (!t.text.trim()) throw new Error(`${model}: no answer`);
             return { text: t.text.trim(), sources: reg, steps, turns: i + 1, model };
         }
-        const results = await Promise.all(t.calls.map(c => execute(c, reg, ctx, step).catch(e => ({ error: String(e) }))));
+        const results = await Promise.all(t.calls.map(c => execute(c, reg, ctx, step, actions).catch(e => ({ error: String(e) }))));
         contents.push({
             role: "user",
             parts: t.calls.map((c, k) => ({ functionResponse: { name: c.name, id: c.id, response: results[k] } })),
         });
+    }
+    throw new Error(`${model}: no answer after ${max} turns`);
+};
+
+const REFINE = `You are the bot described under "Who you are". Below is a draft you wrote from the community archive, citing archive sources as [S1], [S2] and so on. Now check and complete it with the web.
+
+- Search the web where it adds value: facts that may have changed, such as rules, numbers, dates and procedures, and wider news or context the draft lacks. Search again after reading when the first results raise new questions; search_archive and read still work when you want to check something against the community. When the draft needs nothing, change nothing.
+- Keep the community's experience and every [S#] citation that still holds. When current sources contradict the draft, say so plainly.
+- Return the complete final text in the same language and format as the draft and within the same length limit. No preamble, no reference list, no signature.`;
+
+const redirects = new Map<string, Promise<string>>();
+const resolve = (uri: string) => {
+    if (!/^https:\/\/vertexaisearch\.cloud\.google\.com\//.test(uri)) return Promise.resolve(uri);
+    let r = redirects.get(uri);
+    if (!r) {
+        r = fetch(uri, { redirect: "manual", signal: AbortSignal.timeout(5000) })
+            .then(x => x.headers.get("location") || uri)
+            .catch(() => uri);
+        redirects.set(uri, r);
+        if (redirects.size > 2000) redirects.delete(redirects.keys().next().value as string);
+    }
+    return r;
+};
+
+const anchor = (text: string, supports: { text: string; sources: number[] }[], ids: string[]) => {
+    let out = text;
+    let from = 0;
+    for (const s of supports) {
+        const seg = s.text.trim();
+        const marks = [...new Set(s.sources.map(i => ids[i]).filter(Boolean))].map(id => `[${id}]`).join("");
+        if (seg.length < 4 || !marks) continue;
+        let at = out.indexOf(seg, from);
+        if (at < 0) at = out.indexOf(seg);
+        if (at < 0) continue;
+        let end = at + seg.length;
+        const tail = out.slice(end).match(/^(?:\s*\[\s*S\d+\s*\])+/)?.[0] ?? "";
+        end += tail.length;
+        const fresh = marks.match(/S\d+/g)?.filter(id => !tail.includes(`${id}]`)) ?? [];
+        if (!fresh.length) continue;
+        const add = fresh.map(id => `[${id}]`).join("");
+        out = out.slice(0, end) + add + out.slice(end);
+        from = end + add.length;
+    }
+    return out;
+};
+
+const webSource = (link: string, title: string): Omit<Source, "id"> => ({
+    kind: "web",
+    link,
+    title: title || link.replace(/^https?:\/\/(www\.)?/, "").split("/")[0] || "web",
+    sub: "",
+    author: "",
+    date: "",
+    score: null,
+    state: "",
+});
+
+export const refine = async (
+    a: Answer,
+    o: { request: string; task?: string; model?: string; onStep?: (s: Step) => void; maxTurns?: number },
+): Promise<Answer> => {
+    const model = o.model ?? a.model;
+    const reg = a.sources;
+    const steps: Step[] = [];
+    const step = (s: Step) => {
+        steps.push(s);
+        o.onStep?.(s);
+    };
+    const today = new Date().toISOString().slice(0, 10);
+    const cited = [...new Set([...a.text.matchAll(/S\d+/g)].map(m => m[0]))].map(id => reg.get(id)).filter((s): s is Source => Boolean(s));
+    const system = [REFINE, o.task, `Who you are:\n${persona()}`].filter(Boolean).join("\n\n");
+    const contents: Content[] = [
+        {
+            role: "user",
+            parts: [
+                {
+                    text: [
+                        `Today: ${today}`,
+                        `The request:\n${o.request}`,
+                        `Your draft:\n${a.text}`,
+                        cited.length
+                            ? `Sources cited in the draft:\n${cited.map(s => `${s.id}: ${s.kind} · ${trim(s.title, 80)} · ${s.date}${s.state ? ` · ${s.state}` : ""}`).join("\n")}`
+                            : "",
+                    ]
+                        .filter(Boolean)
+                        .join("\n\n"),
+                },
+            ],
+        },
+    ];
+    const ctx: Context = { today, target: { author: "", text: o.request } };
+    const max = o.maxTurns ?? 16;
+    for (let i = 0; i < max; i++) {
+        const t = await turn(model, {
+            system,
+            contents,
+            tools: TOOLS,
+            final: i === max - 1,
+            search: true,
+            thinking: model === MODELS.fast ? "minimal" : "low",
+        });
+        contents.push(t.content);
+        for (const query of t.queries) step({ type: "search", query });
+        for (const url of t.urls) step({ type: "browse", url });
+        const links = await Promise.all(t.sources.map(x => resolve(x.uri)));
+        const ids = t.sources.map((x, k) => (x.uri ? reg.add(webSource(links[k] ?? x.uri, x.title)).id : ""));
+        if (!t.calls.length) {
+            if (!t.text.trim()) throw new Error(`${model}: no answer`);
+            return { text: anchor(t.text.trim(), t.supports, ids), sources: reg, steps: [...a.steps, ...steps], turns: a.turns + i + 1, model };
+        }
+        const results = await Promise.all(t.calls.map(c => execute(c, reg, ctx, step, []).catch(e => ({ error: String(e) }))));
+        const parts: Part[] = t.calls.map((c, k) => ({ functionResponse: { name: c.name, id: c.id, response: results[k] } }));
+        const found = [...new Set(ids)].map(id => reg.get(id)).filter((s): s is Source => Boolean(s));
+        if (found.length)
+            parts.push({ text: `Web pages from your searches so far, citable by id: ${found.map(s => `${s.id} ${s.title} <${s.link}>`).join("; ")}` });
+        contents.push({ role: "user", parts });
     }
     throw new Error(`${model}: no answer after ${max} turns`);
 };
@@ -286,7 +418,7 @@ const MARK = /\[\s*((?:S\d+|https?:\/\/[^\]\s,，、]+)(?:\s*[,，、]\s*(?:S\d+
 export const cite = (a: Answer) => {
     const order: Source[] = [];
     const body = a.text
-        .replace(/[ \t]+(?=\[\s*(?:S\d+|https?:\/\/))/gi, "")
+        .replace(/(?<!^[ \t]*(?:[-*•]|\d+[.)]))[ \t]+(?=\[\s*(?:S\d+|https?:\/\/))/gim, "")
         .replace(MARK, (_, list: string) =>
             list
                 .split(/\s*[,，、]\s*/)
@@ -323,9 +455,9 @@ const ref = (s: Source, k: number) => {
         .join(" ");
 };
 
-export const reddit = (a: Answer) => {
+export const reddit = (a: Answer, footer?: string) => {
     const { body, refs } = cite(a);
-    return [body.replace(/\uE000(\d+)\uE000/g, (_, n) => sup(Number(n))), refs.map((s, i) => ref(s, i + 1)).join("  \n"), SIGNATURE]
+    return [body.replace(/\uE000(\d+)\uE000/g, (_, n) => sup(Number(n))), refs.map((s, i) => ref(s, i + 1)).join("  \n"), footer ?? "", SIGNATURE]
         .filter(Boolean)
         .join("\n\n");
 };

@@ -137,6 +137,15 @@ export const reply = async (parent: string, text: string) => {
     return r.json?.data?.things?.[0]?.data?.name ?? "";
 };
 
+export const submit = async (sr: string, title: string, text: string) => {
+    const r = await call<{ json?: { errors?: string[][]; data?: { name?: string; url?: string } } }>("/api/submit", {
+        method: "POST",
+        form: { api_type: "json", kind: "self", sr, title, text, resubmit: "true", sendreplies: "true" },
+    });
+    errors(r, "submit");
+    return { name: r.json?.data?.name ?? "", url: r.json?.data?.url ?? "" };
+};
+
 export const edit = async (thing: string, text: string) => {
     errors(await call("/api/editusertext", { method: "POST", form: { api_type: "json", thing_id: thing, text } }), "edit");
 };
