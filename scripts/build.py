@@ -324,9 +324,18 @@ def user_html(name, op=False):
         return f'<span class="user gone">{text}</span>'
     return f'<span class="user{" op" if op else ""}" style="--h:{hue(name)}"><span class="av" data-i="{initial(name)}" aria-hidden="true"></span><strong>{text}</strong></span>'
 
+def score_html(r):
+    s = r.get("score", r.get("ups", 0))
+    if r.get("score_hidden") or not isinstance(s, (int, float)) or isinstance(s, bool):
+        return '<span class="score" title="Score hidden">?</span>'
+    s = int(s)
+    hot = " hot" if abs(s) >= 100 else ""
+    if s < 0:
+        return f'<span class="score down{hot}">▼ {-s}</span>'
+    return f'<span class="score{" up" if s else ""}{hot}">▲ {s}</span>'
+
 def meta_line(r):
     created = fmt_iso(r.get("created_utc", 0)).replace(":00 UTC", " UTC")
-    score = r.get("score", r.get("ups", 0))
     cid = r.get("id", "") or ""
     permalink = r.get("permalink", "") or ""
     tags = []
@@ -348,8 +357,7 @@ def meta_line(r):
     if flair:
         tags.append(flair)
     tags = [t for t in map(chip, tags) if t]
-    shown = f"+{score}" if isinstance(score, (int, float)) and score >= 0 else str(score)
-    head = f"{user_html(r.get('author', '') or '[deleted]', bool(r.get('is_submitter')))} · {created} · {shown}"
+    head = f"{user_html(r.get('author', '') or '[deleted]', bool(r.get('is_submitter')))} · {created} · {score_html(r)}"
     if cid:
         head += f" · `{cid}`"
     if tags:
@@ -452,7 +460,9 @@ def render_post(sub, d):
         "url": best.get("url") or "",
         "domain": best.get("domain") or "",
         "ups": best.get("ups", best.get("score", 0)),
+        "vote": "up" if isinstance(best.get("ups", best.get("score")), (int, float)) and best.get("ups", best.get("score")) > 0 else "",
         "upvote_ratio": best.get("upvote_ratio"),
+        "upvote_pct": f"{round(best['upvote_ratio'] * 100)}%" if isinstance(best.get("upvote_ratio"), (int, float)) else "",
         "num_comments": best.get("num_comments", 0),
         "link_flair_text": best.get("link_flair_text") or "",
         "over_18": bool(best.get("over_18")),

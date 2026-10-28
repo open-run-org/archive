@@ -10,6 +10,8 @@
     --active: #2eb85c;
     --quiet: #f0a020;
     --archived: #c3c8cf;
+    --up: #d93a00;
+    --down: #4a63d1;
     color-scheme: light dark;
 }
 
@@ -26,6 +28,8 @@
         --accent: #ff8a80;
         --accent-bg: #3a2222;
         --archived: #59606a;
+        --up: #ff8b5c;
+        --down: #93a8ff;
     }
 }
 
@@ -138,6 +142,10 @@ video { background: #000; }
 .user .av::before { content: attr(data-i); }
 .user.op .av { box-shadow: 0 0 0 2px var(--bg), 0 0 0 3.5px var(--link); }
 .user.gone { color: var(--muted); }
+.score { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--muted); }
+.score.up { color: var(--up); }
+.score.down { color: var(--down); }
+.score.hot { font-weight: 700; }
 .fold { margin-right: .4rem; padding: 0 .45rem; font: inherit; font-size: .9em; color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; cursor: pointer; }
 
 .pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin: 3rem 0 1rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: .95em; }

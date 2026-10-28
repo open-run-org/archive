@@ -28,7 +28,7 @@
     {% if page.extra.url and not page.extra.is_self %}
     <li><span class="meta-key">URL</span><span class="meta-val"><a href="{{ page.extra.url }}" target="_blank">{{ page.extra.url }}</a></span></li>
     {% endif %}
-    <li><span class="meta-key">Stats</span><span class="meta-val">Ups: {{ page.extra.ups }} | Ratio: {{ page.extra.upvote_ratio }} | Comments: {{ page.extra.num_comments }}</span></li>
+    <li><span class="meta-key">Stats</span><span class="meta-val"><span class="score {{ page.extra.vote }}">▲ {{ page.extra.ups }}</span>{% if page.extra.upvote_pct %} · {{ page.extra.upvote_pct }} upvoted{% endif %} · {{ page.extra.num_comments }} comments</span></li>
     {% if page.extra.link_flair_text %}
     <li><span class="meta-key">Flair</span><span class="meta-val">{{ page.extra.link_flair_text }}</span></li>
     {% endif %}
