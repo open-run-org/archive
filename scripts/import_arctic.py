@@ -159,10 +159,11 @@ def api(path, tries=4, **params):
             time.sleep(2**attempt * 5)
 
 
-def search_posts(sub, after):
+def search_posts(sub, after, before=None):
     seen, out = set(), []
+    bound = {} if before is None else {"before": before}
     while True:
-        page = api("posts/search", subreddit=sub, after=after, sort="asc", limit=100)
+        page = api("posts/search", subreddit=sub, after=after, sort="asc", limit=100, **bound)
         fresh = [p for p in page if p.get("id") and p["id"] not in seen]
         for p in fresh:
             seen.add(p["id"])
@@ -190,39 +191,9 @@ def comment_rows(pid, tries=4):
     return out
 
 
-def fetch_sub(root, sub, after):
-    posts = search_posts(sub, after)
-    new_posts = new_threads = failed = 0
-    for p in posts:
-        created_key = ts_fmt(p.get("created_utc"))
-        if not created_key:
-            continue
-        created_id = created_key + "_" + p["id"]
-        pdir = pathlib.Path(root) / ("r_" + sub) / "submissions" / created_id
-        if not captured(pdir):
-            write_capture(pdir, [dump(p)], retrieved(p) or now(), hash_post(p))
-            new_posts += 1
-        cdir = pathlib.Path(root) / ("r_" + sub) / "comments" / created_id
-        if captured(cdir) or not int(p.get("num_comments") or 0):
-            continue
-        try:
-            rows = comment_rows(p["id"])
-        except Exception as e:
-            print(f"[arctic] {sub} {p['id']} comments failed: {e}", file=sys.stderr)
-            failed += 1
-            continue
-        if rows:
-            cap_ts = max((retrieved(r) or 0 for r in rows), default=0) or now()
-            write_capture(cdir, [dump(r) for r in rows], cap_ts, hash_comments(rows))
-            new_threads += 1
-    print(
-        f"[arctic] {sub} posts={len(posts)} new_posts={new_posts} new_threads={new_threads} failed={failed}",
-        file=sys.stderr,
-    )
-    return failed
+DAY = 86400
 
-
-SNAPSHOT_DAYS = (16, 32, 64, 128, 256)
+SNAPSHOT_DAYS = (16, 32, 64, 128, 256, 512, 1024, 2048, 4096)
 
 PLACEHOLDERS = ("", "[removed]", "[deleted]", "[ Removed by Reddit ]")
 
@@ -247,44 +218,73 @@ def known_ids(d):
     return ids
 
 
-def snapshot_sub(root, sub):
-    t = now()
-    windows = [(ts_fmt(t - (d + 2) * 86400), ts_fmt(t - d * 86400)) for d in SNAPSHOT_DAYS]
+def fetch_sub(root, sub, windows, today):
     base = pathlib.Path(root) / ("r_" + sub)
-    due = sorted(
-        p.name for p in (base / "submissions").glob("*_*") if any(lo <= p.name < hi for lo, hi in windows)
-    )
-    wrote = failed = 0
-    for created_id in due:
+    found = new_posts = new_threads = snapped = failed = 0
+    for after, before in windows:
         try:
-            rows = comment_rows(created_id.split("_", 1)[1], tries=1)
+            posts = search_posts(sub, after, before)
         except Exception as e:
-            print(f"[arctic] {sub} {created_id} snapshot skipped: {e}", file=sys.stderr)
+            print(f"[arctic] {sub} search failed: {e}", file=sys.stderr)
             failed += 1
-            continue
-        cdir = base / "comments" / created_id
-        known = known_ids(cdir)
-        if not any(
-            r.get("id") not in known and (r.get("body") or "").strip() not in PLACEHOLDERS for r in rows
-        ):
-            continue
-        cap_ts = max((retrieved(r) or 0 for r in rows), default=0) or now()
-        write_capture(cdir, [dump(r) for r in rows], cap_ts, hash_comments(rows))
-        wrote += 1
-    print(f"[arctic] {sub} snapshots due={len(due)} wrote={wrote} skipped={failed}", file=sys.stderr)
-    return 0
+            break
+        found += len(posts)
+        for p in posts:
+            created_key = ts_fmt(p.get("created_utc"))
+            if not created_key:
+                continue
+            created_id = created_key + "_" + p["id"]
+            pdir = base / "submissions" / created_id
+            if not captured(pdir):
+                write_capture(pdir, [dump(p)], retrieved(p) or now(), hash_post(p))
+                new_posts += 1
+            cdir = base / "comments" / created_id
+            have = captured(cdir)
+            snap = have and (today - int(float(p["created_utc"])) // DAY * DAY) // DAY in SNAPSHOT_DAYS
+            if not snap and (have or not int(p.get("num_comments") or 0)):
+                continue
+            try:
+                rows = comment_rows(p["id"], tries=1 if snap else 4)
+            except Exception as e:
+                print(f"[arctic] {sub} {created_id} comments failed: {e}", file=sys.stderr)
+                failed += not snap
+                continue
+            if snap:
+                known = known_ids(cdir)
+                if not any(
+                    r.get("id") not in known and (r.get("body") or "").strip() not in PLACEHOLDERS
+                    for r in rows
+                ):
+                    continue
+                snapped += 1
+            elif rows:
+                new_threads += 1
+            else:
+                continue
+            cap_ts = max((retrieved(r) or 0 for r in rows), default=0) or now()
+            write_capture(cdir, [dump(r) for r in rows], cap_ts, hash_comments(rows))
+    print(
+        f"[arctic] {sub} windows={len(windows)} posts={found} new_posts={new_posts} "
+        f"new_threads={new_threads} snapshots={snapped} failed={failed}",
+        file=sys.stderr,
+    )
+    return failed
 
 
 def fetch(root, subs_file, after):
     subs = [s.strip() for s in pathlib.Path(subs_file).read_text(encoding="utf-8").splitlines()]
+    today = now() // DAY * DAY
+    windows = [(after, None)]
+    windows += [
+        (today - d * DAY, today - (d - 1) * DAY) for d in SNAPSHOT_DAYS if today - (d - 1) * DAY <= after
+    ]
     failed = 0
     for sub in (s for s in subs if s and not s.startswith("#")):
-        for step, args in ((fetch_sub, (root, sub, after)), (snapshot_sub, (root, sub))):
-            try:
-                failed += step(*args)
-            except Exception as e:
-                print(f"[arctic] {sub} failed: {e}", file=sys.stderr)
-                failed += 1
+        try:
+            failed += fetch_sub(root, sub, windows, today)
+        except Exception as e:
+            print(f"[arctic] {sub} failed: {e}", file=sys.stderr)
+            failed += 1
     return failed
 
 
@@ -293,11 +293,11 @@ def main():
     ap.add_argument("--root", default="data/raw")
     ap.add_argument("--fetch", metavar="SUBS_FILE")
     ap.add_argument("--days", type=int, default=16)
-    ap.add_argument("--since")
+    ap.add_argument("--since", type=int)
     ap.add_argument("paths", nargs="*")
     args = ap.parse_args()
     if args.fetch:
-        after = args.since or str(now() - args.days * 86400)
+        after = args.since or now() // DAY * DAY - args.days * DAY
         sys.exit(1 if fetch(args.root, args.fetch, after) else 0)
     post_index = {}
     for p in args.paths:

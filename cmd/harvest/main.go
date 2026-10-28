@@ -29,15 +29,16 @@ var (
 
 const expandBudget = 50
 
-var refreshDays = []int{32, 64, 128, 256}
+var refreshDays = []int{32, 64, 128, 256, 512, 1024, 2048, 4096}
 
 func due(createdID string, now time.Time, days int) bool {
-	ago := func(d int) string { return stamp(now.Add(-time.Duration(d) * 24 * time.Hour).Unix()) }
-	if createdID >= ago(days) {
+	today := now.UTC().Truncate(24 * time.Hour)
+	day := func(d int) string { return stamp(today.AddDate(0, 0, -d).Unix()) }
+	if createdID >= day(days) {
 		return true
 	}
 	for _, d := range refreshDays {
-		if createdID >= ago(d+2) && createdID < ago(d) {
+		if createdID >= day(d) && createdID < day(d-1) {
 			return true
 		}
 	}

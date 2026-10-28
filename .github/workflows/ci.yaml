@@ -77,7 +77,7 @@ jobs:
             echo "No changes to commit."
           fi
 
-      - if: steps.harvest.outcome == 'failure' || steps.backfill.outcome == 'failure' || steps.media.outcome == 'failure'
+      - if: steps.harvest.outcome == 'failure' || steps.media.outcome == 'failure'
         run: |
-          echo "harvest=${{ steps.harvest.outcome }} backfill=${{ steps.backfill.outcome }} media=${{ steps.media.outcome }}"
+          echo "harvest=${{ steps.harvest.outcome }} media=${{ steps.media.outcome }}"
           exit 1
