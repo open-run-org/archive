@@ -109,7 +109,7 @@ ${body(parts.join("\n"))}
 ${
     o.refs.length
         ? `\\section*{参考来源}
-{\\small
+{\\small\\sloppy\\emergencystretch=3em
 \\begin{enumerate}[label={[\\arabic*]},leftmargin=2.4em,itemsep=.15em]
 ${o.refs.map(r => `\\item \\hypertarget{ref-${r.n}}{}${esc(r.title || r.link)}\\ {\\color{mute}(${esc(about(r))})}\\\\\\url{${link(r.link)}}`).join("\n")}
 \\end{enumerate}}`
