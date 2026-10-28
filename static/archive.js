@@ -50,6 +50,34 @@ document.addEventListener("DOMContentLoaded", () => {
         set(depth < 5);
     }
 
+    const box = document.querySelector(".comments");
+    const title = box && box.querySelector(".comments-title");
+    if (title && box.querySelectorAll(".c").length > 1) {
+        const bar = document.createElement("div");
+        bar.className = "sort";
+        const order = {
+            top: (a, b) => b.dataset.s - a.dataset.s || a.dataset.t - b.dataset.t,
+            new: (a, b) => b.dataset.t - a.dataset.t,
+        };
+        const apply = mode => {
+            for (const group of [box, ...box.querySelectorAll(".c")]) {
+                const kids = Array.from(group.children).filter(e => e.classList.contains("c"));
+                if (kids.length > 1) kids.sort(order[mode]).forEach(k => group.appendChild(k));
+            }
+            for (const b of bar.children) b.setAttribute("aria-pressed", String(b.dataset.mode === mode));
+        };
+        for (const [mode, label] of [["top", "Top / 最热"], ["new", "New / 最新"]]) {
+            const b = document.createElement("button");
+            b.type = "button";
+            b.dataset.mode = mode;
+            b.textContent = label;
+            b.addEventListener("click", () => apply(mode));
+            bar.appendChild(b);
+        }
+        title.after(bar);
+        apply("top");
+    }
+
     const search = document.getElementById("search");
     if (search && window.PagefindUI) {
         const ui = new PagefindUI({ element: "#search", showSubResults: false, showImages: false });

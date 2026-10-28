@@ -7,7 +7,7 @@
         <thead>
             <tr>
                 <th class="c-date"><button type="button" data-sort="date">Date ↕</button></th>
-                <th class="c-num hide-sm"><button type="button" data-sort="number">Ups ↕</button></th>
+                <th class="c-num c-ups hide-sm"><button type="button" data-sort="number">Ups ↕</button></th>
                 <th class="c-num hide-sm"><button type="button" data-sort="number">Cmt ↕</button></th>
                 <th><button type="button" data-sort="string">Title ↕</button></th>
                 <th class="c-author hide-sm"><button type="button" data-sort="string">Author ↕</button></th>
@@ -19,10 +19,10 @@
             {% if year_filter and p.year != year_filter %}{% continue %}{% endif %}
             <tr>
                 <td data-value="{{ p.date }}">{{ p.date | date(format="%Y-%m-%d") }}<br><small>{{ p.date | date(format="%H:%M") }}</small></td>
-                <td class="num hide-sm" data-value="{{ p.extra.ups }}">{{ p.extra.ups }}</td>
+                <td class="num hide-sm" data-value="{{ p.extra.ups }}"><span class="score {{ p.extra.vote }}">▲ {{ p.extra.ups }}</span></td>
                 <td class="num hide-sm" data-value="{{ p.extra.num_comments }}">{{ p.extra.num_comments }}</td>
                 <td data-value="{{ p.title }}"><a class="t" href="{{ p.permalink }}">{{ p.title }}</a>{% if p.extra.link_flair_text %}<span class="flair">{{ p.extra.link_flair_text }}</span>{% endif %}{% if p.extra.state %}<span class="state">{{ p.extra.state }}</span>{% endif %}</td>
-                <td class="who hide-sm" data-value="{{ p.extra.author }}">{{ p.extra.author }}</td>
+                <td class="who hide-sm" data-value="{{ p.extra.author }}">{% if p.extra.author_initial %}<span class="user" style="--h:{{ p.extra.author_hue }}" data-i="{{ p.extra.author_initial }}">{{ p.extra.author }}</span>{% else %}{{ p.extra.author }}{% endif %}</td>
             </tr>
         {% endfor %}
         </tbody>

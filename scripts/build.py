@@ -288,7 +288,7 @@ def merge_capture(best, flat, since=None):
             rows[cid] = dict(b, archive_state=GONE.get(body_of(r), "Gone"))
     for cid, b in best.items():
         if cid not in rows and has_text(b):
-            rows[cid] = b if since is not None and utc(b.get("created_utc")).timestamp() > since else dict(b, archive_state="Gone")
+            rows[cid] = b if since is not None and ts_of(b) > since else dict(b, archive_state="Gone")
     stack = list(rows.values())
     while stack:
         pid = stack.pop().get("parent_id", "") or ""
@@ -306,7 +306,7 @@ def build_tree(rows, link_fullname):
             pid = link_fullname
         by_parent.setdefault(pid, []).append(r)
     for k in by_parent:
-        by_parent[k].sort(key=lambda x: (x.get("created_utc", 0), x.get("id", "")))
+        by_parent[k].sort(key=lambda x: (-num_score(x), ts_of(x), x.get("id", "") or ""))
     return by_parent.get(link_fullname, []), by_parent
 
 def chip(s):
@@ -321,8 +321,21 @@ def initial(name):
 def user_html(name, op=False):
     text = re.sub(r"([\\`*_\[\]])", r"\\\1", html.escape(name or "[deleted]"))
     if name in ("", "[deleted]"):
-        return f'<span class="user gone">{text}</span>'
-    return f'<span class="user{" op" if op else ""}" style="--h:{hue(name)}"><span class="av" data-i="{initial(name)}" aria-hidden="true"></span><strong>{text}</strong></span>'
+        return f'<span class="user gone"><strong>{text}</strong></span>'
+    return f'<span class="user{" op" if op else ""}" style="--h:{hue(name)}" data-i="{initial(name)}"><strong>{text}</strong></span>'
+
+def ts_of(r):
+    try:
+        return int(float(r.get("created_utc") or 0))
+    except (TypeError, ValueError):
+        return 0
+
+def num_score(r):
+    s = r.get("score", r.get("ups", 0))
+    return int(s) if isinstance(s, (int, float)) and not isinstance(s, bool) else 0
+
+def tag(text, kind=""):
+    return f'<span class="tag{" " + kind if kind else ""}">{html.escape(text)}</span>'
 
 def score_html(r):
     s = r.get("score", r.get("ups", 0))
@@ -335,33 +348,30 @@ def score_html(r):
     return f'<span class="score{" up" if s else ""}{hot}">▲ {s}</span>'
 
 def meta_line(r):
-    created = fmt_iso(r.get("created_utc", 0)).replace(":00 UTC", " UTC")
-    cid = r.get("id", "") or ""
+    created = utc(ts_of(r)).strftime("%Y-%m-%d %H:%M UTC")
+    cid = html.escape(r.get("id", "") or "")
     permalink = r.get("permalink", "") or ""
     tags = []
     if r.get("archive_state"):
-        tags.append(r["archive_state"])
-    if r.get("is_submitter", False):
-        tags.append("OP")
+        tags.append(tag(r["archive_state"], "state"))
+    if r.get("is_submitter"):
+        tags.append(tag("OP", "op"))
     if r.get("distinguished") == "moderator":
-        tags.append("Mod")
+        tags.append(tag("Mod", "mod"))
     elif r.get("distinguished"):
-        tags.append(str(r.get("distinguished")))
-    if r.get("stickied", False):
-        tags.append("Stickied")
-    if r.get("locked", False):
-        tags.append("Locked")
-    if r.get("archived", False):
-        tags.append("Archived")
-    flair = r.get("author_flair_text", "") or ""
+        tags.append(tag(str(r["distinguished"])))
+    if r.get("stickied"):
+        tags.append(tag("Stickied"))
+    if r.get("locked"):
+        tags.append(tag("Locked"))
+    flair = chip(r.get("author_flair_text", "") or "")
     if flair:
-        tags.append(flair)
-    tags = [t for t in map(chip, tags) if t]
-    head = f"{user_html(r.get('author', '') or '[deleted]', bool(r.get('is_submitter')))} · {created} · {score_html(r)}"
+        tags.append(f"`{flair}`")
+    head = f"{score_html(r)} {user_html(r.get('author', '') or '[deleted]', bool(r.get('is_submitter')))} · {created}"
     if cid:
-        head += f" · `{cid}`"
+        head += f' · <span class="cid">{cid}</span>'
     if tags:
-        head += " · " + " · ".join(f"`{t}`" for t in tags)
+        head += " " + " ".join(tags)
     if permalink:
         head += f" · [↗](https://reddit.com{permalink})"
     return head
@@ -370,7 +380,7 @@ def render_tree(nodes, by_parent):
     out = []
     for r in nodes:
         body = embed(user_md(re.sub(r"(?m)^\t", "  ", r.get("body", "") or "")), set(), r.get("media_metadata") if isinstance(r.get("media_metadata"), dict) else None).strip("\n") or "_(no content)_"
-        out += ['<div class="c">', "", meta_line(r), "", body, ""]
+        out += [f'<div class="c" data-s="{num_score(r)}" data-t="{ts_of(r)}">', "", meta_line(r), "", body, ""]
         out += render_tree(by_parent.get("t1_" + (r.get("id", "") or ""), []), by_parent)
         out += ["</div>", ""]
     return out
@@ -460,7 +470,7 @@ def render_post(sub, d):
         "url": best.get("url") or "",
         "domain": best.get("domain") or "",
         "ups": best.get("ups", best.get("score", 0)),
-        "vote": "up" if isinstance(best.get("ups", best.get("score")), (int, float)) and best.get("ups", best.get("score")) > 0 else "",
+        "vote": ("up hot" if num_score(best) >= 100 else "up") if num_score(best) > 0 else "",
         "upvote_ratio": best.get("upvote_ratio"),
         "upvote_pct": f"{round(best['upvote_ratio'] * 100)}%" if isinstance(best.get("upvote_ratio"), (int, float)) else "",
         "num_comments": best.get("num_comments", 0),
