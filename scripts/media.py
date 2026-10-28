@@ -33,20 +33,43 @@ IMAGE_MAX = 100 * 2**20
 VIDEO_MAX = 2 * 2**30
 RETRY = (429, 500, 502, 503, 504)
 
+
 class Fail(Exception):
     pass
+
 
 class UploadFail(Fail):
     pass
 
+
 class Broken(Fail):
     pass
 
+
 def image(mid, ext, w=None, h=None, caption="", link=""):
-    return {"id": mid, "kind": "image", "src": f"https://i.redd.it/{mid}.{ext.lower()}", "w": w, "h": h, "caption": caption, "link": link}
+    return {
+        "id": mid,
+        "kind": "image",
+        "src": f"https://i.redd.it/{mid}.{ext.lower()}",
+        "w": w,
+        "h": h,
+        "caption": caption,
+        "link": link,
+    }
+
 
 def video(mid, mpd, w=None, h=None, fallback=""):
-    return {"id": mid, "kind": "video", "src": mpd, "w": w, "h": h, "caption": "", "link": "", "fallback": fallback}
+    return {
+        "id": mid,
+        "kind": "video",
+        "src": mpd,
+        "w": w,
+        "h": h,
+        "caption": "",
+        "link": "",
+        "fallback": fallback,
+    }
+
 
 def dig(d, *keys):
     for k in keys:
@@ -57,6 +80,7 @@ def dig(d, *keys):
         else:
             return None
     return d
+
 
 def from_meta(mid, v, caption="", link=""):
     if not isinstance(v, dict) or v.get("status") != "valid" or not MID.fullmatch(mid or ""):
@@ -74,6 +98,7 @@ def from_meta(mid, v, caption="", link=""):
         return video(mid, mpd, v.get("x"), v.get("y")) if mpd.startswith("https://v.redd.it/") else None
     return None
 
+
 def reddit_video(p):
     rv = dig(p, "secure_media", "reddit_video") or dig(p, "media", "reddit_video")
     if not isinstance(rv, dict) or rv.get("transcoding_status", "completed") != "completed":
@@ -83,8 +108,15 @@ def reddit_video(p):
         m = VIDEO.match(rv.get(k) or "")
         if m:
             fallback = fallback if fallback.startswith(f"https://v.redd.it/{m.group(1)}/") else ""
-            return video(m.group(1), f"https://v.redd.it/{m.group(1)}/DASHPlaylist.mpd", rv.get("width"), rv.get("height"), fallback)
+            return video(
+                m.group(1),
+                f"https://v.redd.it/{m.group(1)}/DASHPlaylist.mpd",
+                rv.get("width"),
+                rv.get("height"),
+                fallback,
+            )
     return None
+
 
 def capture_media(p, nested=False):
     found = []
@@ -95,7 +127,12 @@ def capture_media(p, nested=False):
     meta = p.get("media_metadata") if isinstance(p.get("media_metadata"), dict) else {}
     for g in dig(p, "gallery_data", "items") or []:
         if isinstance(g, dict):
-            it = from_meta(str(g.get("media_id") or ""), meta.get(g.get("media_id")), g.get("caption") or "", g.get("outbound_url") or "")
+            it = from_meta(
+                str(g.get("media_id") or ""),
+                meta.get(g.get("media_id")),
+                g.get("caption") or "",
+                g.get("outbound_url") or "",
+            )
             found.append(it)
     found += [from_meta(mid, v) for mid, v in meta.items()]
     found.append(reddit_video(p))
@@ -105,6 +142,7 @@ def capture_media(p, nested=False):
             if isinstance(parent, dict):
                 found += capture_media(parent, True)
     return [it for it in found if it]
+
 
 def post_media(caps):
     out, seen = [], set()
@@ -116,11 +154,13 @@ def post_media(caps):
                     out.append(it)
     return out
 
+
 def comment_media(c):
     meta = c.get("media_metadata") if isinstance(c.get("media_metadata"), dict) else {}
     found = [from_meta(mid, v) for mid, v in meta.items()]
     found += [image(m.group(1), m.group(2)) for m in REF.finditer(c.get("body") or "")]
     return [it for it in found if it]
+
 
 def comments_of(obj):
     stack = [obj]
@@ -133,6 +173,7 @@ def comments_of(obj):
         elif isinstance(x, list):
             stack.extend(x)
 
+
 def heads(d):
     out = []
     for f in sorted(d.glob("*.jsonl")):
@@ -144,6 +185,7 @@ def heads(d):
         if isinstance(row, dict):
             out.append(row)
     return out
+
 
 def collect(root):
     found = {}
@@ -168,6 +210,7 @@ def collect(root):
                 found.setdefault(it["id"], (sub_dir.name, d.name, it))
     return found
 
+
 def load_manifest(mdir):
     rows = {}
     for f in sorted(pathlib.Path(mdir).glob("*.jsonl")):
@@ -180,6 +223,7 @@ def load_manifest(mdir):
                 rows[r["id"]] = r
     return rows
 
+
 def sniff(b):
     if b[:3] == b"\xff\xd8\xff":
         return "jpg"
@@ -190,6 +234,7 @@ def sniff(b):
     if b[:4] == b"RIFF" and b[8:12] == b"WEBP":
         return "webp"
     return None
+
 
 def dims(b, ext):
     try:
@@ -220,20 +265,24 @@ def dims(b, ext):
                     i += 2
                     continue
                 if marker in (0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7, 0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF):
-                    h, w = struct.unpack(">HH", b[i + 5:i + 9])
+                    h, w = struct.unpack(">HH", b[i + 5 : i + 9])
                     return w, h
-                i += 2 + int.from_bytes(b[i + 2:i + 4], "big")
+                i += 2 + int.from_bytes(b[i + 2 : i + 4], "big")
     except struct.error:
         pass
     return None
 
+
 def gone(code, body):
     return code in (404, 410) or (code == 403 and b"access denied" in (body or b"").lower())
+
 
 def get(url, limit, dest=None):
     for attempt in range(4):
         try:
-            with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": UA}), timeout=60) as r:
+            with urllib.request.urlopen(
+                urllib.request.Request(url, headers={"User-Agent": UA}), timeout=60
+            ) as r:
                 if dest is None:
                     data = r.read(limit + 1)
                     if len(data) > limit:
@@ -252,12 +301,13 @@ def get(url, limit, dest=None):
             if e.code not in RETRY or attempt == 3:
                 return e.code, body, url
             wait = e.headers.get("Retry-After") or ""
-            time.sleep(min(int(wait), 60) if wait.isdigit() else 2 ** attempt * 5)
+            time.sleep(min(int(wait), 60) if wait.isdigit() else 2**attempt * 5)
         except (urllib.error.URLError, OSError, http.client.HTTPException) as e:
             if attempt == 3:
-                raise Fail(f"download: {e}")
-            time.sleep(2 ** attempt * 5)
+                raise Fail(f"download: {e}") from e
+            time.sleep(2**attempt * 5)
     raise Fail("download: retries exhausted")
+
 
 def sha256_file(p):
     h, size = hashlib.sha256(), 0
@@ -267,39 +317,59 @@ def sha256_file(p):
             size += len(chunk)
     return h.hexdigest(), size
 
+
 def put(env, key, body, ctype):
-    digest, size = sha256_file(body) if isinstance(body, pathlib.Path) else (hashlib.sha256(body).hexdigest(), len(body))
+    digest, size = (
+        sha256_file(body) if isinstance(body, pathlib.Path) else (hashlib.sha256(body).hexdigest(), len(body))
+    )
     endpoint = env["R2_ENDPOINT"].rstrip("/")
     path = "/" + urllib.parse.quote(f"{env['R2_BUCKET']}/{key}", safe="/-_.~")
     for attempt in range(4):
-        now = datetime.datetime.now(datetime.timezone.utc)
+        now = datetime.datetime.now(datetime.UTC)
         amz, day = now.strftime("%Y%m%dT%H%M%SZ"), now.strftime("%Y%m%d")
-        headers = {"cache-control": "public, max-age=31536000, immutable", "content-type": ctype, "host": urllib.parse.urlsplit(endpoint).netloc, "x-amz-content-sha256": digest, "x-amz-date": amz}
+        headers = {
+            "cache-control": "public, max-age=31536000, immutable",
+            "content-type": ctype,
+            "host": urllib.parse.urlsplit(endpoint).netloc,
+            "x-amz-content-sha256": digest,
+            "x-amz-date": amz,
+        }
         names = ";".join(sorted(headers))
-        canonical = "\n".join(["PUT", path, "", "".join(f"{k}:{headers[k]}\n" for k in sorted(headers)), names, digest])
+        canonical = "\n".join(
+            ["PUT", path, "", "".join(f"{k}:{headers[k]}\n" for k in sorted(headers)), names, digest]
+        )
         scope = f"{day}/auto/s3/aws4_request"
         k = ("AWS4" + env["R2_SECRET_ACCESS_KEY"]).encode()
         for part in (day, "auto", "s3", "aws4_request"):
             k = hmac.new(k, part.encode(), hashlib.sha256).digest()
-        sig = hmac.new(k, f"AWS4-HMAC-SHA256\n{amz}\n{scope}\n{hashlib.sha256(canonical.encode()).hexdigest()}".encode(), hashlib.sha256).hexdigest()
-        headers["authorization"] = f"AWS4-HMAC-SHA256 Credential={env['R2_ACCESS_KEY_ID']}/{scope}, SignedHeaders={names}, Signature={sig}"
+        sig = hmac.new(
+            k,
+            f"AWS4-HMAC-SHA256\n{amz}\n{scope}\n{hashlib.sha256(canonical.encode()).hexdigest()}".encode(),
+            hashlib.sha256,
+        ).hexdigest()
+        headers["authorization"] = (
+            f"AWS4-HMAC-SHA256 Credential={env['R2_ACCESS_KEY_ID']}/{scope}, SignedHeaders={names}, Signature={sig}"
+        )
         headers["content-length"] = str(size)
         data = body.open("rb") if isinstance(body, pathlib.Path) else body
         try:
-            with urllib.request.urlopen(urllib.request.Request(endpoint + path, data=data, method="PUT", headers=headers), timeout=600) as r:
+            with urllib.request.urlopen(
+                urllib.request.Request(endpoint + path, data=data, method="PUT", headers=headers), timeout=600
+            ) as r:
                 r.read()
             return digest, size
         except urllib.error.HTTPError as e:
             if e.code not in RETRY or attempt == 3:
-                raise UploadFail(f"upload {key}: http {e.code} {e.read(300)!r}")
+                raise UploadFail(f"upload {key}: http {e.code} {e.read(300)!r}") from e
         except (urllib.error.URLError, OSError, http.client.HTTPException) as e:
             if attempt == 3:
-                raise UploadFail(f"upload {key}: {e}")
+                raise UploadFail(f"upload {key}: {e}") from e
         finally:
             if data is not body:
                 data.close()
-        time.sleep(2 ** attempt * 5)
+        time.sleep(2**attempt * 5)
     raise UploadFail(f"upload {key}: retries exhausted")
+
 
 def tracks(text, base):
     if "<!DOCTYPE" in text or "<!ENTITY" in text:
@@ -311,14 +381,25 @@ def tracks(text, base):
         for rep in aset:
             if not rep.tag.endswith("Representation"):
                 continue
-            kind = aset.get("contentType") or (rep.get("mimeType") or aset.get("mimeType") or "").split("/")[0]
-            url = next((el.text.strip() for el in rep if el.tag.endswith("BaseURL") and (el.text or "").strip()), None)
+            kind = (
+                aset.get("contentType") or (rep.get("mimeType") or aset.get("mimeType") or "").split("/")[0]
+            )
+            url = next(
+                (el.text.strip() for el in rep if el.tag.endswith("BaseURL") and (el.text or "").strip()),
+                None,
+            )
             if kind not in ("video", "audio") or not url:
                 continue
             bw = int(rep.get("bandwidth") or 0)
             if kind not in best or bw > best[kind]["bw"]:
-                best[kind] = {"bw": bw, "url": urllib.parse.urljoin(base, url), "w": int(rep.get("width") or 0) or None, "h": int(rep.get("height") or 0) or None}
+                best[kind] = {
+                    "bw": bw,
+                    "url": urllib.parse.urljoin(base, url),
+                    "w": int(rep.get("width") or 0) or None,
+                    "h": int(rep.get("height") or 0) or None,
+                }
     return best
+
 
 def archive(env, sub, created_id, it, tmp):
     base = f"archive/{sub}/{created_id.split('_', 1)[1]}/{it['id']}"
@@ -345,7 +426,7 @@ def archive(env, sub, created_id, it, tmp):
     try:
         found = tracks(data.decode("utf-8", "replace"), it["src"])
     except (ET.ParseError, ValueError) as e:
-        raise Broken(f"mpd: {e}")
+        raise Broken(f"mpd: {e}") from e
     if "video" not in found:
         raise Broken("mpd: no video track")
     picks = [(found["video"]["url"], found["video"]["w"] or it["w"], found["video"]["h"] or it["h"])]
@@ -353,8 +434,8 @@ def archive(env, sub, created_id, it, tmp):
         picks.insert(0, (it["fallback"], it["w"], it["h"]))
     work = pathlib.Path(tempfile.mkdtemp(dir=tmp))
     try:
-        for url, w, h in picks:
-            code, data, _ = get(url, VIDEO_MAX, work / "v.mp4")
+        for pick in picks:
+            code, data, _ = get(pick[0], VIDEO_MAX, work / "v.mp4")
             if code == 200:
                 break
         else:
@@ -371,13 +452,19 @@ def archive(env, sub, created_id, it, tmp):
             elif not gone(code, data):
                 raise Fail(f"audio http {code}")
         out = work / "out.mp4"
-        r = subprocess.run(cmd + maps + ["-c", "copy", "-movflags", "+faststart", str(out)], capture_output=True, text=True, timeout=900)
+        r = subprocess.run(
+            cmd + maps + ["-c", "copy", "-movflags", "+faststart", str(out)],
+            capture_output=True,
+            text=True,
+            timeout=900,
+        )
         if r.returncode != 0 or not out.exists():
             raise Broken(f"ffmpeg: {r.stderr.strip()[-300:]}")
         digest, size = put(env, f"{base}.mp4", out, "video/mp4")
-        return dict(row, key=f"{base}.mp4", type="video/mp4", bytes=size, sha256=digest, w=w, h=h)
+        return dict(row, key=f"{base}.mp4", type="video/mp4", bytes=size, sha256=digest, w=pick[1], h=pick[2])
     finally:
         shutil.rmtree(work, ignore_errors=True)
+
 
 def main():
     ap = argparse.ArgumentParser()
@@ -386,7 +473,10 @@ def main():
     ap.add_argument("--limit", type=int, default=2000)
     ap.add_argument("--workers", type=int, default=6)
     args = ap.parse_args()
-    env = {k: os.environ.get(k, "") for k in ("R2_ENDPOINT", "R2_BUCKET", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY")}
+    env = {
+        k: os.environ.get(k, "")
+        for k in ("R2_ENDPOINT", "R2_BUCKET", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY")
+    }
     if not all(env.values()):
         print("[media] R2 credentials not set, skipping", file=sys.stderr)
         return 0
@@ -399,8 +489,11 @@ def main():
         pending = [p for p in pending if p[2]["kind"] != "video"]
         if waiting:
             print(f"[media] ffmpeg not found, {waiting} videos left for later", file=sys.stderr)
-    batch = pending[:args.limit]
-    print(f"[media] known={len(found)} recorded={len(done)} pending={len(pending)} batch={len(batch)}", file=sys.stderr)
+    batch = pending[: args.limit]
+    print(
+        f"[media] known={len(found)} recorded={len(done)} pending={len(pending)} batch={len(batch)}",
+        file=sys.stderr,
+    )
     mdir.mkdir(parents=True, exist_ok=True)
     for f in mdir.glob("*.jsonl"):
         if f.stat().st_size and not f.read_bytes().endswith(b"\n"):
@@ -418,7 +511,13 @@ def main():
                 try:
                     row = fut.result()
                 except Broken as e:
-                    row = {"id": it["id"], "post": cid, "src": it["src"], "status": "failed", "reason": str(e)[:200]}
+                    row = {
+                        "id": it["id"],
+                        "post": cid,
+                        "src": it["src"],
+                        "status": "failed",
+                        "reason": str(e)[:200],
+                    }
                 except Exception as e:
                     n["failed"] += 1
                     n["upload_failed"] += isinstance(e, UploadFail)
@@ -431,7 +530,7 @@ def main():
                             f.cancel()
                     continue
                 streak = 0
-                row["at"] = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+                row["at"] = datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
                 with (mdir / f"{sub}.jsonl").open("a", encoding="utf-8") as w:
                     w.write(json.dumps(row, ensure_ascii=False) + "\n")
                 n["stored" if "key" in row else "broken" if row["status"] == "failed" else "gone"] += 1
@@ -439,8 +538,12 @@ def main():
         except BaseException:
             pool.shutdown(wait=False, cancel_futures=True)
             raise
-    print(f"[media] stored={n['stored']} gone={n['gone']} broken={n['broken']} failed={n['failed']} uploaded={n['bytes'] / 2**20:.1f} MiB", file=sys.stderr)
+    print(
+        f"[media] stored={n['stored']} gone={n['gone']} broken={n['broken']} failed={n['failed']} uploaded={n['bytes'] / 2**20:.1f} MiB",
+        file=sys.stderr,
+    )
     return 1 if n["upload_failed"] or stopped else 0
+
 
 if __name__ == "__main__":
     sys.exit(main())

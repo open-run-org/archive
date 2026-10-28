@@ -13,6 +13,7 @@ import urllib.request
 
 API = "https://arctic-shift.photon-reddit.com/api"
 
+
 def ts_fmt(unix_ts):
     try:
         v = int(float(unix_ts))
@@ -20,17 +21,20 @@ def ts_fmt(unix_ts):
         return ""
     if v <= 0:
         return ""
-    return datetime.datetime.fromtimestamp(v, datetime.timezone.utc).strftime("%y%m%d%H%M%S")
+    return datetime.datetime.fromtimestamp(v, datetime.UTC).strftime("%y%m%d%H%M%S")
+
 
 def norm_sub(s):
     s = (s or "").strip()
     for p in ("/r/", "r/", "R/", "r_", "R_"):
         if s.startswith(p):
-            return s[len(p):]
+            return s[len(p) :]
     return s
+
 
 def captured(d):
     return d.is_dir() and any(d.glob("*.jsonl"))
+
 
 def retrieved(obj):
     meta = obj.get("_meta") if isinstance(obj.get("_meta"), dict) else {}
@@ -43,9 +47,11 @@ def retrieved(obj):
             return t
     return None
 
+
 def hash_post(obj):
     data = json.dumps(obj, sort_keys=True, separators=(",", ":")).encode("utf-8", "ignore")
     return hashlib.sha256(data).hexdigest()
+
 
 def hash_comments(rows):
     buf = []
@@ -54,6 +60,7 @@ def hash_comments(rows):
     data = "\n".join(buf).encode("utf-8", "ignore")
     return hashlib.sha256(data).hexdigest()
 
+
 def dump(obj):
     s = json.dumps(obj, ensure_ascii=False)
     try:
@@ -61,6 +68,7 @@ def dump(obj):
         return s
     except UnicodeEncodeError:
         return json.dumps(obj)
+
 
 def write_capture(d, lines, cap_ts, h):
     d.mkdir(parents=True, exist_ok=True)
@@ -73,8 +81,10 @@ def write_capture(d, lines, cap_ts, h):
             w.write(ln + "\n")
     os.replace(tmp, out)
 
+
 def now():
     return int(time.time())
+
 
 def import_posts(path, root, post_index):
     p = pathlib.Path(path)
@@ -98,6 +108,7 @@ def import_posts(path, root, post_index):
             subdir = pathlib.Path(root) / ("r_" + sub) / "submissions" / (created_key + "_" + pid)
             if not captured(subdir):
                 write_capture(subdir, [s], retrieved(obj) or now(), hash_post(obj))
+
 
 def import_comments(path, root, post_index):
     p = pathlib.Path(path)
@@ -128,6 +139,7 @@ def import_comments(path, root, post_index):
             cap_ts = max((retrieved(r) or 0 for r in rows), default=0) or now()
             write_capture(subdir, [dump(r) for r in rows], cap_ts, hash_comments(rows))
 
+
 def api(path, **params):
     url = f"{API}/{path}?" + urllib.parse.urlencode(params)
     req = urllib.request.Request(url, headers={"User-Agent": "open-run-archive"})
@@ -144,7 +156,8 @@ def api(path, **params):
                 raise
             if attempt == 3:
                 raise
-            time.sleep(2 ** attempt * 5)
+            time.sleep(2**attempt * 5)
+
 
 def search_posts(sub, after):
     seen, out = set(), []
@@ -158,8 +171,10 @@ def search_posts(sub, after):
             return out
         after = int(float(page[-1]["created_utc"])) - 1
 
+
 def comment_rows(pid):
     out = []
+
     def walk(children):
         for c in children or []:
             if not isinstance(c, dict) or c.get("kind") != "t1":
@@ -169,9 +184,11 @@ def comment_rows(pid):
             out.append(d)
             if isinstance(rep, dict):
                 walk((rep.get("data") or {}).get("children"))
+
     walk(api("comments/tree", link_id="t3_" + pid, limit=9999))
     out.sort(key=lambda r: (r.get("parent_id") or "", r.get("created_utc") or 0, r.get("id") or ""))
     return out
+
 
 def fetch_sub(root, sub, after):
     posts = search_posts(sub, after)
@@ -198,12 +215,17 @@ def fetch_sub(root, sub, after):
             cap_ts = max((retrieved(r) or 0 for r in rows), default=0) or now()
             write_capture(cdir, [dump(r) for r in rows], cap_ts, hash_comments(rows))
             new_threads += 1
-    print(f"[arctic] {sub} posts={len(posts)} new_posts={new_posts} new_threads={new_threads} failed={failed}", file=sys.stderr)
+    print(
+        f"[arctic] {sub} posts={len(posts)} new_posts={new_posts} new_threads={new_threads} failed={failed}",
+        file=sys.stderr,
+    )
     return failed
+
 
 SNAPSHOT_DAYS = (16, 32, 64, 128, 256)
 
 PLACEHOLDERS = ("", "[removed]", "[deleted]", "[ Removed by Reddit ]")
+
 
 def known_ids(d):
     ids = set()
@@ -224,11 +246,14 @@ def known_ids(d):
                         stack.extend(x)
     return ids
 
+
 def snapshot_sub(root, sub):
     t = now()
     windows = [(ts_fmt(t - (d + 2) * 86400), ts_fmt(t - d * 86400)) for d in SNAPSHOT_DAYS]
     base = pathlib.Path(root) / ("r_" + sub)
-    due = sorted(p.name for p in (base / "submissions").glob("*_*") if any(lo <= p.name < hi for lo, hi in windows))
+    due = sorted(
+        p.name for p in (base / "submissions").glob("*_*") if any(lo <= p.name < hi for lo, hi in windows)
+    )
     wrote = failed = 0
     for created_id in due:
         try:
@@ -239,7 +264,9 @@ def snapshot_sub(root, sub):
             continue
         cdir = base / "comments" / created_id
         known = known_ids(cdir)
-        if not any(r.get("id") not in known and (r.get("body") or "").strip() not in PLACEHOLDERS for r in rows):
+        if not any(
+            r.get("id") not in known and (r.get("body") or "").strip() not in PLACEHOLDERS for r in rows
+        ):
             continue
         cap_ts = max((retrieved(r) or 0 for r in rows), default=0) or now()
         write_capture(cdir, [dump(r) for r in rows], cap_ts, hash_comments(rows))
@@ -247,17 +274,19 @@ def snapshot_sub(root, sub):
     print(f"[arctic] {sub} snapshots due={len(due)} wrote={wrote} failed={failed}", file=sys.stderr)
     return failed
 
+
 def fetch(root, subs_file, after):
     subs = [s.strip() for s in pathlib.Path(subs_file).read_text(encoding="utf-8").splitlines()]
     failed = 0
     for sub in (s for s in subs if s and not s.startswith("#")):
-        for step in (lambda: fetch_sub(root, sub, after), lambda: snapshot_sub(root, sub)):
+        for step, args in ((fetch_sub, (root, sub, after)), (snapshot_sub, (root, sub))):
             try:
-                failed += step()
+                failed += step(*args)
             except Exception as e:
                 print(f"[arctic] {sub} failed: {e}", file=sys.stderr)
                 failed += 1
     return failed
+
 
 def main():
     ap = argparse.ArgumentParser()
@@ -277,6 +306,7 @@ def main():
     for p in args.paths:
         if "_comments" in os.path.basename(p):
             import_comments(p, args.root, post_index)
+
 
 if __name__ == "__main__":
     main()

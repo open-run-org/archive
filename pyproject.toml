@@ -1,0 +1,21 @@
+[project]
+name = "open-run-archive"
+version = "0.0.0"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = ["ruff>=0.17"]
+
+[tool.uv]
+package = false
+python-preference = "only-managed"
+
+[tool.ruff]
+line-length = 110
+src = ["scripts"]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "UP", "SIM", "RUF"]
+ignore = ["E501", "RUF001"]

@@ -20,51 +20,73 @@ MEDIA = RAW.parent / "media"
 GONE = {"[removed]": "Removed", "[ Removed by Reddit ]": "Removed", "[deleted]": "Deleted"}
 TAG = re.compile(r"<(?=[A-Za-z/!?])")
 EMPTY_LINK = re.compile(r"\]\([\s>]*(?:<[\s>]*>)?[\s>]*(?:\"[^\"\n]*\"|'[^'\n]*')?[\s>]*\)")
-EMPTY_REF = re.compile(r"^((?:[ \t]*>)*[ \t]*\[[^\]\n]+\]):(?=[ \t]*(?:<[ \t]*>)?[ \t]*(?:\"[^\"\n]*\"|'[^'\n]*'|\([^)\n]*\))?[ \t]*$)", re.M)
+EMPTY_REF = re.compile(
+    r"^((?:[ \t]*>)*[ \t]*\[[^\]\n]+\]):(?=[ \t]*(?:<[ \t]*>)?[ \t]*(?:\"[^\"\n]*\"|'[^'\n]*'|\([^)\n]*\))?[ \t]*$)",
+    re.M,
+)
 UNSAFE = re.compile("[\x7f-\x9f\u2028\u2029\ufffe\uffff]")
 ARCTIC_KEYS = ("_meta", "retrieved_on", "retrieved_utc")
 ID = re.compile(r"[a-z0-9]{1,16}")
 
+
 def esc(s):
     return TAG.sub("&lt;", s)
+
 
 def unlink(s):
     s = EMPTY_LINK.sub(lambda m: "]\\" + m.group(0)[1:], s)
     return EMPTY_DEST.sub(r"\1&lt;>", EMPTY_REF.sub(r"\1\\:", s))
+
 
 OPEN = re.compile(r"^( {0,3}(?:(?:[-*+]|\d{1,9}[.)]) {1,4})?)(`{3,}|~{3,})")
 ITEM = re.compile(r"^ {0,3}(?:[-*+]|\d{1,9}[.)]) {1,4}")
 CLOSE = re.compile(r" {0,3}(`{3,}|~{3,})[ \t]*$")
 ATTRS = re.compile(r"\}([ \t#]*)$")
 EMPTY_DEST = re.compile(r"(\]\(\s*|\]:\s*)<>")
-BARE_URL = re.compile(r"(?<![A-Za-z0-9_/\[<\"'=@&])(?<!\]\()https?://[^\s<>\"'\[\]*，。、！？；：「」『』（）【】《》]+")
+BARE_URL = re.compile(
+    r"(?<![A-Za-z0-9_/\[<\"'=@&])(?<!\]\()https?://[^\s<>\"'\[\]*，。、！？；：「」『』（）【】《》]+"
+)
 SUB_REF = re.compile(r"(?<![A-Za-z0-9_/.\[])/?(r|u)/([A-Za-z0-9_-]{2,21})(?![A-Za-z0-9_/-])")
 SPOILER = re.compile(r">!(.+?)(?<!\\)!(?:<|&lt;)")
 UNESC = re.compile(r"\\([!-/:-@\[-`{-~])")
-PROTECT = re.compile(r"!?\[(?:[^\[\]\\]|\\.|\[(?:[^\[\]\\]|\\.)*\])*\](?:\((?:[^()\s\\]|\\.|\((?:[^()\\]|\\.)*\))*(?:\s+(?:\"[^\"]*\"|'[^']*'))?\s*\)|\[(?:[^\[\]\\]|\\.)*\])|<https?://[^<>\s]*>|^\s*\[[^\]]+\]:.*$")
+PROTECT = re.compile(
+    r"!?\[(?:[^\[\]\\]|\\.|\[(?:[^\[\]\\]|\\.)*\])*\](?:\((?:[^()\s\\]|\\.|\((?:[^()\\]|\\.)*\))*(?:\s+(?:\"[^\"]*\"|'[^']*'))?\s*\)|\[(?:[^\[\]\\]|\\.)*\])|<https?://[^<>\s]*>|^\s*\[[^\]]+\]:.*$"
+)
 SUBS = {}
 ASSETS = {}
 USERS = set()
-IMG_AUTO = re.compile(r"<(https?://(?:i|preview)\.redd\.it/([a-z0-9]+)\.(?:jpe?g|png|gif|webp)(?:[?#][^<>\s]*)?)>", re.I)
-IMG_LINK = re.compile(r"(!?)\[((?:[^\[\]\n\\]|\\.)*)\]\((https?://(?:i|preview)\.redd\.it/([a-z0-9]+)\.(?:jpe?g|png|gif|webp)(?:[?#][^()\s]*)?)\)", re.I)
+IMG_AUTO = re.compile(
+    r"<(https?://(?:i|preview)\.redd\.it/([a-z0-9]+)\.(?:jpe?g|png|gif|webp)(?:[?#][^<>\s]*)?)>", re.I
+)
+IMG_LINK = re.compile(
+    r"(!?)\[((?:[^\[\]\n\\]|\\.)*)\]\((https?://(?:i|preview)\.redd\.it/([a-z0-9]+)\.(?:jpe?g|png|gif|webp)(?:[?#][^()\s]*)?)\)",
+    re.I,
+)
 PLAYER = re.compile(r"<https?://(?:www\.)?reddit\.com/link/[a-z0-9]+/video/([a-z0-9]+)/player/?>", re.I)
 MEDIA_REF = re.compile(r"!\[([^\[\]\n]*)\]\((giphy\|)?([A-Za-z0-9]+)(?:\|[A-Za-z0-9_]+)?\)")
 IMAGE_MD = re.compile(r"(?<!\\)!\[([^\[\]\n]*)\]\(([^()\s]*)\)")
 
+
 def sub_link(m):
     kind, name = m.group(1), m.group(2)
-    href = f"/{SUBS[name.lower()]}/" if kind == "r" and name.lower() in SUBS else f"https://www.reddit.com/{'r' if kind == 'r' else 'user'}/{name}"
+    href = (
+        f"/{SUBS[name.lower()]}/"
+        if kind == "r" and name.lower() in SUBS
+        else f"https://www.reddit.com/{'r' if kind == 'r' else 'user'}/{name}"
+    )
     return f'<a href="{href}">{m.group(0)}</a>'
+
 
 def trim_url(u):
     while u:
-        if u[-1] in ".,;:!?~_\\" and not (u[-1] == ";" and re.search(r"&#?\w+;$", u)):
-            u = u[:-1]
-        elif u[-1] == ")" and u.count(")") > u.count("("):
+        if (u[-1] in ".,;:!?~_\\" and not (u[-1] == ";" and re.search(r"&#?\w+;$", u))) or (
+            u[-1] == ")" and u.count(")") > u.count("(")
+        ):
             u = u[:-1]
         else:
             return u
     return u
+
 
 def plain(text):
     text = SPOILER.sub(r'<span class="spoiler">\1</span>', text)
@@ -73,21 +95,23 @@ def plain(text):
         raw = trim_url(m.group(0))
         if len(raw) <= len("https://"):
             continue
-        out.append(SUB_REF.sub(sub_link, text[last:m.start()]))
+        out.append(SUB_REF.sub(sub_link, text[last : m.start()]))
         url = UNESC.sub(r"\1", raw).replace("&amp;", "&")
         out.append(raw if re.search(r"[\s<>]", url) else "<" + url + ">")
         last = m.start() + len(raw)
     out.append(SUB_REF.sub(sub_link, text[last:]))
     return "".join(out)
 
+
 def inline(text):
     out, last = [], 0
     for m in PROTECT.finditer(text):
-        out.append(plain(text[last:m.start()]))
+        out.append(plain(text[last : m.start()]))
         out.append(m.group(0))
         last = m.end()
     out.append(plain(text[last:]))
     return "".join(out)
+
 
 def code_spans(line):
     runs = [(m.start(), m.end()) for m in re.finditer(r"`+", line)]
@@ -102,8 +126,10 @@ def code_spans(line):
         i = j + 1
     return spans
 
+
 def no_attrs(ln):
     return ATTRS.sub(r"&#125;\1", ln)
+
 
 def blocks(text, fn):
     lines, fence, col, item = [], None, 0, 0
@@ -125,15 +151,18 @@ def blocks(text, fn):
             item = 0
         base = item if item and ind >= item and not im else 0
         m = OPEN.match(ln[base:])
-        if m and not (m.group(2)[0] == "`" and "`" in ln[base + m.end():]):
+        if m and not (m.group(2)[0] == "`" and "`" in ln[base + m.end() :]):
             fence = m.group(2)
             col = base + (len(m.group(1)) if ITEM.match(m.group(1)) else 0)
             lines.append(ln)
             continue
-        lines.append(ln if ln.startswith("\t") or ind - (item if item and ind >= item else 0) >= 4 else fn(ln))
+        lines.append(
+            ln if ln.startswith("\t") or ind - (item if item and ind >= item else 0) >= 4 else fn(ln)
+        )
     if fence:
         lines.append(" " * col + fence)
     return "\n".join(lines)
+
 
 def line_md(ln):
     out, last = [], 0
@@ -144,17 +173,21 @@ def line_md(ln):
     out.append(inline(ln[last:]))
     return no_attrs("".join(out))
 
+
 def reddit(text):
     return blocks(text, line_md)
+
 
 def user_md(text):
     if text.strip() in GONE:
         return text.strip().replace("[", "\\[").replace("]", "\\]")
     return unlink(reddit(esc(text)))
 
+
 def asset(mid):
     r = ASSETS.get(mid)
     return r if r and r.get("key") else None
+
 
 def media_tag(r):
     url = html.escape(f"{media.PUBLIC}/{r['key']}")
@@ -163,6 +196,7 @@ def media_tag(r):
         return f'<video controls preload="metadata" playsinline src="{url}"{size}></video>'
     return f'<a href="{url}"><img src="{url}" alt="" loading="lazy" decoding="async"{size}></a>'
 
+
 def embed(md, used, meta=None):
     def swap(mid, fallback):
         r = asset(mid)
@@ -170,6 +204,7 @@ def embed(md, used, meta=None):
             return fallback
         used.add(mid)
         return media_tag(r)
+
     def link(m):
         r = asset(m.group(4))
         text = UNESC.sub(r"\1", m.group(2)).strip()
@@ -177,25 +212,39 @@ def embed(md, used, meta=None):
             return m.group(0)
         used.add(m.group(4))
         same = re.match(r"https?://(?:i|preview)\.redd\.it/" + re.escape(m.group(4)) + r"\.", text, re.I)
-        return media_tag(r) if m.group(1) or not text or same else f"[{m.group(2)}]({media.PUBLIC}/{r['key']})"
+        return (
+            media_tag(r) if m.group(1) or not text or same else f"[{m.group(2)}]({media.PUBLIC}/{r['key']})"
+        )
+
     def ref(m):
         alt, mid = m.group(1) or "image", m.group(3)
         if m.group(2):
             return f"[{alt}](https://giphy.com/gifs/{mid})"
         it = media.from_meta(mid, (meta or {}).get(mid))
         return swap(mid, f"[{alt}]({it['src']})" if it else f"_({alt})_")
+
     def text(s):
         s = PLAYER.sub(lambda m: swap(m.group(1), m.group(0)), s)
         s = IMG_AUTO.sub(lambda m: swap(m.group(2), m.group(0)), s)
         s = MEDIA_REF.sub(ref, IMG_LINK.sub(link, s))
-        return IMAGE_MD.sub(lambda m: f"[{m.group(1) or 'image'}]({m.group(2)})" if re.match(r"https?://", m.group(2)) else f"_({m.group(1) or 'image'})_", s)
+        return IMAGE_MD.sub(
+            lambda m: (
+                f"[{m.group(1) or 'image'}]({m.group(2)})"
+                if re.match(r"https?://", m.group(2))
+                else f"_({m.group(1) or 'image'})_"
+            ),
+            s,
+        )
+
     def line(ln):
         out, last = [], 0
         for a, b in code_spans(ln):
             out += [text(ln[last:a]), ln[a:b]]
             last = b
         return "".join(out) + text(ln[last:])
+
     return blocks(md, line)
+
 
 def media_block(items):
     figs = []
@@ -205,11 +254,17 @@ def media_block(items):
         if re.fullmatch(r"https?://[^\s\"'<>]+", link):
             a = f'<a href="{html.escape(link)}" rel="nofollow noopener" target="_blank">{html.escape(link)}</a>'
             cap = f"{cap} · {a}" if cap and it.get("caption") != link else a
-        figs.append(f"<figure>{media_tag(asset(it['id']))}" + (f"<figcaption>{cap}</figcaption>" if cap else "") + "</figure>")
+        figs.append(
+            f"<figure>{media_tag(asset(it['id']))}"
+            + (f"<figcaption>{cap}</figcaption>" if cap else "")
+            + "</figure>"
+        )
     return f'<div class="media" data-pagefind-ignore>{"".join(figs)}</div>' if figs else ""
 
+
 def utc(ts):
-    return datetime.datetime.fromtimestamp(int(float(ts or 0)), datetime.timezone.utc)
+    return datetime.datetime.fromtimestamp(int(float(ts or 0)), datetime.UTC)
+
 
 def fmt_iso(ts):
     try:
@@ -217,15 +272,20 @@ def fmt_iso(ts):
     except Exception:
         return utc(0).strftime("%Y-%m-%d %H:%M:%S UTC")
 
+
 def capture_time(p):
-    return datetime.datetime.strptime(p.name.split("_", 1)[0], "%y%m%d%H%M%S").replace(tzinfo=datetime.timezone.utc)
+    return datetime.datetime.strptime(p.name.split("_", 1)[0], "%y%m%d%H%M%S").replace(tzinfo=datetime.UTC)
+
 
 def yaml_value(v):
-    return UNSAFE.sub(lambda m: "\\u%04x" % ord(m.group()), json.dumps("" if v is None else v, ensure_ascii=False))
+    return UNSAFE.sub(
+        lambda m: f"\\u{ord(m.group()):04x}", json.dumps("" if v is None else v, ensure_ascii=False)
+    )
+
 
 def load_lines(p):
     out = []
-    with open(p, "r", encoding="utf-8") as f:
+    with open(p, encoding="utf-8") as f:
         for ln in f:
             s = ln.strip()
             if not s:
@@ -235,6 +295,7 @@ def load_lines(p):
             except Exception:
                 print(f"[build] bad line in {p}", file=sys.stderr)
     return out
+
 
 def expand_replies(node):
     bag = []
@@ -246,6 +307,7 @@ def expand_replies(node):
                 bag.append(cd)
                 bag.extend(expand_replies(cd))
     return bag
+
 
 def flatten_all(rows):
     flat = []
@@ -268,12 +330,15 @@ def flatten_all(rows):
         uniq.append(r)
     return uniq
 
+
 def body_of(r):
     return (r.get("body", "") or "").strip()
+
 
 def has_text(r):
     b = body_of(r)
     return bool(b) and b not in GONE
+
 
 def merge_capture(best, flat, since=None):
     current = {}
@@ -300,6 +365,7 @@ def merge_capture(best, flat, since=None):
             stack.append(rows[pid[3:]])
     return list(rows.values())
 
+
 def build_tree(rows, link_fullname):
     ids = {"t1_" + (r.get("id", "") or "") for r in rows}
     by_parent = {}
@@ -312,14 +378,18 @@ def build_tree(rows, link_fullname):
         by_parent[k].sort(key=lambda x: (-num_score(x), -ts_of(x), x.get("id", "") or ""))
     return by_parent.get(link_fullname, []), by_parent
 
+
 def chip(s):
     return " ".join(str(s).replace("`", "").split())
+
 
 def hue(name):
     return int(hashlib.sha1(name.lower().encode()).hexdigest()[:6], 16) % 360
 
+
 def initial(name):
     return next((ch for ch in name if ch.isalnum()), "?").upper()
+
 
 def user_html(name, op=False):
     text = html.escape(name or "[deleted]")
@@ -327,18 +397,22 @@ def user_html(name, op=False):
         return f'<b class="user gone">{text}</b>'
     return f'<a class="user{" op" if op else ""}" href="/search/?user={urllib.parse.quote(name)}" style="--h:{hue(name)}" data-i="{initial(name)}" data-pagefind-filter="user">{text}</a>'
 
+
 def ts_of(r):
     try:
         return int(float(r.get("created_utc") or 0))
     except (TypeError, ValueError):
         return 0
 
+
 def num_score(r):
     s = r.get("score", r.get("ups", 0))
     return int(s) if isinstance(s, (int, float)) and not isinstance(s, bool) else 0
 
+
 def tag(text, kind=""):
     return f'<span class="tag{" " + kind if kind else ""}">{html.escape(text)}</span>'
+
 
 def score_html(r):
     s = r.get("score", r.get("ups", 0))
@@ -349,6 +423,7 @@ def score_html(r):
     if s < 0:
         return f'<span class="score down{hot}"><i>▼</i>{-s}</span>'
     return f'<span class="score{" up" if s else ""}{hot}"><i>▲</i>{s}</span>'
+
 
 def meta_html(r, pid):
     tags = []
@@ -375,16 +450,25 @@ def meta_html(r, pid):
         when = f'<span class="when">{when}</span>'
     return f'<div class="meta">{score_html(r)}{user_html(r.get("author", "") or "[deleted]", bool(r.get("is_submitter")))}{"".join(tags)}{when}</div>'
 
+
 def render_tree(nodes, by_parent, pid):
     out = []
     for r in nodes:
         USERS.add(r.get("author") or "")
         kids = by_parent.get("t1_" + (r.get("id", "") or ""), [])
-        body = embed(user_md(re.sub(r"(?m)^\t", "  ", r.get("body", "") or "")), set(), r.get("media_metadata") if isinstance(r.get("media_metadata"), dict) else None).strip("\n") or "_(no content)_"
+        body = (
+            embed(
+                user_md(re.sub(r"(?m)^\t", "  ", r.get("body", "") or "")),
+                set(),
+                r.get("media_metadata") if isinstance(r.get("media_metadata"), dict) else None,
+            ).strip("\n")
+            or "_(no content)_"
+        )
         out += [f'<div class="c{" folded" if kids else ""}">', "", meta_html(r, pid), "", body, ""]
         out += render_tree(kids, by_parent, pid)
         out += ["</div>", ""]
     return out
+
 
 def render_comments(d, post_id):
     caps = sorted(d.glob("*.jsonl")) if d.is_dir() else []
@@ -401,23 +485,34 @@ def render_comments(d, post_id):
     roots, by_parent = build_tree(rows, "t3_" + post_id)
     if not roots:
         return "", len(caps), 0
-    head = ['<div class="comments" data-pagefind-ignore>', "", '<div class="comments-head"><h2>Comments</h2></div>', ""]
+    head = [
+        '<div class="comments" data-pagefind-ignore>',
+        "",
+        '<div class="comments-head"><h2>Comments</h2></div>',
+        "",
+    ]
     return "\n".join(head + render_tree(roots, by_parent, post_id) + ["</div>"]), len(caps), len(rows)
+
 
 def clean_html(markup):
     s = re.sub(r"<!-- SC_O(?:FF|N) -->", "", markup)
     s = re.sub(r'^\s*<div class="md">\s*', "", s)
     return re.sub(r"\s*</div>\s*$", "", s)
 
+
 def pandoc(markup):
     s = clean_html(markup)
     if not s:
         return ""
-    return subprocess.run(["pandoc", "-f", "html", "-t", "gfm"], input=s, capture_output=True, text=True, check=True).stdout
+    return subprocess.run(
+        ["pandoc", "-f", "html", "-t", "gfm"], input=s, capture_output=True, text=True, check=True
+    ).stdout
+
 
 def post_text(d):
     s = (d.get("selftext") or "").strip()
     return bool(s) and s not in GONE
+
 
 def post_state(d):
     meta = d.get("_meta") if isinstance(d.get("_meta"), dict) else {}
@@ -430,6 +525,7 @@ def post_state(d):
         return "Deleted"
     return GONE.get((d.get("selftext") or "").strip(), "")
 
+
 def load_post(d):
     caps = []
     for f in sorted(d.glob("*.jsonl")):
@@ -437,6 +533,7 @@ def load_post(d):
         if rows and isinstance(rows[0], dict):
             caps.append((f, rows[0]))
     return caps
+
 
 def render_post(sub, d):
     caps = load_post(d)
@@ -450,18 +547,27 @@ def render_post(sub, d):
     markup = best.get("selftext_html")
     body = unlink(blocks(pandoc(markup), no_attrs)) if markup else user_md(best.get("selftext") or "")
     used = set()
-    body = embed(body, used, best.get("media_metadata") if isinstance(best.get("media_metadata"), dict) else None)
-    block = media_block([it for it in media.post_media([c[1] for c in caps]) if asset(it["id"]) and it["id"] not in used])
+    body = embed(
+        body, used, best.get("media_metadata") if isinstance(best.get("media_metadata"), dict) else None
+    )
+    block = media_block(
+        [it for it in media.post_media([c[1] for c in caps]) if asset(it["id"]) and it["id"] not in used]
+    )
     if block:
         body = f"{body.rstrip()}\n\n{block}" if best.get("is_self") and body.strip() else f"{block}\n\n{body}"
     created = int(float(best.get("created_utc") or last.get("created_utc") or 0))
     permalink = best.get("permalink") or ""
     edited = best.get("edited")
-    author = next((c[1]["author"] for c in reversed(caps) if c[1].get("author") not in (None, "", "[deleted]")), "[deleted]")
+    author = next(
+        (c[1]["author"] for c in reversed(caps) if c[1].get("author") not in (None, "", "[deleted]")),
+        "[deleted]",
+    )
     USERS.add(author)
     comments_dir = RAW / sub / "comments" / created_id
     comments, comment_caps, comment_count = render_comments(comments_dir, post_id)
-    live = next((c[1] for c in reversed(caps) if isinstance(c[1].get("ups", c[1].get("score")), (int, float))), last)
+    live = next(
+        (c[1] for c in reversed(caps) if isinstance(c[1].get("ups", c[1].get("score")), (int, float))), last
+    )
     ups, ratio = num_score(live), live.get("upvote_ratio")
     extra = {
         "author": author,
@@ -474,17 +580,23 @@ def render_post(sub, d):
         "url": best.get("url") or "",
         "domain": best.get("domain") or "",
         "outbound": outbound(best),
-        "crosspost": (best.get("crosspost_parent") or "")[3:] if ID.fullmatch((best.get("crosspost_parent") or "")[3:]) else "",
+        "crosspost": (best.get("crosspost_parent") or "")[3:]
+        if ID.fullmatch((best.get("crosspost_parent") or "")[3:])
+        else "",
         "ups": ups,
         "vote": ("up hot" if ups >= 100 else "up") if ups > 0 else "",
         "upvote_ratio": ratio,
-        "upvote_pct": f"{round(ratio * 100)}%" if isinstance(ratio, (int, float)) and not isinstance(ratio, bool) else "",
+        "upvote_pct": f"{round(ratio * 100)}%"
+        if isinstance(ratio, (int, float)) and not isinstance(ratio, bool)
+        else "",
         "num_comments": comment_count,
         "link_flair_text": best.get("link_flair_text") or "",
         "over_18": bool(best.get("over_18")),
         "is_self": bool(best.get("is_self")),
         "state": post_state(last),
-        "edited": utc(edited).strftime("%Y-%m-%d %H:%M UTC") if isinstance(edited, (int, float)) and not isinstance(edited, bool) and edited else "",
+        "edited": utc(edited).strftime("%Y-%m-%d %H:%M UTC")
+        if isinstance(edited, (int, float)) and not isinstance(edited, bool) and edited
+        else "",
         "source": "Arctic Shift" if any(k in best for k in ARCTIC_KEYS) else "Reddit API",
         "captured": capture_time(path).strftime("%Y-%m-%d %H:%M UTC"),
         "versions": len(caps),
@@ -494,18 +606,26 @@ def render_post(sub, d):
     text = (body + "\n" if body else "") + ("\n" + comments + "\n" if comments else "")
     return created, best.get("title") or created_id, extra, text
 
+
 def outbound(p):
     url = p.get("url") or ""
     if url.startswith("/r/"):
         url = "https://www.reddit.com" + url
-    if p.get("is_self") or not url.startswith(("http://", "https://")) or (p.get("domain") or "") in ("i.redd.it", "v.redd.it") or "/gallery/" in url:
+    if (
+        p.get("is_self")
+        or not url.startswith(("http://", "https://"))
+        or (p.get("domain") or "") in ("i.redd.it", "v.redd.it")
+        or "/gallery/" in url
+    ):
         return ""
     return url
+
 
 def page(title, created, extra, text):
     lines = ["---", f"title: {yaml_value(title)}", f"date: {utc(created).isoformat()}", "extra:"]
     lines += [f"  {k}: {yaml_value(v)}" for k, v in extra.items()]
-    return "\n".join(lines + ["---", "", text])
+    return "\n".join([*lines, "---", "", text])
+
 
 def neighbours(seq):
     before = cur = None
@@ -517,19 +637,23 @@ def neighbours(seq):
     if cur is not None:
         yield before, cur, None
 
+
 def label(sub):
     return "r/" + sub[2:]
+
 
 def write(p, s):
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(s.encode("utf-16", "surrogatepass").decode("utf-16", "replace"), encoding="utf-8")
+
 
 def front(fields, extra=None):
     lines = ["---"] + [f"{k}: {yaml_value(v)}" for k, v in fields.items()]
     if extra:
         lines.append("extra:")
         lines += [f"  {k}: {yaml_value(v)}" for k, v in extra.items()]
-    return "\n".join(lines + ["---", ""])
+    return "\n".join([*lines, "---", ""])
+
 
 def stats(sub, created, now):
     width = 28 * 86400
@@ -550,6 +674,7 @@ def stats(sub, created, now):
         "status": "active" if days < 7 else "quiet" if days < 30 else "archived",
         "trend": [math.ceil(p / top * 20) if top else 0 for p in points],
     }
+
 
 def build():
     if CONTENT.exists():
@@ -575,17 +700,53 @@ def build():
         counts = {}
         for c in created:
             counts[utc(c).year] = counts.get(utc(c).year, 0) + 1
-        years = [{"year": y, "count": n, "path": f"{sub}/archive/{y}/_index.md"} for y, n in sorted(counts.items(), reverse=True)]
-        write(CONTENT / sub / "_index.md", front({"title": label(sub), "sort_by": "date", "transparent": True}, {"latest_year": years[0]["year"]}))
-        write(CONTENT / sub / "archive" / "_index.md", front({"title": f"{label(sub)} Archive", "template": "archive.html", "redirect_to": f"{sub}/archive/{years[0]['year']}/"}, {"section_path": f"{sub}/_index.md", "year": 0, "years": years}))
+        years = [
+            {"year": y, "count": n, "path": f"{sub}/archive/{y}/_index.md"}
+            for y, n in sorted(counts.items(), reverse=True)
+        ]
+        write(
+            CONTENT / sub / "_index.md",
+            front(
+                {"title": label(sub), "sort_by": "date", "transparent": True},
+                {"latest_year": years[0]["year"]},
+            ),
+        )
+        write(
+            CONTENT / sub / "archive" / "_index.md",
+            front(
+                {
+                    "title": f"{label(sub)} Archive",
+                    "template": "archive.html",
+                    "redirect_to": f"{sub}/archive/{years[0]['year']}/",
+                },
+                {"section_path": f"{sub}/_index.md", "year": 0, "years": years},
+            ),
+        )
         for y in years:
-            write(CONTENT / sub / "archive" / str(y["year"]) / "_index.md", front({"title": f"{label(sub)} {y['year']}", "template": "archive.html"}, {"section_path": f"{sub}/_index.md", "year": y["year"], "years": years}))
+            write(
+                CONTENT / sub / "archive" / str(y["year"]) / "_index.md",
+                front(
+                    {"title": f"{label(sub)} {y['year']}", "template": "archive.html"},
+                    {"section_path": f"{sub}/_index.md", "year": y["year"], "years": years},
+                ),
+            )
         subs.append(stats(sub, created, now))
         print(f"[build] {sub} posts={len(created)}")
     subs.sort(key=lambda x: x["name"].lower())
-    write(CONTENT / "_index.md", front({"title": "Reddit Archive", "sort_by": "date", "template": "index.html"}, {"subs": subs}))
+    write(
+        CONTENT / "_index.md",
+        front({"title": "Reddit Archive", "sort_by": "date", "template": "index.html"}, {"subs": subs}),
+    )
     write(CONTENT / "search" / "_index.md", front({"title": "Search", "template": "search.html"}))
-    write(CONTENT / "search" / "users.json", json.dumps(sorted((u for u in USERS if u and u != "[deleted]"), key=str.lower), ensure_ascii=False, separators=(",", ":")))
+    write(
+        CONTENT / "search" / "users.json",
+        json.dumps(
+            sorted((u for u in USERS if u and u != "[deleted]"), key=str.lower),
+            ensure_ascii=False,
+            separators=(",", ":"),
+        ),
+    )
+
 
 if __name__ == "__main__":
     build()
