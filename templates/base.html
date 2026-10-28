@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     {% if config.mode != "serve" %}
@@ -17,7 +17,7 @@
     <header class="top">
         <a class="brand" href="{{ get_url(path="@/_index.md") }}">Reddit Archive<span> / 红迪档案馆</span></a>
         <form class="search" action="{{ get_url(path="@/search/_index.md") }}" method="get" role="search">
-            <input type="search" name="q" placeholder="Search posts / 搜索贴文" aria-label="Search posts" required>
+            <input type="search" name="q" placeholder="Search" aria-label="Search" required>
         </form>
         <nav class="links">
             <a href="{{ config.extra.repo }}/releases/latest" target="_blank" title="Download latest archive">Download</a>

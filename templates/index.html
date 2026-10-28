@@ -1,10 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="page-head">
-    <h1>Reddit Archive / 红迪档案馆</h1>
-    <span class="muted">{{ section.extra.subs | length }} communities · updated {{ now() | date(format="%Y-%m-%d %H:%M") }} UTC</span>
-</div>
+<h1 class="sr-only">Reddit Archive / 红迪档案馆</h1>
 <div class="sub-grid">
 {% for sub in section.extra.subs %}
     <a href="{{ sub.path | replace(from="_index.md", to="") }}" class="sub-card">
@@ -22,7 +19,7 @@
 {% endfor %}
 </div>
 
-<h2 class="sub-head">Latest posts / 最新贴文</h2>
 {% set latest_pages = section.pages[:64] %}
+{% set table_title = "Latest posts" %}
 {% include "partials/table.html" %}
 {% endblock content %}

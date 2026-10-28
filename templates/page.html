@@ -7,24 +7,20 @@
 <header class="post-head">
     <h1 class="post-title">{{ page.title }}</h1>
     <div class="byline" data-pagefind-ignore>
-        <a class="sub" href="{{ get_url(path="@/" ~ page.extra.subreddit ~ "/_index.md") }}" data-pagefind-filter="subreddit">{{ page.extra.sub_label }}</a>
-        {% if page.extra.author_initial %}<b class="user" style="--h:{{ page.extra.author_hue }}" data-i="{{ page.extra.author_initial }}">{{ page.extra.author }}</b>{% else %}<b class="user gone">{{ page.extra.author }}</b>{% endif %}
-        <time data-pagefind-meta="date">{{ page.date | date(format="%Y-%m-%d %H:%M UTC") }}</time>
-        {% if page.extra.edited %}<span>edited {{ page.extra.edited }}</span>{% endif %}
-        {% if page.extra.link_flair_text %}<span class="tag flair">{{ page.extra.link_flair_text }}</span>{% endif %}
-        {% if page.extra.state %}<span class="tag state">{{ page.extra.state }} on Reddit</span>{% endif %}
+        <span class="score {{ page.extra.vote }}" data-pagefind-meta="score:{{ page.extra.ups }}"><i>▲</i>{{ page.extra.ups }}</span>
+        {% if page.extra.author_initial %}<a class="user" href="/search/?user={{ page.extra.author | urlencode }}" style="--h:{{ page.extra.author_hue }}" data-i="{{ page.extra.author_initial }}" data-pagefind-meta="author" data-pagefind-filter="author">{{ page.extra.author }}</a>{% else %}<b class="user gone">{{ page.extra.author }}</b>{% endif %}
+        {% if page.extra.link_flair_text %}<span class="tag" data-pagefind-meta="flair">{{ page.extra.link_flair_text }}</span>{% endif %}
+        {% if page.extra.state %}<span class="tag state" data-pagefind-meta="state">{{ page.extra.state }}</span>{% endif %}
+        <a class="when" href="https://redd.it/{{ page.extra.post_id }}" target="_blank" rel="noopener" title="Open on Reddit"><time data-pagefind-meta="date" data-pagefind-sort="date">{{ page.date | date(format="%Y-%m-%d %H:%M UTC") }}</time></a>
     </div>
-    <div class="stats" data-pagefind-ignore>
-        <span class="score {{ page.extra.vote }}"><i>▲</i>{{ page.extra.ups }}</span>
+    <div class="subline" data-pagefind-ignore>
+        <a class="sub" href="{{ get_url(path="@/" ~ page.extra.subreddit ~ "/_index.md") }}" data-pagefind-filter="subreddit">{{ page.extra.sub_label }}</a>
         {% if page.extra.upvote_pct %}<span>{{ page.extra.upvote_pct }} upvoted</span>{% endif %}
         <span>{{ page.extra.num_comments }} comments</span>
-        <span class="out">
-            {% if page.extra.url and not page.extra.is_self %}<a href="{{ page.extra.url }}" target="_blank" rel="noopener">{{ page.extra.domain }} ↗</a>{% endif %}
-            <a href="https://redd.it/{{ page.extra.post_id }}" target="_blank" rel="noopener">Reddit ↗</a>
-        </span>
-    </div>
-    <div class="prov" data-pagefind-ignore>
-        Captured {{ page.extra.captured }} via {{ page.extra.source }} · {{ page.extra.versions }} capture{% if page.extra.versions > 1 %}s{% endif %} · JSON <a href="{{ config.extra.repo }}/tree/main/{{ page.extra.raw }}" target="_blank">post</a>{% if page.extra.raw_comments %} · <a href="{{ config.extra.repo }}/tree/main/{{ page.extra.raw_comments }}" target="_blank">comments</a>{% endif %}
+        {% if page.extra.edited %}<span>edited {{ page.extra.edited }}</span>{% endif %}
+        {% if page.extra.outbound %}<a href="{{ page.extra.outbound }}" target="_blank" rel="noopener">{{ page.extra.domain }} ↗</a>{% endif %}
+        {% if page.extra.crosspost %}<a href="https://redd.it/{{ page.extra.crosspost }}" target="_blank" rel="noopener">crosspost ↗</a>{% endif %}
+        <a class="prov" href="{{ config.extra.repo }}/tree/main/{{ page.extra.raw }}" target="_blank" rel="noopener" title="Raw capture">archived {{ page.extra.captured }}</a>
     </div>
 </header>
 

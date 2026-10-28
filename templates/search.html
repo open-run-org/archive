@@ -1,14 +1,20 @@
 {% extends "base.html" %}
 
-{% block title %}Search / 搜索 | {{ config.title }}{% endblock title %}
-
-{% block head %}
-    <link rel="stylesheet" href="{{ get_url(path="pagefind/pagefind-ui.css") }}">
-    <script src="{{ get_url(path="pagefind/pagefind-ui.js") }}" defer></script>
-{% endblock head %}
+{% block title %}Search | {{ config.title }}{% endblock title %}
 
 {% block content %}
-<h1>Search / 搜索</h1>
-<p class="muted">Searches post titles and bodies. / 搜索范围为贴文标题和正文。</p>
-<div id="search"></div>
+<h1 class="sr-only">Search</h1>
+{% set home = get_section(path="_index.md") %}
+<div id="search" data-pagefind="{{ get_url(path="pagefind/pagefind.js") }}" data-users="{{ get_url(path="search/users.json") }}" data-subs="{% for s in home.extra.subs %}{{ s.label }}{% if not loop.last %},{% endif %}{% endfor %}">
+    <div class="page-head" hidden></div>
+    <div class="people" hidden></div>
+    <div class="controls">
+        <nav class="years subs" aria-label="Subreddits"></nav>
+        <div class="sort"></div>
+    </div>
+    <p class="muted status"></p>
+    <ol class="hits"></ol>
+    <button type="button" class="pill more" hidden>More</button>
+</div>
+<noscript><p class="muted">Search needs JavaScript.</p></noscript>
 {% endblock content %}

@@ -9,6 +9,7 @@ import shutil
 import subprocess
 import sys
 import time
+import urllib.parse
 
 import media
 
@@ -43,6 +44,7 @@ UNESC = re.compile(r"\\([!-/:-@\[-`{-~])")
 PROTECT = re.compile(r"!?\[(?:[^\[\]\\]|\\.|\[(?:[^\[\]\\]|\\.)*\])*\](?:\((?:[^()\s\\]|\\.|\((?:[^()\\]|\\.)*\))*(?:\s+(?:\"[^\"]*\"|'[^']*'))?\s*\)|\[(?:[^\[\]\\]|\\.)*\])|<https?://[^<>\s]*>|^\s*\[[^\]]+\]:.*$")
 SUBS = {}
 ASSETS = {}
+USERS = set()
 IMG_AUTO = re.compile(r"<(https?://(?:i|preview)\.redd\.it/([a-z0-9]+)\.(?:jpe?g|png|gif|webp)(?:[?#][^<>\s]*)?)>", re.I)
 IMG_LINK = re.compile(r"(!?)\[((?:[^\[\]\n\\]|\\.)*)\]\((https?://(?:i|preview)\.redd\.it/([a-z0-9]+)\.(?:jpe?g|png|gif|webp)(?:[?#][^()\s]*)?)\)", re.I)
 PLAYER = re.compile(r"<https?://(?:www\.)?reddit\.com/link/[a-z0-9]+/video/([a-z0-9]+)/player/?>", re.I)
@@ -323,7 +325,7 @@ def user_html(name, op=False):
     text = html.escape(name or "[deleted]")
     if name in ("", "[deleted]"):
         return f'<b class="user gone">{text}</b>'
-    return f'<b class="user{" op" if op else ""}" style="--h:{hue(name)}" data-i="{initial(name)}">{text}</b>'
+    return f'<a class="user{" op" if op else ""}" href="/search/?user={urllib.parse.quote(name)}" style="--h:{hue(name)}" data-i="{initial(name)}" data-pagefind-filter="user">{text}</a>'
 
 def ts_of(r):
     try:
@@ -360,11 +362,11 @@ def meta_html(r, pid):
         tags.append(tag("Stickied"))
     if r.get("locked"):
         tags.append(tag("Locked"))
-    if r.get("archive_state"):
-        tags.append(tag(r["archive_state"], "state"))
     flair = chip(r.get("author_flair_text", "") or "")
     if flair:
         tags.append(tag(flair, "flair"))
+    if r.get("archive_state"):
+        tags.append(tag(r["archive_state"], "state"))
     cid = r.get("id", "") or ""
     when = utc(ts_of(r)).strftime("%Y-%m-%d %H:%M UTC")
     if ID.fullmatch(cid) and ID.fullmatch(pid):
@@ -376,6 +378,7 @@ def meta_html(r, pid):
 def render_tree(nodes, by_parent, pid):
     out = []
     for r in nodes:
+        USERS.add(r.get("author") or "")
         kids = by_parent.get("t1_" + (r.get("id", "") or ""), [])
         body = embed(user_md(re.sub(r"(?m)^\t", "  ", r.get("body", "") or "")), set(), r.get("media_metadata") if isinstance(r.get("media_metadata"), dict) else None).strip("\n") or "_(no content)_"
         out += [f'<div class="c{" folded" if kids else ""}">', "", meta_html(r, pid), "", body, ""]
@@ -386,7 +389,7 @@ def render_tree(nodes, by_parent, pid):
 def render_comments(d, post_id):
     caps = sorted(d.glob("*.jsonl")) if d.is_dir() else []
     if not caps:
-        return "", 0
+        return "", 0, 0
     loaded = [flatten_all(load_lines(f)) for f in caps]
     live = [i for i, flat in enumerate(loaded) if flat and not any(k in flat[0] for k in ARCTIC_KEYS)]
     last = live[-1] if live else len(loaded) - 1
@@ -397,9 +400,9 @@ def render_comments(d, post_id):
     rows = merge_capture(best, loaded[last], capture_time(caps[last]).timestamp() if live else None)
     roots, by_parent = build_tree(rows, "t3_" + post_id)
     if not roots:
-        return "", len(caps)
-    head = ['<div class="comments" data-pagefind-ignore>', "", f'<div class="comments-head"><h2>Comments / 评论 · {len(rows)}</h2></div>', ""]
-    return "\n".join(head + render_tree(roots, by_parent, post_id) + ["</div>"]), len(caps)
+        return "", len(caps), 0
+    head = ['<div class="comments" data-pagefind-ignore>', "", '<div class="comments-head"><h2>Comments</h2></div>', ""]
+    return "\n".join(head + render_tree(roots, by_parent, post_id) + ["</div>"]), len(caps), len(rows)
 
 def clean_html(markup):
     s = re.sub(r"<!-- SC_O(?:FF|N) -->", "", markup)
@@ -455,8 +458,11 @@ def render_post(sub, d):
     permalink = best.get("permalink") or ""
     edited = best.get("edited")
     author = next((c[1]["author"] for c in reversed(caps) if c[1].get("author") not in (None, "", "[deleted]")), "[deleted]")
+    USERS.add(author)
     comments_dir = RAW / sub / "comments" / created_id
-    comments, comment_caps = render_comments(comments_dir, post_id)
+    comments, comment_caps, comment_count = render_comments(comments_dir, post_id)
+    live = next((c[1] for c in reversed(caps) if isinstance(c[1].get("ups", c[1].get("score")), (int, float))), last)
+    ups, ratio = num_score(live), live.get("upvote_ratio")
     extra = {
         "author": author,
         "author_hue": hue(author) if author != "[deleted]" else 0,
@@ -467,24 +473,34 @@ def render_post(sub, d):
         "permalink": f"https://reddit.com{permalink}" if permalink else "",
         "url": best.get("url") or "",
         "domain": best.get("domain") or "",
-        "ups": best.get("ups", best.get("score", 0)),
-        "vote": ("up hot" if num_score(best) >= 100 else "up") if num_score(best) > 0 else "",
-        "upvote_ratio": best.get("upvote_ratio"),
-        "upvote_pct": f"{round(best['upvote_ratio'] * 100)}%" if isinstance(best.get("upvote_ratio"), (int, float)) else "",
-        "num_comments": best.get("num_comments", 0),
+        "outbound": outbound(best),
+        "crosspost": (best.get("crosspost_parent") or "")[3:] if ID.fullmatch((best.get("crosspost_parent") or "")[3:]) else "",
+        "ups": ups,
+        "vote": ("up hot" if ups >= 100 else "up") if ups > 0 else "",
+        "upvote_ratio": ratio,
+        "upvote_pct": f"{round(ratio * 100)}%" if isinstance(ratio, (int, float)) and not isinstance(ratio, bool) else "",
+        "num_comments": comment_count,
         "link_flair_text": best.get("link_flair_text") or "",
         "over_18": bool(best.get("over_18")),
         "is_self": bool(best.get("is_self")),
         "state": post_state(last),
-        "edited": fmt_iso(edited) if isinstance(edited, (int, float)) and not isinstance(edited, bool) and edited else "",
+        "edited": utc(edited).strftime("%Y-%m-%d %H:%M UTC") if isinstance(edited, (int, float)) and not isinstance(edited, bool) and edited else "",
         "source": "Arctic Shift" if any(k in best for k in ARCTIC_KEYS) else "Reddit API",
-        "captured": capture_time(path).strftime("%Y-%m-%d %H:%M:%S UTC"),
+        "captured": capture_time(path).strftime("%Y-%m-%d %H:%M UTC"),
         "versions": len(caps),
         "raw": f"data/raw/{d.relative_to(RAW).as_posix()}",
         "raw_comments": f"data/raw/{comments_dir.relative_to(RAW).as_posix()}" if comment_caps else "",
     }
     text = (body + "\n" if body else "") + ("\n" + comments + "\n" if comments else "")
     return created, best.get("title") or created_id, extra, text
+
+def outbound(p):
+    url = p.get("url") or ""
+    if url.startswith("/r/"):
+        url = "https://www.reddit.com" + url
+    if p.get("is_self") or not url.startswith(("http://", "https://")) or (p.get("domain") or "") in ("i.redd.it", "v.redd.it") or "/gallery/" in url:
+        return ""
+    return url
 
 def page(title, created, extra, text):
     lines = ["---", f"title: {yaml_value(title)}", f"date: {utc(created).isoformat()}", "extra:"]
@@ -556,19 +572,20 @@ def build():
             write(CONTENT / sub / f"{name}.md", page(title, ts, extra, text))
         if not created:
             continue
-        write(CONTENT / sub / "_index.md", front({"title": label(sub), "sort_by": "date", "transparent": True}))
         counts = {}
         for c in created:
             counts[utc(c).year] = counts.get(utc(c).year, 0) + 1
         years = [{"year": y, "count": n, "path": f"{sub}/archive/{y}/_index.md"} for y, n in sorted(counts.items(), reverse=True)]
-        write(CONTENT / sub / "archive" / "_index.md", front({"title": f"{label(sub)} Archive", "template": "archive.html"}, {"section_path": f"{sub}/_index.md", "year": 0, "years": years}))
+        write(CONTENT / sub / "_index.md", front({"title": label(sub), "sort_by": "date", "transparent": True}, {"latest_year": years[0]["year"]}))
+        write(CONTENT / sub / "archive" / "_index.md", front({"title": f"{label(sub)} Archive", "template": "archive.html", "redirect_to": f"{sub}/archive/{years[0]['year']}/"}, {"section_path": f"{sub}/_index.md", "year": 0, "years": years}))
         for y in years:
             write(CONTENT / sub / "archive" / str(y["year"]) / "_index.md", front({"title": f"{label(sub)} {y['year']}", "template": "archive.html"}, {"section_path": f"{sub}/_index.md", "year": y["year"], "years": years}))
         subs.append(stats(sub, created, now))
         print(f"[build] {sub} posts={len(created)}")
     subs.sort(key=lambda x: x["name"].lower())
     write(CONTENT / "_index.md", front({"title": "Reddit Archive", "sort_by": "date", "template": "index.html"}, {"subs": subs}))
-    write(CONTENT / "search" / "_index.md", front({"title": "Search / 搜索", "template": "search.html"}))
+    write(CONTENT / "search" / "_index.md", front({"title": "Search", "template": "search.html"}))
+    write(CONTENT / "search" / "users.json", json.dumps(sorted((u for u in USERS if u and u != "[deleted]"), key=str.lower), ensure_ascii=False, separators=(",", ":")))
 
 if __name__ == "__main__":
     build()

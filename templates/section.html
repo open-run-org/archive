@@ -5,9 +5,9 @@
 {% block content %}
 <div class="page-head">
     <h1>{{ section.title }}</h1>
-    <a class="pill" href="archive/">Full archive / 完整档案 →</a>
+    <a class="pill" href="archive/{{ section.extra.latest_year }}/">Full archive →</a>
 </div>
-<h2 class="sub-head">Latest posts / 最新贴文</h2>
 {% set latest_pages = section.pages[:64] %}
+{% set table_title = "Latest posts" %}
 {% include "partials/table.html" %}
 {% endblock content %}

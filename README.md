@@ -40,7 +40,7 @@
 
 >[链接见此](https://archive.open-run.org/r_runtoJapan/240826203938-1f1ynlk)
 
-包括评论也是都有保存的。每个页面都标了抓取时间和来源，并链接到 `data/raw` 里的原始 JSON，可以自己核对。
+包括评论也是都有保存的。每个页面都标了抓取时间，点开就是 `data/raw` 里的原始 JSON，可以自己核对。
 
 贴文和评论里的图片和视频会另存到 `assets.open-run.org`，清单在 `data/media`。抓到之前就被删掉的媒体是补不回来的。
 

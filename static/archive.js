@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 fold.textContent = open ? "−" : "+" + n;
                 fold.setAttribute("aria-expanded", String(open));
                 fold.setAttribute("aria-label", open ? "Collapse replies" : `Show ${n} replies`);
-                fold.title = open ? "Collapse / 折叠" : `${n} replies / ${n} 条回复`;
+                fold.title = open ? "Collapse" : `${n} ${n > 1 ? "replies" : "reply"}`;
             };
             fold.addEventListener("click", () => set(c.classList.contains("folded")));
             set(false);
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 for (const b of modes) b.setAttribute("aria-pressed", String(b.dataset.mode === mode));
             };
-            for (const [mode, label] of [["top", "Top / 最热"], ["new", "New / 最新"]]) {
+            for (const [mode, label] of [["top", "Top"], ["new", "New"]]) {
                 const b = document.createElement("button");
                 b.type = "button";
                 b.dataset.mode = mode;
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const toggle = document.createElement("button");
                 toggle.type = "button";
                 toggle.className = "all";
-                const label = () => { toggle.textContent = open ? "Collapse all / 全部折叠" : "Expand all / 全部展开"; };
+                const label = () => { toggle.textContent = open ? "Collapse all" : "Expand all"; };
                 toggle.addEventListener("click", () => {
                     open = !open;
                     setters.forEach(set => set(open));
@@ -104,9 +104,158 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const search = document.getElementById("search");
-    if (search && window.PagefindUI) {
-        const ui = new PagefindUI({ element: "#search", showSubResults: false, showImages: false });
-        const q = new URLSearchParams(location.search).get("q");
-        if (q) ui.triggerSearch(q);
-    }
+    if (search) runSearch(search);
 });
+
+const el = (tag, cls, text) => {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+};
+
+const hueOf = async name => {
+    const b = new Uint8Array(await crypto.subtle.digest("SHA-1", new TextEncoder().encode(name.toLowerCase())));
+    return ((b[0] << 16) | (b[1] << 8) | b[2]) % 360;
+};
+
+const userLink = async name => {
+    const a = el("a", "user", name);
+    a.href = "/search/?user=" + encodeURIComponent(name);
+    a.style.setProperty("--h", await hueOf(name));
+    a.dataset.i = (name.match(/[A-Za-z0-9]/) || ["?"])[0].toUpperCase();
+    return a;
+};
+
+async function runSearch(root) {
+    const params = new URLSearchParams(location.search);
+    const q = (params.get("q") || "").trim();
+    const user = (params.get("user") || "").trim();
+    let sub = params.get("sub") || "";
+    let mode = params.get("sort") || (q ? "top" : "new");
+    const input = document.querySelector(".search input");
+    if (input && q) input.value = q;
+    const head = root.querySelector(".page-head");
+    const subs = root.querySelector(".subs");
+    const sorter = root.querySelector(".sort");
+    const status = root.querySelector(".status");
+    const list = root.querySelector(".hits");
+    const more = root.querySelector(".more");
+    if (!q && !user) {
+        status.textContent = "Search posts and users.";
+        return;
+    }
+    if (q.length >= 3 && /[A-Za-z0-9]/.test(q)) {
+        const names = await fetch(root.dataset.users).then(r => r.json()).catch(() => []);
+        const key = q.toLowerCase().replace(/^\/?u\//, "");
+        const rank = n => {
+            const l = n.toLowerCase();
+            return l === key ? 0 : l.startsWith(key) ? 1 : l.includes(key) ? 2 : 3;
+        };
+        const hits = names.map(n => [rank(n), n]).filter(([r]) => r < 3).sort((a, b) => a[0] - b[0] || a[1].length - b[1].length).slice(0, 12);
+        const people = root.querySelector(".people");
+        for (const [, n] of hits) people.appendChild(await userLink(n));
+        people.hidden = !hits.length;
+    }
+    if (user) {
+        const h1 = el("h1");
+        h1.appendChild(await userLink(user));
+        const out = el("a", "pill", "Reddit ↗");
+        out.href = "https://www.reddit.com/user/" + encodeURIComponent(user);
+        out.target = "_blank";
+        out.rel = "noopener";
+        head.append(h1, out);
+        head.hidden = false;
+    }
+    const pagefind = await import(root.dataset.pagefind);
+    await pagefind.options({ excerptLength: 30 });
+    const base = {};
+    if (user) base.any = [{ author: user }, { user: user }];
+    let results = [], shown = 0;
+    const sync = () => {
+        const p = new URLSearchParams();
+        if (q) p.set("q", q);
+        if (user) p.set("user", user);
+        if (sub) p.set("sub", sub);
+        if (q && mode !== "top") p.set("sort", mode);
+        history.replaceState(null, "", "?" + p.toString());
+    };
+    const page = async () => {
+        const batch = await Promise.all(results.slice(shown, shown + 20).map(r => r.data()));
+        for (const d of batch) list.appendChild(await hit(d));
+        shown += batch.length;
+        more.hidden = shown >= results.length;
+    };
+    const hit = async d => {
+        const li = el("li", "hit");
+        const t = el("a", "t", d.meta.title || d.url);
+        t.href = d.url;
+        const meta = el("div", "meta");
+        const n = parseInt(d.meta.score, 10);
+        if (!Number.isNaN(n)) {
+            const s = el("span", "score" + (n > 0 ? " up" : n < 0 ? " down" : ""));
+            s.append(el("i", "", n < 0 ? "▼" : "▲"), String(Math.abs(n)));
+            meta.appendChild(s);
+        }
+        const author = d.meta.author;
+        if (author && author !== "[deleted]") meta.appendChild(await userLink(author));
+        else meta.appendChild(el("b", "user gone", "[deleted]"));
+        const label = (d.filters.subreddit || [])[0];
+        if (label) {
+            const a = el("a", "tag", label);
+            a.href = "/r_" + label.slice(2) + "/";
+            meta.appendChild(a);
+        }
+        if (user) meta.appendChild(el("span", "tag" + (author === user ? " op" : ""), author === user ? "OP" : "commented"));
+        if (d.meta.flair) meta.appendChild(el("span", "tag", d.meta.flair));
+        if (d.meta.state) meta.appendChild(el("span", "tag state", d.meta.state));
+        if (d.meta.date) meta.appendChild(el("span", "when", d.meta.date.slice(0, 10)));
+        li.append(t, meta);
+        if (q && d.excerpt) {
+            const ex = el("p", "excerpt");
+            ex.innerHTML = d.excerpt.replace(/<(?!\/?mark>)/g, "&lt;");
+            li.appendChild(ex);
+        }
+        return li;
+    };
+    const run = async () => {
+        sync();
+        const sort = mode === "new" ? { date: "desc" } : undefined;
+        const all = await pagefind.search(q || null, { filters: { ...base, subreddit: { any: root.dataset.subs.split(",") } }, sort });
+        const res = sub ? await pagefind.search(q || null, { filters: { ...base, subreddit: sub }, sort }) : all;
+        results = res ? res.results : [];
+        const counts = (all && all.filters && all.filters.subreddit) || {};
+        subs.replaceChildren();
+        const total = all ? all.results.length : 0;
+        for (const [name, count] of [["", total], ...Object.entries(counts).filter(([, c]) => c > 0).sort((a, b) => b[1] - a[1])]) {
+            const a = el("a", sub === name ? "current" : "");
+            a.href = "#";
+            a.append(name || "All", " ", el("span", "muted", count.toLocaleString("en")));
+            a.addEventListener("click", e => {
+                e.preventDefault();
+                sub = name;
+                run();
+            });
+            subs.appendChild(a);
+        }
+        status.textContent = results.length ? "" : "No posts.";
+        list.replaceChildren();
+        shown = 0;
+        await page();
+    };
+    if (q) {
+        for (const [m, label] of [["top", "Relevance"], ["new", "New"]]) {
+            const b = el("button", "", label);
+            b.type = "button";
+            b.addEventListener("click", () => {
+                mode = m;
+                for (const x of sorter.children) x.setAttribute("aria-pressed", String(x === b));
+                run();
+            });
+            b.setAttribute("aria-pressed", String(m === mode));
+            sorter.appendChild(b);
+        }
+    }
+    more.addEventListener("click", page);
+    await run();
+}
