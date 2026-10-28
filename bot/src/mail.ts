@@ -120,12 +120,12 @@ export const fresh = (text: string) => {
 
 const html = (s: string) => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c] ?? c);
 
-export type Ref = { n: number; kind: string; title: string; link: string; author: string; date: string; state: string };
+export type Ref = { n: number; kind: string; title: string; link: string; author: string; date: string; state: string; sub?: string };
 
 const markup = (text: string, refs: Ref[]) => {
     const inline = (raw: string) => {
         const urls: string[] = [];
-        const s = raw.replace(/https?:\/\/[A-Za-z0-9\-._~:/?#@!$&'()+,;=%]+/g, u => {
+        const s = raw.replace(/`([^`\n]+)`/g, "$1").replace(/https?:\/\/[A-Za-z0-9\-._~:/?#@!$&'()+,;=%]+/g, u => {
             let url = u.replace(/[.,;:!?']+$/, "");
             while (url.endsWith(")") && (url.match(/\)/g) ?? []).length > (url.match(/\(/g) ?? []).length) url = url.slice(0, -1);
             urls.push(url);

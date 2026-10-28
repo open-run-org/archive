@@ -8,7 +8,10 @@ import { generate, write } from "./gemini";
 import { charge } from "./ledger";
 import type { Footer, Mailbox, Ref, Signature } from "./mail";
 import type { Money, Person, Standing } from "./money";
-import { markdown, pdf, tex } from "./paper";
+import { type Doc, markdown, pdf, tex } from "./paper";
+
+type Meta = Omit<Doc, "name" | "edition" | "text" | "refs" | "thanks">;
+
 import * as reddit from "./reddit";
 
 const DAY = 86400000;
@@ -23,7 +26,7 @@ const LIMIT: Record<Kind, number> = { weekly: 4096, daily: 2048 };
 const MODEL: Record<Kind, string> = { weekly: process.env.MODEL_WEEKLY || "gemini-4-argon", daily: process.env.MODEL_DAILY || MODELS.main };
 
 const CONDENSE = (n: number) =>
-    `Shorten this issue of a digest to at most ${n} Chinese characters. Keep its structure and its most important points. Keep at most two [S#] citations per statement, the strongest ones. Same language. Return only the shortened issue.`;
+    `Shorten this issue of a digest to at most ${n} Chinese characters. Keep its structure and its most important points. Keep at most two [S#] citations per statement, the strongest ones, and keep the final 关键词 line. Same language. Return only the shortened issue.`;
 
 const SYSTEM = (
     kind: Kind,
@@ -42,12 +45,13 @@ Form:
 - Length: ${LENGTH[kind]}. Use the room only when the period has that much worth saying.
 - Put the source id right after each statement it supports, like [S3] or [S2][S5]: the one or two strongest sources, not every source. Never invent facts, numbers, names or quotes.
 - Never put u/ before a username. No title line, no greeting, no sign-off and no reference list; they are added automatically.
+- End with one more line: 关键词： followed by three to five keywords separated by "；".
 
 Editorial notes learned from readers' feedback. Follow them unless they conflict with the rules above:
 ${notes}`;
 
 const RESEARCH = (kind: Kind) =>
-    `This is an issue of ${NAME[kind]}. Widen it into a big-picture report. Use the communities' concerns and lines of thought in the draft as leads and research the wider context of the period: policy and law in destination countries, China's economy, politics and society, global events, data and statistics, and how experts and other communities see the same questions. Prefer primary sources and several kinds of sources, in the relevant languages, and go several rounds deep. Rewrite the issue so that the communities' reasoning and the wider context explain each other. Keep the length limit of ${LENGTH[kind]}.`;
+    `This is an issue of ${NAME[kind]}. Widen it into a big-picture report. Use the communities' concerns and lines of thought in the draft as leads and research the wider context of the period: policy and law in destination countries, China's economy, politics and society, global events, data and statistics, and how experts and other communities see the same questions. Prefer primary sources and several kinds of sources, in the relevant languages, and go several rounds deep. Rewrite the issue so that the communities' reasoning and the wider context explain each other. Keep the length limit of ${LENGTH[kind]}, and keep the final 关键词 line, updated to the final text.`;
 
 const PERSONAL = `You adapt one issue of a digest for a single reader who is a member. You get the issue, which cites sources as [S3] and so on, and what the reader recently asked or told you.
 - Keep the issue's content, structure and citations; reorder or trim so what matters to this reader comes first.
@@ -149,6 +153,9 @@ export class Desk {
         this.db = new Database(join(dir, "chats.db"), { create: true });
         this.db.exec("pragma journal_mode = wal; pragma busy_timeout = 5000;");
         this.db.exec(SCHEMA);
+        try {
+            this.db.exec("alter table digests add column meta text");
+        } catch {}
         this.paths = { notes: join(dir, "digest-notes.md"), history: join(dir, "digest-notes"), feedback: join(dir, "digest-feedback.jsonl") };
         mkdirSync(this.paths.history, { recursive: true });
         if (!existsSync(this.paths.notes)) writeFileSync(this.paths.notes, SEED);
@@ -160,17 +167,19 @@ export class Desk {
 
     private papers = new Map<string, Promise<Uint8Array | null>>();
 
-    async attachments(kind: Kind, edition: string, view: { text: string; refs: Ref[] }) {
+    async attachments(kind: Kind, edition: string, view: { text: string; refs: Ref[] }, meta: Meta = {}) {
         if (process.env.DIGEST_PAPER !== "1") return [];
-        const doc = { name: NAME[kind], edition, text: view.text, refs: view.refs, thanks: this.thanks(kind) || undefined };
+        const doc: Doc = { name: NAME[kind], edition, text: view.text, refs: view.refs, thanks: this.thanks(kind) || undefined, ...meta };
         const out: { filename: string; content: Uint8Array | string; contentType: string }[] = [
-            { filename: `${NAME[kind]}-${edition}.md`, content: markdown(doc), contentType: "text/markdown; charset=utf-8" },
+            { filename: `${NAME[kind]}-${edition}.md`, content: await markdown(doc), contentType: "text/markdown; charset=utf-8" },
         ];
         if (kind !== "weekly") return out;
-        const key = createHash("sha1").update(view.text).digest("hex");
+        const key = createHash("sha1")
+            .update(`${view.text}\n${JSON.stringify(meta)}`)
+            .digest("hex");
         let job = this.papers.get(key);
         if (!job) {
-            job = pdf(tex(doc)).catch(e => {
+            job = (async () => pdf(await tex(doc)))().catch(e => {
                 this.o.log({ digest: kind, pdf: (e instanceof Error ? e.message : String(e)).slice(0, 400) });
                 this.papers.delete(key);
                 return null;
@@ -211,9 +220,9 @@ export class Desk {
         if (kind === "daily" && !s) return "日报仅限会员。";
         const row = (this.db
             .query(
-                "select title, text, refs from digests where kind = ? and edition = ? and (recipient = ? or recipient is null) order by recipient is null, at desc limit 1",
+                "select title, text, refs, meta from digests where kind = ? and edition = ? and (recipient = ? or recipient is null) order by recipient is null, at desc limit 1",
             )
-            .get(kind, edition, email) ?? null) as { title: string; text: string; refs: string | null } | null;
+            .get(kind, edition, email) ?? null) as { title: string; text: string; refs: string | null; meta: string | null } | null;
         if (!row) return `没有 ${edition} 这一期${NAME[kind]}。回复 "${kind} list" 查看往期。`;
         const view = { text: row.text, refs: row.refs ? (JSON.parse(row.refs) as Ref[]) : [] };
         await this.o.mailbox?.post(email, {
@@ -223,7 +232,7 @@ export class Desk {
             refs: view.refs,
             footer: this.footer(kind, { member: Boolean(s) }).mail,
             sig: this.o.status(email),
-            files: await this.attachments(kind, edition, view),
+            files: await this.attachments(kind, edition, view, row.meta ? (JSON.parse(row.meta) as Meta) : {}),
         });
         return null;
     }
@@ -254,10 +263,11 @@ export class Desk {
         url?: string;
         status: string;
         error?: string;
+        meta?: Meta;
     }) {
         this.db
             .query(
-                "insert into digests (at, kind, edition, recipient, title, text, markdown, refs, post, url, status, error) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                "insert into digests (at, kind, edition, recipient, title, text, markdown, refs, post, url, status, error, meta) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
             )
             .run(
                 Date.now(),
@@ -272,6 +282,7 @@ export class Desk {
                 r.url ?? null,
                 r.status,
                 r.error ?? null,
+                r.meta ? JSON.stringify(r.meta) : null,
             );
     }
 
@@ -402,10 +413,11 @@ export class Desk {
                 .join("\n\n"),
             posts: now.length,
             newest,
+            from,
         };
     }
 
-    async edition(kind: Kind): Promise<{ a: Answer; posts: number; edition: string }> {
+    async edition(kind: Kind): Promise<{ a: Answer; posts: number; edition: string; meta: Meta }> {
         const reg = new Registry();
         const m = await this.material(kind, reg);
         const edition = day(Date.now());
@@ -422,10 +434,15 @@ export class Desk {
             return draft;
         });
         const size = full.text.replace(/\[\s*S\d+\s*\]/g, "").length;
-        if (size <= LIMIT[kind]) return { a: full, posts: m.posts, edition };
-        const text = await write(MODELS.main, { system: CONDENSE(LIMIT[kind]), prompt: full.text, thinking: "low" }).catch(() => full.text);
-        this.o.log({ digest: kind, condensed: [size, text.replace(/\[\s*S\d+\s*\]/g, "").length] });
-        return { a: { ...full, text }, posts: m.posts, edition };
+        let text = full.text;
+        if (size > LIMIT[kind]) {
+            text = await write(MODELS.main, { system: CONDENSE(LIMIT[kind]), prompt: full.text, thinking: "low" }).catch(() => full.text);
+            this.o.log({ digest: kind, condensed: [size, text.replace(/\[\s*S\d+\s*\]/g, "").length] });
+        }
+        const found = text.match(/\n\s*\**关键词\**\s*[:：]\s*(.+?)\s*$/);
+        const keywords = found?.[1]?.replace(/[;；,，、]\s*/g, "；").replace(/[。.]$/, "");
+        if (found) text = text.slice(0, found.index).trim();
+        return { a: { ...full, text }, posts: m.posts, edition, meta: { keywords, from: iso(m.from).slice(0, 10), to: iso(m.newest).slice(0, 10) } };
     }
 
     private thanks(kind: Kind) {
@@ -451,15 +468,17 @@ export class Desk {
     }
 
     async preview(kind: Kind, o: { member?: Standing } = {}) {
-        const { a, posts, edition } = await charge(kind, () => this.edition(kind));
+        const { a, posts, edition, meta } = await charge(kind, () => this.edition(kind));
         const own = o.member ? await this.personal(a, o.member) : a;
         return {
             title: `${NAME[kind]} · ${edition}`,
+            edition,
             posts,
             markdown: forReddit(a, this.footer(kind).md),
             shared: site(a),
             own: site(own),
             footer: this.footer(kind, { member: Boolean(o.member) }).mail,
+            meta,
         };
     }
 
@@ -481,7 +500,16 @@ export class Desk {
             kind === "weekly" ? [...this.o.money.readers("weekly"), ...this.o.money.readers("daily").filter(p => !p.weekly)] : this.o.money.readers("daily");
         const readers = people.map(p => ({ p, s: this.o.money.standing(p.email) })).filter(x => kind === "weekly" || x.s);
         if (kind === "daily" && (!readers.length || !this.o.mail || o.dry)) return { kind, skipped: readers.length ? "mail off" : "no readers" };
-        const { a, posts, edition } = await charge(kind, () => this.edition(kind));
+        const { a, posts, edition, meta } = await charge(kind, () => this.edition(kind));
+        const before = (year: boolean) =>
+            (
+                this.db
+                    .query(
+                        `select count(distinct edition) n from digests where kind = ? and recipient is null and edition < ?${year ? " and substr(edition, 1, 4) = ?" : ""}`,
+                    )
+                    .get(...(year ? [kind, edition, edition.slice(0, 4)] : [kind, edition])) as { n: number }
+            ).n;
+        Object.assign(meta, { number: before(true) + 1, total: before(false) + 1 });
         const title = `${NAME[kind]} · ${edition}`;
         const shown = site(a);
         const result: Record<string, unknown> = { kind, edition, posts, chars: shown.text.length, refs: shown.refs.length };
@@ -495,15 +523,16 @@ export class Desk {
                 try {
                     ({ name: post, url } = await reddit.submit(`u_${this.o.bot}`, title, markdown));
                     status = "posted";
+                    if (post) meta.link = `https://redd.it/${post.slice(3)}`;
                 } catch (e) {
                     status = "failed";
                     error = e instanceof Error ? e.message : String(e);
                 }
             }
-            if (!o.dry) this.save({ kind, edition, title, text: shown.text, markdown, refs: shown.refs, post, url, status, error });
+            if (!o.dry) this.save({ kind, edition, title, text: shown.text, markdown, refs: shown.refs, post, url, status, error, meta });
             Object.assign(result, { status, url, error });
         } else {
-            if (!o.dry) this.save({ kind, edition, title, text: shown.text, refs: shown.refs, status: "draft" });
+            if (!o.dry) this.save({ kind, edition, title, text: shown.text, refs: shown.refs, status: "draft", meta });
         }
         const send = this.o.mail && !o.dry && mailbox;
         let sent = 0;
@@ -522,9 +551,10 @@ export class Desk {
                         footer: this.footer(kind, { member: Boolean(s) }).mail,
                         list: { url: link, command: `${kind} off` },
                         sig: this.o.status(p.email),
-                        files: await this.attachments(kind, edition, view),
+                        files: await this.attachments(kind, edition, view, meta),
                     });
-                if (s && !o.dry) this.save({ kind, edition, recipient: p.email, title, text: view.text, refs: view.refs, status: send ? "sent" : "draft" });
+                if (s && !o.dry)
+                    this.save({ kind, edition, recipient: p.email, title, text: view.text, refs: view.refs, status: send ? "sent" : "draft", meta });
                 sent += send ? 1 : 0;
             } catch (e) {
                 failed += 1;

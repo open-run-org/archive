@@ -895,6 +895,8 @@ if (preview) {
     writeFileSync(join(out, `${preview}.md`), `${p.title}\n\n${p.markdown}\n`);
     writeFileSync(join(out, `${preview}.html`), `<!doctype html><meta charset="utf-8"><title>${p.title}</title><h2>${p.title}</h2>${mail.html}`);
     writeFileSync(join(out, `${preview}.txt`), `${p.title}\n\n${mail.text}\n`);
+    writeFileSync(join(out, `${preview}.doc.json`), JSON.stringify({ edition: p.edition, view: p.shared, meta: p.meta }));
+    for (const f of await desk.attachments(preview, p.edition, p.shared, { ...p.meta, number: 1, total: 1 })) writeFileSync(join(out, f.filename), f.content);
     console.log(JSON.stringify({ title: p.title, posts: p.posts, chars: p.own.text.length, refs: p.own.refs.length, spend: ledger.report(Date.now() - HOUR) }));
 } else if (flag("--about")) {
     console.log(about());
