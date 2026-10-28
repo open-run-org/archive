@@ -1,4 +1,5 @@
 import datetime
+import hashlib
 import html
 import json
 import math
@@ -311,8 +312,19 @@ def build_tree(rows, link_fullname):
 def chip(s):
     return " ".join(str(s).replace("`", "").split())
 
+def hue(name):
+    return int(hashlib.sha1(name.lower().encode()).hexdigest()[:6], 16) % 360
+
+def initial(name):
+    return next((ch for ch in name if ch.isalnum()), "?").upper()
+
+def user_html(name, op=False):
+    text = re.sub(r"([\\`*_\[\]])", r"\\\1", html.escape(name or "[deleted]"))
+    if name in ("", "[deleted]"):
+        return f'<span class="user gone">{text}</span>'
+    return f'<span class="user{" op" if op else ""}" style="--h:{hue(name)}"><span class="av" data-i="{initial(name)}" aria-hidden="true"></span><strong>{text}</strong></span>'
+
 def meta_line(r):
-    auth = re.sub(r"([\\`*_\[\]])", r"\\\1", r.get("author", "") or "[deleted]")
     created = fmt_iso(r.get("created_utc", 0)).replace(":00 UTC", " UTC")
     score = r.get("score", r.get("ups", 0))
     cid = r.get("id", "") or ""
@@ -337,7 +349,7 @@ def meta_line(r):
         tags.append(flair)
     tags = [t for t in map(chip, tags) if t]
     shown = f"+{score}" if isinstance(score, (int, float)) and score >= 0 else str(score)
-    head = f"**{auth}** · {created} · {shown}"
+    head = f"{user_html(r.get('author', '') or '[deleted]', bool(r.get('is_submitter')))} · {created} · {shown}"
     if cid:
         head += f" · `{cid}`"
     if tags:
@@ -431,6 +443,8 @@ def render_post(sub, d):
     comments, comment_caps = render_comments(comments_dir, post_id)
     extra = {
         "author": author,
+        "author_hue": hue(author) if author != "[deleted]" else 0,
+        "author_initial": initial(author) if author != "[deleted]" else "",
         "subreddit": sub,
         "sub_label": label(sub),
         "post_id": post_id,

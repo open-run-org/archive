@@ -14,6 +14,8 @@
 }
 
 @media (prefers-color-scheme: dark) {
+    .user strong { color: hsl(var(--h) 70% 72%); }
+    .user .av { background: hsl(var(--h) 45% 38%); }
     :root {
         --bg: #121418;
         --fg: #d9dde3;
@@ -130,6 +132,12 @@ video { background: #000; }
 .c > p:first-child { margin-top: 0; font-size: .85em; color: var(--muted); }
 .c > p:first-child code { font-size: .95em; }
 .c.folded > .c { display: none; }
+.user { white-space: nowrap; }
+.user strong { color: hsl(var(--h) 65% 32%); }
+.user .av { display: inline-block; width: 1.4em; height: 1.4em; margin-right: .3em; border-radius: 50%; font-size: .8em; font-weight: 700; line-height: 1.4em; text-align: center; vertical-align: .05em; color: #fff; background: hsl(var(--h) 55% 42%); }
+.user .av::before { content: attr(data-i); }
+.user.op .av { box-shadow: 0 0 0 2px var(--bg), 0 0 0 3.5px var(--link); }
+.user.gone { color: var(--muted); }
 .fold { margin-right: .4rem; padding: 0 .45rem; font: inherit; font-size: .9em; color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; cursor: pointer; }
 
 .pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin: 3rem 0 1rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: .95em; }

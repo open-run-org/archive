@@ -14,7 +14,7 @@
 
 <ul class="meta-list" data-pagefind-ignore>
     <li><span class="meta-key">Subreddit</span><span class="meta-val" data-pagefind-filter="subreddit">{{ sub_label }}</span></li>
-    <li><span class="meta-key">Author</span><span class="meta-val">{{ page.extra.author }}</span></li>
+    <li><span class="meta-key">Author</span><span class="meta-val">{% if page.extra.author_initial %}<span class="user" style="--h:{{ page.extra.author_hue }}"><span class="av" data-i="{{ page.extra.author_initial }}" aria-hidden="true"></span><strong>{{ page.extra.author }}</strong></span>{% else %}{{ page.extra.author }}{% endif %}</span></li>
     <li><span class="meta-key">Created</span><span class="meta-val" data-pagefind-meta="date">{{ page.date | date(format="%Y-%m-%d %H:%M:%S UTC") }}</span></li>
     {% if page.extra.edited %}
     <li><span class="meta-key">Edited</span><span class="meta-val">{{ page.extra.edited }}</span></li>
