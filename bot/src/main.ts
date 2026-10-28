@@ -38,7 +38,7 @@ const SRC = import.meta.dir;
 const version = () => {
     const h = createHash("sha1");
     for (const f of readdirSync(SRC).sort()) h.update(readFileSync(join(SRC, f)));
-    for (const f of ["persona.md", "package.json", "bun.lock"]) if (existsSync(join(SRC, "..", f))) h.update(readFileSync(join(SRC, "..", f)));
+    for (const f of ["persona.md", "about.md", "package.json", "bun.lock"]) if (existsSync(join(SRC, "..", f))) h.update(readFileSync(join(SRC, "..", f)));
     return h.digest("hex");
 };
 const VERSION = version();
