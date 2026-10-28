@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}{{ section.title | replace(from="r_", to="r/") }} | {{ config.title }}{% endblock title %}
+{% block title %}{{ section.title }} | {{ config.title }}{% endblock title %}
 
 {% block content %}
 <div class="crumbs">
     <a href="{{ get_url(path="@/_index.md") }}">← Back to Home / 返回首页</a>
 </div>
 
-<h1>{{ section.title | replace(from="r_", to="r/") }}</h1>
+<h1>{{ section.title }}</h1>
 
 <a class="archive-link" href="archive/">Full Archive / 完整档案</a>
 

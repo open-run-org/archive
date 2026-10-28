@@ -3,7 +3,7 @@
 {% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
 
 {% block content %}
-{% set sub_label = page.extra.subreddit | replace(from="r_", to="r/") %}
+{% set sub_label = page.extra.sub_label %}
 <div class="crumbs">
     <a href="{{ get_url(path="@/_index.md") }}">Home</a> /
     <a href="{{ get_url(path="@/" ~ page.extra.subreddit ~ "/_index.md") }}">{{ sub_label }}</a>
@@ -45,7 +45,7 @@
 </article>
 
 <nav class="pager" aria-label="Posts">
-    {% if page.higher %}<a class="newer" href="{{ page.higher.permalink }}" title="{{ page.higher.title }}">← {{ page.higher.title }}</a>{% endif %}
-    {% if page.lower %}<a class="older" href="{{ page.lower.permalink }}" title="{{ page.lower.title }}">{{ page.lower.title }} →</a>{% endif %}
+    {% if page.extra.newer %}<a class="newer" href="{{ get_url(path="@/" ~ page.extra.newer) }}" title="{{ page.extra.newer_title }}">← {{ page.extra.newer_title }}</a>{% endif %}
+    {% if page.extra.older %}<a class="older" href="{{ get_url(path="@/" ~ page.extra.older) }}" title="{{ page.extra.older_title }}">{{ page.extra.older_title }} →</a>{% endif %}
 </nav>
 {% endblock content %}

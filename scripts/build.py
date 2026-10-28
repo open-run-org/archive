@@ -1,4 +1,5 @@
 import datetime
+import html
 import json
 import math
 import pathlib
@@ -8,8 +9,11 @@ import subprocess
 import sys
 import time
 
+import media
+
 RAW = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else "data/raw")
 CONTENT = pathlib.Path(sys.argv[2] if len(sys.argv) > 2 else "content")
+MEDIA = RAW.parent / "media"
 
 GONE = {"[removed]": "Removed", "[ Removed by Reddit ]": "Removed", "[deleted]": "Deleted"}
 TAG = re.compile(r"<(?=[A-Za-z/!?])")
@@ -23,15 +27,24 @@ def esc(s):
 
 def unlink(s):
     s = EMPTY_LINK.sub(lambda m: "]\\" + m.group(0)[1:], s)
-    return EMPTY_REF.sub(r"\1\\:", s)
+    return EMPTY_REF.sub(r"\1\\:", s).replace("<>", "&lt;>")
 
-FENCE = re.compile(r"^ {0,3}(`{3,}|~{3,})")
+OPEN = re.compile(r"^( {0,3}(?:(?:[-*+]|\d{1,9}[.)]) {1,4})?)(`{3,}|~{3,})")
+ITEM = re.compile(r"^ {0,3}(?:[-*+]|\d{1,9}[.)]) {1,4}")
+CLOSE = re.compile(r" {0,3}(`{3,}|~{3,})[ \t]*$")
+ATTRS = re.compile(r"\{([^{}\n]*)\}([ \t#]*)$")
+BANG = re.compile(r"(?<!>)!(?=/?(?:r|u)/[A-Za-z0-9_-]{2,21}(?![A-Za-z0-9_/-]))")
 BARE_URL = re.compile(r"(?<![A-Za-z0-9_/\[<\"'=@&])(?<!\]\()https?://[^\s<>\"'\[\]*，。、！？；：「」『』（）【】《》]+")
 SUB_REF = re.compile(r"(?<![A-Za-z0-9_/.\[])/?(r|u)/([A-Za-z0-9_-]{2,21})(?![A-Za-z0-9_/-])")
-SPOILER = re.compile(r">!(.+?)!(?:<|&lt;)")
+SPOILER = re.compile(r">!(.+?)(?<!\\)!(?:<(?!https?://)|&lt;)")
 UNESC = re.compile(r"\\([!-/:-@\[-`{-~])")
 PROTECT = re.compile(r"!?\[(?:[^\[\]\\]|\\.|\[(?:[^\[\]\\]|\\.)*\])*\](?:\((?:[^()\s\\]|\\.|\((?:[^()\\]|\\.)*\))*(?:\s+(?:\"[^\"]*\"|'[^']*'))?\s*\)|\[(?:[^\[\]\\]|\\.)*\])|<https?://[^<>\s]*>|^\s*\[[^\]]+\]:.*$")
 SUBS = {}
+ASSETS = {}
+IMG_AUTO = re.compile(r"<(https?://(?:i|preview)\.redd\.it/([a-z0-9]+)\.(?:jpe?g|png|gif|webp)(?:[?#][^<>\s]*)?)>", re.I)
+IMG_LINK = re.compile(r"\[((?:[^\[\]\n\\]|\\.)*)\]\((https?://(?:i|preview)\.redd\.it/([a-z0-9]+)\.(?:jpe?g|png|gif|webp)(?:[?#][^()\s]*)?)\)", re.I)
+PLAYER = re.compile(r"<https?://(?:www\.)?reddit\.com/link/[a-z0-9]+/video/([a-z0-9]+)/player/?>", re.I)
+MEDIA_REF = re.compile(r"!\[([^\[\]\n]*)\]\((giphy\|)?([A-Za-z0-9]+)(?:\|[A-Za-z0-9_]+)?\)")
 
 def sub_link(m):
     kind, name = m.group(1), m.group(2)
@@ -49,17 +62,20 @@ def trim_url(u):
             return u
     return u
 
+def sub_refs(text):
+    return SUB_REF.sub(sub_link, BANG.sub(r"\\!", text))
+
 def plain(text):
     out, last = [], 0
     for m in BARE_URL.finditer(text):
         raw = trim_url(m.group(0))
         if len(raw) <= len("https://"):
             continue
-        out.append(SUB_REF.sub(sub_link, text[last:m.start()]))
+        out.append(sub_refs(text[last:m.start()]))
         url = UNESC.sub(r"\1", raw).replace("&amp;", "&")
         out.append(raw if re.search(r"[\s<>]", url) else "<" + url + ">")
         last = m.start() + len(raw)
-    out.append(SUB_REF.sub(sub_link, text[last:]))
+    out.append(sub_refs(text[last:]))
     return SPOILER.sub(r'<span class="spoiler">\1</span>', "".join(out))
 
 def inline(text):
@@ -84,35 +100,102 @@ def code_spans(line):
         i = j + 1
     return spans
 
-def reddit(text):
-    lines, fence = [], None
-    for ln in text.split("\n"):
-        m = FENCE.match(ln)
+def no_attrs(ln):
+    return ATTRS.sub(r"&#123;\1}\2", ln)
+
+def blocks(text, fn):
+    lines, fence, col, item = [], None, 0, 0
+    for ln in re.sub(r"\r\n?", "\n", text).split("\n"):
+        ind = len(ln) - len(ln.lstrip(" "))
         if fence:
-            if m and m.group(1)[0] == fence[0] and len(m.group(1)) >= len(fence) and not ln[m.end():].strip():
+            if ln.strip() and ind < col:
                 fence = None
+            else:
+                m = CLOSE.match(ln[col:])
+                if m and m.group(1)[0] == fence[0] and len(m.group(1)) >= len(fence):
+                    fence = None
+                lines.append(ln)
+                continue
+        im = ITEM.match(ln)
+        if im:
+            item = im.end()
+        elif ln.strip() and ind < item:
+            item = 0
+        base = item if item and ind >= item and not im else 0
+        m = OPEN.match(ln[base:])
+        if m and not (m.group(2)[0] == "`" and "`" in ln[base + m.end():]):
+            fence = m.group(2)
+            col = base + (len(m.group(1)) if ITEM.match(m.group(1)) else 0)
             lines.append(ln)
             continue
-        if m and not (m.group(1)[0] == "`" and "`" in ln[m.end():]):
-            fence = m.group(1)
-            lines.append(ln)
-            continue
-        if ln.startswith(("    ", "\t")):
-            lines.append(ln)
-            continue
-        out, last = [], 0
-        for a, b in code_spans(ln):
-            out.append(inline(ln[last:a]))
-            out.append(ln[a:b])
-            last = b
-        out.append(inline(ln[last:]))
-        lines.append("".join(out))
+        lines.append(ln if ln.startswith(("    ", "\t")) else fn(ln))
     if fence:
-        lines.append(fence)
+        lines.append(" " * col + fence)
     return "\n".join(lines)
 
+def line_md(ln):
+    out, last = [], 0
+    for a, b in code_spans(ln):
+        out.append(inline(ln[last:a]))
+        out.append(ln[a:b])
+        last = b
+    out.append(inline(ln[last:]))
+    return no_attrs("".join(out))
+
+def reddit(text):
+    return blocks(text, line_md)
+
 def user_md(text):
+    if text.strip() in GONE:
+        return text.strip().replace("[", "\\[").replace("]", "\\]")
     return unlink(reddit(esc(text)))
+
+def asset(mid):
+    r = ASSETS.get(mid)
+    return r if r and r.get("key") else None
+
+def media_tag(r):
+    url = html.escape(f"{media.PUBLIC}/{r['key']}")
+    size = f' width="{int(r["w"])}" height="{int(r["h"])}"' if r.get("w") and r.get("h") else ""
+    if str(r.get("type", "")).startswith("video/"):
+        return f'<video controls preload="metadata" playsinline src="{url}"{size}></video>'
+    return f'<a href="{url}"><img src="{url}" alt="" loading="lazy" decoding="async"{size}></a>'
+
+def embed(md, used, meta=None):
+    def swap(mid, fallback):
+        r = asset(mid)
+        if not r:
+            return fallback
+        used.add(mid)
+        return media_tag(r)
+    def link(m):
+        r = asset(m.group(3))
+        text = UNESC.sub(r"\1", m.group(1)).strip()
+        if not r:
+            return m.group(0)
+        used.add(m.group(3))
+        return media_tag(r) if not text or text.startswith(("http://", "https://")) else f"[{m.group(1)}]({media.PUBLIC}/{r['key']})"
+    def ref(m):
+        alt, mid = m.group(1) or "image", m.group(3)
+        if m.group(2):
+            return f"[{alt}](https://giphy.com/gifs/{mid})"
+        it = media.from_meta(mid, (meta or {}).get(mid))
+        return swap(mid, f"[{alt}]({it['src']})" if it else f"_({alt})_")
+    md = PLAYER.sub(lambda m: swap(m.group(1), m.group(0)), md)
+    md = IMG_AUTO.sub(lambda m: swap(m.group(2), m.group(0)), md)
+    md = IMG_LINK.sub(link, md)
+    return MEDIA_REF.sub(ref, md)
+
+def media_block(items):
+    figs = []
+    for it in items:
+        cap = html.escape(it.get("caption") or "")
+        link = it.get("link") or ""
+        if re.fullmatch(r"https?://[^\s\"'<>]+", link):
+            a = f'<a href="{html.escape(link)}" rel="nofollow noopener" target="_blank">{html.escape(link)}</a>'
+            cap = f"{cap} · {a}" if cap else a
+        figs.append(f"<figure>{media_tag(asset(it['id']))}" + (f"<figcaption>{cap}</figcaption>" if cap else "") + "</figure>")
+    return f'<div class="media" data-pagefind-ignore>{"".join(figs)}</div>' if figs else ""
 
 def utc(ts):
     return datetime.datetime.fromtimestamp(int(float(ts or 0)), datetime.timezone.utc)
@@ -181,7 +264,7 @@ def has_text(r):
     b = body_of(r)
     return bool(b) and b not in GONE
 
-def merge_capture(best, flat):
+def merge_capture(best, flat, since=None):
     current = {}
     for r in flat:
         cid = r.get("id", "") or ""
@@ -197,7 +280,7 @@ def merge_capture(best, flat):
             rows[cid] = dict(b, archive_state=GONE.get(body_of(r), "Gone"))
     for cid, b in best.items():
         if cid not in rows and has_text(b):
-            rows[cid] = dict(b, archive_state="Gone")
+            rows[cid] = b if since is not None and utc(b.get("created_utc")).timestamp() > since else dict(b, archive_state="Gone")
     stack = list(rows.values())
     while stack:
         pid = stack.pop().get("parent_id", "") or ""
@@ -222,7 +305,7 @@ def chip(s):
     return " ".join(str(s).replace("`", "").split())
 
 def meta_line(r):
-    auth = r.get("author", "") or "[deleted]"
+    auth = (r.get("author", "") or "[deleted]").replace("[", "\\[").replace("]", "\\]")
     created = fmt_iso(r.get("created_utc", 0)).replace(":00 UTC", " UTC")
     score = r.get("score", r.get("ups", 0))
     cid = r.get("id", "") or ""
@@ -259,7 +342,7 @@ def meta_line(r):
 def render_tree(nodes, by_parent):
     out = []
     for r in nodes:
-        body = user_md(re.sub(r"(?m)^\t", "  ", r.get("body", "") or "")).strip("\n") or "_(no content)_"
+        body = embed(user_md(re.sub(r"(?m)^\t", "  ", r.get("body", "") or "")), set(), r.get("media_metadata") if isinstance(r.get("media_metadata"), dict) else None).strip("\n") or "_(no content)_"
         out += ['<div class="c">', "", meta_line(r), "", body, ""]
         out += render_tree(by_parent.get("t1_" + (r.get("id", "") or ""), []), by_parent)
         out += ["</div>", ""]
@@ -276,20 +359,20 @@ def render_comments(d, post_id):
     for i, flat in enumerate(loaded):
         if i != last:
             merge_capture(best, flat)
-    rows = merge_capture(best, loaded[last])
+    rows = merge_capture(best, loaded[last], capture_time(caps[last]).timestamp() if live else None)
     roots, by_parent = build_tree(rows, "t3_" + post_id)
     if not roots:
         return "", len(caps)
     head = ['<div class="comments" data-pagefind-ignore>', "", f'<h2 class="comments-title">Comments / 评论 · {len(rows)}</h2>', ""]
     return "\n".join(head + render_tree(roots, by_parent) + ["</div>"]), len(caps)
 
-def clean_html(html):
-    s = re.sub(r"<!-- SC_O(?:FF|N) -->", "", html)
+def clean_html(markup):
+    s = re.sub(r"<!-- SC_O(?:FF|N) -->", "", markup)
     s = re.sub(r'^\s*<div class="md">\s*', "", s)
     return re.sub(r"\s*</div>\s*$", "", s)
 
-def pandoc(html):
-    s = clean_html(html)
+def pandoc(markup):
+    s = clean_html(markup)
     if not s:
         return ""
     return subprocess.run(["pandoc", "-f", "html", "-t", "gfm"], input=s, capture_output=True, text=True, check=True).stdout
@@ -326,8 +409,13 @@ def render_post(sub, d):
     post_id = created_id.split("_", 1)[1]
     last = caps[-1][1]
     path, best = next((c for c in reversed(caps) if post_text(c[1])), caps[-1])
-    html = best.get("selftext_html")
-    body = unlink(pandoc(html)) if html else user_md(best.get("selftext") or "")
+    markup = best.get("selftext_html")
+    body = unlink(blocks(pandoc(markup), no_attrs)) if markup else user_md(best.get("selftext") or "")
+    used = set()
+    body = embed(body, used, best.get("media_metadata") if isinstance(best.get("media_metadata"), dict) else None)
+    block = media_block([it for it in media.post_media([c[1] for c in caps]) if asset(it["id"]) and it["id"] not in used])
+    if block:
+        body = f"{body.rstrip()}\n\n{block}" if best.get("is_self") and body.strip() else f"{block}\n\n{body}"
     created = int(float(best.get("created_utc") or last.get("created_utc") or 0))
     permalink = best.get("permalink") or ""
     edited = best.get("edited")
@@ -337,6 +425,7 @@ def render_post(sub, d):
     extra = {
         "author": author,
         "subreddit": sub,
+        "sub_label": label(sub),
         "post_id": post_id,
         "permalink": f"https://reddit.com{permalink}" if permalink else "",
         "url": best.get("url") or "",
@@ -355,13 +444,26 @@ def render_post(sub, d):
         "raw": f"data/raw/{d.relative_to(RAW).as_posix()}",
         "raw_comments": f"data/raw/{comments_dir.relative_to(RAW).as_posix()}" if comment_caps else "",
     }
-    lines = ["---", f"title: {yaml_value(best.get('title') or created_id)}", f"date: {utc(created).isoformat()}", "extra:"]
+    text = (body + "\n" if body else "") + ("\n" + comments + "\n" if comments else "")
+    return created, best.get("title") or created_id, extra, text
+
+def page(title, created, extra, text):
+    lines = ["---", f"title: {yaml_value(title)}", f"date: {utc(created).isoformat()}", "extra:"]
     lines += [f"  {k}: {yaml_value(v)}" for k, v in extra.items()]
-    lines.append("---\n")
-    text = "\n".join(lines) + "\n" + (body + "\n" if body else "")
-    if comments:
-        text += "\n" + comments + "\n"
-    return created, text
+    return "\n".join(lines + ["---", "", text])
+
+def neighbours(seq):
+    before = cur = None
+    for item in seq:
+        if cur is not None:
+            yield before, cur, item
+            before = cur
+        cur = item
+    if cur is not None:
+        yield before, cur, None
+
+def label(sub):
+    return "r/" + sub[2:]
 
 def write(p, s):
     p.parent.mkdir(parents=True, exist_ok=True)
@@ -386,6 +488,7 @@ def stats(sub, created, now):
     days = (now - last) / 86400
     return {
         "name": sub,
+        "label": label(sub),
         "path": f"{sub}/_index.md",
         "count": len(created),
         "last_date": utc(last).strftime("%Y-%m-%d"),
@@ -399,25 +502,29 @@ def build():
     now = time.time()
     subs = []
     SUBS.update({p.name[2:].lower(): p.name for p in RAW.glob("r_*") if p.is_dir()})
+    ASSETS.update(media.load_manifest(MEDIA))
     for sub_dir in sorted(p for p in RAW.glob("r_*") if p.is_dir()):
         sub = sub_dir.name
         created = []
-        for d in sorted(p for p in (sub_dir / "submissions").glob("*") if p.is_dir()):
-            out = render_post(sub, d)
-            if out is None:
-                continue
-            created.append(out[0])
-            write(CONTENT / sub / f"{d.name}.md", out[1])
+        dirs = sorted(p for p in (sub_dir / "submissions").glob("*") if p.is_dir())
+        rendered = ((d.name, out) for d in dirs if (out := render_post(sub, d)) is not None)
+        for older, (name, (ts, title, extra, text)), newer in neighbours(rendered):
+            extra["newer"] = f"{sub}/{newer[0]}.md" if newer else ""
+            extra["newer_title"] = newer[1][1] if newer else ""
+            extra["older"] = f"{sub}/{older[0]}.md" if older else ""
+            extra["older_title"] = older[1][1] if older else ""
+            created.append(ts)
+            write(CONTENT / sub / f"{name}.md", page(title, ts, extra, text))
         if not created:
             continue
-        write(CONTENT / sub / "_index.md", front({"title": sub, "sort_by": "date", "transparent": True}))
+        write(CONTENT / sub / "_index.md", front({"title": label(sub), "sort_by": "date", "transparent": True}))
         counts = {}
         for c in created:
             counts[utc(c).year] = counts.get(utc(c).year, 0) + 1
         years = [{"year": y, "count": n, "path": f"{sub}/archive/{y}/_index.md"} for y, n in sorted(counts.items(), reverse=True)]
-        write(CONTENT / sub / "archive" / "_index.md", front({"title": f"{sub} Archive", "template": "archive.html"}, {"section_path": f"{sub}/_index.md", "year": 0, "years": years}))
+        write(CONTENT / sub / "archive" / "_index.md", front({"title": f"{label(sub)} Archive", "template": "archive.html"}, {"section_path": f"{sub}/_index.md", "year": 0, "years": years}))
         for y in years:
-            write(CONTENT / sub / "archive" / str(y["year"]) / "_index.md", front({"title": f"{sub} {y['year']}", "template": "archive.html"}, {"section_path": f"{sub}/_index.md", "year": y["year"], "years": years}))
+            write(CONTENT / sub / "archive" / str(y["year"]) / "_index.md", front({"title": f"{label(sub)} {y['year']}", "template": "archive.html"}, {"section_path": f"{sub}/_index.md", "year": y["year"], "years": years}))
         subs.append(stats(sub, created, now))
         print(f"[build] {sub} posts={len(created)}")
     subs.sort(key=lambda x: x["name"].lower())

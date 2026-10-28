@@ -112,6 +112,12 @@ small, .muted { color: var(--muted); }
 .post-content blockquote { margin: .5rem 0 .5rem .5rem; padding: .1rem 0 .1rem .75rem; color: var(--muted); border-left: 3px solid var(--line); }
 .post-content table { display: block; overflow-x: auto; border-collapse: collapse; }
 .post-content td, .post-content th { padding: 4px 8px; border: 1px solid var(--line); }
+.post-content img, .post-content video { max-height: 85vh; object-fit: contain; object-position: left top; border-radius: 4px; }
+.media figure { margin: 0 0 1rem; }
+.media img, .media video { display: block; margin: 0 auto; object-position: center; }
+.media figcaption { margin-top: .35rem; font-size: .9em; text-align: center; color: var(--muted); }
+video { background: #000; }
+.c img { max-height: 24rem; }
 .spoiler, .md-spoiler-text { color: transparent; background: var(--muted); border-radius: 3px; cursor: pointer; }
 .spoiler:hover, .spoiler:focus, .md-spoiler-text:hover { color: inherit; background: var(--soft); }
 

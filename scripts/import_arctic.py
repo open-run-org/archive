@@ -203,15 +203,25 @@ def fetch_sub(root, sub, after):
 
 SNAPSHOT_DAYS = (16, 32, 64, 128, 256)
 
+PLACEHOLDERS = ("", "[removed]", "[deleted]", "[ Removed by Reddit ]")
+
 def known_ids(d):
     ids = set()
     for f in d.glob("*.jsonl"):
         with f.open(encoding="utf-8", errors="ignore") as fh:
             for ln in fh:
                 try:
-                    ids.add(json.loads(ln).get("id"))
-                except Exception:
+                    stack = [json.loads(ln)]
+                except ValueError:
                     continue
+                while stack:
+                    x = stack.pop()
+                    if isinstance(x, dict):
+                        if "body" in x and (x.get("body") or "").strip() not in PLACEHOLDERS:
+                            ids.add(x.get("id"))
+                        stack.extend(v for v in x.values() if isinstance(v, (dict, list)))
+                    elif isinstance(x, list):
+                        stack.extend(x)
     return ids
 
 def snapshot_sub(root, sub):
@@ -229,7 +239,7 @@ def snapshot_sub(root, sub):
             continue
         cdir = base / "comments" / created_id
         known = known_ids(cdir)
-        if not any(r.get("id") not in known and (r.get("body") or "").strip() not in ("", "[removed]", "[deleted]", "[ Removed by Reddit ]") for r in rows):
+        if not any(r.get("id") not in known and (r.get("body") or "").strip() not in PLACEHOLDERS for r in rows):
             continue
         cap_ts = max((retrieved(r) or 0 for r in rows), default=0) or now()
         write_capture(cdir, [dump(r) for r in rows], cap_ts, hash_comments(rows))

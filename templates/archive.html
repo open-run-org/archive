@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
-{% block title %}{{ section.title | replace(from="r_", to="r/") }} | {{ config.title }}{% endblock title %}
+{% block title %}{{ section.title }} | {{ config.title }}{% endblock title %}
 
 {% block content %}
 {% set parent = get_section(path=section.extra.section_path) %}
 
 <div class="crumbs">
-    <a href="{{ parent.permalink }}">← Back to {{ parent.title | replace(from="r_", to="r/") }}</a>
+    <a href="{{ parent.permalink }}">← Back to {{ parent.title }}</a>
 </div>
 
-<h1>{{ section.title | replace(from="r_", to="r/") }}</h1>
+<h1>{{ section.title }}</h1>
 
 <nav class="years" aria-label="Years">
 {% for y in section.extra.years %}
