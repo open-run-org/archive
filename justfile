@@ -45,5 +45,5 @@ lint:
     go vet ./...
     {{ py }} ruff format --check scripts
     {{ py }} ruff check scripts
-    node --check static/archive.js
+    for f in static/archive.js bot/*.js bot/src/*.js; do node --check "$f"; done
     just --fmt --check --unstable
