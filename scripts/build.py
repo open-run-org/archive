@@ -464,7 +464,9 @@ def render_tree(nodes, by_parent, pid):
             ).strip("\n")
             or "_(no content)_"
         )
-        out += [f'<div class="c{" folded" if kids else ""}">', "", meta_html(r, pid), "", body, ""]
+        cid = r.get("id", "") or ""
+        anchor = f' id="c-{cid}"' if ID.fullmatch(cid) else ""
+        out += [f'<div class="c{" folded" if kids else ""}"{anchor}>', "", meta_html(r, pid), "", body, ""]
         out += render_tree(kids, by_parent, pid)
         out += ["</div>", ""]
     return out
@@ -486,7 +488,7 @@ def render_comments(d, post_id):
     if not roots:
         return "", len(caps), 0
     head = [
-        '<div class="comments" data-pagefind-ignore>',
+        '<div class="comments" data-pagefind-weight="0.5">',
         "",
         '<div class="comments-head"><h2>Comments</h2></div>',
         "",
@@ -585,6 +587,7 @@ def render_post(sub, d):
         else "",
         "ups": ups,
         "vote": ("up hot" if ups >= 100 else "up") if ups > 0 else "",
+        "hot": ups * 10**10 + created,
         "upvote_ratio": ratio,
         "upvote_pct": f"{round(ratio * 100)}%"
         if isinstance(ratio, (int, float)) and not isinstance(ratio, bool)
@@ -625,17 +628,6 @@ def page(title, created, extra, text):
     lines = ["---", f"title: {yaml_value(title)}", f"date: {utc(created).isoformat()}", "extra:"]
     lines += [f"  {k}: {yaml_value(v)}" for k, v in extra.items()]
     return "\n".join([*lines, "---", "", text])
-
-
-def neighbours(seq):
-    before = cur = None
-    for item in seq:
-        if cur is not None:
-            yield before, cur, item
-            before = cur
-        cur = item
-    if cur is not None:
-        yield before, cur, None
 
 
 def label(sub):
@@ -687,14 +679,13 @@ def build():
         sub = sub_dir.name
         created = []
         dirs = sorted(p for p in (sub_dir / "submissions").glob("*") if p.is_dir())
-        rendered = ((d.name, out) for d in dirs if (out := render_post(sub, d)) is not None)
-        for older, (name, (ts, title, extra, text)), newer in neighbours(rendered):
-            extra["newer"] = f"{sub}/{newer[0]}.md" if newer else ""
-            extra["newer_title"] = newer[1][1] if newer else ""
-            extra["older"] = f"{sub}/{older[0]}.md" if older else ""
-            extra["older_title"] = older[1][1] if older else ""
+        for d in dirs:
+            out = render_post(sub, d)
+            if out is None:
+                continue
+            ts, title, extra, text = out
             created.append(ts)
-            write(CONTENT / sub / f"{name}.md", page(title, ts, extra, text))
+            write(CONTENT / sub / f"{d.name}.md", page(title, ts, extra, text))
         if not created:
             continue
         counts = {}

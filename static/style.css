@@ -181,10 +181,9 @@ a.user:hover { text-decoration: underline; }
 .c.folded > .fold { color: var(--link); border-color: var(--link); }
 .fold:hover { color: var(--bg); background: var(--link); border-color: var(--link); }
 .c img { max-height: 24rem; }
-
-.pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin: 2.5rem 0 0; padding-top: 1rem; border-top: 1px solid var(--line); font-size: .95em; }
-.pager a { max-width: 48%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.pager .older { margin-left: auto; text-align: right; }
+.c:target { border-left-color: var(--link); }
+.c:target::before { background: var(--link); }
+.c:target > .meta { margin-left: -.35rem; padding: .1rem .35rem; background: var(--mark); border-radius: 4px; }
 
 .hits { margin: 0; padding: 0; list-style: none; }
 .hit { padding: .65rem 0 .7rem; border-bottom: 1px solid var(--line); }
@@ -193,6 +192,12 @@ a.user:hover { text-decoration: underline; }
 .hit .meta { margin-top: .2rem; }
 .excerpt { margin: .3rem 0 0; font-size: .9em; color: var(--muted); }
 mark { color: inherit; background: var(--mark); border-radius: 2px; padding: 0 1px; }
+.replies { margin: .35rem 0 0; padding: 0; list-style: none; }
+.reply { margin-top: .4rem; padding-left: .7rem; border-left: 2px solid var(--line); }
+.hit .reply .meta { margin-top: 0; }
+.reply .excerpt { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; margin-top: .1rem; font-size: .9em; color: var(--fg); }
+.reply .excerpt:hover { text-decoration: none; color: var(--link); }
+.more-replies { margin: .4rem 0 0 .7rem; padding: 0 .65rem; font: inherit; font-size: .8em; color: var(--link); cursor: pointer; }
 .status:empty { display: none; }
 #search .page-head .user { font-size: 1em; }
 #search .more { display: block; margin: 1rem auto 0; cursor: pointer; }
@@ -210,5 +215,4 @@ mark { color: inherit; background: var(--mark); border-radius: 2px; padding: 0 1
     .subline .prov { margin-left: 0; white-space: normal; }
     .c { margin-left: .45rem; padding-left: .75rem; }
     .c .c .c .c { margin-left: 0; }
-    .pager a { max-width: 100%; }
 }

@@ -7,7 +7,7 @@
 <header class="post-head">
     <h1 class="post-title">{{ page.title }}</h1>
     <div class="byline" data-pagefind-ignore>
-        <span class="score {{ page.extra.vote }}" data-pagefind-meta="score:{{ page.extra.ups }}"><i>▲</i>{{ page.extra.ups }}</span>
+        <span class="score {{ page.extra.vote }}" data-pagefind-meta="score:{{ page.extra.ups }}" data-pagefind-sort="hot:{{ page.extra.hot }}"><i>▲</i>{{ page.extra.ups }}</span>
         {% if page.extra.author_initial %}<a class="user" href="/search/?user={{ page.extra.author | urlencode }}" style="--h:{{ page.extra.author_hue }}" data-i="{{ page.extra.author_initial }}" data-pagefind-meta="author" data-pagefind-filter="author">{{ page.extra.author }}</a>{% else %}<b class="user gone">{{ page.extra.author }}</b>{% endif %}
         {% if page.extra.link_flair_text %}<span class="tag" data-pagefind-meta="flair">{{ page.extra.link_flair_text }}</span>{% endif %}
         {% if page.extra.state %}<span class="tag state" data-pagefind-meta="state">{{ page.extra.state }}</span>{% endif %}
@@ -24,13 +24,8 @@
     </div>
 </header>
 
-<div class="post-content">
+<div class="post-content" id="post-body">
 {{ page.content | safe }}
 </div>
 </article>
-
-<nav class="pager" aria-label="Posts">
-    {% if page.extra.newer %}<a class="newer" href="{{ get_url(path="@/" ~ page.extra.newer) }}" title="{{ page.extra.newer_title }}">← {{ page.extra.newer_title }}</a>{% endif %}
-    {% if page.extra.older %}<a class="older" href="{{ get_url(path="@/" ~ page.extra.older) }}" title="{{ page.extra.older_title }}">{{ page.extra.older_title }} →</a>{% endif %}
-</nav>
 {% endblock content %}

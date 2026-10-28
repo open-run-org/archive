@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             c.dataset.t = when ? Date.parse(when.textContent.replace(" UTC", "Z").replace(" ", "T")) || 0 : 0;
         });
         const setters = [];
+        const openers = new Map();
         for (const c of all) {
             const first = c.querySelector(":scope > .c");
             if (!first) continue;
@@ -58,7 +59,15 @@ document.addEventListener("DOMContentLoaded", () => {
             fold.addEventListener("click", () => set(c.classList.contains("folded")));
             set(false);
             setters.push(set);
+            openers.set(c, set);
         }
+        const reveal = () => {
+            const target = /^#c-[a-z0-9]+$/.test(location.hash) && document.getElementById(location.hash.slice(1));
+            if (!target || !box.contains(target)) return;
+            for (let p = target.parentElement.closest(".c"); p; p = p.parentElement.closest(".c")) openers.get(p)?.(true);
+            target.scrollIntoView({ block: "center" });
+        };
+        window.addEventListener("hashchange", reveal);
         const head = box.querySelector(".comments-head");
         if (head && all.length > 1) {
             const bar = document.createElement("div");
@@ -101,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
             head.appendChild(bar);
             apply("top");
         }
+        reveal();
     }
 
     const search = document.getElementById("search");
@@ -127,12 +137,37 @@ const userLink = async name => {
     return a;
 };
 
+const words = d => {
+    const raw = d.raw_content ?? (d.content || "").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    const zws = raw.includes("​");
+    return { w: zws ? raw.split("​") : raw.split(/[\r\n\s]+/g), j: zws ? "" : " " };
+};
+
+const snip = (d, text, lo, hi, locs, len = 32) => {
+    const rank = new Map((d.weighted_locations || []).map(x => [x.location, x.balanced_score]));
+    const best = locs.reduce((a, b) => ((rank.get(b) || 0) > (rank.get(a) || 0) ? b : a));
+    const start = Math.max(lo, Math.min(best - Math.floor(len / 3), hi - len));
+    const end = Math.min(hi, start + len);
+    const hits = new Set(locs);
+    const body = text.w.slice(start, end).map((x, i) => (hits.has(start + i) ? `<mark>${x}</mark>` : x)).join(text.j).trim();
+    return (start > lo ? "…" : "") + body + (end < hi ? "…" : "");
+};
+
+const textOf = c => {
+    const own = Array.from(c.children).filter(e => !e.matches(".meta, .c, .fold"));
+    const t = own.map(e => e.textContent.trim()).filter(Boolean).join(" ").replace(/\s+/g, " ");
+    if (t) return t;
+    if (own.some(e => e.matches("video") || e.querySelector("video"))) return "Video";
+    return own.some(e => e.matches("img") || e.querySelector("img")) ? "Image" : "";
+};
+
 async function runSearch(root) {
     const params = new URLSearchParams(location.search);
     const q = (params.get("q") || "").trim();
     const user = (params.get("user") || "").trim();
     let sub = params.get("sub") || "";
-    let mode = params.get("sort") || (q ? "top" : "new");
+    const modes = q ? [["top", "Relevance"], ["hot", "Hot"], ["new", "New"]] : [["hot", "Hot"], ["new", "New"]];
+    let mode = modes.some(([m]) => m === params.get("sort")) ? params.get("sort") : modes[0][0];
     const input = document.querySelector(".search input");
     if (input && q) input.value = q;
     const head = root.querySelector(".page-head");
@@ -168,16 +203,96 @@ async function runSearch(root) {
         head.hidden = false;
     }
     const pagefind = await import(root.dataset.pagefind);
-    await pagefind.options({ excerptLength: 30 });
     const base = {};
     if (user) base.any = [{ author: user }, { user: user }];
+    const sorts = { hot: { hot: "desc" }, new: { date: "desc" } };
     let results = [], shown = 0;
+    const pages = new Map();
+    const load = url => {
+        if (!pages.has(url)) {
+            pages.set(url, fetch(url).then(r => (r.ok ? r.text() : "")).then(t => (t ? new DOMParser().parseFromString(t, "text/html") : null)).catch(() => null));
+        }
+        return pages.get(url);
+    };
+    const metaOf = (c, url) => {
+        const src = c && c.querySelector(":scope > .meta");
+        const m = src ? src.cloneNode(true) : el("div", "meta");
+        const w = m.querySelector(".when");
+        if (w) {
+            const a = el("a", "when", w.textContent.slice(0, 10));
+            a.href = url + "#" + c.id;
+            a.title = w.textContent;
+            w.replaceWith(a);
+        }
+        if (!q) m.querySelector(".user")?.remove();
+        return m;
+    };
+    const replies = async (d, li, text, cs) => {
+        let items = [];
+        if (q) {
+            const groups = new Map();
+            for (const l of d.locations || []) {
+                let lo = 0, hi = cs.length;
+                while (lo < hi) {
+                    const mid = (lo + hi) >> 1;
+                    if (cs[mid].location <= l) lo = mid + 1;
+                    else hi = mid;
+                }
+                if (!lo) continue;
+                if (!groups.has(lo - 1)) groups.set(lo - 1, []);
+                groups.get(lo - 1).push(l);
+            }
+            items = Array.from(groups).sort((a, b) => a[0] - b[0]).map(([k, locs]) => ({
+                id: cs[k].id,
+                html: snip(d, text, cs[k].location, k + 1 < cs.length ? cs[k + 1].location : text.w.length, locs),
+            }));
+        } else {
+            const doc = await load(d.url);
+            if (!doc) return;
+            const key = user.toLowerCase();
+            items = Array.from(doc.querySelectorAll(".c[id]"))
+                .filter(c => (c.querySelector(":scope > .meta .user")?.textContent || "").toLowerCase() === key)
+                .map(c => ({ id: c.id, el: c, text: textOf(c) }));
+        }
+        if (!items.length) return;
+        const rows = items.map(it => {
+            const r = el("li", "reply");
+            const a = el("a", "excerpt");
+            a.href = d.url + "#" + it.id;
+            if (it.html !== undefined) a.innerHTML = it.html;
+            else a.textContent = it.text;
+            r.append(it.el ? metaOf(it.el, d.url) : el("div", "meta"), a);
+            return r;
+        });
+        const ol = el("ol", "replies");
+        ol.append(...rows.slice(0, 3));
+        li.appendChild(ol);
+        if (rows.length > 3) {
+            const n = rows.length - 3;
+            const b = el("button", "pill more-replies", "+" + n);
+            b.type = "button";
+            b.setAttribute("aria-label", `Show ${n} more comments`);
+            b.addEventListener("click", () => {
+                ol.append(...rows.slice(3));
+                b.remove();
+            });
+            li.appendChild(b);
+        }
+        if (q) {
+            const doc = await load(d.url);
+            if (!doc) return;
+            rows.forEach((r, i) => {
+                const c = doc.getElementById(items[i].id);
+                if (c) r.firstChild.replaceWith(metaOf(c, d.url));
+            });
+        }
+    };
     const sync = () => {
         const p = new URLSearchParams();
         if (q) p.set("q", q);
         if (user) p.set("user", user);
         if (sub) p.set("sub", sub);
-        if (q && mode !== "top") p.set("sort", mode);
+        if (mode !== modes[0][0]) p.set("sort", mode);
         history.replaceState(null, "", "?" + p.toString());
     };
     const page = async () => {
@@ -206,21 +321,31 @@ async function runSearch(root) {
             a.href = "/r_" + label.slice(2) + "/";
             meta.appendChild(a);
         }
-        if (user) meta.appendChild(el("span", "tag" + (author === user ? " op" : ""), author === user ? "OP" : "commented"));
+        if (user && author === user) meta.appendChild(el("span", "tag op", "OP"));
         if (d.meta.flair) meta.appendChild(el("span", "tag", d.meta.flair));
         if (d.meta.state) meta.appendChild(el("span", "tag state", d.meta.state));
         if (d.meta.date) meta.appendChild(el("span", "when", d.meta.date.slice(0, 10)));
         li.append(t, meta);
-        if (q && d.excerpt) {
-            const ex = el("p", "excerpt");
-            ex.innerHTML = d.excerpt.replace(/<(?!\/?mark>)/g, "&lt;");
-            li.appendChild(ex);
+        const text = words(d);
+        const anchors = (d.anchors || []).slice().sort((a, b) => a.location - b.location);
+        const cs = anchors.filter(a => /^c-[a-z0-9]+$/.test(a.id));
+        if (q) {
+            const body = anchors.find(a => a.id === "post-body");
+            const lo = body ? body.location : 0;
+            const hi = cs.length ? cs[0].location : text.w.length;
+            const own = (d.locations || []).filter(l => l >= lo && l < hi);
+            if (own.length) {
+                const ex = el("p", "excerpt");
+                ex.innerHTML = snip(d, text, lo, hi, own);
+                li.appendChild(ex);
+            }
         }
+        replies(d, li, text, cs);
         return li;
     };
     const run = async () => {
         sync();
-        const sort = mode === "new" ? { date: "desc" } : undefined;
+        const sort = sorts[mode];
         const all = await pagefind.search(q || null, { filters: { ...base, subreddit: { any: root.dataset.subs.split(",") } }, sort });
         const res = sub ? await pagefind.search(q || null, { filters: { ...base, subreddit: sub }, sort }) : all;
         results = res ? res.results : [];
@@ -243,18 +368,16 @@ async function runSearch(root) {
         shown = 0;
         await page();
     };
-    if (q) {
-        for (const [m, label] of [["top", "Relevance"], ["new", "New"]]) {
-            const b = el("button", "", label);
-            b.type = "button";
-            b.addEventListener("click", () => {
-                mode = m;
-                for (const x of sorter.children) x.setAttribute("aria-pressed", String(x === b));
-                run();
-            });
-            b.setAttribute("aria-pressed", String(m === mode));
-            sorter.appendChild(b);
-        }
+    for (const [m, label] of modes) {
+        const b = el("button", "", label);
+        b.type = "button";
+        b.addEventListener("click", () => {
+            mode = m;
+            for (const x of sorter.children) x.setAttribute("aria-pressed", String(x === b));
+            run();
+        });
+        b.setAttribute("aria-pressed", String(m === mode));
+        sorter.appendChild(b);
     }
     more.addEventListener("click", page);
     await run();
