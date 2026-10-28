@@ -94,6 +94,7 @@ const handle = async (item, mode) => {
         style: memory.style(),
         similar: q => memory.similar(q),
         examples: memory.examples(),
+        history: memory.history(ctx.target.author),
         model: mode === "random" && budget.left(MODELS.main) < 30 ? MODELS.fast : MODELS.main,
     });
     const where = `https://www.reddit.com/r/${t.post.subreddit}/comments/${postId}/_/${item.name.startsWith("t1_") ? item.name.slice(3) : ""}`;
@@ -119,6 +120,7 @@ const handle = async (item, mode) => {
             sub: `r/${t.post.subreddit}`,
             at: Date.now(),
             author: ctx.target.author,
+            title: t.post.title,
             target: ctx.target.text.slice(0, 600),
             reply: out.body,
             queries: out.queries,

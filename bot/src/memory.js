@@ -99,6 +99,16 @@ export class Memory {
             .map(x => x.r);
     }
 
+    history(author, k = 3) {
+        const name = (author || "").toLowerCase();
+        if (!name || name === "[deleted]") return [];
+        return this.replies
+            .filter(r => (r.author || "").toLowerCase() === name)
+            .slice(-k)
+            .reverse()
+            .map(r => ({ ...r, date: new Date(r.at).toISOString().slice(0, 10) }));
+    }
+
     examples() {
         const ids = existsSync(this.paths.examples) ? JSON.parse(readFileSync(this.paths.examples, "utf8")) : [];
         return ids

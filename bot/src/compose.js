@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { generate } from "./gemini.js";
 import { retrieve } from "./sources.js";
 
@@ -15,7 +16,9 @@ const SIGNATURE = [
 
 const QUERY_SYSTEM = `You write search queries for a full-text search engine over an archive of Reddit posts and comments from communities about emigrating from mainland China (r/iwanttorun, r/runtoJapan and similar). Most content is Simplified Chinese, with some English and Japanese. The engine only returns pages that contain every word of a query, so each query must be one or two short words that people literally write in such posts (for example 法国 留学, 技人国, 永住), never invented compounds.`;
 
-const ANSWER_SYSTEM = `You are the bot of 红迪档案馆 (Reddit Archive, archive.open-run.org). The archive keeps these communities' posts and comments, including ones later deleted or removed. You reply on Reddit.
+const persona = () => readFileSync(new URL("../persona.md", import.meta.url), "utf8").trim();
+
+const ANSWER_SYSTEM = `You reply on Reddit as the bot described below. When people ask about you, answer from this description.
 
 Write the reply:
 - In the language of the message you reply to.
@@ -81,8 +84,14 @@ const cite = (s, k) => {
         .join(" ");
 };
 
-const memory = (similar, examples) => {
+const memory = (similar, examples, history, author) => {
     const out = [];
+    if (history.length) {
+        out.push(
+            `Your earlier conversations with ${author}, most recent first (remember them; refer back when it helps):`,
+            ...history.map(r => `- ${r.date}${r.title ? ` under "${trim(r.title, 80)}"` : ""}, they said: ${trim(r.target, 300)} / you replied: ${trim(r.reply, 400)}`),
+        );
+    }
     if (similar.length) {
         out.push(
             "Your earlier replies on similar questions (stay consistent, do not copy):",
@@ -117,7 +126,7 @@ export const render = (reply, sources) => {
     return [body.trim(), refs, SIGNATURE].filter(Boolean).join("\n\n");
 };
 
-export const answer = async (ctx, mode, { spend = () => {}, style = "", similar = () => [], examples = [], model = MODELS.main } = {}) => {
+export const answer = async (ctx, mode, { spend = () => {}, style = "", similar = () => [], examples = [], history = [], model = MODELS.main } = {}) => {
     const text = context(ctx);
     spend(MODELS.fast);
     const { queries } = await generate(MODELS.fast, {
@@ -130,10 +139,13 @@ export const answer = async (ctx, mode, { spend = () => {}, style = "", similar 
     const sources = await retrieve(queries.slice(0, 8), { exclude: ctx.postId || "" });
     spend(model);
     const out = await generate(model, {
-        system: style
-            ? `${ANSWER_SYSTEM}\n\nStyle notes learned from how the community received your earlier replies. Follow them unless they conflict with the rules above:\n${style}`
-            : ANSWER_SYSTEM,
-        prompt: `Mode: ${mode}\n\n${text}${memory(similar(queries), examples)}\n\nArchive sources:\n${sources.map((s, i) => `[${i + 1}] ${label(s)}: ${s.text}`).join("\n")}`,
+        system: [
+            `${ANSWER_SYSTEM}\n\nWho you are:\n${persona()}`,
+            style && `Style notes learned from how the community received your earlier replies. Follow them unless they conflict with the rules above:\n${style}`,
+        ]
+            .filter(Boolean)
+            .join("\n\n"),
+        prompt: `Mode: ${mode}\n\n${text}${memory(similar(queries), examples, history, ctx.target.author)}\n\nArchive sources:\n${sources.map((s, i) => `[${i + 1}] ${label(s)}: ${s.text}`).join("\n")}`,
         schema: ANSWER_SCHEMA,
         thinking: model === MODELS.fast ? "minimal" : "low",
     });
