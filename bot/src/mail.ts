@@ -388,7 +388,16 @@ export class Mailbox {
 
     async post(
         to: string,
-        o: { kind: string; subject: string; text: string; refs: Ref[]; footer?: Footer; list?: { url: string; command: string }; sig?: Signature },
+        o: {
+            kind: string;
+            subject: string;
+            text: string;
+            refs: Ref[];
+            footer?: Footer;
+            list?: { url: string; command: string };
+            sig?: Signature;
+            files?: { filename: string; content: Uint8Array | string; contentType: string }[];
+        },
     ) {
         const id = `<${crypto.randomUUID()}@${DOMAIN}>`;
         const headers: Record<string, string> = { "Auto-Submitted": "auto-generated", "X-Auto-Response-Suppress": "All" };
@@ -408,6 +417,15 @@ export class Mailbox {
                     messageId: id,
                     headers,
                     ...compose(o.text, o.refs, o.footer, o.sig),
+                    ...(o.files?.length
+                        ? {
+                              attachments: o.files.map(f => ({
+                                  filename: f.filename,
+                                  content: typeof f.content === "string" ? f.content : Buffer.from(f.content),
+                                  contentType: f.contentType,
+                              })),
+                          }
+                        : {}),
                 })
             ).via;
         } catch (e) {

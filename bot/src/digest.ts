@@ -1,12 +1,14 @@
 import { Database } from "bun:sqlite";
+import { createHash } from "node:crypto";
 import { appendFileSync, copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { type Answer, answer, reddit as forReddit, MODELS, Registry, refine, site } from "./agent";
 import { type Comment, type Entry, listing, type Thread, thread, trim } from "./archive";
 import { generate, write } from "./gemini";
 import { charge } from "./ledger";
-import type { Footer, Mailbox, Signature } from "./mail";
+import type { Footer, Mailbox, Ref, Signature } from "./mail";
 import type { Money, Person, Standing } from "./money";
+import { markdown, pdf, tex } from "./paper";
 import * as reddit from "./reddit";
 
 const DAY = 86400000;
@@ -356,11 +358,15 @@ export class Desk {
         return { a: { ...full, text }, posts: m.posts, edition };
     }
 
-    private footer(kind: Kind, o: { unsubscribe?: string; member?: boolean } = {}): { md: string; mail: Footer } {
+    private thanks(kind: Kind) {
         const s = this.o.money.sponsors();
         const names = s.names.map(name).filter(Boolean);
         const hidden = s.hidden ? [`${s.hidden} anonymous ${s.hidden > 1 ? "supporters" : "supporter"}`] : [];
-        const thanks = kind === "weekly" && (names.length || s.hidden) ? `Thanks to our sponsors: ${[...names, ...hidden].join(", ")}` : "";
+        return kind === "weekly" && (names.length || s.hidden) ? `Thanks to our sponsors: ${[...names, ...hidden].join(", ")}` : "";
+    }
+
+    private footer(kind: Kind, o: { unsubscribe?: string; member?: boolean } = {}): { md: string; mail: Footer } {
+        const thanks = this.thanks(kind);
         const url = this.o.about();
         const pitch = o.member || !url ? "" : `^(Subscribe, membership and commands:) ^[u/${this.o.bot}](${url})`;
         const md = [thanks && `^(${thanks.replace(/[()]/g, "")})`, pitch].filter(Boolean).join("  \n");
@@ -429,6 +435,27 @@ export class Desk {
         const send = this.o.mail && !o.dry && mailbox;
         let sent = 0;
         let failed = 0;
+        const papers = new Map<string, Promise<Uint8Array | null>>();
+        const files = async (view: { text: string; refs: Ref[] }) => {
+            if (process.env.DIGEST_PAPER !== "1") return [];
+            const doc = { name: NAME[kind], edition, text: view.text, refs: view.refs, thanks: this.thanks(kind) || undefined };
+            const out: { filename: string; content: Uint8Array | string; contentType: string }[] = [
+                { filename: `${NAME[kind]}-${edition}.md`, content: markdown(doc), contentType: "text/markdown; charset=utf-8" },
+            ];
+            if (kind !== "weekly") return out;
+            const key = createHash("sha1").update(view.text).digest("hex");
+            let job = papers.get(key);
+            if (!job) {
+                job = pdf(tex(doc)).catch(e => {
+                    this.o.log({ digest: kind, pdf: (e instanceof Error ? e.message : String(e)).slice(0, 400) });
+                    return null;
+                });
+                papers.set(key, job);
+            }
+            const file = await job;
+            if (file) out.push({ filename: `${NAME[kind]}-${edition}.pdf`, content: file, contentType: "application/pdf" });
+            return out;
+        };
         for (const { p, s } of readers) {
             const link = `${this.o.api}/unsubscribe?t=${(p as Person).token}&l=${kind}`;
             try {
@@ -443,6 +470,7 @@ export class Desk {
                         footer: this.footer(kind, { member: Boolean(s) }).mail,
                         list: { url: link, command: `${kind} off` },
                         sig: this.o.status(p.email),
+                        files: await files(view),
                     });
                 if (s) this.save({ kind, edition, recipient: p.email, title, text: view.text, refs: view.refs, status: send ? "sent" : "draft" });
                 sent += send ? 1 : 0;
