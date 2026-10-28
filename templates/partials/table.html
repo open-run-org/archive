@@ -18,10 +18,10 @@
             {% if not p.extra.author %}{% continue %}{% endif %}
             {% if year_filter and p.year != year_filter %}{% continue %}{% endif %}
             <tr>
-                <td data-value="{{ p.date }}">{{ p.date | date(format="%Y-%m-%d") }}<br><small>{{ p.date | date(format="%H:%M") }}</small></td>
-                <td class="num hide-sm" data-value="{{ p.extra.ups }}"><span class="score {{ p.extra.vote }}">▲ {{ p.extra.ups }}</span></td>
+                <td data-value="{{ p.date }}" title="{{ p.date | date(format="%Y-%m-%d %H:%M UTC") }}">{{ p.date | date(format="%Y-%m-%d") }}</td>
+                <td class="num hide-sm" data-value="{{ p.extra.ups }}"><span class="score {{ p.extra.vote }}"><i>▲</i>{{ p.extra.ups }}</span></td>
                 <td class="num hide-sm" data-value="{{ p.extra.num_comments }}">{{ p.extra.num_comments }}</td>
-                <td data-value="{{ p.title }}"><a class="t" href="{{ p.permalink }}">{{ p.title }}</a>{% if p.extra.link_flair_text %}<span class="flair">{{ p.extra.link_flair_text }}</span>{% endif %}{% if p.extra.state %}<span class="state">{{ p.extra.state }}</span>{% endif %}</td>
+                <td data-value="{{ p.title }}"><div class="tt"><a class="t" href="{{ p.permalink }}">{{ p.title }}</a>{% if p.extra.link_flair_text %}<span class="flair">{{ p.extra.link_flair_text }}</span>{% endif %}{% if p.extra.state %}<span class="state">{{ p.extra.state }}</span>{% endif %}</div></td>
                 <td class="who hide-sm" data-value="{{ p.extra.author }}">{% if p.extra.author_initial %}<span class="user" style="--h:{{ p.extra.author_hue }}" data-i="{{ p.extra.author_initial }}">{{ p.extra.author }}</span>{% else %}{{ p.extra.author }}{% endif %}</td>
             </tr>
         {% endfor %}

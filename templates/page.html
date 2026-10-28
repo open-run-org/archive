@@ -15,7 +15,7 @@
         {% if page.extra.state %}<span class="tag state">{{ page.extra.state }} on Reddit</span>{% endif %}
     </div>
     <div class="stats" data-pagefind-ignore>
-        <span class="score {{ page.extra.vote }}">▲ {{ page.extra.ups }}</span>
+        <span class="score {{ page.extra.vote }}"><i>▲</i>{{ page.extra.ups }}</span>
         {% if page.extra.upvote_pct %}<span>{{ page.extra.upvote_pct }} upvoted</span>{% endif %}
         <span>{{ page.extra.num_comments }} comments</span>
         <span class="out">

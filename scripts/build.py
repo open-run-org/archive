@@ -345,8 +345,8 @@ def score_html(r):
     s = int(s)
     hot = " hot" if abs(s) >= 100 else ""
     if s < 0:
-        return f'<span class="score down{hot}">▼ {-s}</span>'
-    return f'<span class="score{" up" if s else ""}{hot}">▲ {s}</span>'
+        return f'<span class="score down{hot}"><i>▼</i>{-s}</span>'
+    return f'<span class="score{" up" if s else ""}{hot}"><i>▲</i>{s}</span>'
 
 def meta_html(r, pid):
     tags = []

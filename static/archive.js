@@ -47,20 +47,15 @@ document.addEventListener("DOMContentLoaded", () => {
             const fold = document.createElement("button");
             fold.type = "button";
             fold.className = "fold";
-            const more = document.createElement("button");
-            more.type = "button";
-            more.className = "more";
-            more.textContent = `${n} 条回复 / ${n} ${n > 1 ? "replies" : "reply"}`;
             c.prepend(fold);
-            c.insertBefore(more, first);
             const set = open => {
                 c.classList.toggle("folded", !open);
-                fold.textContent = open ? "−" : "+";
+                fold.textContent = open ? "−" : "+" + n;
                 fold.setAttribute("aria-expanded", String(open));
                 fold.setAttribute("aria-label", open ? "Collapse replies" : `Show ${n} replies`);
+                fold.title = open ? "Collapse / 折叠" : `${n} replies / ${n} 条回复`;
             };
             fold.addEventListener("click", () => set(c.classList.contains("folded")));
-            more.addEventListener("click", () => set(true));
             set(false);
             setters.push(set);
         }
