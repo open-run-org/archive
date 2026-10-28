@@ -4,6 +4,7 @@ root := env_var_or_default("DATA_ROOT", "data/raw")
 subs := env_var_or_default("SUBS_FILE", "configs/subreddits.txt")
 days := env_var_or_default("DAYS", "16")
 py := "uv run --locked"
+bun := `command -v bun || echo "nix shell nixpkgs#bun --command bun"`
 
 default:
     @just --list
@@ -38,6 +39,8 @@ fmt:
     gofmt -w cmd
     {{ py }} ruff format scripts
     {{ py }} ruff check --fix scripts
+    {{ bun }} install --frozen-lockfile
+    {{ bun }} x biome check --write .
     just --fmt --unstable
 
 lint:
@@ -45,5 +48,8 @@ lint:
     go vet ./...
     {{ py }} ruff format --check scripts
     {{ py }} ruff check scripts
-    for f in static/archive.js bot/*.js bot/src/*.js; do node --check "$f"; done
+    node --check static/archive.js
+    {{ bun }} install --frozen-lockfile
+    {{ bun }} x tsc -p bot
+    {{ bun }} x biome check .
     just --fmt --check --unstable
