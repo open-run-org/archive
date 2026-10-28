@@ -5,11 +5,10 @@
 {% block content %}
 {% set parent = get_section(path=section.extra.section_path) %}
 
-<div class="crumbs">
-    <a href="{{ parent.permalink }}">← Back to {{ parent.title }}</a>
+<div class="page-head">
+    <h1>{{ section.title }}</h1>
+    <a class="pill" href="{{ parent.permalink }}">← {{ parent.title }}</a>
 </div>
-
-<h1>{{ section.title }}</h1>
 
 <nav class="years" aria-label="Years">
 {% for y in section.extra.years %}

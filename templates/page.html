@@ -3,41 +3,30 @@
 {% block title %}{{ page.title }} | {{ config.title }}{% endblock title %}
 
 {% block content %}
-{% set sub_label = page.extra.sub_label %}
-<div class="crumbs">
-    <a href="{{ get_url(path="@/_index.md") }}">Home</a> /
-    <a href="{{ get_url(path="@/" ~ page.extra.subreddit ~ "/_index.md") }}">{{ sub_label }}</a>
-</div>
-
 <article data-pagefind-body>
-<h1 class="post-title">{{ page.title }}</h1>
-
-<ul class="meta-list" data-pagefind-ignore>
-    <li><span class="meta-key">Subreddit</span><span class="meta-val" data-pagefind-filter="subreddit">{{ sub_label }}</span></li>
-    <li><span class="meta-key">Author</span><span class="meta-val">{% if page.extra.author_initial %}<span class="user" style="--h:{{ page.extra.author_hue }}" data-i="{{ page.extra.author_initial }}"><strong>{{ page.extra.author }}</strong></span>{% else %}{{ page.extra.author }}{% endif %}</span></li>
-    <li><span class="meta-key">Created</span><span class="meta-val" data-pagefind-meta="date">{{ page.date | date(format="%Y-%m-%d %H:%M:%S UTC") }}</span></li>
-    {% if page.extra.edited %}
-    <li><span class="meta-key">Edited</span><span class="meta-val">{{ page.extra.edited }}</span></li>
-    {% endif %}
-    {% if page.extra.state %}
-    <li><span class="meta-key">Status</span><span class="meta-val">{{ page.extra.state }} on Reddit</span></li>
-    {% endif %}
-    {% if page.extra.permalink %}
-    <li><span class="meta-key">Permalink</span><span class="meta-val"><a href="{{ page.extra.permalink }}" target="_blank">{{ page.extra.permalink }}</a></span></li>
-    {% endif %}
-    {% if page.extra.url and not page.extra.is_self %}
-    <li><span class="meta-key">URL</span><span class="meta-val"><a href="{{ page.extra.url }}" target="_blank">{{ page.extra.url }}</a></span></li>
-    {% endif %}
-    <li><span class="meta-key">Stats</span><span class="meta-val"><span class="score {{ page.extra.vote }}">▲ {{ page.extra.ups }}</span>{% if page.extra.upvote_pct %} · {{ page.extra.upvote_pct }} upvoted{% endif %} · {{ page.extra.num_comments }} comments</span></li>
-    {% if page.extra.link_flair_text %}
-    <li><span class="meta-key">Flair</span><span class="meta-val">{{ page.extra.link_flair_text }}</span></li>
-    {% endif %}
-    <li><span class="meta-key">Captured</span><span class="meta-val">{{ page.extra.captured }} via {{ page.extra.source }} · {{ page.extra.versions }} capture{% if page.extra.versions > 1 %}s{% endif %}</span></li>
-    <li>
-        <span class="meta-key">Raw JSON</span>
-        <span class="meta-val"><a href="{{ config.extra.repo }}/tree/main/{{ page.extra.raw }}" target="_blank">post</a>{% if page.extra.raw_comments %} · <a href="{{ config.extra.repo }}/tree/main/{{ page.extra.raw_comments }}" target="_blank">comments</a>{% endif %}</span>
-    </li>
-</ul>
+<header class="post-head">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="byline" data-pagefind-ignore>
+        <a class="sub" href="{{ get_url(path="@/" ~ page.extra.subreddit ~ "/_index.md") }}" data-pagefind-filter="subreddit">{{ page.extra.sub_label }}</a>
+        {% if page.extra.author_initial %}<b class="user" style="--h:{{ page.extra.author_hue }}" data-i="{{ page.extra.author_initial }}">{{ page.extra.author }}</b>{% else %}<b class="user gone">{{ page.extra.author }}</b>{% endif %}
+        <time data-pagefind-meta="date">{{ page.date | date(format="%Y-%m-%d %H:%M UTC") }}</time>
+        {% if page.extra.edited %}<span>edited {{ page.extra.edited }}</span>{% endif %}
+        {% if page.extra.link_flair_text %}<span class="tag flair">{{ page.extra.link_flair_text }}</span>{% endif %}
+        {% if page.extra.state %}<span class="tag state">{{ page.extra.state }} on Reddit</span>{% endif %}
+    </div>
+    <div class="stats" data-pagefind-ignore>
+        <span class="score {{ page.extra.vote }}">▲ {{ page.extra.ups }}</span>
+        {% if page.extra.upvote_pct %}<span>{{ page.extra.upvote_pct }} upvoted</span>{% endif %}
+        <span>{{ page.extra.num_comments }} comments</span>
+        <span class="out">
+            {% if page.extra.url and not page.extra.is_self %}<a href="{{ page.extra.url }}" target="_blank" rel="noopener">{{ page.extra.domain }} ↗</a>{% endif %}
+            <a href="https://redd.it/{{ page.extra.post_id }}" target="_blank" rel="noopener">Reddit ↗</a>
+        </span>
+    </div>
+    <div class="prov" data-pagefind-ignore>
+        Captured {{ page.extra.captured }} via {{ page.extra.source }} · {{ page.extra.versions }} capture{% if page.extra.versions > 1 %}s{% endif %} · JSON <a href="{{ config.extra.repo }}/tree/main/{{ page.extra.raw }}" target="_blank">post</a>{% if page.extra.raw_comments %} · <a href="{{ config.extra.repo }}/tree/main/{{ page.extra.raw_comments }}" target="_blank">comments</a>{% endif %}
+    </div>
+</header>
 
 <div class="post-content">
 {{ page.content | safe }}

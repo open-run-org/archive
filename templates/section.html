@@ -3,15 +3,11 @@
 {% block title %}{{ section.title }} | {{ config.title }}{% endblock title %}
 
 {% block content %}
-<div class="crumbs">
-    <a href="{{ get_url(path="@/_index.md") }}">← Back to Home / 返回首页</a>
+<div class="page-head">
+    <h1>{{ section.title }}</h1>
+    <a class="pill" href="archive/">Full archive / 完整档案 →</a>
 </div>
-
-<h1>{{ section.title }}</h1>
-
-<a class="archive-link" href="archive/">Full Archive / 完整档案</a>
-
-<h2>Latest Posts / 最新贴文</h2>
+<h2 class="sub-head">Latest posts / 最新贴文</h2>
 {% set latest_pages = section.pages[:64] %}
 {% include "partials/table.html" %}
 {% endblock content %}

@@ -22,6 +22,7 @@ EMPTY_LINK = re.compile(r"\]\([\s>]*(?:<[\s>]*>)?[\s>]*(?:\"[^\"\n]*\"|'[^'\n]*'
 EMPTY_REF = re.compile(r"^((?:[ \t]*>)*[ \t]*\[[^\]\n]+\]):(?=[ \t]*(?:<[ \t]*>)?[ \t]*(?:\"[^\"\n]*\"|'[^'\n]*'|\([^)\n]*\))?[ \t]*$)", re.M)
 UNSAFE = re.compile("[\x7f-\x9f\u2028\u2029\ufffe\uffff]")
 ARCTIC_KEYS = ("_meta", "retrieved_on", "retrieved_utc")
+ID = re.compile(r"[a-z0-9]{1,16}")
 
 def esc(s):
     return TAG.sub("&lt;", s)
@@ -306,7 +307,7 @@ def build_tree(rows, link_fullname):
             pid = link_fullname
         by_parent.setdefault(pid, []).append(r)
     for k in by_parent:
-        by_parent[k].sort(key=lambda x: (-num_score(x), ts_of(x), x.get("id", "") or ""))
+        by_parent[k].sort(key=lambda x: (-num_score(x), -ts_of(x), x.get("id", "") or ""))
     return by_parent.get(link_fullname, []), by_parent
 
 def chip(s):
@@ -319,10 +320,10 @@ def initial(name):
     return next((ch for ch in name if ch.isalnum()), "?").upper()
 
 def user_html(name, op=False):
-    text = re.sub(r"([\\`*_\[\]])", r"\\\1", html.escape(name or "[deleted]"))
+    text = html.escape(name or "[deleted]")
     if name in ("", "[deleted]"):
-        return f'<span class="user gone"><strong>{text}</strong></span>'
-    return f'<span class="user{" op" if op else ""}" style="--h:{hue(name)}" data-i="{initial(name)}"><strong>{text}</strong></span>'
+        return f'<b class="user gone">{text}</b>'
+    return f'<b class="user{" op" if op else ""}" style="--h:{hue(name)}" data-i="{initial(name)}">{text}</b>'
 
 def ts_of(r):
     try:
@@ -347,13 +348,8 @@ def score_html(r):
         return f'<span class="score down{hot}">▼ {-s}</span>'
     return f'<span class="score{" up" if s else ""}{hot}">▲ {s}</span>'
 
-def meta_line(r):
-    created = utc(ts_of(r)).strftime("%Y-%m-%d %H:%M UTC")
-    cid = html.escape(r.get("id", "") or "")
-    permalink = r.get("permalink", "") or ""
+def meta_html(r, pid):
     tags = []
-    if r.get("archive_state"):
-        tags.append(tag(r["archive_state"], "state"))
     if r.get("is_submitter"):
         tags.append(tag("OP", "op"))
     if r.get("distinguished") == "moderator":
@@ -364,24 +360,26 @@ def meta_line(r):
         tags.append(tag("Stickied"))
     if r.get("locked"):
         tags.append(tag("Locked"))
+    if r.get("archive_state"):
+        tags.append(tag(r["archive_state"], "state"))
     flair = chip(r.get("author_flair_text", "") or "")
     if flair:
-        tags.append(f"`{flair}`")
-    head = f"{score_html(r)} {user_html(r.get('author', '') or '[deleted]', bool(r.get('is_submitter')))} · {created}"
-    if cid:
-        head += f' · <span class="cid">{cid}</span>'
-    if tags:
-        head += " " + " ".join(tags)
-    if permalink:
-        head += f" · [↗](https://reddit.com{permalink})"
-    return head
+        tags.append(tag(flair, "flair"))
+    cid = r.get("id", "") or ""
+    when = utc(ts_of(r)).strftime("%Y-%m-%d %H:%M UTC")
+    if ID.fullmatch(cid) and ID.fullmatch(pid):
+        when = f'<a class="when" href="https://reddit.com/comments/{pid}/_/{cid}/">{when}</a>'
+    else:
+        when = f'<span class="when">{when}</span>'
+    return f'<div class="meta">{score_html(r)}{user_html(r.get("author", "") or "[deleted]", bool(r.get("is_submitter")))}{"".join(tags)}{when}</div>'
 
-def render_tree(nodes, by_parent):
+def render_tree(nodes, by_parent, pid):
     out = []
     for r in nodes:
+        kids = by_parent.get("t1_" + (r.get("id", "") or ""), [])
         body = embed(user_md(re.sub(r"(?m)^\t", "  ", r.get("body", "") or "")), set(), r.get("media_metadata") if isinstance(r.get("media_metadata"), dict) else None).strip("\n") or "_(no content)_"
-        out += [f'<div class="c" data-s="{num_score(r)}" data-t="{ts_of(r)}">', "", meta_line(r), "", body, ""]
-        out += render_tree(by_parent.get("t1_" + (r.get("id", "") or ""), []), by_parent)
+        out += [f'<div class="c{" folded" if kids else ""}">', "", meta_html(r, pid), "", body, ""]
+        out += render_tree(kids, by_parent, pid)
         out += ["</div>", ""]
     return out
 
@@ -400,8 +398,8 @@ def render_comments(d, post_id):
     roots, by_parent = build_tree(rows, "t3_" + post_id)
     if not roots:
         return "", len(caps)
-    head = ['<div class="comments" data-pagefind-ignore>', "", f'<h2 class="comments-title">Comments / 评论 · {len(rows)}</h2>', ""]
-    return "\n".join(head + render_tree(roots, by_parent) + ["</div>"]), len(caps)
+    head = ['<div class="comments" data-pagefind-ignore>', "", f'<div class="comments-head"><h2>Comments / 评论 · {len(rows)}</h2></div>', ""]
+    return "\n".join(head + render_tree(roots, by_parent, post_id) + ["</div>"]), len(caps)
 
 def clean_html(markup):
     s = re.sub(r"<!-- SC_O(?:FF|N) -->", "", markup)
