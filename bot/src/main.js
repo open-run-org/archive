@@ -1,5 +1,7 @@
-import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { createHash } from "node:crypto";
+import { appendFileSync, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { Budget } from "./budget.js";
 import { answer, MODELS } from "./compose.js";
 import { loadEnv } from "./env.js";
@@ -22,6 +24,13 @@ const BOT = (process.env.REDDIT_BOT_NAME || "").toLowerCase();
 const DIR = process.env.STATE_DIR || "state";
 const FILE = join(DIR, "state.json");
 const HOUR = 3600000;
+const SRC = dirname(fileURLToPath(import.meta.url));
+const version = () => {
+    const h = createHash("sha1");
+    for (const f of readdirSync(SRC).sort()) h.update(readFileSync(join(SRC, f)));
+    return h.digest("hex");
+};
+const VERSION = version();
 const DAY = 24 * HOUR;
 
 mkdirSync(DIR, { recursive: true });
@@ -246,6 +255,10 @@ if (args.includes("--target")) {
     console.log(`archive bot as u/${BOT} in ${SUBS.join(", ")}${DRY ? " (dry run)" : ""}`);
     budget.randomCredit(MODELS.fast, MODELS.main);
     for (;;) {
+        if (version() !== VERSION) {
+            log({ restart: "code changed" });
+            process.exit(0);
+        }
         await tick();
         await new Promise(ok => setTimeout(ok, 60000));
     }
