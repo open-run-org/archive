@@ -295,7 +295,7 @@ const learn = async () => {
 const answerMail = async (letter: Letter, model: string) => {
     if (!mailbox) return false;
     const started = Date.now();
-    const conversation = mailbox.history(letter.thread, letter.id);
+    const conversation = mailbox.history(letter);
     const author = letter.name ? `${letter.name} <${letter.sender}>` : letter.sender;
     const a = await answer(
         { today: new Date().toISOString().slice(0, 10), title: letter.subject ?? "", target: { author, text: fresh(letter.text) }, conversation },

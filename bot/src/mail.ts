@@ -1,13 +1,15 @@
 import { Database } from "bun:sqlite";
-import { resolveMx } from "node:dns/promises";
+import { lookup, resolveMx } from "node:dns/promises";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import nodemailer from "nodemailer";
 import PostalMime from "postal-mime";
+import { reserved } from "./limit";
 
 export const ADDRESS = (process.env.MAIL_ADDRESS || "bot.mofufu@clarelab.moe").toLowerCase();
 const DOMAIN = ADDRESS.split("@")[1] ?? "clarelab.moe";
 const QUEUE = Number(process.env.MAIL_QUEUE) || 4;
+const AUTHSERV = (process.env.MAIL_AUTHSERV || "mx.cloudflare.net").toLowerCase();
 
 const SCHEMA = `
 create table if not exists mail (
@@ -61,11 +63,12 @@ const ids = (s: string | undefined | null) => (s ?? "").match(/<[^<>\s]+>/g) ?? 
 const authenticated = (headers: { key: string; value: string }[], sender: string) => {
     const domain = sender.split("@")[1] ?? "";
     const aligned = (d: string) => d === domain || domain.endsWith(`.${d}`) || d.endsWith(`.${domain}`);
-    const lines = headers.filter(h => h.key === "authentication-results" || h.key === "arc-authentication-results").map(h => h.value.toLowerCase());
-    const dkim = lines.some(l => [...l.matchAll(/dkim=pass[^;]*?header\.(?:d|i)=@?([a-z0-9.-]+)/g)].some(m => aligned(m[1] ?? "")));
-    const spf = lines.some(l => [...l.matchAll(/spf=pass[^;]*?smtp\.mailfrom=(?:[^@;\s]*@)?([a-z0-9.-]+)/g)].some(m => aligned(m[1] ?? "")));
-    const dmarc = lines.some(l => /dmarc=pass/.test(l));
-    return { dkim, spf, dmarc, ok: dkim || spf || dmarc, lines };
+    const top = headers.find(h => h.key === "authentication-results")?.value.toLowerCase() ?? "";
+    const line = /^\s*([^\s;]+)/.exec(top)?.[1] === AUTHSERV ? top : "";
+    const dkim = [...line.matchAll(/dkim=pass[^;]*?header\.(?:d|i)=@?([a-z0-9.-]+)/g)].some(m => aligned(m[1] ?? ""));
+    const spf = [...line.matchAll(/spf=pass[^;]*?smtp\.mailfrom=(?:[^@;\s]*@)?([a-z0-9.-]+)/g)].some(m => aligned(m[1] ?? ""));
+    const dmarc = [...line.matchAll(/dmarc=pass[^;]*?header\.from=([a-z0-9.-]+)/g)].some(m => m[1] === domain);
+    return { dkim, spf, dmarc, ok: dkim || spf || dmarc, lines: top ? [top] : [] };
 };
 
 const automated = (headers: { key: string; value: string }[], sender: string, envelope: string, type: string) => {
@@ -213,11 +216,10 @@ export class Mailbox {
         return this.db.query("select * from mail where status = 'queued' order by at").all() as Letter[];
     }
 
-    history(thread: string, before: number) {
-        const rows = this.db.query("select text, reply from mail where thread = ? and status = 'answered' and id < ? order by at").all(thread, before) as {
-            text: string;
-            reply: string;
-        }[];
+    history(letter: Letter) {
+        const rows = this.db
+            .query("select text, reply from mail where thread = ? and sender = ? and status = 'answered' and id < ? order by at")
+            .all(letter.thread, letter.sender, letter.id) as { text: string; reply: string }[];
         return rows.flatMap(r => [
             { role: "visitor" as const, text: r.text },
             { role: "you" as const, text: r.reply },
@@ -253,27 +255,33 @@ export class Mailbox {
         if (!exchanges.length) exchanges.push({ exchange: domain, priority: 0 });
         let last: unknown = null;
         for (const { exchange } of exchanges) {
-            const transport = nodemailer.createTransport({
-                host: exchange,
-                port: 25,
-                secure: false,
-                requireTLS: true,
-                name: process.env.MAIL_HELO || DOMAIN,
-                connectionTimeout: 15000,
-                greetingTimeout: 15000,
-                socketTimeout: 30000,
-                tls: { servername: exchange },
-                ...(this.key ? { dkim: { domainName: DOMAIN, keySelector: process.env.MAIL_DKIM_SELECTOR || "mofufu", privateKey: this.key } } : {}),
-            });
-            try {
-                const info = await transport.sendMail(message);
-                return { id, via: `${exchange}: ${info.response ?? ""}`.trim() };
-            } catch (e) {
-                last = e;
-                const code = (e as { responseCode?: number })?.responseCode;
-                if (typeof code === "number" && code >= 500) throw Object.assign(e as Error, { permanent: true });
-            } finally {
-                transport.close();
+            const hosts = (await lookup(exchange, { all: true }).catch(() => []))
+                .sort((a, b) => a.family - b.family)
+                .map(a => a.address)
+                .filter(a => !reserved(a));
+            if (!hosts.length) last = new Error(`${exchange} has no public address`);
+            for (const host of hosts) {
+                const transport = nodemailer.createTransport({
+                    host,
+                    port: 25,
+                    secure: false,
+                    name: process.env.MAIL_HELO || DOMAIN,
+                    connectionTimeout: 15000,
+                    greetingTimeout: 15000,
+                    socketTimeout: 30000,
+                    tls: { servername: exchange },
+                    ...(this.key ? { dkim: { domainName: DOMAIN, keySelector: process.env.MAIL_DKIM_SELECTOR || "mofufu", privateKey: this.key } } : {}),
+                });
+                try {
+                    const info = await transport.sendMail(message);
+                    return { id, via: `${exchange} ${host}: ${info.response ?? ""}`.trim() };
+                } catch (e) {
+                    last = e;
+                    const code = (e as { responseCode?: number })?.responseCode;
+                    if (typeof code === "number" && code >= 500) throw Object.assign(e as Error, { permanent: true });
+                } finally {
+                    transport.close();
+                }
             }
         }
         throw last ?? new Error("delivery failed");

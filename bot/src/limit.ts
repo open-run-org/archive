@@ -1,4 +1,4 @@
-const RANGES = [
+const CLOUDFLARE = [
     "173.245.48.0/20",
     "103.21.244.0/22",
     "103.22.200.0/22",
@@ -50,18 +50,59 @@ const six = (ip: string) => {
     return value;
 };
 
-const BLOCKS = RANGES.map(range => {
-    const [base = "", size = "0"] = range.split("/");
-    const wide = base.includes(":");
-    return { wide, bits: wide ? 128n : 32n, size: BigInt(size), base: (wide ? six(base) : four(base)) ?? 0n };
-});
+const RESERVED = [
+    "0.0.0.0/8",
+    "10.0.0.0/8",
+    "100.64.0.0/10",
+    "127.0.0.0/8",
+    "169.254.0.0/16",
+    "172.16.0.0/12",
+    "192.0.0.0/24",
+    "192.0.2.0/24",
+    "192.168.0.0/16",
+    "198.18.0.0/15",
+    "198.51.100.0/24",
+    "203.0.113.0/24",
+    "224.0.0.0/3",
+    "::/127",
+    "::ffff:0:0/96",
+    "64:ff9b::/96",
+    "100::/64",
+    "2001:db8::/32",
+    "2002::/16",
+    "fc00::/7",
+    "fe80::/10",
+    "ff00::/8",
+];
 
-const cloudflare = (ip: string) => {
+const parse = (ip: string) => {
     const plain = /^::ffff:(\d+\.\d+\.\d+\.\d+)$/i.exec(ip)?.[1] ?? ip;
     const wide = plain.includes(":");
     const value = wide ? six(plain) : four(plain);
-    if (value === null) return false;
-    return BLOCKS.some(b => b.wide === wide && value >> (b.bits - b.size) === b.base >> (b.bits - b.size));
+    return value === null ? null : { wide, value };
+};
+
+const blocks = (ranges: string[]) =>
+    ranges.map(range => {
+        const [base = "", size = "0"] = range.split("/");
+        const wide = base.includes(":");
+        return { wide, bits: wide ? 128n : 32n, size: BigInt(size), base: (wide ? six(base) : four(base)) ?? 0n };
+    });
+
+const hit = (list: ReturnType<typeof blocks>, ip: { wide: boolean; value: bigint }) =>
+    list.some(b => b.wide === ip.wide && ip.value >> (b.bits - b.size) === b.base >> (b.bits - b.size));
+
+const EDGE = blocks(CLOUDFLARE);
+const LOCAL = blocks(RESERVED);
+
+const cloudflare = (ip: string) => {
+    const p = parse(ip);
+    return p !== null && hit(EDGE, p);
+};
+
+export const reserved = (ip: string) => {
+    const p = parse(ip);
+    return p === null || hit(LOCAL, p);
 };
 
 const PRIVATE = /^(?:::ffff:)?(?:127\.|10\.|192\.168\.|172\.(?:1[6-9]|2\d|3[01])\.)|^(?:::1|f[cd][0-9a-f]{2}:)/i;
