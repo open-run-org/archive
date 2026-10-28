@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Mofufu | {{ config.title }}{% endblock title %}
+
+{% block content %}
+<div id="mofufu" data-api="{{ config.extra.ask }}">
+    <div class="page-head">
+        <h1><span class="user mofufu" data-i="M" style="--h:330">Mofufu</span></h1>
+        <nav class="sort" aria-label="Chats">
+            <button type="button" class="new">New chat</button>
+            <button type="button" class="past" aria-expanded="false" hidden>History</button>
+        </nav>
+    </div>
+    <ol class="chats" hidden></ol>
+    <article class="chat" aria-live="polite"></article>
+    <form class="ask">
+        <label class="sr-only" for="mofufu-q">Message</label>
+        <textarea id="mofufu-q" name="q" rows="2" maxlength="2000" placeholder="Ask Mofufu" required></textarea>
+        <button type="submit"><span class="idle">Send</span><span class="busy">Thinking</span><span class="wait"></span></button>
+        <p class="status" role="status"></p>
+    </form>
+</div>
+<noscript><p class="muted">Mofufu needs JavaScript.</p></noscript>
+{% endblock content %}
