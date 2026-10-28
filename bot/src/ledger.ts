@@ -11,6 +11,10 @@ const PRICES: Record<string, Price[]> = {
         { input: 1.5, output: 7.5, cached: 0.15 },
     ],
     "gemini-3.5-flash-lite": [{ input: 0.3, output: 2.5, cached: 0.03 }],
+    "gemini-4-argon": [
+        { until: "2026-12-01", input: 2, output: 10, cached: 0.1 },
+        { input: 4, output: 20, cached: 0.2 },
+    ],
 };
 const FALLBACK = "gemini-3.8-flash";
 const SEARCH_FREE = 5000;

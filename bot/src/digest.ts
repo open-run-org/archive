@@ -17,6 +17,11 @@ const NAME: Record<Kind, string> = { weekly: "润学周报", daily: "润学日�
 const SPAN: Record<Kind, number> = { weekly: 7 * DAY, daily: DAY };
 const BEFORE: Record<Kind, number> = { weekly: 4, daily: 7 };
 const LENGTH: Record<Kind, string> = { weekly: "1024 to 4096 Chinese characters", daily: "512 to 2048 Chinese characters" };
+const LIMIT: Record<Kind, number> = { weekly: 4096, daily: 2048 };
+const MODEL: Record<Kind, string> = { weekly: process.env.MODEL_WEEKLY || "gemini-4-argon", daily: process.env.MODEL_DAILY || MODELS.main };
+
+const CONDENSE = (n: number) =>
+    `Shorten this issue of a digest to at most ${n} Chinese characters. Keep its structure and its most important points. Keep at most two [S#] citations per statement, the strongest ones. Same language. Return only the shortened issue.`;
 
 const SYSTEM = (
     kind: Kind,
@@ -33,7 +38,7 @@ Form:
 - Simplified Chinese. Plain, analytical and calm; no hype, no moralising.
 - Open with a short overview of the period in two or three sentences. Then sections with "## " headings: the main trends first, then the wider picture, then a few posts or threads worth reading with one line on why each. Change the sections when the period calls for it.
 - Length: ${LENGTH[kind]}. Use the room only when the period has that much worth saying.
-- Put the source id right after each statement it supports, like [S3] or [S2][S5]. Never invent facts, numbers, names or quotes.
+- Put the source id right after each statement it supports, like [S3] or [S2][S5]: the one or two strongest sources, not every source. Never invent facts, numbers, names or quotes.
 - Never put u/ before a username. No title line, no greeting, no sign-off and no reference list; they are added automatically.
 
 Editorial notes learned from readers' feedback. Follow them unless they conflict with the rules above:
@@ -334,16 +339,21 @@ export class Desk {
         const edition = day(Date.now());
         const task = `Write ${NAME[kind]} for ${edition}.`;
         const draft = await answer({ today: new Date().toISOString().slice(0, 10), target: { author: "editor", text: task }, material: m.text }, "digest", {
+            model: MODEL[kind],
             system: SYSTEM(kind, this.notes()),
             registry: reg,
             maxTurns: 8,
             thinking: kind === "weekly" ? "medium" : "low",
         });
-        const a = await refine(draft, { request: task, task: RESEARCH(kind) }).catch(e => {
+        const full = await refine(draft, { request: task, task: RESEARCH(kind) }).catch(e => {
             this.o.log({ digest: kind, refine: e instanceof Error ? e.message : String(e) });
             return draft;
         });
-        return { a, posts: m.posts, edition };
+        const size = full.text.replace(/\[\s*S\d+\s*\]/g, "").length;
+        if (size <= LIMIT[kind]) return { a: full, posts: m.posts, edition };
+        const text = await write(MODELS.main, { system: CONDENSE(LIMIT[kind]), prompt: full.text, thinking: "low" }).catch(() => full.text);
+        this.o.log({ digest: kind, condensed: [size, text.replace(/\[\s*S\d+\s*\]/g, "").length] });
+        return { a: { ...full, text }, posts: m.posts, edition };
     }
 
     private footer(kind: Kind, o: { unsubscribe?: string; member?: boolean } = {}): { md: string; mail: Footer } {
