@@ -102,7 +102,7 @@ const desk = new Desk(DIR, {
     post: process.env.DIGEST_POST === "1",
     mail: process.env.DIGEST_MAIL === "1",
     log,
-    status: (email, unsubscribe) => signature(email, undefined, unsubscribe),
+    status: email => signature(email),
     about: () => guide(),
 });
 
@@ -423,10 +423,10 @@ const day = (ms: number) => new Date(ms).toLocaleDateString("en-GB", { day: "num
 const clock = (ms: number) => `${new Date(ms).toISOString().slice(11, 16)} UTC`;
 const guide = () => (state.about ? `https://redd.it/${state.about.id.slice(3)}` : undefined);
 
-const signature = (email: string, st?: Status, unsubscribe?: string): Signature => {
+const signature = (email: string, st?: Status): Signature => {
     const s = money.standing(email);
     const p = money.person(email);
-    const base = { weekly: Boolean(p?.weekly), daily: s ? Boolean(p?.daily) : null, unsubscribe, guide: guide() };
+    const base = { weekly: Boolean(p?.weekly), daily: s ? Boolean(p?.daily) : null, guide: guide() };
     if (s?.tier === "owner") return base;
     if (s && money.left(s) > RESERVE) {
         const share = Math.min(100, Math.max(0, Math.round(((money.left(s) - RESERVE) / Math.max(0.01, s.cap - RESERVE)) * 100)));
@@ -717,12 +717,14 @@ const serve = (port: number) => {
             if (url.pathname === "/unsubscribe") {
                 const p = money.byToken(url.searchParams.get("t") ?? "");
                 if (!p) return page(PAGES.invalid(), 404);
+                const l = url.searchParams.get("l");
+                const list = l === "weekly" || l === "daily" ? l : undefined;
                 if (req.method === "POST") {
-                    money.subscribe(p.email, { weekly: false, daily: false });
-                    log({ unsubscribe: p.email });
-                    return page(PAGES.done(p.email));
+                    money.subscribe(p.email, list ? { [list]: false } : { weekly: false, daily: false });
+                    log({ unsubscribe: p.email, list: list ?? "all" });
+                    return page(PAGES.done(p.email, list));
                 }
-                return page(PAGES.ask(p.email));
+                return page(PAGES.ask(p.email, list));
             }
             if (url.pathname === "/mail" && req.method === "POST") {
                 if (!mailbox || !same(req.headers.get("x-mail-secret") ?? "", process.env.MAIL_SECRET ?? "")) return new Response("forbidden", { status: 403 });
@@ -739,7 +741,7 @@ const serve = (port: number) => {
                     const refused = change.daily === true && !s;
                     if (refused) change.daily = undefined;
                     money.subscribe(got.sender, change);
-                    const letter = got.change.weekly === false && got.change.daily === false ? null : mailbox.letter(got.id);
+                    const letter = mailbox.letter(got.id);
                     const text = `${[
                         change.weekly === true && "已订阅周报",
                         change.weekly === false && "已退订周报",

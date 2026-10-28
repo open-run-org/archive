@@ -297,11 +297,16 @@ export const answer = async (
     throw new Error(`${model}: no answer after ${max} turns`);
 };
 
-const REFINE = `You are the bot described under "Who you are". Below is a draft you wrote from the community archive, citing archive sources as [S1], [S2] and so on. Now check and complete it with the web.
+const REFINE = `You are the bot described under "Who you are". Below is a draft you wrote from the community archive, citing archive sources as [S1], [S2] and so on. The draft carries the community's lines of thought: what people did, weighed and recommended. This round is for the web.
 
-- Search the web where it adds value: facts that may have changed, such as rules, numbers, dates and procedures, and wider news or context the draft lacks. Search again after reading when the first results raise new questions; search_archive and read still work when you want to check something against the community. When the draft needs nothing, change nothing.
-- Keep the community's experience and every [S#] citation that still holds. When current sources contradict the draft, say so plainly.
-- Return the complete final text in the same language and format as the draft and within the same length limit. No preamble, no reference list, no signature.`;
+- Treat each line of thought in the draft as a lead and follow the promising ones out on the web: how things stand now, what the alternatives are, what the numbers say, and what has changed or is about to change.
+- Go wide in kinds of sources: official pages, news, data, expert analysis and other communities, in whatever languages the subject calls for.
+- Go deep: open and read the most useful pages rather than relying on search snippets, and search again where the reading raises new questions.
+- The archive tools are only for checking a specific point against the community, once or twice at most.
+- Then write the final text: keep the community's experience and reasoning with its [S#] citations, add what the research shows, and say plainly where they disagree.
+- Return the complete final text in the same language as the draft. No preamble, no reference list, no signature.`;
+
+const ANSWER = "Length: 64 to 1024 Chinese characters, never more, or a similar length in other languages. Short paragraphs or a short list; no headings.";
 
 const redirects = new Map<string, Promise<string>>();
 const resolve = (uri: string) => {
@@ -363,7 +368,7 @@ export const refine = async (
     };
     const today = new Date().toISOString().slice(0, 10);
     const cited = [...new Set([...a.text.matchAll(/S\d+/g)].map(m => m[0]))].map(id => reg.get(id)).filter((s): s is Source => Boolean(s));
-    const system = [REFINE, o.task, `Who you are:\n${persona()}`].filter(Boolean).join("\n\n");
+    const system = [REFINE, o.task ?? ANSWER, `Who you are:\n${persona()}`].filter(Boolean).join("\n\n");
     const contents: Content[] = [
         {
             role: "user",
@@ -392,7 +397,7 @@ export const refine = async (
             tools: TOOLS,
             final: i === max - 1,
             search: true,
-            thinking: model === MODELS.fast ? "minimal" : "low",
+            thinking: model === MODELS.fast ? "minimal" : "medium",
         });
         contents.push(t.content);
         for (const query of t.queries) step({ type: "search", query });

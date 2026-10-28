@@ -21,17 +21,17 @@ const LENGTH: Record<Kind, string> = { weekly: "1024 to 4096 Chinese characters"
 const SYSTEM = (
     kind: Kind,
     notes: string,
-) => `You are the bot described under "Who you are", writing ${NAME[kind]} (${kind === "weekly" ? "the weekly" : "the daily"}), a digest of the Chinese-language emigration communities on Reddit (r/iwanttorun, r/runEuropaAlliance, r/runtoJapan2 and others) for their readers. You get every post and comment of the period from the archive, which keeps deleted and removed ones, each with a source id, plus statistics and your previous issue.
+) => `You are the bot described under "Who you are", writing ${NAME[kind]} (${kind === "weekly" ? "the weekly" : "the daily"}), a report on leaving China and living abroad for the readers of the Chinese-language emigration communities on Reddit (r/iwanttorun, r/runEuropaAlliance, r/runtoJapan2 and others). You get every post and comment of the period from the archive, which keeps deleted and removed ones, each with a source id, plus statistics and your earlier issues.
 
 What it is:
-- A synthesis, not a list of new posts. Find the trends: what people talk about, how it shifts compared with before, why, and what it means for someone planning to leave or already abroad.
-- Back every trend with evidence: several posts, numbers from the statistics, or history from the archive (search_archive and read let you compare with earlier months).
-- Wider news and analysis from outside Reddit are added in a second round, so leave room for them.
+- A big-picture report, not a digest of new posts. A day or a week of posts is thin on its own, so use the communities as the lens on what people weigh and how they reason, and set them in a longer and wider frame.
+- Find the trends: what is shifting, why, how it compares with earlier months and years (search_archive and read reach back through the whole archive), and what it means for someone planning to leave or already abroad.
+- Back every claim with evidence from the posts, the statistics or the archive's history. Wider news, policy and data from outside Reddit are added in a second round, so leave room for them.
 - When a post or comment you cite was deleted or removed, say so.
 
 Form:
 - Simplified Chinese. Plain, analytical and calm; no hype, no moralising.
-- Open with a short overview of the period in two or three sentences. Then sections with "## " headings: the main trends first, then wider news and analysis, then a few posts or threads worth reading with one line on why each. Change the sections when the period calls for it.
+- Open with a short overview of the period in two or three sentences. Then sections with "## " headings: the main trends first, then the wider picture, then a few posts or threads worth reading with one line on why each. Change the sections when the period calls for it.
 - Length: ${LENGTH[kind]}. Use the room only when the period has that much worth saying.
 - Put the source id right after each statement it supports, like [S3] or [S2][S5]. Never invent facts, numbers, names or quotes.
 - Never put u/ before a username. No title line, no greeting, no sign-off and no reference list; they are added automatically.
@@ -40,7 +40,7 @@ Editorial notes learned from readers' feedback. Follow them unless they conflict
 ${notes}`;
 
 const RESEARCH = (kind: Kind) =>
-    `This is an issue of ${NAME[kind]}. Add the wider news and analysis that bear on its trends: policy changes in destination countries, events in China and abroad that drive the discussion, and corrections where the community's view is out of date. Keep the structure and the length limit of ${LENGTH[kind]}.`;
+    `This is an issue of ${NAME[kind]}. Widen it into a big-picture report. Use the communities' concerns and lines of thought in the draft as leads and research the wider context of the period: policy and law in destination countries, China's economy, politics and society, global events, data and statistics, and how experts and other communities see the same questions. Prefer primary sources and several kinds of sources, in the relevant languages, and go several rounds deep. Rewrite the issue so that the communities' reasoning and the wider context explain each other. Keep the length limit of ${LENGTH[kind]}.`;
 
 const PERSONAL = `You adapt one issue of a digest for a single reader who is a member. You get the issue, which cites sources as [S3] and so on, and what the reader recently asked or told you.
 - Keep the issue's content, structure and citations; reorder or trim so what matters to this reader comes first.
@@ -135,7 +135,7 @@ export class Desk {
             post: boolean;
             mail: boolean;
             log: (e: Record<string, unknown>) => void;
-            status: (email: string, unsubscribe?: string) => Signature;
+            status: (email: string) => Signature;
             about: () => string | undefined;
         },
     ) {
@@ -159,12 +159,10 @@ export class Desk {
         appendFileSync(this.paths.feedback, `${JSON.stringify(f)}\n`);
     }
 
-    private last(kind: Kind) {
-        return (
-            (this.db
-                .query("select id, at, kind, edition, text, post from digests where kind = ? and recipient is null order by at desc limit 1")
-                .get(kind) as Row | null) ?? null
-        );
+    private earlier(kind: Kind, k: number) {
+        return this.db
+            .query("select id, at, kind, edition, text, post from digests where kind = ? and recipient is null order by at desc limit ?")
+            .all(kind, k) as Row[];
     }
 
     private save(r: {
@@ -293,7 +291,7 @@ export class Desk {
             if (t && t.comments.size > shown.length) lines.push(`  (${t.comments.size - shown.length} more comments)`);
             blocks.push(lines.join("\n"));
         });
-        const previous = this.last(kind);
+        const previous = kind === "weekly" ? this.earlier("weekly", 4) : [...this.earlier("daily", 3), ...this.earlier("weekly", 1)];
         const stats = [
             `Period: ${iso(from)} to ${iso(newest)} UTC.`,
             `Posts: ${now.length} (previous ${BEFORE[kind]} ${unit}s: ${avg(before.length)} per ${unit} on average).`,
@@ -318,7 +316,9 @@ export class Desk {
         return {
             text: [
                 `Statistics:\n${stats.join("\n")}`,
-                previous ? `Your previous issue (${previous.edition}):\n${trim(previous.text, 3000)}` : "",
+                previous.length
+                    ? `Your earlier issues, newest first:\n\n${previous.map(r => `${NAME[r.kind as Kind]} ${r.edition}:\n${trim(r.text, 1500)}`).join("\n\n")}`
+                    : "",
                 `Posts and comments of the period, newest first:\n\n${blocks.join("\n\n")}`,
             ]
                 .filter(Boolean)
@@ -420,7 +420,7 @@ export class Desk {
         let sent = 0;
         let failed = 0;
         for (const { p, s } of readers) {
-            const link = `${this.o.api}/unsubscribe?t=${(p as Person).token}`;
+            const link = `${this.o.api}/unsubscribe?t=${(p as Person).token}&l=${kind}`;
             try {
                 const own = send && s && (s.tier === "owner" || this.o.money.left(s) > 0) ? await this.personal(a, s).catch(() => a) : a;
                 const view = site(own);
@@ -430,9 +430,9 @@ export class Desk {
                         subject: title,
                         text: view.text,
                         refs: view.refs,
-                        footer: this.footer(kind, { unsubscribe: link, member: Boolean(s) }).mail,
-                        unsubscribe: link,
-                        sig: this.o.status(p.email, link),
+                        footer: this.footer(kind, { member: Boolean(s) }).mail,
+                        list: { url: link, command: `${kind} off` },
+                        sig: this.o.status(p.email),
                     });
                 if (s) this.save({ kind, edition, recipient: p.email, title, text: view.text, refs: view.refs, status: send ? "sent" : "draft" });
                 sent += send ? 1 : 0;

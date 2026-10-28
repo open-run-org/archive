@@ -164,22 +164,20 @@ const markup = (text: string, refs: Ref[]) => {
     return out.join("");
 };
 
-export type Signature = { weekly?: boolean; daily?: boolean | null; quota?: string | null; unsubscribe?: string; guide?: string };
+export type Signature = { weekly?: boolean; daily?: boolean | null; quota?: string | null; guide?: string };
 
 const LINK = 'style="color:#0b63c4;text-decoration:none"';
 
 const sign = (s: Signature = {}) => {
     const rows: { label: string; text: string; html: string }[] = [];
-    const toggle = (label: string, on: boolean, name: string, verb: string) =>
+    const toggle = (label: string, on: boolean, name: string) =>
         rows.push({
             label,
-            text: on ? `On · reply "${name} off" to stop` : `Off · reply "${name} on" to ${verb}`,
-            html: on ? `On · reply <b>${name} off</b> to stop` : `Off · reply <b>${name} on</b> to ${verb}`,
+            text: on ? `On · reply "${name} off" to stop` : `Off · reply "${name} on" to subscribe`,
+            html: on ? `On · reply <b>${name} off</b> to stop` : `Off · reply <b>${name} on</b> to subscribe`,
         });
-    if (s.weekly && s.unsubscribe)
-        rows.push({ label: "Weekly", text: `On · unsubscribe: ${s.unsubscribe}`, html: `On · <a href="${html(s.unsubscribe)}" ${LINK}>unsubscribe</a>` });
-    else if (s.weekly !== undefined) toggle("Weekly", s.weekly, "weekly", "subscribe");
-    if (typeof s.daily === "boolean") toggle("Daily", s.daily, "daily", "start");
+    if (s.weekly !== undefined) toggle("Weekly", s.weekly, "weekly");
+    if (typeof s.daily === "boolean") toggle("Daily", s.daily, "daily");
     if (s.quota) rows.push({ label: "Quota", text: s.quota, html: html(s.quota) });
     const links: [string, string][] = [
         ["clareLab.moe", "https://clarelab.moe"],
@@ -207,17 +205,21 @@ const PAGE_CSS = `:root{--bg:#f6f7f9;--card:#fff;--ink:#2b2d31;--mute:#6b7078;--
 const webpage = (title: string, body: string) =>
     `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${title}</title><style>${PAGE_CSS}</style></head><body><main><p class="eyebrow">Mofufu</p>${body}</main></body></html>`;
 
+export type List = "weekly" | "daily";
+const LISTS: Record<List, string> = { weekly: "润学周报", daily: "润学日报" };
+const named = (list?: List) => (list ? LISTS[list] : `${LISTS.weekly} and ${LISTS.daily}`);
+
 export const PAGES = {
-    invalid: () => webpage("Link not valid", `<h1>Link not valid</h1><p>Write <b>unsubscribe</b> to ${ADDRESS} instead.</p>`),
-    ask: (email: string) =>
+    invalid: () => webpage("Link not valid", `<h1>Link not valid</h1><p>Reply <b>weekly off</b> or <b>daily off</b> to any mail from Mofufu instead.</p>`),
+    ask: (email: string, list?: List) =>
         webpage(
             "Unsubscribe",
-            `<h1>Unsubscribe?</h1><p><b>${html(email)}</b> will stop getting 润学周报 and 润学日报.</p><form method="post"><button>Unsubscribe</button></form>`,
+            `<h1>Unsubscribe?</h1><p><b>${html(email)}</b> will stop getting ${named(list)}.</p><form method="post"><button>Unsubscribe</button></form>`,
         ),
-    done: (email: string) =>
+    done: (email: string, list?: List) =>
         webpage(
             "Unsubscribed",
-            `<h1>Unsubscribed</h1><p><b>${html(email)}</b> gets no more digests. To come back, reply <b>weekly on</b> to any mail from Mofufu.</p>`,
+            `<h1>Unsubscribed</h1><p><b>${html(email)}</b> no longer gets ${named(list)}. To come back, reply <b>${list ?? "weekly"} on</b> to any mail from Mofufu.</p>`,
         ),
 };
 
@@ -384,11 +386,14 @@ export class Mailbox {
         });
     }
 
-    async post(to: string, o: { kind: string; subject: string; text: string; refs: Ref[]; footer?: Footer; unsubscribe?: string; sig?: Signature }) {
+    async post(
+        to: string,
+        o: { kind: string; subject: string; text: string; refs: Ref[]; footer?: Footer; list?: { url: string; command: string }; sig?: Signature },
+    ) {
         const id = `<${crypto.randomUUID()}@${DOMAIN}>`;
         const headers: Record<string, string> = { "Auto-Submitted": "auto-generated", "X-Auto-Response-Suppress": "All" };
-        if (o.unsubscribe) {
-            headers["List-Unsubscribe"] = `<${o.unsubscribe}>, <mailto:${ADDRESS}?subject=unsubscribe>`;
+        if (o.list) {
+            headers["List-Unsubscribe"] = `<${o.list.url}>, <mailto:${ADDRESS}?subject=${encodeURIComponent(o.list.command)}>`;
             headers["List-Unsubscribe-Post"] = "List-Unsubscribe=One-Click";
             headers.Precedence = "bulk";
         }
