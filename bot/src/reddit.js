@@ -80,7 +80,7 @@ export const newComments = sub => call(`/r/${sub}/comments`, { params: { limit: 
 
 export const myComments = name => call(`/user/${name}/comments`, { params: { limit: "100", sort: "new" } }).then(kids);
 
-export const thread = async (postId, commentId) => {
+export const thread = async (postId, commentId, fallback) => {
     const params = commentId ? { comment: commentId, context: "8", depth: "1", limit: "20" } : { depth: "1", limit: "1" };
     const [posts, comments] = await call(`/comments/${postId}`, { params });
     const post = kids(posts)[0];
@@ -95,6 +95,10 @@ export const thread = async (postId, commentId) => {
     };
     walk(kids(comments));
     const target = all.get(`t1_${commentId}`);
+    if (!target && fallback?.body) {
+        const up = fallback.parent_id?.startsWith("t1_") ? await thread(postId, fallback.parent_id.slice(3)) : null;
+        return { post, chain: up?.target ? [...up.chain, up.target] : [], target: fallback };
+    }
     if (!target) return null;
     const chain = [];
     for (let p = all.get(target.parent_id); p; p = all.get(p.parent_id)) chain.unshift(p);

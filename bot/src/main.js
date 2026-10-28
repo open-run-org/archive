@@ -83,7 +83,7 @@ const contextOf = t => ({
 
 const handle = async (item, mode) => {
     const postId = postIdOf(item);
-    const t = await reddit.thread(postId, item.name.startsWith("t1_") ? item.name.slice(3) : "");
+    const t = await reddit.thread(postId, item.name.startsWith("t1_") ? item.name.slice(3) : "", item);
     if (!t?.target || isBot(t.target.author) || gone(t.target) || t.post.locked || t.post.archived) {
         log({ mode, target: item.name, skip: "unavailable" });
         return;
@@ -249,7 +249,8 @@ const tick = async () => {
 };
 
 if (args.includes("--target")) {
-    for (const x of await reddit.info(args[args.indexOf("--target") + 1].split(","))) await run(() => handle(x, "random"));
+    const mode = args.includes("--mode") ? args[args.indexOf("--mode") + 1] : "random";
+    for (const x of await reddit.info(args[args.indexOf("--target") + 1].split(","))) await run(() => handle(x, mode));
 } else if (ONCE) {
     await run(inbox);
     if (PREVIEW) await run(() => random(PREVIEW));
