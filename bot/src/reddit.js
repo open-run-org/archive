@@ -74,7 +74,7 @@ export const inbox = () => call("/message/unread", { params: { limit: "100" } })
 
 export const markRead = names => (names.length ? call("/api/read_message", { method: "POST", form: { id: names.join(",") } }) : null);
 
-export const newPosts = sub => call(`/r/${sub}/new`, { params: { limit: "50" } }).then(kids);
+export const newPosts = (sub, limit = 50) => call(`/r/${sub}/new`, { params: { limit: String(limit) } }).then(kids);
 
 export const newComments = sub => call(`/r/${sub}/comments`, { params: { limit: "100" } }).then(kids);
 

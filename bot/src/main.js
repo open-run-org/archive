@@ -37,7 +37,6 @@ mkdirSync(DIR, { recursive: true });
 const state = existsSync(FILE) ? JSON.parse(readFileSync(FILE, "utf8")) : {};
 state.done ??= [];
 state.threads ??= [];
-state.dead ??= {};
 if (!DRY) state.launch ??= Date.now();
 const memory = new Memory(DIR);
 const budget = new Budget(state, {
@@ -57,6 +56,14 @@ const log = entry => {
     const line = JSON.stringify({ at: new Date().toISOString(), dry: DRY, ...entry });
     appendFileSync(join(DIR, "actions.jsonl"), `${line}\n`);
     console.log(line);
+};
+
+const MENTION = new RegExp(`(^|[^\\w-])/?u/${BOT.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?![\\w-])`, "i");
+
+let cached = { at: 0, posts: [] };
+const feed = async () => {
+    if (Date.now() - cached.at > 50000) cached = { at: Date.now(), posts: await reddit.newPosts(SUBS.join("+"), 100) };
+    return cached.posts;
 };
 
 const isBot = name => !name || name === "[deleted]" || name.toLowerCase() === BOT || name === "AutoModerator" || /bot$/i.test(name);
@@ -165,15 +172,21 @@ const inbox = async () => {
             isBot(m.author) ||
             state.done.includes(m.name);
         if (skip) read.push(m.name);
-        else queue.push({ m, rank });
+        else queue.push({ m, rank, inbox: true });
+    }
+    for (const p of await feed()) {
+        const fresh = Date.now() / 1000 - p.created_utc < 2 * 86400;
+        if (fresh && MENTION.test(`${p.title}\n${p.selftext || ""}`) && !isBot(p.author) && !gone(p) && !state.done.includes(p.name)) {
+            queue.push({ m: p, rank: 2 });
+        }
     }
     queue.sort((a, b) => a.rank - b.rank || a.m.created_utc - b.m.created_utc);
-    for (const { m, rank } of queue) {
+    for (const { m, rank, inbox: fromInbox } of queue) {
         if (Date.now() < pausedUntil || !budget.can({ [MODELS.fast]: 1, [MODELS.main]: 1 })) break;
         budget.interactive();
         if ((await run(() => handle(m, rank === 1 ? "reply" : "mention"))) === "retry") break;
         state.done.push(m.name);
-        read.push(m.name);
+        if (fromInbox) read.push(m.name);
     }
     if (!DRY) await reddit.markRead(read);
 };
@@ -185,17 +198,9 @@ const cap = () => {
 
 const candidates = async () => {
     const now = Date.now() / 1000;
-    const items = [];
-    for (const sub of SUBS) {
-        if ((state.dead[sub] || 0) > Date.now()) continue;
-        try {
-            for (const p of await reddit.newPosts(sub)) if (now - p.created_utc < 2 * 86400) items.push(p);
-        } catch (e) {
-            if (/HTTP (403|404)/.test(e.message)) state.dead[sub] = Date.now() + DAY;
-        }
-    }
-    return items.filter(
+    return (await feed()).filter(
         x =>
+            now - x.created_utc < 2 * 86400 &&
             !isBot(x.author) &&
             !gone(x) &&
             !x.locked &&
