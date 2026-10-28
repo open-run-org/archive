@@ -22,6 +22,7 @@ export type Thing = {
     locked?: boolean;
     archived?: boolean;
     score?: number;
+    num_comments?: number;
     removed_by_category?: string | null;
     replies?: Listing | "";
 };

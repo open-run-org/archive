@@ -5,7 +5,7 @@ import { type Answer, answer, reddit as forReddit, MODELS, Registry, refine, sit
 import { type Comment, type Entry, listing, type Thread, thread, trim } from "./archive";
 import { generate, write } from "./gemini";
 import { charge } from "./ledger";
-import type { Footer, Mailbox } from "./mail";
+import type { Footer, Mailbox, Signature } from "./mail";
 import type { Money, Person, Standing } from "./money";
 import * as reddit from "./reddit";
 
@@ -135,7 +135,7 @@ export class Desk {
             post: boolean;
             mail: boolean;
             log: (e: Record<string, unknown>) => void;
-            status: (email: string) => string[];
+            status: (email: string, unsubscribe?: string) => Signature;
             about: () => string | undefined;
         },
     ) {
@@ -352,35 +352,25 @@ export class Desk {
         const hidden = s.hidden ? [`${s.hidden} anonymous ${s.hidden > 1 ? "supporters" : "supporter"}`] : [];
         const thanks = kind === "weekly" && (names.length || s.hidden) ? `Thanks to our sponsors: ${[...names, ...hidden].join(", ")}` : "";
         const url = this.o.about();
-        const pitch = o.member || !url ? "" : `Subscribe, membership and commands: ${url}`;
-        const lines = [thanks, pitch].filter(Boolean);
-        const md = [thanks && `^(${thanks.replace(/[()]/g, "")})`, pitch && `^(Subscribe, membership and commands:) ^[u/${this.o.bot}](${url})`]
-            .filter(Boolean)
-            .join("  \n");
+        const pitch = o.member || !url ? "" : `^(Subscribe, membership and commands:) ^[u/${this.o.bot}](${url})`;
+        const md = [thanks && `^(${thanks.replace(/[()]/g, "")})`, pitch].filter(Boolean).join("  \n");
         const html = (t: string) => t.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c] ?? c);
-        const out = [...lines, ...(o.unsubscribe ? [`You get this because you subscribed. Unsubscribe: ${o.unsubscribe}`] : [])];
         return {
             md,
-            mail: {
-                text: out.join("\n"),
-                html: `<p style="margin:1.2em 0 0;font-size:.75em;color:#6b7078">${out
-                    .map(l => html(l).replace(/(https:\/\/\S+)/g, '<a href="$1" style="color:#0b63c4">$1</a>'))
-                    .join("<br>")}</p>`,
-            },
+            mail: { text: thanks, html: thanks ? `<p style="margin:1.4em 0 0;font-size:.78em;color:#6b7078">${html(thanks)}</p>` : "" },
         };
     }
 
     async preview(kind: Kind, o: { member?: Standing } = {}) {
         const { a, posts, edition } = await charge(kind, () => this.edition(kind));
         const own = o.member ? await this.personal(a, o.member) : a;
-        const view = site(own);
         return {
             title: `${NAME[kind]} · ${edition}`,
             posts,
             markdown: forReddit(a, this.footer(kind).md),
-            text: view.text,
-            refs: view.refs,
-            footer: this.footer(kind, { unsubscribe: `${this.o.api}/unsubscribe?t=0123456789abcdef0123456789abcdef`, member: Boolean(o.member) }).mail,
+            shared: site(a),
+            own: site(own),
+            footer: this.footer(kind, { member: Boolean(o.member) }).mail,
         };
     }
 
@@ -442,7 +432,7 @@ export class Desk {
                         refs: view.refs,
                         footer: this.footer(kind, { unsubscribe: link, member: Boolean(s) }).mail,
                         unsubscribe: link,
-                        status: this.o.status(p.email),
+                        sig: this.o.status(p.email, link),
                     });
                 if (s) this.save({ kind, edition, recipient: p.email, title, text: view.text, refs: view.refs, status: send ? "sent" : "draft" });
                 sent += send ? 1 : 0;

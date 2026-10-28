@@ -1,7 +1,7 @@
 import { createHash, timingSafeEqual } from "node:crypto";
 import { appendFileSync, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { type Action, type Answer, answer, type Context, reddit as forReddit, MODELS, type Mode, refine, site } from "./agent";
+import { type Action, type Answer, answer, type Context, reddit as forReddit, MODELS, type Mode, persona, refine, site } from "./agent";
 import { trim } from "./archive";
 import { Desk, type Kind } from "./digest";
 import { loadEnv } from "./env";
@@ -9,7 +9,7 @@ import { generate, QuotaError, setMeter } from "./gemini";
 import { charge, Ledger } from "./ledger";
 import { client, FREE, Limiter, type LimitState, type Status } from "./limit";
 import { Log, place } from "./log";
-import { compose, fresh, type Letter, Mailbox } from "./mail";
+import { compose, fresh, type Letter, Mailbox, PAGES, type Signature } from "./mail";
 import { Memory } from "./memory";
 import { MARGIN, Money, ownerMail, ownerReddit, type Standing, TIERS } from "./money";
 import * as reddit from "./reddit";
@@ -102,8 +102,8 @@ const desk = new Desk(DIR, {
     post: process.env.DIGEST_POST === "1",
     mail: process.env.DIGEST_MAIL === "1",
     log,
-    status: email => statusLines(email),
-    about: () => state.about?.url,
+    status: (email, unsubscribe) => signature(email, undefined, unsubscribe),
+    about: () => guide(),
 });
 
 const MENTION = new RegExp(`(^|[^\\w-])/?u/${BOT.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?![\\w-])`, "i");
@@ -353,6 +353,26 @@ const candidates = async () => {
     );
 };
 
+const rank = async (items: reddit.Thing[]) => {
+    const now = Date.now() / 1000;
+    const list = items
+        .map(
+            x =>
+                `[${x.name}] r/${x.subreddit} · ${Math.round((now - x.created_utc) / 3600)} h old · score ${x.score ?? 0} · ${x.num_comments ?? 0} comments\nTitle: ${x.title ?? ""}\n${trim(x.selftext ?? "", 300)}`,
+        )
+        .join("\n\n");
+    const out = await generate<{ order: string[] }>(MODELS.main, {
+        system: `Who you are:\n${persona()}\n\nNobody summoned you. You choose which of these recent posts to reply to. Order them by your own judgement of where your reply adds the most, and return their ids in that order.`,
+        prompt: list,
+        schema: { type: "OBJECT", properties: { order: { type: "ARRAY", items: { type: "STRING" } } }, required: ["order"] },
+        thinking: "low",
+        maxTokens: 2048,
+    });
+    const named = new Map(items.map(x => [x.name, x]));
+    const chosen = out.order.map(id => named.get(id.trim().replace(/^\[|\]$/g, ""))).filter((x): x is reddit.Thing => Boolean(x));
+    return [...new Set([...chosen, ...items])];
+};
+
 const random = async (count?: number) => {
     const today = new Date().toISOString().slice(0, 10);
     if (state.random?.day !== today) state.random = { day: today, count: 0 };
@@ -364,9 +384,11 @@ const random = async (count?: number) => {
     }
     let n = count ?? 1;
     if (Date.now() < pausedUntil) return;
-    const items = await candidates();
+    const found = await candidates();
+    if (!found.length || !pick()) return;
+    const items = found.length > 1 ? await charge("random", () => rank(found)).catch(() => found) : found;
     while (n > 0 && items.length) {
-        const x = items.splice(Math.floor(Math.random() * items.length), 1)[0];
+        const x = items.shift();
         if (!x) break;
         if (!pick()) break;
         const status = await run(() => handle(x, "random"));
@@ -397,26 +419,24 @@ const learn = async () => {
 };
 
 const when = (ms: number) => `${new Date(ms).toISOString().slice(0, 16).replace("T", " ")} UTC`;
-const wait = (s: number) => (s >= 3600 ? `${s / 3600} h` : `${Math.round(s / 60)} min`);
+const day = (ms: number) => new Date(ms).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
+const clock = (ms: number) => `${new Date(ms).toISOString().slice(11, 16)} UTC`;
+const guide = () => (state.about ? `https://redd.it/${state.about.id.slice(3)}` : undefined);
 
-const statusLines = (email: string, st?: Status) => {
+const signature = (email: string, st?: Status, unsubscribe?: string): Signature => {
     const s = money.standing(email);
     const p = money.person(email);
-    const subs = `Weekly: ${p?.weekly ? "on" : "off"} · Daily: ${s ? (p?.daily ? "on" : "off") : "members only"} · Reply "weekly on/off"${s ? ' or "daily on/off"' : ""} to change`;
-    if (s?.tier === "owner") return [subs, "Quota: unlimited"];
-    const until = s ? when(s.until).slice(0, 10) : "";
+    const base = { weekly: Boolean(p?.weekly), daily: s ? Boolean(p?.daily) : null, unsubscribe, guide: guide() };
+    if (s?.tier === "owner") return base;
     if (s && money.left(s) > RESERVE) {
-        const share = Math.round(((money.left(s) - RESERVE) / Math.max(0.01, s.cap - RESERVE)) * 100);
-        return [subs, `Quota: ${s.tier} until ${until} · ${Math.min(100, Math.max(0, share))}% left`];
+        const share = Math.min(100, Math.max(0, Math.round(((money.left(s) - RESERVE) / Math.max(0.01, s.cap - RESERVE)) * 100)));
+        return { ...base, quota: `${share}% left until ${day(s.until)}` };
     }
     const now = st ?? mailLimiter.status(email);
-    const left = Math.max(0, 2 - now.used);
-    const quota = now.until
-        ? `next answer after ${when(now.until)}, mail waits in a queue of ${QUEUE}`
-        : left
-          ? `${left}/2 free today, then waits from ${wait(mailLimiter.pause(2))}`
-          : `next answer now, then a ${wait(mailLimiter.pause(now.used + 1))} wait`;
-    return [subs, `Quota: ${s ? `${s.tier} allowance used until ${until} · ` : ""}${quota} · resets 00:00 UTC`];
+    const left = Math.max(0, FREE - now.used);
+    const free = now.until ? `next answer at ${clock(now.until)}` : left ? `${left} of ${FREE} free left today` : "next answer now";
+    const quota = s ? `Allowance used until ${day(s.until)} · ${free}` : free;
+    return { ...base, quota: quota.charAt(0).toUpperCase() + quota.slice(1) };
 };
 
 const describe = (email: string, s: Standing | null) => {
@@ -498,7 +518,7 @@ const answerMail = async (letter: Letter, model: string) => {
         headers: JSON.parse(letter.headers),
     };
     try {
-        const sent = await mailbox.send(letter, shown.text, shown.refs, statusLines(letter.sender, unlimited ? undefined : mailLimiter.peek(letter.sender)));
+        const sent = await mailbox.send(letter, shown.text, shown.refs, signature(letter.sender, unlimited ? undefined : mailLimiter.peek(letter.sender)));
         const st = unlimited ? mailLimiter.status(letter.sender) : mailLimiter.take(letter.sender);
         mailbox.mark(letter.id, { status: "answered", answered_at: Date.now(), reply_id: sent.id, reply: shown.text, error: null });
         if (issue) desk.feedback({ at: Date.now(), source: "mail", issue: issue.subject ?? issue.kind, author: letter.sender, text: fresh(letter.text) });
@@ -544,7 +564,7 @@ const drain = async () => {
 const WELCOME = (s: Standing) =>
     [
         `${s.tier === "sponsor" ? "赞助" : "会员"}已开通：€${s.amount.toFixed(2)}/月，有效至 ${when(s.until).slice(0, 10)}。`,
-        `权益与指令：${state.about?.url ?? `https://www.reddit.com/user/${BOT}/`}`,
+        `权益与指令：${guide() ?? `https://www.reddit.com/user/${BOT}/`}`,
     ].join("\n");
 
 const zh = (s: number) => (s >= 3600 ? `${s / 3600} 小时` : `${Math.round(s / 60)} 分钟`);
@@ -559,7 +579,7 @@ const about = () => {
         p2: zh(mailLimiter.pause(FREE + 1)),
         p3: zh(mailLimiter.pause(FREE + 2)),
         queue: String(QUEUE),
-        weekly: `每${DAYS[Math.floor(local / 24)]} ${String(local % 24).padStart(2, "0")}:00（北京时间）`,
+        weekly: `每${DAYS[WEEKDAY]} ${String(HOUR_UTC).padStart(2, "0")}:00 UTC（北京时间${Math.floor(local / 24) === WEEKDAY ? "" : DAYS[Math.floor(local / 24)]} ${String(local % 24).padStart(2, "0")}:00）`,
         address: process.env.MAIL_ADDRESS || "bot.mofufu@clarelab.moe",
         member: `€${TIERS.member}`,
         sponsor: `€${TIERS.sponsor}`,
@@ -609,7 +629,7 @@ const welcome = async (s: Standing) => {
             subject: `Mofufu：${s.tier === "sponsor" ? "赞助" : "会员"}已开通`,
             text: WELCOME(s),
             refs: [],
-            status: statusLines(s.email),
+            sig: signature(s.email),
         });
         log({ welcome: s.email, tier: s.tier });
     } catch (e) {
@@ -618,7 +638,7 @@ const welcome = async (s: Standing) => {
 };
 
 let digesting = false;
-const HOUR_UTC = Number(process.env.DIGEST_HOUR ?? 23);
+const HOUR_UTC = Number(process.env.DIGEST_HOUR ?? 0);
 const WEEKDAY = Number(process.env.DIGEST_WEEKDAY ?? 0);
 const digests = () => {
     const now = new Date();
@@ -670,11 +690,8 @@ const conversation = (raw: unknown): Turn[] =>
 
 const limitInfo = (st: Status) => ({ until: st.until, span: st.span, used: st.used, reset: st.reset });
 
-const page = (title: string, body: string, status = 200) =>
-    new Response(
-        `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${title}</title><style>body{font:16px/1.6 system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;max-width:32em;margin:12vh auto;padding:0 16px;color:#2b2d31;background:#fff}button{font:inherit;padding:.5em 1.2em;border-radius:8px;border:1px solid #0b63c4;background:#0b63c4;color:#fff;cursor:pointer}@media (prefers-color-scheme:dark){body{background:#17181b;color:#e4e5e8}}</style></head><body>${body}</body></html>`,
-        { status, headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store" } },
-    );
+const page = (body: string, status = 200) =>
+    new Response(body, { status, headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-store" } });
 
 const serve = (port: number) => {
     const server = Bun.serve({
@@ -699,19 +716,13 @@ const serve = (port: number) => {
             }
             if (url.pathname === "/unsubscribe") {
                 const p = money.byToken(url.searchParams.get("t") ?? "");
-                if (!p) return page("Unsubscribe", "<p>This link is not valid.</p>", 404);
+                if (!p) return page(PAGES.invalid(), 404);
                 if (req.method === "POST") {
                     money.subscribe(p.email, { weekly: false, daily: false });
                     log({ unsubscribe: p.email });
-                    return page(
-                        "Unsubscribed",
-                        "<p>You are unsubscribed from 润学周报 and 润学日报.</p><p>To subscribe again, write to Mofufu at bot.mofufu@clarelab.moe.</p>",
-                    );
+                    return page(PAGES.done(p.email));
                 }
-                return page(
-                    "Unsubscribe",
-                    `<p>Unsubscribe ${p.email.replace(/[&<>"]/g, "")} from 润学周报 and 润学日报?</p><form method="post"><button>Unsubscribe</button></form>`,
-                );
+                return page(PAGES.ask(p.email));
             }
             if (url.pathname === "/mail" && req.method === "POST") {
                 if (!mailbox || !same(req.headers.get("x-mail-secret") ?? "", process.env.MAIL_SECRET ?? "")) return new Response("forbidden", { status: 403 });
@@ -729,9 +740,16 @@ const serve = (port: number) => {
                     if (refused) change.daily = undefined;
                     money.subscribe(got.sender, change);
                     const letter = got.change.weekly === false && got.change.daily === false ? null : mailbox.letter(got.id);
-                    const p = money.person(got.sender);
-                    const text = [`周报：${p?.weekly ? "开" : "关"}`, `日报：${p?.daily ? "开" : "关"}${refused ? "（仅限会员）" : ""}`].join("\n");
-                    if (letter) void mailbox.send(letter, text, [], statusLines(got.sender)).catch(e => log({ mail: "command", error: String(e) }));
+                    const text = `${[
+                        change.weekly === true && "已订阅周报",
+                        change.weekly === false && "已退订周报",
+                        change.daily === true && "已开启日报",
+                        change.daily === false && "已关闭日报",
+                        refused && "日报仅限会员",
+                    ]
+                        .filter(Boolean)
+                        .join("；")}。`;
+                    if (letter) void mailbox.send(letter, text, [], signature(got.sender)).catch(e => log({ mail: "command", error: String(e) }));
                 }
                 if (got.status !== "queued")
                     chats.write({ source: "mail", status: got.status, visitor: got.sender, error: got.reason, link: `mail:${got.id}` });
@@ -855,11 +873,11 @@ if (preview) {
     const member = value("--member");
     const out = value("--out") ?? DIR;
     const p = await desk.preview(preview, { member: member ? (money.standing(member) ?? undefined) : undefined });
-    const mail = compose(p.text, p.refs, p.footer);
+    const mail = compose(p.own.text, p.own.refs, p.footer, member ? signature(member) : undefined);
     writeFileSync(join(out, `${preview}.md`), `${p.title}\n\n${p.markdown}\n`);
     writeFileSync(join(out, `${preview}.html`), `<!doctype html><meta charset="utf-8"><title>${p.title}</title><h2>${p.title}</h2>${mail.html}`);
     writeFileSync(join(out, `${preview}.txt`), `${p.title}\n\n${mail.text}\n`);
-    console.log(JSON.stringify({ title: p.title, posts: p.posts, chars: p.text.length, refs: p.refs.length, spend: ledger.report(Date.now() - HOUR) }));
+    console.log(JSON.stringify({ title: p.title, posts: p.posts, chars: p.own.text.length, refs: p.own.refs.length, spend: ledger.report(Date.now() - HOUR) }));
 } else if (flag("--about")) {
     console.log(about());
 } else if (flag("--spend")) {

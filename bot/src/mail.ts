@@ -164,10 +164,62 @@ const markup = (text: string, refs: Ref[]) => {
     return out.join("");
 };
 
-const sign = (status: string[]) => ({
-    text: ["I am a bot with sources linking to archive.open-run.org", ...status, "Contact: clareLab.moe · Support: ko-fi.com/clareLab"].join("\n"),
-    html: `<p style="margin:1.2em 0 0;font-size:.75em;font-style:italic;color:#6b7078">I am a bot with sources linking to <a href="https://archive.open-run.org" style="color:#0b63c4">archive.open-run.org</a>${status.map(l => `<br>• ${html(l)}`).join("")}<br>• Contact: <a href="https://clarelab.moe" style="color:#0b63c4">clareLab.moe</a><br>• Support: <a href="https://ko-fi.com/clarelab" style="color:#0b63c4">ko-fi.com/clareLab</a></p>`,
-});
+export type Signature = { weekly?: boolean; daily?: boolean | null; quota?: string | null; unsubscribe?: string; guide?: string };
+
+const LINK = 'style="color:#0b63c4;text-decoration:none"';
+
+const sign = (s: Signature = {}) => {
+    const rows: { label: string; text: string; html: string }[] = [];
+    const toggle = (label: string, on: boolean, name: string, verb: string) =>
+        rows.push({
+            label,
+            text: on ? `On · reply "${name} off" to stop` : `Off · reply "${name} on" to ${verb}`,
+            html: on ? `On · reply <b>${name} off</b> to stop` : `Off · reply <b>${name} on</b> to ${verb}`,
+        });
+    if (s.weekly && s.unsubscribe)
+        rows.push({ label: "Weekly", text: `On · unsubscribe: ${s.unsubscribe}`, html: `On · <a href="${html(s.unsubscribe)}" ${LINK}>unsubscribe</a>` });
+    else if (s.weekly !== undefined) toggle("Weekly", s.weekly, "weekly", "subscribe");
+    if (typeof s.daily === "boolean") toggle("Daily", s.daily, "daily", "start");
+    if (s.quota) rows.push({ label: "Quota", text: s.quota, html: html(s.quota) });
+    const links: [string, string][] = [
+        ["clareLab.moe", "https://clarelab.moe"],
+        ["Ko-fi", "https://ko-fi.com/clarelab"],
+        ...(s.guide ? ([["Guide", s.guide]] as [string, string][]) : []),
+    ];
+    return {
+        text: [
+            "I am a bot with sources linking to archive.open-run.org",
+            ...rows.map(r => `${r.label.padEnd(8)}${r.text}`),
+            `clareLab.moe · ko-fi.com/clareLab${s.guide ? ` · Guide: ${s.guide}` : ""}`,
+        ].join("\n"),
+        html: [
+            '<table role="presentation" cellpadding="0" cellspacing="0" style="margin:2em 0 0;border-top:1px solid #e3e5e8;font-size:12px;line-height:1.75;color:#6b7078;border-collapse:collapse">',
+            `<tr><td colspan="2" style="padding:.9em 0 .2em">I am a bot with sources linking to <a href="https://archive.open-run.org" ${LINK}>archive.open-run.org</a></td></tr>`,
+            ...rows.map(r => `<tr><td style="padding-right:14px;color:#9a9ea6;vertical-align:top">${r.label}</td><td>${r.html}</td></tr>`),
+            `<tr><td colspan="2" style="padding-top:.3em">${links.map(([t, u]) => `<a href="${html(u)}" ${LINK}>${t}</a>`).join(" · ")}</td></tr>`,
+            "</table>",
+        ].join(""),
+    };
+};
+
+const PAGE_CSS = `:root{--bg:#f6f7f9;--card:#fff;--ink:#2b2d31;--mute:#6b7078;--line:#e3e5e8;--accent:#0b63c4}@media (prefers-color-scheme:dark){:root{--bg:#141518;--card:#1c1d21;--ink:#e4e5e8;--mute:#9a9ea6;--line:#2c2e33;--accent:#5aa2f0}}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:16px;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}main{width:100%;max-width:26rem;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px}.eyebrow{margin:0;color:var(--mute);font-size:13px;letter-spacing:.04em}h1{margin:.2em 0 .5em;font-size:22px}p{margin:.4em 0;color:var(--mute)}b{color:var(--ink);font-weight:600}button{margin-top:1.2em;width:100%;font:inherit;font-weight:600;padding:.7em 1em;border-radius:10px;border:0;background:var(--accent);color:#fff;cursor:pointer}`;
+
+const webpage = (title: string, body: string) =>
+    `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${title}</title><style>${PAGE_CSS}</style></head><body><main><p class="eyebrow">Mofufu</p>${body}</main></body></html>`;
+
+export const PAGES = {
+    invalid: () => webpage("Link not valid", `<h1>Link not valid</h1><p>Write <b>unsubscribe</b> to ${ADDRESS} instead.</p>`),
+    ask: (email: string) =>
+        webpage(
+            "Unsubscribe",
+            `<h1>Unsubscribe?</h1><p><b>${html(email)}</b> will stop getting 润学周报 and 润学日报.</p><form method="post"><button>Unsubscribe</button></form>`,
+        ),
+    done: (email: string) =>
+        webpage(
+            "Unsubscribed",
+            `<h1>Unsubscribed</h1><p><b>${html(email)}</b> gets no more digests. To come back, reply <b>weekly on</b> to any mail from Mofufu.</p>`,
+        ),
+};
 
 export type Change = { weekly?: boolean; daily?: boolean };
 
@@ -195,20 +247,20 @@ export const commands = (subject: string, body: string): Change | null => {
 
 export type Footer = { text: string; html: string };
 
-export const compose = (text: string, refs: Ref[], footer?: Footer, status: string[] = []) => {
+export const compose = (text: string, refs: Ref[], footer?: Footer, sig?: Signature) => {
     const about = (r: Ref) => (r.kind === "web" ? "web page" : [`${r.kind} by ${r.author}`, r.date, r.state].filter(Boolean).join(" · "));
     const plain = [
         text,
         refs.length ? `Sources\n${refs.map(r => `[${r.n}] ${r.title} (${about(r)})\n    ${r.link}`).join("\n")}` : "",
         footer?.text ?? "",
-        `-- \n${sign(status).text}`,
+        `-- \n${sign(sig).text}`,
     ]
         .filter(Boolean)
         .join("\n\n");
     const list = refs.length
         ? `<ol style="margin:1em 0 0;padding-left:1.4em;font-size:.78em;color:#6b7078">${refs.map(r => `<li><a href="${html(r.link)}" style="color:#0b63c4;text-decoration:none">${html(r.title || r.link)}</a> · ${html(about(r))}</li>`).join("")}</ol>`
         : "";
-    const body = `<div style="font:15px/1.65 -apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;color:#2b2d31;max-width:42em">${markup(text, refs)}${list}${footer?.html ?? ""}${sign(status).html}</div>`;
+    const body = `<div style="font:15px/1.65 -apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;color:#2b2d31;max-width:42em">${markup(text, refs)}${list}${footer?.html ?? ""}${sign(sig).html}</div>`;
     return { text: plain, html: body };
 };
 
@@ -317,7 +369,7 @@ export class Mailbox {
         this.db.query(`update mail set ${keys.map(k => `${k} = ?`).join(", ")} where id = ?`).run(...keys.map(k => fields[k] ?? null), id);
     }
 
-    async send(letter: Letter, text: string, refs: Ref[], status: string[] = []) {
+    async send(letter: Letter, text: string, refs: Ref[], sig?: Signature) {
         const subject = /^\s*re:/i.test(letter.subject ?? "") ? (letter.subject ?? "") : `Re: ${letter.subject || "(no subject)"}`;
         const id = `<${crypto.randomUUID()}@${DOMAIN}>`;
         return await this.transmit({
@@ -328,11 +380,11 @@ export class Mailbox {
             ...(letter.message_id ? { inReplyTo: letter.message_id } : {}),
             ...(letter.refs ? { references: letter.refs.split(" ").slice(-20) } : {}),
             headers: { "Auto-Submitted": "auto-replied", "X-Auto-Response-Suppress": "All" },
-            ...compose(text, refs, undefined, status),
+            ...compose(text, refs, undefined, sig),
         });
     }
 
-    async post(to: string, o: { kind: string; subject: string; text: string; refs: Ref[]; footer?: Footer; unsubscribe?: string; status?: string[] }) {
+    async post(to: string, o: { kind: string; subject: string; text: string; refs: Ref[]; footer?: Footer; unsubscribe?: string; sig?: Signature }) {
         const id = `<${crypto.randomUUID()}@${DOMAIN}>`;
         const headers: Record<string, string> = { "Auto-Submitted": "auto-generated", "X-Auto-Response-Suppress": "All" };
         if (o.unsubscribe) {
@@ -350,7 +402,7 @@ export class Mailbox {
                     subject: o.subject,
                     messageId: id,
                     headers,
-                    ...compose(o.text, o.refs, o.footer, o.status ?? []),
+                    ...compose(o.text, o.refs, o.footer, o.sig),
                 })
             ).via;
         } catch (e) {

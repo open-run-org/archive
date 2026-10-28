@@ -35,7 +35,7 @@ export type Source = {
     state: string;
 };
 
-const persona = () => readFileSync(new URL("../persona.md", import.meta.url), "utf8").trim();
+export const persona = () => readFileSync(new URL("../persona.md", import.meta.url), "utf8").trim();
 
 const SYSTEM = `You are the bot described under "Who you are". You answer people on Reddit, visitors of the archive website in mode "ask", or people who email you in mode "mail".
 
