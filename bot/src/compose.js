@@ -9,10 +9,9 @@ export const MODELS = {
 
 const SIGNATURE = [
     "^(*I am a bot with sources linking to*) ^[*archive.open-run.org*](https://archive.open-run.org)",
-    "",
-    "* ^(*Contact:*) ^[*clareLab.moe*](https://clarelab.moe)",
-    "* ^(*Support:*) ^[*ko-fi.com/clareLab*](https://ko-fi.com/clarelab)",
-].join("\n");
+    "^(*• Contact:*) ^[*clareLab.moe*](https://clarelab.moe)",
+    "^(*• Support:*) ^[*ko-fi.com/clareLab*](https://ko-fi.com/clarelab)",
+].join("  \n");
 
 const QUERY_SYSTEM = `You write search queries for a full-text search engine over an archive of Reddit posts and comments from communities about emigrating from mainland China (r/iwanttorun, r/runtoJapan and similar). Most content is Simplified Chinese, with some English and Japanese. The engine only returns pages that contain every word of a query, so each query must be one or two short words that people literally write in such posts (for example 法国 留学, 技人国, 永住), never invented compounds.`;
 
