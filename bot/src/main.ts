@@ -735,24 +735,40 @@ const serve = (port: number) => {
                     { unlimited: ownerMail },
                 );
                 log({ mail: got.status, sender: got.sender, reason: got.reason });
-                if (got.status === "command" && got.change) {
-                    const s = money.standing(got.sender);
-                    const change = { ...got.change };
-                    const refused = change.daily === true && !s;
-                    if (refused) change.daily = undefined;
-                    money.subscribe(got.sender, change);
-                    const letter = mailbox.letter(got.id);
-                    const text = `${[
-                        change.weekly === true && "已订阅周报",
-                        change.weekly === false && "已退订周报",
-                        change.daily === true && "已开启日报",
-                        change.daily === false && "已关闭日报",
-                        refused && "日报仅限会员",
-                    ]
-                        .filter(Boolean)
-                        .join("；")}。`;
-                    if (letter) void mailbox.send(letter, text, [], signature(got.sender)).catch(e => log({ mail: "command", error: String(e) }));
-                }
+                const c = got.status === "command" ? got.command : null;
+                if (c)
+                    void (async () => {
+                        const s = money.standing(got.sender);
+                        const lines: string[] = [];
+                        if (c.set) {
+                            const change = { ...c.set };
+                            const refused = change.daily === true && !s;
+                            if (refused) change.daily = undefined;
+                            money.subscribe(got.sender, change);
+                            lines.push(
+                                `${[
+                                    change.weekly === true && "已订阅周报",
+                                    change.weekly === false && "已退订周报",
+                                    change.daily === true && "已开启日报",
+                                    change.daily === false && "已关闭日报",
+                                    refused && "日报仅限会员",
+                                ]
+                                    .filter(Boolean)
+                                    .join("；")}。`,
+                            );
+                        }
+                        for (const list of c.lists) lines.push(desk.past(list, got.sender, Boolean(s)));
+                        for (const issue of c.issues.slice(0, 4)) {
+                            const note = await desk.resend(issue.list, issue.edition, got.sender, s).catch(e => {
+                                log({ mail: "resend", error: e instanceof Error ? e.message : String(e) });
+                                return `${issue.edition} 这一期发送失败，请稍后再试。`;
+                            });
+                            if (note) lines.push(note);
+                        }
+                        if (c.issues.length > 4) lines.push("一封信最多补发 4 期。");
+                        const letter = mailbox.letter(got.id);
+                        if (lines.length && letter) await mailbox.send(letter, lines.join("\n\n"), [], signature(got.sender));
+                    })().catch(e => log({ mail: "command", error: e instanceof Error ? e.message : String(e) }));
                 if (got.status !== "queued")
                     chats.write({ source: "mail", status: got.status, visitor: got.sender, error: got.reason, link: `mail:${got.id}` });
                 setTimeout(() => void run(drain), 0);

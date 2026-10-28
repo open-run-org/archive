@@ -27,4 +27,6 @@
 
 - weekly on / weekly off：周报
 - daily on / daily off：日报，仅会员
+- weekly list / daily list：往期列表
+- weekly 2026-11-01 / daily 2026-11-01：获取某一期
 - unsubscribe：全部退订

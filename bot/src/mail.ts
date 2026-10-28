@@ -110,7 +110,9 @@ const automated = (headers: { key: string; value: string }[], sender: string, en
 export const fresh = (text: string) => {
     const lines = text.split("\n");
     const cut = lines.findIndex(
-        (l, i) => i > 0 && /^(On .+wrote:|在.+写道[:：]|.+於.+寫道[:：]|-{2,}\s*(Original|Forwarded) Message\s*-{2,}|发件人[:：].*|From: .+)$/i.test(l.trim()),
+        (l, i) =>
+            i > 0 &&
+            /^(On .+wrote:|在.+写道[:：]|.+于.+写道[:：]|.+於.+寫道[:：]|-{2,}\s*(Original|Forwarded) Message\s*-{2,}|发件人[:：].*|From: .+)$/i.test(l.trim()),
     );
     const kept = (cut > 0 ? lines.slice(0, cut) : lines).filter(l => !/^\s*>/.test(l));
     return kept.join("\n").trim() || text.trim();
@@ -121,8 +123,15 @@ const html = (s: string) => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt
 export type Ref = { n: number; kind: string; title: string; link: string; author: string; date: string; state: string };
 
 const markup = (text: string, refs: Ref[]) => {
-    const inline = (s: string) =>
-        html(s)
+    const inline = (raw: string) => {
+        const urls: string[] = [];
+        const s = raw.replace(/https?:\/\/[A-Za-z0-9\-._~:/?#@!$&'()+,;=%]+/g, u => {
+            let url = u.replace(/[.,;:!?']+$/, "");
+            while (url.endsWith(")") && (url.match(/\)/g) ?? []).length > (url.match(/\(/g) ?? []).length) url = url.slice(0, -1);
+            urls.push(url);
+            return `\uE100${urls.length - 1}\uE101${u.slice(url.length)}`;
+        });
+        return html(s)
             .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
             .replace(/(?:\[\d+\])+/g, group => {
                 const links = [...group.matchAll(/\[(\d+)\]/g)]
@@ -130,7 +139,12 @@ const markup = (text: string, refs: Ref[]) => {
                     .filter((r): r is Ref => Boolean(r))
                     .map(r => `<a href="${html(r.link)}" style="color:#0b63c4;text-decoration:none">${r.n}</a>`);
                 return links.length ? `<sup style="font-size:.72em;line-height:0">${links.join(",")}</sup>` : group;
+            })
+            .replace(/\uE100(\d+)\uE101/g, (_, i) => {
+                const url = html(urls[Number(i)] ?? "");
+                return `<a href="${url}" style="color:#0b63c4;text-decoration:none">${url}</a>`;
             });
+    };
     const out: string[] = [];
     let para: string[] = [];
     let list: { tag: string; start: number; items: string[] } | null = null;
@@ -233,16 +247,47 @@ const COMMANDS: { re: RegExp; set: Change }[] = [
     { re: /^(unsubscribe|退订)$/, set: { weekly: false, daily: false } },
 ];
 
-export const commands = (subject: string, body: string): Change | null => {
+export type Command = { set?: Change; lists: List[]; issues: { list: List; edition: string }[] };
+
+const KINDS: Record<string, List> = { weekly: "weekly", daily: "daily", 周报: "weekly", 日报: "daily" };
+
+type Part = { set?: Change; list?: List; issue?: { list: List; edition: string } };
+
+const one = (x: string): Part | null => {
+    const set = COMMANDS.find(c => c.re.test(x))?.set;
+    if (set) return { set };
+    const list = x.match(/^(weekly|daily) list$|^往期(周报|日报)$|^(周报|日报)列表$/);
+    const listed = list && KINDS[list[1] ?? list[2] ?? list[3] ?? ""];
+    if (listed) return { list: listed };
+    const issue = x.match(/^(weekly|daily|周报|日报) ?(\d{4})[-/.年](\d{1,2})[-/.月](\d{1,2})日?$/);
+    const kind = issue && KINDS[issue[1] ?? ""];
+    if (issue && kind) return { issue: { list: kind, edition: `${issue[2]}-${(issue[3] ?? "").padStart(2, "0")}-${(issue[4] ?? "").padStart(2, "0")}` } };
+    return null;
+};
+
+export const commands = (subject: string, body: string): Command | null => {
     const parse = (s: string) => {
         const parts = s
             .toLowerCase()
             .split(/[\n,，、;；]+/)
-            .map(x => x.replace(/[\s。.!！"“”'‘’]+/g, " ").trim())
+            .map(x =>
+                x
+                    .replace(/["“”'‘’]/g, "")
+                    .replace(/[。.!！?？]+$/, "")
+                    .replace(/\s+/g, " ")
+                    .trim(),
+            )
             .filter(Boolean);
         if (!parts.length) return null;
-        const found = parts.map(x => COMMANDS.find(c => c.re.test(x)));
-        return found.every(Boolean) ? Object.assign({}, ...found.map(c => c?.set)) : null;
+        const found = parts.map(one);
+        if (!found.every(Boolean)) return null;
+        const out: Command = { lists: [], issues: [] };
+        for (const c of found) {
+            if (c?.set) out.set = { ...out.set, ...c.set };
+            if (c?.list && !out.lists.includes(c.list)) out.lists.push(c.list);
+            if (c?.issue && !out.issues.some(i => i.list === c.issue?.list && i.edition === c.issue?.edition)) out.issues.push(c.issue);
+        }
+        return out;
     };
     return parse(body) ?? (body.trim() ? null : parse(subject.replace(/^\s*(re|回复|答复)\s*[:：]\s*/i, "")));
 };
@@ -293,11 +338,11 @@ export class Mailbox {
         const skip = automated(headers, sender, envelope.from, type);
         const waiting = (this.db.query("select count(*) n from mail where sender = ? and status = 'queued'").get(sender) as { n: number }).n;
         const full = waiting >= QUEUE && !(auth.ok && o.unlimited?.(sender));
-        const change = !skip && auth.ok ? commands(parsed.subject ?? "", fresh(text)) : null;
-        const status = skip ? "ignored" : !auth.ok ? "unauthenticated" : change ? "command" : !text ? "empty" : full ? "dropped" : "queued";
+        const command = !skip && auth.ok ? commands(parsed.subject ?? "", fresh(text)) : null;
+        const status = skip ? "ignored" : !auth.ok ? "unauthenticated" : command ? "command" : !text ? "empty" : full ? "dropped" : "queued";
         const reason =
             skip ??
-            (!auth.ok ? "no aligned SPF, DKIM or DMARC pass" : change ? JSON.stringify(change) : !text ? "no text" : full ? `queue full (${waiting})` : null);
+            (!auth.ok ? "no aligned SPF, DKIM or DMARC pass" : command ? JSON.stringify(command) : !text ? "no text" : full ? `queue full (${waiting})` : null);
         const row = this.db
             .query(
                 `insert into mail (at, status, reason, sender, name, envelope_from, envelope_to, message_id, thread, in_reply_to, refs, subject, text, headers, auth, size, raw)
@@ -322,7 +367,7 @@ export class Mailbox {
                 raw.byteLength,
                 raw,
             ) as { id: number };
-        return { id: row.id, status, reason, sender, change };
+        return { id: row.id, status, reason, sender, command };
     }
 
     letter(id: number) {

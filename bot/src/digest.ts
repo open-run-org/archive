@@ -158,6 +158,76 @@ export class Desk {
         return readFileSync(this.paths.notes, "utf8").trim();
     }
 
+    private papers = new Map<string, Promise<Uint8Array | null>>();
+
+    async attachments(kind: Kind, edition: string, view: { text: string; refs: Ref[] }) {
+        if (process.env.DIGEST_PAPER !== "1") return [];
+        const doc = { name: NAME[kind], edition, text: view.text, refs: view.refs, thanks: this.thanks(kind) || undefined };
+        const out: { filename: string; content: Uint8Array | string; contentType: string }[] = [
+            { filename: `${NAME[kind]}-${edition}.md`, content: markdown(doc), contentType: "text/markdown; charset=utf-8" },
+        ];
+        if (kind !== "weekly") return out;
+        const key = createHash("sha1").update(view.text).digest("hex");
+        let job = this.papers.get(key);
+        if (!job) {
+            job = pdf(tex(doc)).catch(e => {
+                this.o.log({ digest: kind, pdf: (e instanceof Error ? e.message : String(e)).slice(0, 400) });
+                this.papers.delete(key);
+                return null;
+            });
+            this.papers.set(key, job);
+            if (this.papers.size > 64) this.papers.delete(this.papers.keys().next().value as string);
+        }
+        const file = await job;
+        if (file) out.push({ filename: `${NAME[kind]}-${edition}.pdf`, content: file, contentType: "application/pdf" });
+        return out;
+    }
+
+    past(kind: Kind, email: string, member: boolean) {
+        if (kind === "daily" && !member) return "日报仅限会员。";
+        const rows = (
+            kind === "weekly"
+                ? this.db
+                      .query(
+                          "select edition, max(post) post from digests where kind = 'weekly' and recipient is null group by edition order by edition desc limit 52",
+                      )
+                      .all()
+                : this.db
+                      .query(
+                          "select edition, null post from digests where kind = 'daily' and (recipient = ? or recipient is null) group by edition order by edition desc limit 30",
+                      )
+                      .all(email)
+        ) as { edition: string; post: string | null }[];
+        if (!rows.length) return `还没有往期${NAME[kind]}。`;
+        return [
+            `往期${NAME[kind]}（${rows.length} 期）：`,
+            ...rows.map(r => `- ${r.edition}${r.post ? ` · https://redd.it/${r.post.slice(3)}` : ""}`),
+            "",
+            `回复 "${kind} ${rows[0]?.edition}" 获取某一期全文。`,
+        ].join("\n");
+    }
+
+    async resend(kind: Kind, edition: string, email: string, s: Standing | null) {
+        if (kind === "daily" && !s) return "日报仅限会员。";
+        const row = (this.db
+            .query(
+                "select title, text, refs from digests where kind = ? and edition = ? and (recipient = ? or recipient is null) order by recipient is null, at desc limit 1",
+            )
+            .get(kind, edition, email) ?? null) as { title: string; text: string; refs: string | null } | null;
+        if (!row) return `没有 ${edition} 这一期${NAME[kind]}。回复 "${kind} list" 查看往期。`;
+        const view = { text: row.text, refs: row.refs ? (JSON.parse(row.refs) as Ref[]) : [] };
+        await this.o.mailbox?.post(email, {
+            kind: `${kind}-copy`,
+            subject: row.title,
+            text: view.text,
+            refs: view.refs,
+            footer: this.footer(kind, { member: Boolean(s) }).mail,
+            sig: this.o.status(email),
+            files: await this.attachments(kind, edition, view),
+        });
+        return null;
+    }
+
     issue(name: string) {
         return (this.db.query("select id, at, kind, edition, text, post from digests where post = ?").get(name) as Row | null) ?? null;
     }
@@ -373,7 +443,10 @@ export class Desk {
         const html = (t: string) => t.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c] ?? c);
         return {
             md,
-            mail: { text: thanks, html: thanks ? `<p style="margin:1.4em 0 0;font-size:.78em;color:#6b7078">${html(thanks)}</p>` : "" },
+            mail: {
+                text: [thanks, `Past issues: reply "${kind} list"`].filter(Boolean).join("\n"),
+                html: `<p style="margin:1.4em 0 0;font-size:.78em;color:#6b7078">${[thanks && html(thanks), `Past issues: reply <b>${kind} list</b>`].filter(Boolean).join("<br>")}</p>`,
+            },
         };
     }
 
@@ -427,35 +500,14 @@ export class Desk {
                     error = e instanceof Error ? e.message : String(e);
                 }
             }
-            this.save({ kind, edition, title, text: shown.text, markdown, refs: shown.refs, post, url, status, error });
+            if (!o.dry) this.save({ kind, edition, title, text: shown.text, markdown, refs: shown.refs, post, url, status, error });
             Object.assign(result, { status, url, error });
         } else {
-            this.save({ kind, edition, title, text: shown.text, refs: shown.refs, status: "draft" });
+            if (!o.dry) this.save({ kind, edition, title, text: shown.text, refs: shown.refs, status: "draft" });
         }
         const send = this.o.mail && !o.dry && mailbox;
         let sent = 0;
         let failed = 0;
-        const papers = new Map<string, Promise<Uint8Array | null>>();
-        const files = async (view: { text: string; refs: Ref[] }) => {
-            if (process.env.DIGEST_PAPER !== "1") return [];
-            const doc = { name: NAME[kind], edition, text: view.text, refs: view.refs, thanks: this.thanks(kind) || undefined };
-            const out: { filename: string; content: Uint8Array | string; contentType: string }[] = [
-                { filename: `${NAME[kind]}-${edition}.md`, content: markdown(doc), contentType: "text/markdown; charset=utf-8" },
-            ];
-            if (kind !== "weekly") return out;
-            const key = createHash("sha1").update(view.text).digest("hex");
-            let job = papers.get(key);
-            if (!job) {
-                job = pdf(tex(doc)).catch(e => {
-                    this.o.log({ digest: kind, pdf: (e instanceof Error ? e.message : String(e)).slice(0, 400) });
-                    return null;
-                });
-                papers.set(key, job);
-            }
-            const file = await job;
-            if (file) out.push({ filename: `${NAME[kind]}-${edition}.pdf`, content: file, contentType: "application/pdf" });
-            return out;
-        };
         for (const { p, s } of readers) {
             const link = `${this.o.api}/unsubscribe?t=${(p as Person).token}&l=${kind}`;
             try {
@@ -470,9 +522,9 @@ export class Desk {
                         footer: this.footer(kind, { member: Boolean(s) }).mail,
                         list: { url: link, command: `${kind} off` },
                         sig: this.o.status(p.email),
-                        files: await files(view),
+                        files: await this.attachments(kind, edition, view),
                     });
-                if (s) this.save({ kind, edition, recipient: p.email, title, text: view.text, refs: view.refs, status: send ? "sent" : "draft" });
+                if (s && !o.dry) this.save({ kind, edition, recipient: p.email, title, text: view.text, refs: view.refs, status: send ? "sent" : "draft" });
                 sent += send ? 1 : 0;
             } catch (e) {
                 failed += 1;
