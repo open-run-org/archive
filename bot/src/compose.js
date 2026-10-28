@@ -117,7 +117,7 @@ export const render = (reply, sources) => {
             .filter(n => sources[n - 1])
             .map(n => {
                 if (!order.includes(n)) order.push(n);
-                return `[${sup(order.indexOf(n) + 1)}](${sources[n - 1].link})`;
+                return sup(order.indexOf(n) + 1);
             })
             .join(""),
     );

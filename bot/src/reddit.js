@@ -105,6 +105,12 @@ export const thread = async (postId, commentId, fallback) => {
     return { post, chain, target };
 };
 
+export const edit = async (thing, text) => {
+    const r = await call("/api/editusertext", { method: "POST", form: { api_type: "json", thing_id: thing, text } });
+    const errors = r?.json?.errors || [];
+    if (errors.length) throw new Error(`reddit edit: ${errors.map(e => e.join(" ")).join("; ")}`);
+};
+
 export const reply = async (parent, text) => {
     const r = await call("/api/comment", { method: "POST", form: { api_type: "json", thing_id: parent, text } });
     const errors = r?.json?.errors || [];
