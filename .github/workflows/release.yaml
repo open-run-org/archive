@@ -31,4 +31,5 @@ jobs:
           gh release create "${TAG_NAME}" "${ARCHIVE_NAME}" \
             --title "${TAG_NAME}" \
             --notes "Automated content backup for week of $(date +%Y-%m-%d)." \
-            --generate-notes
+            --generate-notes \
+            || gh release upload "${TAG_NAME}" "${ARCHIVE_NAME}" --clobber

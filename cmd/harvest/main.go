@@ -112,7 +112,9 @@ func once(method, u, body string, hdr map[string]string, out any) (bool, error) 
 		return resp.StatusCode == http.StatusTooManyRequests || resp.StatusCode >= 500, se
 	}
 	if err := json.NewDecoder(resp.Body).Decode(out); err != nil {
-		return false, err
+		var se *json.SyntaxError
+		var te *json.UnmarshalTypeError
+		return !errors.As(err, &se) && !errors.As(err, &te), err
 	}
 	if left, err := strconv.ParseFloat(resp.Header.Get("X-Ratelimit-Remaining"), 64); err == nil && left < 5 {
 		time.Sleep(pause(resp.Header))
@@ -209,14 +211,8 @@ func getB(v any) bool {
 }
 
 func getF(v any) float64 {
-	switch t := v.(type) {
-	case float64:
-		return t
-	case json.Number:
-		f, _ := t.Float64()
-		return f
-	}
-	return 0
+	f, _ := v.(float64)
+	return f
 }
 
 func sum(v any) (string, error) {
@@ -288,11 +284,11 @@ func writeCapture(dir, hash string, lines [][]byte) (bool, error) {
 		return false, err
 	}
 	out := filepath.Join(dir, time.Now().UTC().Format("060102150405")+"_"+hash+".jsonl")
-	f, err := os.OpenFile(out, os.O_CREATE|os.O_WRONLY|os.O_EXCL, 0o644)
+	if _, err := os.Stat(out); err == nil {
+		return false, nil
+	}
+	f, err := os.CreateTemp(dir, "*.tmp")
 	if err != nil {
-		if os.IsExist(err) {
-			return false, nil
-		}
 		return false, err
 	}
 	w := bufio.NewWriter(f)
@@ -300,11 +296,18 @@ func writeCapture(dir, hash string, lines [][]byte) (bool, error) {
 		w.Write(ln)
 		w.WriteByte('\n')
 	}
-	if err := w.Flush(); err != nil {
-		f.Close()
+	err = w.Flush()
+	if cerr := f.Close(); err == nil {
+		err = cerr
+	}
+	if err == nil {
+		err = os.Rename(f.Name(), out)
+	}
+	if err != nil {
+		os.Remove(f.Name())
 		return false, err
 	}
-	return true, f.Close()
+	return true, nil
 }
 
 func savePost(root, sub string, raw json.RawMessage, cutoff int64) (bool, error) {
@@ -535,8 +538,12 @@ func harvestComments(s *session, root, sub string, now time.Time, days int, list
 				return wrote, err
 			}
 		}
-		if len(rows) == 0 {
+		dir := filepath.Join(root, "r_"+sub, "comments", createdID)
+		if len(rows) == 0 && newest(dir) == "" {
 			continue
+		}
+		if left > 0 {
+			rows = append(rows, map[string]any{"truncated": left})
 		}
 		h, err := threadHash(rows)
 		if err != nil {
@@ -550,7 +557,7 @@ func harvestComments(s *session, root, sub string, now time.Time, days int, list
 			}
 			lines = append(lines, b)
 		}
-		ok, err := writeCapture(filepath.Join(root, "r_"+sub, "comments", createdID), h, lines)
+		ok, err := writeCapture(dir, h, lines)
 		if err != nil {
 			return wrote, err
 		}
@@ -611,14 +618,17 @@ func main() {
 			fmt.Fprintf(os.Stderr, "[%s] unavailable reason=%s\n", sub, r)
 			continue
 		}
-		if err != nil {
+		ok := err == nil
+		if ok {
+			fmt.Fprintf(os.Stderr, "[%s] posts wrote=%d\n", sub, n)
+		} else {
 			fmt.Fprintf(os.Stderr, "[%s] posts failed: %v\n", sub, err)
-			failed++
-			continue
 		}
-		fmt.Fprintf(os.Stderr, "[%s] posts wrote=%d\n", sub, n)
 		if _, err := harvestComments(s, root, sub, now, days, listed); err != nil {
 			fmt.Fprintf(os.Stderr, "[%s] comments failed: %v\n", sub, err)
+			ok = false
+		}
+		if !ok {
 			failed++
 		}
 	}

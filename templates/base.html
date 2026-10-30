@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     {% if config.mode != "serve" %}
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'wasm-unsafe-eval'; object-src 'none'; base-uri 'none'; form-action 'self'">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'wasm-unsafe-eval'; img-src 'self' https://assets.open-run.org data:; media-src https://assets.open-run.org; object-src 'none'; base-uri 'none'; form-action 'self'">
     {% endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>

@@ -25,6 +25,9 @@ UA = "open-run-archive media (+https://archive.open-run.org)"
 DIRECT = re.compile(r"https?://i\.redd\.it/([a-z0-9]+)\.(jpe?g|png|gif|webp)", re.I)
 REF = re.compile(r"https?://(?:i|preview)\.redd\.it/([a-z0-9]+)\.(jpe?g|png|gif|webp)(?![a-z0-9])", re.I)
 VIDEO = re.compile(r"https?://(?:v|packaged-media)\.redd\.it/([a-z0-9]+)/", re.I)
+PREVIEW = re.compile(
+    r"https?://preview\.redd\.it/(?:[^/?#]*-v0-)?([a-z0-9]+)\.(jpe?g|png|gif|webp)(?:[?#].*)?", re.I
+)
 MID = re.compile(r"[a-z0-9]+")
 MIME = {"jpg": "image/jpeg", "png": "image/png", "gif": "image/gif", "webp": "image/webp", "mp4": "video/mp4"}
 EXT = {"image/jpg": "jpg", "image/jpeg": "jpg", "image/png": "png", "image/gif": "gif", "image/webp": "webp"}
@@ -135,6 +138,10 @@ def capture_media(p, nested=False):
             )
             found.append(it)
     found += [from_meta(mid, v) for mid, v in meta.items()]
+    for k in ("url", "url_overridden_by_dest", "thumbnail"):
+        m = PREVIEW.fullmatch(p.get(k) or "")
+        if m:
+            found.append(image(m.group(1), m.group(2)))
     found.append(reddit_video(p))
     found += [image(m.group(1), m.group(2)) for m in REF.finditer(p.get("selftext") or "")]
     if not nested:

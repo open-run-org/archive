@@ -245,12 +245,17 @@ async function runSearch(root: HTMLElement) {
         head.append(h1, out);
         head.hidden = false;
     }
-    const pagefind = (await import(root.dataset.pagefind!)) as Pagefind;
+    const pagefind = (await import(root.dataset.pagefind!).catch(() => null)) as Pagefind | null;
+    if (!pagefind) {
+        status.textContent = "Search is unavailable.";
+        return;
+    }
     const base: Record<string, unknown> = {};
     if (user) base.any = [{ author: user }, { user: user }];
     const sorts: Record<string, Record<string, string>> = { hot: { hot: "desc" }, new: { date: "desc" } };
     let results: Search["results"] = [],
-        shown = 0;
+        shown = 0,
+        gen = 0;
     const pages = new Map<string, Promise<Document | null>>();
     const load = (url: string) => {
         if (!pages.has(url)) {
@@ -349,10 +354,15 @@ async function runSearch(root: HTMLElement) {
         history.replaceState(null, "", `?${p.toString()}`);
     };
     const page = async () => {
-        const batch = await Promise.all(results.slice(shown, shown + 20).map(r => r.data()));
-        for (const d of batch) list.appendChild(await hit(d));
-        shown += batch.length;
-        more.hidden = shown >= results.length;
+        const mine = results,
+            from = shown;
+        shown = Math.min(mine.length, from + 20);
+        more.hidden = true;
+        const batch = await Promise.all(mine.slice(from, shown).map(r => r.data()));
+        const hits = await Promise.all(batch.map(hit));
+        if (mine !== results) return;
+        list.append(...hits);
+        more.hidden = shown >= mine.length;
     };
     const hit = async (d: Fragment) => {
         const li = el("li", "hit");
@@ -397,10 +407,18 @@ async function runSearch(root: HTMLElement) {
         return li;
     };
     const run = async () => {
+        const g = ++gen;
         sync();
         const sort = sorts[mode];
-        const all = await pagefind.search(q || null, { filters: { ...base, subreddit: { any: root.dataset.subs!.split(",") } }, sort });
-        const res = sub ? await pagefind.search(q || null, { filters: { ...base, subreddit: sub }, sort }) : all;
+        let all: Search | null, res: Search | null;
+        try {
+            all = await pagefind.search(q || null, { filters: { ...base, subreddit: { any: root.dataset.subs!.split(",") } }, sort });
+            res = sub ? await pagefind.search(q || null, { filters: { ...base, subreddit: sub }, sort }) : all;
+        } catch {
+            if (g === gen) status.textContent = "Search is unavailable.";
+            return;
+        }
+        if (g !== gen) return;
         results = res ? res.results : [];
         const counts = all?.filters?.subreddit || {};
         subs.replaceChildren();

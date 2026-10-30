@@ -18,14 +18,14 @@ CONTENT = pathlib.Path(sys.argv[2] if len(sys.argv) > 2 else "content")
 MEDIA = RAW.parent / "media"
 
 GONE = {"[removed]": "Removed", "[ Removed by Reddit ]": "Removed", "[deleted]": "Deleted"}
-TAG = re.compile(r"<(?=[A-Za-z/!?])")
+TAG = re.compile(r"<(?=[A-Za-z/!?])(?!https?://[^<>\s]*>)")
 EMPTY_LINK = re.compile(r"\]\([\s>]*(?:<[\s>]*>)?[\s>]*(?:\"[^\"\n]*\"|'[^'\n]*')?[\s>]*\)")
 EMPTY_REF = re.compile(
     r"^((?:[ \t]*>)*[ \t]*\[[^\]\n]+\]):(?=[ \t]*(?:<[ \t]*>)?[ \t]*(?:\"[^\"\n]*\"|'[^'\n]*'|\([^)\n]*\))?[ \t]*$)",
     re.M,
 )
 UNSAFE = re.compile("[\x7f-\x9f\u2028\u2029\ufffe\uffff]")
-ARCTIC_KEYS = ("_meta", "retrieved_on", "retrieved_utc")
+ARCTIC_KEYS = {"_meta", "retrieved_on", "retrieved_utc"}
 ID = re.compile(r"[a-z0-9]{1,16}")
 
 
@@ -65,6 +65,9 @@ IMG_LINK = re.compile(
 PLAYER = re.compile(r"<https?://(?:www\.)?reddit\.com/link/[a-z0-9]+/video/([a-z0-9]+)/player/?>", re.I)
 MEDIA_REF = re.compile(r"!\[([^\[\]\n]*)\]\((giphy\|)?([A-Za-z0-9]+)(?:\|[A-Za-z0-9_]+)?\)")
 IMAGE_MD = re.compile(r"(?<!\\)!\[([^\[\]\n]*)\]\(([^()\s]*)\)")
+DEST = re.compile(
+    r"(\]\([ \t]*<?|^[ \t]*\[[^\]\n]+\]:[ \t]*<?)(/(?!/)[^)\s>]*|[A-Za-z][A-Za-z0-9+.-]*:)", re.M
+)
 
 
 def sub_link(m):
@@ -75,6 +78,17 @@ def sub_link(m):
         else f"https://www.reddit.com/{'r' if kind == 'r' else 'user'}/{name}"
     )
     return f'<a href="{href}">{m.group(0)}</a>'
+
+
+def dest(m):
+    lead, d = m.groups()
+    if d.startswith("/"):
+        r = re.fullmatch(r"/r/([A-Za-z0-9_]+)/?", d)
+        known = r and r.group(1).lower() in SUBS
+        return lead + (f"/{SUBS[r.group(1).lower()]}/" if known else "https://www.reddit.com" + d)
+    if d[:-1].lower() in ("http", "https", "mailto"):
+        return m.group(0)
+    return lead.replace("]", "]\\", 1) + d
 
 
 def trim_url(u):
@@ -164,14 +178,16 @@ def blocks(text, fn):
     return "\n".join(lines)
 
 
-def line_md(ln):
+def outside_code(ln, fn):
     out, last = [], 0
     for a, b in code_spans(ln):
-        out.append(inline(ln[last:a]))
-        out.append(ln[a:b])
+        out += [fn(ln[last:a]), ln[a:b]]
         last = b
-    out.append(inline(ln[last:]))
-    return no_attrs("".join(out))
+    return "".join(out) + fn(ln[last:])
+
+
+def line_md(ln):
+    return no_attrs(outside_code(ln, inline))
 
 
 def reddit(text):
@@ -227,7 +243,7 @@ def embed(md, used, meta=None):
         s = PLAYER.sub(lambda m: swap(m.group(1), m.group(0)), s)
         s = IMG_AUTO.sub(lambda m: swap(m.group(2), m.group(0)), s)
         s = MEDIA_REF.sub(ref, IMG_LINK.sub(link, s))
-        return IMAGE_MD.sub(
+        s = IMAGE_MD.sub(
             lambda m: (
                 f"[{m.group(1) or 'image'}]({m.group(2)})"
                 if re.match(r"https?://", m.group(2))
@@ -235,15 +251,9 @@ def embed(md, used, meta=None):
             ),
             s,
         )
+        return DEST.sub(dest, s)
 
-    def line(ln):
-        out, last = [], 0
-        for a, b in code_spans(ln):
-            out += [text(ln[last:a]), ln[a:b]]
-            last = b
-        return "".join(out) + text(ln[last:])
-
-    return blocks(md, line)
+    return blocks(md, lambda ln: outside_code(ln, text))
 
 
 def media_block(items):
@@ -264,13 +274,6 @@ def media_block(items):
 
 def utc(ts):
     return datetime.datetime.fromtimestamp(int(float(ts or 0)), datetime.UTC)
-
-
-def fmt_iso(ts):
-    try:
-        return utc(ts).strftime("%Y-%m-%d %H:%M:%S UTC")
-    except Exception:
-        return utc(0).strftime("%Y-%m-%d %H:%M:%S UTC")
 
 
 def capture_time(p):
@@ -315,11 +318,6 @@ def flatten_all(rows):
         if isinstance(r, dict) and "body" in r and "id" in r:
             flat.append(r)
             flat.extend(expand_replies(r))
-        else:
-            d = r.get("data") if isinstance(r, dict) else None
-            if isinstance(d, dict) and "body" in d:
-                flat.append(d)
-                flat.extend(expand_replies(d))
     seen = set()
     uniq = []
     for r in flat:
@@ -340,7 +338,7 @@ def has_text(r):
     return bool(b) and b not in GONE
 
 
-def merge_capture(best, flat, since=None):
+def merge_capture(best, flat, since=None, partial=False):
     current = {}
     for r in flat:
         cid = r.get("id", "") or ""
@@ -356,7 +354,9 @@ def merge_capture(best, flat, since=None):
             rows[cid] = dict(b, archive_state=GONE.get(body_of(r), "Gone"))
     for cid, b in best.items():
         if cid not in rows and has_text(b):
-            rows[cid] = b if since is not None and ts_of(b) > since else dict(b, archive_state="Gone")
+            rows[cid] = (
+                b if partial or (since is not None and ts_of(b) > since) else dict(b, archive_state="Gone")
+            )
     stack = list(rows.values())
     while stack:
         pid = stack.pop().get("parent_id", "") or ""
@@ -476,14 +476,21 @@ def render_comments(d, post_id):
     caps = sorted(d.glob("*.jsonl")) if d.is_dir() else []
     if not caps:
         return "", 0, 0
-    loaded = [flatten_all(load_lines(f)) for f in caps]
-    live = [i for i, flat in enumerate(loaded) if flat and not any(k in flat[0] for k in ARCTIC_KEYS)]
+    raw = [load_lines(f) for f in caps]
+    loaded = [flatten_all(rows) for rows in raw]
+    live = [
+        i
+        for i, rows in enumerate(raw)
+        if not rows or (isinstance(rows[0], dict) and not ARCTIC_KEYS & rows[0].keys())
+    ]
     last = live[-1] if live else len(loaded) - 1
     best = {}
     for i, flat in enumerate(loaded):
         if i != last:
             merge_capture(best, flat)
-    rows = merge_capture(best, loaded[last], capture_time(caps[last]).timestamp() if live else None)
+    since = capture_time(caps[last]).timestamp() if live else None
+    partial = any(isinstance(r, dict) and "truncated" in r for r in raw[last])
+    rows = merge_capture(best, loaded[last], since, partial)
     roots, by_parent = build_tree(rows, "t3_" + post_id)
     if not roots:
         return "", len(caps), 0
@@ -507,7 +514,11 @@ def pandoc(markup):
     if not s:
         return ""
     return subprocess.run(
-        ["pandoc", "-f", "html", "-t", "gfm"], input=s, capture_output=True, text=True, check=True
+        ["pandoc", "-f", "html", "-t", "gfm", "--wrap=none"],
+        input=s,
+        capture_output=True,
+        text=True,
+        check=True,
     ).stdout
 
 
@@ -571,6 +582,7 @@ def render_post(sub, d):
         (c[1] for c in reversed(caps) if isinstance(c[1].get("ups", c[1].get("score")), (int, float))), last
     )
     ups, ratio = num_score(live), live.get("upvote_ratio")
+    cur = next((c[1] for c in reversed(caps) if not any(k in c[1] for k in ARCTIC_KEYS)), best)
     extra = {
         "author": author,
         "author_hue": hue(author) if author != "[deleted]" else 0,
@@ -587,14 +599,14 @@ def render_post(sub, d):
         else "",
         "ups": ups,
         "vote": ("up hot" if ups >= 100 else "up") if ups > 0 else "",
-        "hot": ups * 10**10 + created,
+        "hot": f"{ups + 10**9:010d}-{created:010d}",
         "upvote_ratio": ratio,
         "upvote_pct": f"{round(ratio * 100)}%"
         if isinstance(ratio, (int, float)) and not isinstance(ratio, bool)
         else "",
         "num_comments": comment_count,
-        "link_flair_text": best.get("link_flair_text") or "",
-        "over_18": bool(best.get("over_18")),
+        "link_flair_text": cur.get("link_flair_text") or best.get("link_flair_text") or "",
+        "over_18": bool(cur.get("over_18") or best.get("over_18")),
         "is_self": bool(best.get("is_self")),
         "state": post_state(last),
         "edited": utc(edited).strftime("%Y-%m-%d %H:%M UTC")
@@ -704,14 +716,7 @@ def build():
         )
         write(
             CONTENT / sub / "archive" / "_index.md",
-            front(
-                {
-                    "title": f"{label(sub)} Archive",
-                    "template": "archive.html",
-                    "redirect_to": f"{sub}/archive/{years[0]['year']}/",
-                },
-                {"section_path": f"{sub}/_index.md", "year": 0, "years": years},
-            ),
+            front({"title": f"{label(sub)} Archive", "redirect_to": f"{sub}/archive/{years[0]['year']}/"}),
         )
         for y in years:
             write(
@@ -740,4 +745,5 @@ def build():
 
 
 if __name__ == "__main__":
+    sys.setrecursionlimit(10000)
     build()

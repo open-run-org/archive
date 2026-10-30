@@ -5,6 +5,7 @@ subs := env_var_or_default("SUBS_FILE", "configs/subreddits.txt")
 days := env_var_or_default("DAYS", "16")
 py := "uv run --locked"
 bun := `command -v bun || echo "nix shell nixpkgs#bun --command bun"`
+pagefind := `command -v pagefind || echo "nix shell nixpkgs#pagefind --command pagefind"`
 
 default:
     @just --list
@@ -21,19 +22,17 @@ media:
 build:
     python3 scripts/build.py {{ root }} content
 
-ci: harvest backfill media build
-
-import-arctic +files:
-    python3 scripts/import_arctic.py --root {{ root }} {{ files }}
-
 js:
+    {{ bun }} install --frozen-lockfile
+    {{ bun }} x tsc -p ts
     {{ bun }} build ts/archive.ts --outfile static/archive.js --target browser
 
 serve port="8000": js
     zola serve --interface 0.0.0.0 --port {{ port }} --base-url localhost
 
 site: js
-    zola build --output-dir public
+    zola build --force --output-dir public
+    {{ pagefind }} --site public --force-language zh --exclude-selectors ".meta, .comments-head"
 
 clean:
     rm -rf content public

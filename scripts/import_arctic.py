@@ -24,14 +24,6 @@ def ts_fmt(unix_ts):
     return datetime.datetime.fromtimestamp(v, datetime.UTC).strftime("%y%m%d%H%M%S")
 
 
-def norm_sub(s):
-    s = (s or "").strip()
-    for p in ("/r/", "r/", "R/", "r_", "R_"):
-        if s.startswith(p):
-            return s[len(p) :]
-    return s
-
-
 def captured(d):
     return d.is_dir() and any(d.glob("*.jsonl"))
 
@@ -86,60 +78,6 @@ def now():
     return int(time.time())
 
 
-def import_posts(path, root, post_index):
-    p = pathlib.Path(path)
-    with p.open("r", encoding="utf-8", errors="ignore") as f:
-        for line in f:
-            s = line.strip()
-            if not s:
-                continue
-            try:
-                obj = json.loads(s)
-            except Exception:
-                continue
-            if not isinstance(obj, dict):
-                continue
-            sub = norm_sub(obj.get("subreddit") or obj.get("subreddit_name_prefixed") or "")
-            pid = obj.get("id")
-            created_key = ts_fmt(obj.get("created_utc"))
-            if not sub or pid is None or not created_key:
-                continue
-            post_index[(sub, pid)] = created_key
-            subdir = pathlib.Path(root) / ("r_" + sub) / "submissions" / (created_key + "_" + pid)
-            if not captured(subdir):
-                write_capture(subdir, [s], retrieved(obj) or now(), hash_post(obj))
-
-
-def import_comments(path, root, post_index):
-    p = pathlib.Path(path)
-    groups = {}
-    with p.open("r", encoding="utf-8", errors="ignore") as f:
-        for line in f:
-            s = line.strip()
-            if not s:
-                continue
-            try:
-                obj = json.loads(s)
-            except Exception:
-                continue
-            if not isinstance(obj, dict):
-                continue
-            sub = norm_sub(obj.get("subreddit") or "")
-            link_id = obj.get("link_id")
-            if not sub or not isinstance(link_id, str) or not link_id.startswith("t3_"):
-                continue
-            groups.setdefault((sub, link_id[3:]), []).append(obj)
-    for (sub, pid), rows in groups.items():
-        created_key = post_index.get((sub, pid))
-        if created_key is None:
-            print(f"[import_arctic] skip comments sub={sub} post={pid} no_post_created", file=sys.stderr)
-            continue
-        subdir = pathlib.Path(root) / ("r_" + sub) / "comments" / (created_key + "_" + pid)
-        if not captured(subdir):
-            cap_ts = max((retrieved(r) or 0 for r in rows), default=0) or now()
-            write_capture(subdir, [dump(r) for r in rows], cap_ts, hash_comments(rows))
-
-
 def api(path, tries=4, **params):
     url = f"{API}/{path}?" + urllib.parse.urlencode(params)
     req = urllib.request.Request(url, headers={"User-Agent": "open-run-archive"})
@@ -159,11 +97,11 @@ def api(path, tries=4, **params):
             time.sleep(2**attempt * 5)
 
 
-def search_posts(sub, after, before=None):
+def search_posts(sub, after, before=None, tries=4):
     seen, out = set(), []
     bound = {} if before is None else {"before": before}
     while True:
-        page = api("posts/search", subreddit=sub, after=after, sort="asc", limit=100, **bound)
+        page = api("posts/search", tries=tries, subreddit=sub, after=after, sort="asc", limit=100, **bound)
         fresh = [p for p in page if p.get("id") and p["id"] not in seen]
         for p in fresh:
             seen.add(p["id"])
@@ -223,11 +161,11 @@ def fetch_sub(root, sub, windows, today):
     found = new_posts = new_threads = snapped = failed = 0
     for after, before in windows:
         try:
-            posts = search_posts(sub, after, before)
+            posts = search_posts(sub, after, before, tries=1 if failed else 4)
         except Exception as e:
             print(f"[arctic] {sub} search failed: {e}", file=sys.stderr)
             failed += 1
-            break
+            continue
         found += len(posts)
         for p in posts:
             created_key = ts_fmt(p.get("created_utc"))
@@ -291,21 +229,12 @@ def fetch(root, subs_file, after):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--root", default="data/raw")
-    ap.add_argument("--fetch", metavar="SUBS_FILE")
+    ap.add_argument("--fetch", metavar="SUBS_FILE", required=True)
     ap.add_argument("--days", type=int, default=16)
     ap.add_argument("--since", type=int)
-    ap.add_argument("paths", nargs="*")
     args = ap.parse_args()
-    if args.fetch:
-        after = args.since or now() // DAY * DAY - args.days * DAY
-        sys.exit(1 if fetch(args.root, args.fetch, after) else 0)
-    post_index = {}
-    for p in args.paths:
-        if "_posts" in os.path.basename(p):
-            import_posts(p, args.root, post_index)
-    for p in args.paths:
-        if "_comments" in os.path.basename(p):
-            import_comments(p, args.root, post_index)
+    after = args.since or now() // DAY * DAY - args.days * DAY
+    sys.exit(1 if fetch(args.root, args.fetch, after) else 0)
 
 
 if __name__ == "__main__":

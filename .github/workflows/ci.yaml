@@ -61,23 +61,37 @@ jobs:
           fi
           just media
 
-      - run: just build
+      - id: build
+        continue-on-error: true
+        run: just build
 
-      - run: |
+      - env:
+          BUILT: ${{ steps.build.outcome }}
+        run: |
           set -euxo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add data content
-
-          if ! git diff --cached --quiet; then
-            git commit -m "chore: data sync $(date -u +%F-%T) [skip ci]"
-            git push
+          git add data
+          if [ "$BUILT" = success ]; then
+            git add content
           else
-            echo "No changes to commit."
+            git checkout -- content
+            git clean -fdq content
           fi
 
-      - if: steps.harvest.outcome == 'failure' || steps.media.outcome == 'failure'
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "chore: data sync $(date -u +%F-%T) [skip ci]"
+          for i in 1 2 3; do
+            git push && exit 0
+            git pull --rebase
+          done
+          exit 1
+
+      - if: steps.harvest.outcome == 'failure' || steps.media.outcome == 'failure' || steps.build.outcome == 'failure'
         run: |
-          echo "harvest=${{ steps.harvest.outcome }} media=${{ steps.media.outcome }}"
+          echo "harvest=${{ steps.harvest.outcome }} media=${{ steps.media.outcome }} build=${{ steps.build.outcome }}"
           exit 1

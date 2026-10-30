@@ -16,7 +16,6 @@
         </thead>
         <tbody>
         {% for p in latest_pages %}
-            {% if not p.extra.author %}{% continue %}{% endif %}
             {% if year_filter and p.year != year_filter %}{% continue %}{% endif %}
             <tr>
                 <td data-value="{{ p.date }}" title="{{ p.date | date(format="%Y-%m-%d %H:%M UTC") }}">{{ p.date | date(format="%Y-%m-%d") }}</td>
