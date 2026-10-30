@@ -43,6 +43,7 @@ jobs:
             scripts
             templates
             static
+            sass
 
       - env:
           PANDOC_VERSION: "3.1.3"
