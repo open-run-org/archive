@@ -8,6 +8,7 @@ on:
       - 'scripts/**'
       - 'templates/**'
       - 'static/**'
+      - 'sass/**'
       - 'config.toml'
       - '.github/workflows/cd.yaml'
 
