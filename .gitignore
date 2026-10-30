@@ -1,3 +1,5 @@
 public
 *.tmp
 .venv
+node_modules
+static/archive.js

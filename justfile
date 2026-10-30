@@ -4,6 +4,7 @@ root := env_var_or_default("DATA_ROOT", "data/raw")
 subs := env_var_or_default("SUBS_FILE", "configs/subreddits.txt")
 days := env_var_or_default("DAYS", "16")
 py := "uv run --locked"
+bun := `command -v bun || echo "nix shell nixpkgs#bun --command bun"`
 
 default:
     @just --list
@@ -25,10 +26,13 @@ ci: harvest backfill media build
 import-arctic +files:
     python3 scripts/import_arctic.py --root {{ root }} {{ files }}
 
-serve port="8000":
+js:
+    {{ bun }} build ts/archive.ts --outfile static/archive.js --target browser
+
+serve port="8000": js
     zola serve --interface 0.0.0.0 --port {{ port }} --base-url localhost
 
-site:
+site: js
     zola build --output-dir public
 
 clean:
@@ -38,6 +42,8 @@ fmt:
     gofmt -w cmd
     {{ py }} ruff format scripts
     {{ py }} ruff check --fix scripts
+    {{ bun }} install --frozen-lockfile
+    {{ bun }} x biome check --write .
     just --fmt --unstable
 
 lint:
@@ -45,5 +51,7 @@ lint:
     go vet ./...
     {{ py }} ruff format --check scripts
     {{ py }} ruff check scripts
-    node --check static/archive.js
+    {{ bun }} install --frozen-lockfile
+    {{ bun }} x tsc -p ts
+    {{ bun }} x biome check .
     just --fmt --check --unstable

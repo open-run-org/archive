@@ -9,6 +9,9 @@ on:
       - 'templates/**'
       - 'static/**'
       - 'sass/**'
+      - 'ts/**'
+      - 'package.json'
+      - 'bun.lock'
       - 'config.toml'
       - '.github/workflows/cd.yaml'
 
@@ -44,6 +47,7 @@ jobs:
             templates
             static
             sass
+            ts
 
       - env:
           PANDOC_VERSION: "3.1.3"
@@ -66,6 +70,15 @@ jobs:
           sudo mv zola /usr/local/bin/
           rm zola.tar.gz
           zola --version
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.2
+
+      - run: |
+          bun install --frozen-lockfile
+          bun x tsc -p ts
+          bun build ts/archive.ts --outfile static/archive.js --target browser
 
       - run: zola build --output-dir public
 
