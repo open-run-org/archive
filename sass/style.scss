@@ -70,7 +70,10 @@ small, .muted { color: var(--muted); }
 .search input, .filter { width: 100%; min-width: 0; padding: .35rem .85rem; font: inherit; font-size: 16px; line-height: 1.4; color: var(--fg); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; }
 .search input:focus, .filter:focus { outline: 2px solid var(--link); outline-offset: 1px; background: var(--bg); }
 .links { display: flex; align-items: center; gap: 1rem; font-size: .92em; font-weight: 500; white-space: nowrap; }
-.support { padding: 1px 9px; color: var(--accent); background: var(--accent-bg); border-radius: 999px; }
+.home {
+    display: flex;
+    svg { width: .7em; height: .95em; fill: #ec0000; }
+}
 
 .page-head {
     display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .3rem 1rem; margin: 0 0 1rem;

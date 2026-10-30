@@ -13,6 +13,14 @@ type Pagefind = { search(q: string | null, o: Record<string, unknown>): Promise<
 type Words = { w: string[]; j: string };
 type Item = { id: string; html?: string; el?: Element; text?: string };
 
+document.addEventListener("click", e => {
+    const a = (e.target as Element | null)?.closest?.("a[href]");
+    if (a instanceof HTMLAnchorElement && /^https?:$/.test(a.protocol) && a.host !== location.host) {
+        a.target = "_blank";
+        a.relList.add("noopener");
+    }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     const table = document.getElementById("archiveTable") as HTMLTableElement | null;
     if (table) {
