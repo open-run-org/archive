@@ -91,7 +91,10 @@ jobs:
           done
           exit 1
 
+      - if: steps.backfill.outcome == 'failure'
+        run: echo "::warning::backfill failed"
+
       - if: steps.harvest.outcome == 'failure' || steps.media.outcome == 'failure' || steps.build.outcome == 'failure'
         run: |
-          echo "harvest=${{ steps.harvest.outcome }} media=${{ steps.media.outcome }} build=${{ steps.build.outcome }}"
+          echo "harvest=${{ steps.harvest.outcome }} backfill=${{ steps.backfill.outcome }} media=${{ steps.media.outcome }} build=${{ steps.build.outcome }}"
           exit 1

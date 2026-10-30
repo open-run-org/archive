@@ -66,8 +66,12 @@ PLAYER = re.compile(r"<https?://(?:www\.)?reddit\.com/link/[a-z0-9]+/video/([a-z
 MEDIA_REF = re.compile(r"!\[([^\[\]\n]*)\]\((giphy\|)?([A-Za-z0-9]+)(?:\|[A-Za-z0-9_]+)?\)")
 IMAGE_MD = re.compile(r"(?<!\\)!\[([^\[\]\n]*)\]\(([^()\s]*)\)")
 DEST = re.compile(
-    r"(\]\([ \t]*<?|^[ \t]*\[[^\]\n]+\]:[ \t]*<?)(/(?!/)[^)\s>]*|[A-Za-z][A-Za-z0-9+.-]*:)", re.M
+    r"(\]\([ \t]*<?|^(?:[ \t]*>)*[ \t]*(?:(?:[-*+]|\d{1,9}[.)])[ \t]+)?\[[^\]\n]+\]:[ \t]*<?)"
+    r"(/(?!/)[^)\s>]*|[A-Za-z][A-Za-z0-9+.-]*:)",
+    re.M,
 )
+LEAD_BREAK = re.compile(r"\]\([ \t]*\n[ \t>]*")
+BLANK = ' target="_blank" rel="noopener"'
 
 
 def sub_link(m):
@@ -77,7 +81,7 @@ def sub_link(m):
         if kind == "r" and name.lower() in SUBS
         else f"https://www.reddit.com/{'r' if kind == 'r' else 'user'}/{name}"
     )
-    return f'<a href="{href}">{m.group(0)}</a>'
+    return f'<a href="{href}"{"" if href.startswith("/") else BLANK}>{m.group(0)}</a>'
 
 
 def dest(m):
@@ -197,7 +201,7 @@ def reddit(text):
 def user_md(text):
     if text.strip() in GONE:
         return text.strip().replace("[", "\\[").replace("]", "\\]")
-    return unlink(reddit(esc(text)))
+    return unlink(reddit(esc(LEAD_BREAK.sub("](", text))))
 
 
 def asset(mid):
@@ -210,7 +214,7 @@ def media_tag(r):
     size = f' width="{int(r["w"])}" height="{int(r["h"])}"' if r.get("w") and r.get("h") else ""
     if str(r.get("type", "")).startswith("video/"):
         return f'<video controls preload="metadata" playsinline src="{url}"{size}></video>'
-    return f'<a href="{url}"><img src="{url}" alt="" loading="lazy" decoding="async"{size}></a>'
+    return f'<a href="{url}"{BLANK}><img src="{url}" alt="" loading="lazy" decoding="async"{size}></a>'
 
 
 def embed(md, used, meta=None):
@@ -445,7 +449,7 @@ def meta_html(r, pid):
     cid = r.get("id", "") or ""
     when = utc(ts_of(r)).strftime("%Y-%m-%d %H:%M UTC")
     if ID.fullmatch(cid) and ID.fullmatch(pid):
-        when = f'<a class="when" href="https://reddit.com/comments/{pid}/_/{cid}/">{when}</a>'
+        when = f'<a class="when" href="https://reddit.com/comments/{pid}/_/{cid}/"{BLANK}>{when}</a>'
     else:
         when = f'<span class="when">{when}</span>'
     return f'<div class="meta">{score_html(r)}{user_html(r.get("author", "") or "[deleted]", bool(r.get("is_submitter")))}{"".join(tags)}{when}</div>'

@@ -366,8 +366,17 @@ async function runSearch(root: HTMLElement) {
             from = shown;
         shown = Math.min(mine.length, from + 20);
         more.hidden = true;
-        const batch = await Promise.all(mine.slice(from, shown).map(r => r.data()));
-        const hits = await Promise.all(batch.map(hit));
+        let hits: HTMLElement[];
+        try {
+            const batch = await Promise.all(mine.slice(from, shown).map(r => r.data()));
+            hits = await Promise.all(batch.map(hit));
+        } catch {
+            if (mine !== results) return;
+            shown = from;
+            more.hidden = false;
+            status.textContent = "Search is unavailable.";
+            return;
+        }
         if (mine !== results) return;
         list.append(...hits);
         more.hidden = shown >= mine.length;
